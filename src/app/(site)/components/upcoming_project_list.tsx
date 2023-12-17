@@ -1,24 +1,25 @@
 "use client";
 
+import { consoleSandbox } from "@sentry/utils";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface ProjectImage {
-  imageUrl: string;
+	imageUrl: string;
 }
 
 interface Project {
-  hero_image: ProjectImage;
-  featured_image_1: ProjectImage;
-  featured_image_2: ProjectImage;
-  images: ProjectImage[];
-  suburb: string;
+	hero_image: ProjectImage;
+	featured_image_1: ProjectImage;
+	featured_image_2: ProjectImage;
+	images: ProjectImage[];
+	suburb: string;
 }
 export default function UpcomingProjectsList({ projects }: any) {
-  const [project, setProject] = useState(projects[0]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+	const [project, setProject] = useState(projects[0]);
+	const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openLightbox = (index: number) => {
+	const openLightbox = (index: number) => {
 		setProject(projects[index]);
 		const footer = document.getElementById("footer");
 		const header = document.getElementById("header");
@@ -27,15 +28,22 @@ export default function UpcomingProjectsList({ projects }: any) {
 		if (footer) {
 			footer.style.display = "none";
 		}
-		lightbox?.classList.remove("invisible");
-		lightbox?.classList.remove("opacity-0");
+
+		if (lightbox) {
+			lightbox.style.visibility = "visible";
+			lightbox.style.opacity = "100";
+			console.log(index);
+		}
+
 		setTimeout(() => {
 			image?.classList.remove("opacity-0");
+			
 		}, 250);
 
 		if (header) {
 			header.style.display = "none";
 		}
+		
 	};
 
 	const closeLightbox = () => {
@@ -48,11 +56,13 @@ export default function UpcomingProjectsList({ projects }: any) {
 		if (footer) {
 			footer.style.display = "block";
 		}
-		lightbox?.classList.add("opacity-0");
-		setTimeout(() => {
-			lightbox?.classList.add("invisible");
-			image?.classList.add("opacity-0");
-		}, 250);
+		if (lightbox) {
+			lightbox.style.opacity = "0";
+			setTimeout(() => {
+				lightbox.style.visibility = "hidden";
+				image?.classList.add("opacity-0");
+			}, 250);
+		}
 
 		if (header) {
 			header.style.display = "block";
@@ -66,7 +76,6 @@ export default function UpcomingProjectsList({ projects }: any) {
 	}, []);
 
 	return (
-		
 		<div className="col-span-12">
 			{project ? (
 				<div

@@ -4,10 +4,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function ProcessesList({ processes, walkthroughs }: any) {
-  const [isInView, setIsInView] = useState(false);
-  const sectionRef = useRef(null);
+	const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
+	const sectionRef = useRef(null);
+
+	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				if (!isInView && entry.isIntersecting) {
@@ -86,15 +87,17 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 			</div>
 			<div className="sticky md:relative top-0 md:w-1/2 bg-black">
 				<div className="md:sticky top-0 h-[115px] md:h-screen bg-black w-full">
-					<div className="relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5 md:pb-[100px]">
+					<div
+						className={`relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5 md:pb-[100px] fade-in-section text-white`}
+					>
 						<h1
-							className="font-medium text-white text-sm md:text-xl md:mb-medium md:absolute md:top-[40%] me-5 md:me-0"
+							className="font-medium  text-sm md:text-xl md:mb-medium md:absolute md:top-[40%] me-5 md:me-0"
 							id="process-title-index"
 						>
 							01
 						</h1>
 						<h1
-							className="md:w-1/2 font-medium text-white text-sm md:text-xl text-wrap"
+							className="md:w-1/2 font-medium  text-sm md:text-xl text-wrap"
 							id="process-title"
 						>
 							{processes ? processes[0].title : ""}
@@ -104,7 +107,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 			</div>
 			<div
 				className={` md:w-1/2 fade-in-section ${
-					isInView ? "bg-black text-white" : "bg-white text-black"
+					isInView ? "bg-black text-white" : ""
 				}`}
 			>
 				<h1 className="hidden md:block font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
@@ -123,7 +126,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 							className={`${
 								index === processes.length - 1
 									? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section ${
-											isInView ? "bg-black text-white" : "bg-white text-black"
+											isInView ? "bg-black text-white" : ""
 									  }`
 									: "md:mt-large border-grey border-dashed border-t border-1"
 							} flex flex-col `}
@@ -148,7 +151,11 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 						</div>
 					</div>
 				))}
-				<div className="pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium bg-black text-white px-5 md:px-0 md:pb-[44px]">
+				<div
+					className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium  px-5 md:px-0 md:pb-[44px] fade-in-section ${
+						isInView ? "bg-black text-white" : "bg-white text-black"
+					}`}
+				>
 					<div className="mb-5 md:px-5 font-medium">Virtual Walkthroughs</div>
 					{walkthroughs.props.walkthroughs.map(
 						(walkthrough: any, index: number) => (
