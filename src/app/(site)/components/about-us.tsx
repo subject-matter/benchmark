@@ -70,26 +70,13 @@ function AboutSection() {
 			},
 		});
 
-		const process = gsap.timeline({
-			scrollTrigger: {
-				trigger: ".process",
-				pin: true,
-				start: "top top",
-				end: "bottom top",
-				scrub: 1,
-				anticipatePin: 1,
-				pinSpacing: true,
-				// markers: true,
-			},
-		});
-
+		
 		return () => {
 			if (sectionRef.current) {
 				observer.unobserve(sectionRef.current);
 			}
 			awards.kill();
 			experience.kill();
-			process.kill();
 		};
 	}, []);
 
