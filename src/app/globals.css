@@ -158,7 +158,7 @@ html {
 }
 
 .visible {
-  transition: opacity 0.15s ease-in;
+  transition: opacity 300ms ease-in;
 
   opacity: 1;
 }
