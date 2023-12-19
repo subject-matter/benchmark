@@ -190,7 +190,7 @@ function AboutSection() {
           className={`process bg-black text-white min-h-screen z-[5] pl-3 pb-10 col-span-2 md:col-span-1 md:row-start-6 border-r border-grey border-dotted md:sticky top-0 row-span-6 `}
         >
           {processes.map((process, index) => (
-            <div className="h-screen flex flex-col justify-end">
+            <div className="h-screen flex flex-col justify-end" key={index}>
               <p className="absolute top-5 left-5">Our Process</p>
               <div className="process">
                 <h1 className="font-medium text-sm-xl md:text-xl mb-medium">
@@ -240,7 +240,7 @@ function AboutSection() {
             />
           </div>
         </div>
-        <div className="bg-black z-[6] md:row-start-6 md:col-start-2 h-screen w-[100vw] md:w-full flex justify-center items-center top-0 row-span-6 sticky">
+        <div className="bg-black z-[6] md:row-start-6 md:col-start-2 h-screen col-span-2 md:col-span-1 flex justify-center items-center top-0 row-span-6 md:sticky">
           <p className="absolute left-5 top-5 text-white">Reviews</p>
           <ReviewCards />
         </div>
