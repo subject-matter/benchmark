@@ -91,6 +91,7 @@ function AboutSection() {
 
   const [currentProcessIndex, setCurrentProcessIndex] = useState(0);
   const processRefs = useRef<any>(processes.map(() => React.createRef()));
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,6 +117,12 @@ function AboutSection() {
       observer.disconnect();
     };
   }, [processes]);
+
+  useEffect(() => {
+    setIsVisible(false);
+    const timeout = setTimeout(() => setIsVisible(true), 150); // Short delay for the fade effect
+    return () => clearTimeout(timeout);
+  }, [currentProcessIndex]);
 
   return (
     <section className={`col-span-12 fade-in-section mt-[300px] `}>
@@ -219,7 +226,11 @@ function AboutSection() {
         >
           <div className={`h-screen flex flex-col justify-end sticky top-0`}>
             <p className="absolute top-5 left-5">Our Process</p>
-            <div className="process">
+            <div
+              className={`font-medium text-sm-xl md:text-xl text-wrap fade-in ${
+                isVisible ? "visible" : ""
+              }`}
+            >
               <h1 className="font-medium text-sm-xl md:text-xl mb-medium">
                 {currentProcessIndex == processes.length - 1
                   ? "+"
@@ -265,7 +276,7 @@ function AboutSection() {
         </div>
 
         <div className="md:bg-black  col-span-2 row-start-1 md:col-start-2 row-span-5 relative order-1 ">
-          <p className="block md:hidden text-black text-xs-medium  md:py-5 p-[10px]">
+          <p className="block md:hidden text-black text-xs-medium md:py-5 p-[10px]">
             About Us
           </p>
           <div className="bg-black md:sticky top-0 z-[6]">
