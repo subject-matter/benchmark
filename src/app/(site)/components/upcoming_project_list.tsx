@@ -1,12 +1,6 @@
 "use client";
 
 import { X, ArrowLeft, ArrowRight, Play } from "lucide-react";
-import {
-	FaceIcon,
-	ImageIcon,
-	SunIcon,
-	TriangleRightIcon,
-} from "@radix-ui/react-icons";
 import Image from "next/image";
 import React, { useState } from "react";
 
