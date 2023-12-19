@@ -25,12 +25,22 @@ export default function UpcomingProjectsList({ projects }: any) {
     setSelectedProject(project);
     setImageIndex(index);
     setLightboxOpen(true);
+
+    let header = document.getElementById("header");
+    if (header) {
+      header.style.display = "none";
+    }
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
     setSelectedProject(null);
     setImageIndex(0);
+
+    let header = document.getElementById("header");
+    if (header) {
+      header.style.display = "block";
+    }
   };
 
   const nextImage = () => {
@@ -111,10 +121,13 @@ export default function UpcomingProjectsList({ projects }: any) {
               <Dots numImages={3} currentIndex={imageIndex} />
 
               <button
-                className="absolute bottom-2 right-5 z-[50] text-white cursor-pointer"
                 onClick={closeLightbox}
+                className="w-[100px] md:w-[120px] fixed top-[10px] right-[10px]  text-xxs bg-[#999999] bg-opacity-10 p-3 rounded-[5px] z-20 backdrop-blur-lg flex justify-between items-center"
               >
-                <X size={30} />
+                Close{" "}
+                <span>
+                  <X size={15} />
+                </span>
               </button>
 
               <button
@@ -131,12 +144,14 @@ export default function UpcomingProjectsList({ projects }: any) {
                 <ArrowRight size={30} />
               </button>
 
-              <Image
-                alt="Selected"
-                src={getImageUrl(selectedProject, imageIndex)}
-                layout="fill"
-                objectFit="contain"
-              />
+              <div className="relative w-[75%] h-[80%] p-10">
+                <Image
+                  alt="Selected"
+                  src={getImageUrl(selectedProject, imageIndex)}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
             </div>
           )}
         </div>
