@@ -12,7 +12,7 @@ export async function getHomepage() {
 		groq`*[_type == "homepage"]{
         text,
         description,
-        mainImage,
+        "image":mainImage.asset->url,
         alt,
 		
     }`
@@ -63,8 +63,6 @@ export async function getAllProjects() {
 		revalidate: 10,
 	};
 }
-
-
 
 export async function getAllUpcomingProjects() {
 	const upcomingProjects = await client.fetch(
@@ -146,3 +144,5 @@ export async function getStaff() {
 		  }`
 	);
 }
+
+
