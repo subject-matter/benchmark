@@ -4,4 +4,5 @@ export interface ProjectSlide {
 	slug: string;
 	features: any;
 	_ref: string;
+	projectSlider: string;
 }
