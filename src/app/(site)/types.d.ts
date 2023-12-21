@@ -1,5 +1,4 @@
 declare module "react-scroll-trigger" {
-  export default class ScrollTrigger extends React.Component<any, any> {}
+	export default class CountTrigger extends React.Component<any, any> {}
 }
-
 

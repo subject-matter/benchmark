@@ -1,6 +1,7 @@
 export interface ProjectSlide {
 	title: string;
-	landscapeHero: string;
+	image: string;
 	slug: string;
 	features: any;
+	_ref: string;
 }

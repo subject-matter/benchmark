@@ -1,6 +1,6 @@
 export type Homepage = {
-  text: string;
-  mainImage: string;
-  alt: string;
-  description: string;
+	title: string;
+	image: string;
+	alt: string;
+	description: string;
 };
