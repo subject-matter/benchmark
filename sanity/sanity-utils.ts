@@ -10,31 +10,31 @@ const client = createClient({
 export async function getHomepage() {
 	return client.fetch(
 		groq`*[_type == "homepage"]{
-        text,
+        title,
         description,
         "image":mainImage.asset->url,
-        alt,
-		
+        "alt": mainImage.alt
     }`
 	);
 }
 
-export async function getTest() {
+export async function getHouses() {
 	return client.fetch(
-		groq`*[type == "selected-projects"]{
-			mainImageTitle,
-			"mainProject": project->slug,
-			"mainImage": image.asset->url,
-			Image1Title,
-			"firstProject": project->slug,
-			"image1": image.asset->url,
-			Image2Title,
-			"secondProject": project->slug,
-			"image2": image.asset->url
-		}
-		`
+		groq`*[_type == "homepage"]{
+				"projectSlider": projectSlider[]->{
+				  title,
+				  "image": landscape_hero.asset->url,
+				  features,
+				  slug {
+					current
+				  },
+				  _ref
+				}
+			  }
+			  `
 	);
 }
+
 
 export async function getProjects() {
 	const selectedProjectsSections = await client.fetch(
