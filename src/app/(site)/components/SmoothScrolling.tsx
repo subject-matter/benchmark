@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode, useEffect, useRef } from 'react';
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { Lenis } from '@studio-freight/react-lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -25,7 +25,11 @@ const SmoothScrolling = ({ children }: SmoothScrollingProps) => {
     };
   });
 
-  return <ReactLenis root>{children}</ReactLenis>;
+  return (
+    <Lenis root options={{}}>
+      {children}
+    </Lenis>
+  );
 };
 
 export default SmoothScrolling;
