@@ -125,7 +125,6 @@ function LatestProjects() {
 
       ScrollTrigger.create({
         trigger: projectsPin.current,
-        markers: true,
         start: 'top top',
         end: 'top top',
 
