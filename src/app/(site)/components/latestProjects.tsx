@@ -11,29 +11,31 @@ import Mortimer from '../assets/images/Projects-Mortimer-1500-x-1000-High-Res-6.
 import Marshall from '../assets/images/Projects-Marshall-21500-x-1000-High-Res.jpg';
 import Link from 'next/link';
 
+import { isMobile } from 'react-device-detect';
+
 const projects = [
   {
     image: Wilson,
     title: 'Wilson',
-    chars: ['220m2', '3 Bedrooms', '2 Bathrooms'],
+    options: ['220m2', '3 Bedrooms', '2 Bathrooms'],
     url: '/project/c32880e8-aa57-4b41-950f-6da501e23ff4',
   },
   {
     image: Mortimer,
-    title: 'Wilson',
-    chars: ['223m2', '4 Bedrooms', '2 Bathrooms'],
+    title: 'Mortimer',
+    options: ['223m2', '4 Bedrooms', '2 Bathrooms'],
     url: '/project/02e67060-76ee-4276-8723-96c9870ca453',
   },
   {
     image: Marshall,
-    title: 'Wilson',
-    chars: ['220m2', '4 Bedrooms', '2 Bathrooms'],
+    title: 'Marshall',
+    options: ['220m2', '4 Bedrooms', '2 Bathrooms'],
     url: '/project/02e67060-76ee-4276-8723-96c9870ca453',
   },
   {
     image: Wilson,
     title: 'Wilson',
-    chars: ['220m2', '3 Bedrooms', '2 Bathrooms'],
+    options: ['220m2', '3 Bedrooms', '2 Bathrooms'],
     url: '/project/c32880e8-aa57-4b41-950f-6da501e23ff4',
   },
 ];
@@ -47,6 +49,9 @@ function LatestProjects() {
   const projectsWrapper = useRef(null);
 
   const animate = (target: RefObject<HTMLDivElement>, index: number, onStart: () => void, onComplete: () => void) => {
+    document.querySelectorAll('.project').forEach((project) => project.classList.remove('project--active'));
+    document.querySelectorAll('.project')[index].classList.add('project--active');
+
     gsap.to(target.current, {
       xPercent: -index * 100,
       duration: 1,
@@ -59,20 +64,44 @@ function LatestProjects() {
   };
 
   useEffect(() => {
-    let animating = false;
-    let index = 0;
-
     let ctx = gsap.context(() => {
-      // Create observer
+      let animating = false;
+      let index = 0;
+
+      document.querySelectorAll('.project')[index].classList.add('project--active');
+
       const observer = ScrollTrigger.observe({
         type: 'wheel,touch,pointer',
-
-        tolerance: 50,
-        onUp: () => !animating && goUp(),
-        onDown: () => !animating && goDown(),
+        preventDefault: true,
+        tolerance: 10,
+        onUp: () => {
+          if (animating) return;
+          if (isMobile) {
+            goDown();
+          } else {
+            goUp();
+          }
+        },
+        onDown: () => {
+          if (animating) return;
+          if (isMobile) {
+            goUp();
+          } else {
+            goDown();
+          }
+        },
       });
 
       observer.disable();
+
+      let preventScroll = ScrollTrigger.observe({
+        preventDefault: true,
+        type: 'wheel,scroll',
+        allowClicks: true,
+        onEnable: (self) => (self.savedScroll = self.scrollY()), // save the scroll position
+        onChangeY: (self) => self.scrollY(self.savedScroll), // refuse to scroll
+      });
+      preventScroll.disable();
 
       function goDown() {
         if (index < projects.length - 1) {
@@ -89,10 +118,6 @@ function LatestProjects() {
               }
             }
           );
-        }
-
-        if (index === projects.length - 1) {
-          resumeScroll();
         }
       }
 
@@ -112,35 +137,46 @@ function LatestProjects() {
             }
           );
         }
-
-        if (index === 0) resumeScroll();
       }
 
       function resumeScroll() {
-        setTimeout(() => {
-          lenis?.isStopped && lenis.start();
-          observer.disable();
-        }, 1000);
+        observer.disable();
+        preventScroll.disable();
+
+        lenis?.isStopped && lenis.start();
+
+        const position = () => {
+          if (index === 0) return preventScroll.scrollY() - 220;
+          return preventScroll.scrollY() + 220;
+        };
+
+        lenis.scrollTo(position());
       }
 
       ScrollTrigger.create({
         trigger: projectsPin.current,
+        pin: true,
+        // markers: true,
         start: 'top top',
-        end: 'top top',
-
+        end: '+=300',
         onEnter: () => {
-          if (index >= projects.length - 1) return;
-          lenis?.stop();
-          observer.enable();
+          if (preventScroll.isEnabled === false) {
+            preventScroll.enable();
+            observer.enable();
+            !lenis?.isStopped && lenis?.stop();
+          }
         },
 
         onEnterBack: () => {
-          if (index === 0) return;
-          observer.enable();
-          lenis?.stop();
+          if (preventScroll.isEnabled === false) {
+            preventScroll.enable();
+            observer.enable();
+            !lenis?.isStopped && lenis?.stop();
+          }
         },
       });
     });
+
     return () => ctx.revert();
   }, [lenis]);
 
@@ -153,7 +189,7 @@ function LatestProjects() {
             <div className="project w-full flex-shrink-0" key={i}>
               <Project image={project.image} url={project.url} />
 
-              <div className="bg-white px-[10px] md:px-5  grid grid-cols-12 mt-[10px] md:mt-5 items-start w-full transition duration-500 z-[1]">
+              <div className="bg-white px-[10px] md:px-5  grid grid-cols-12 mt-[10px] md:mt-5 items-start w-full project-details">
                 <p className="font-medium">{project.title}</p>
                 <Link href={project.url} className="col-start-3 col-span-4 flex items-center space-x-5 text-[#999999] ">
                   <p>View Home</p>
@@ -164,7 +200,7 @@ function LatestProjects() {
 
                 <span className="col-start-1 md:col-start-10 col-span-12 md:col-span-3 mt-5 md:mt-0 md:ml-auto flex items-center md:justify-center">
                   <div className="flex gap-x-[10px] gap-y-[10px] flex-wrap mb-5">
-                    {project?.chars.map((item) => (
+                    {project?.options.map((item) => (
                       <div key={item} className="bg-[#F5F5F5] rounded-[5px] p-[6px] text-xxs">
                         {item}
                       </div>
