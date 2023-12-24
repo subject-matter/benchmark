@@ -146,8 +146,8 @@ function LatestProjects() {
         lenis?.isStopped && lenis.start();
 
         const position = () => {
-          if (index === 0) return preventScroll.scrollY() - 220;
-          return preventScroll.scrollY() + 220;
+          if (index === 0) return preventScroll.scrollY() - 1;
+          return preventScroll.scrollY() + 1;
         };
 
         lenis.scrollTo(position());
@@ -156,9 +156,10 @@ function LatestProjects() {
       ScrollTrigger.create({
         trigger: projectsPin.current,
         pin: true,
-        // markers: true,
         start: 'top top',
-        end: '+=300',
+        end: '+=1',
+        // markers: true,
+        // end: '+=300',
         onEnter: () => {
           if (preventScroll.isEnabled === false) {
             preventScroll.enable();
