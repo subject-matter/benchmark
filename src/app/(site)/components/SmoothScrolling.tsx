@@ -11,7 +11,7 @@ interface SmoothScrollingProps {
 }
 
 const SmoothScrolling = ({ children }: SmoothScrollingProps) => {
-  const lenisRef = useRef();
+  const lenisRef = useRef<any>();
 
   useEffect(() => {
     function update(time: any) {
