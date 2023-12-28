@@ -171,7 +171,7 @@ function LatestProjects() {
 				pin: true,
 				start: "top top",
 				end: "+=1",
-				markers: true,
+				// markers: true,
 				// end: '+=300',
 				onEnter: () => {
 					if (preventScroll.isEnabled === false) {

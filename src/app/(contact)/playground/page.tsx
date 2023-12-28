@@ -9,7 +9,7 @@ export default async function Playground() {
 
 	// Use nested map functions to iterate through houses and projectSlider
 	const allData = houses.map((house) => {
-		return house.projectSlider.map((item) => {
+		return house.projectSlider.map((item: any) => {
 			return {
 				title: item.title,
 				image: item.image,
