@@ -1,10 +1,7 @@
 import Image from "next/image";
-import Mortimer from "./assets/images/Projects-Mortimer-1500-x-1000-High-Res-2.jpg";
 import Container from "./components/container";
-import Project from "./components/project";
 import AboutSection from "./components/about-us";
 import LatestProjects from "./components/latestProjects";
-
 import SmoothScrolling from "./components/SmoothScrolling";
 import { getHomepage } from "../../../sanity/sanity-utils";
 import { Homepage } from "../types/homepage";

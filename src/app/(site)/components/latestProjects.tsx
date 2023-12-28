@@ -40,6 +40,8 @@ const projects = [
   },
 ];
 
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 function LatestProjects() {

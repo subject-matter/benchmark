@@ -220,7 +220,7 @@ function AboutSection() {
 
 						<Link
 							href="/about-us"
-							className="mt-[60px] w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 text-black"
+							className="mt-[60px] mb-5 w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 text-black"
 						>
 							Learn more
 							<div className="ml-[50px] flex items-center">

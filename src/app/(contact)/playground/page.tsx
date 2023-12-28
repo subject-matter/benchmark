@@ -21,8 +21,6 @@ export default async function Playground() {
 	// Flatten the array of arrays into a single array of objects
 	const flattenedData = allData.flat();
 
-	// Log or use the data as needed
-	console.log(flattenedData);
 
 	return (
 		<div>
