@@ -107,14 +107,16 @@ function LatestProjects() {
 
 			observer.disable();
 
-			let preventScroll = ScrollTrigger.observe({
-				preventDefault: true,
-				type: "wheel,scroll",
-				allowClicks: true,
-				onEnable: (self) => (self.savedScroll = self.scrollY()), // save the scroll position
-				onChangeY: (self) => self.scrollY(self.savedScroll), // refuse to scroll
-			});
-			preventScroll.disable();
+					let preventScroll = ScrollTrigger.observe({
+						preventDefault: true,
+						type: "wheel,scroll",
+						allowClicks: true,
+						//@ts-ignore
+						onEnable: (self) => (self.savedScroll = self.scrollY()), 
+						//@ts-ignore
+						onChangeY: (self) => self.scrollY(self.savedScroll), 
+					});
+					preventScroll.disable();
 
 			function goDown() {
 				if (index < projects.length - 1) {
