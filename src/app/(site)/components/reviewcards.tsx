@@ -1,9 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Star from './ui/star';
 import { getReviews } from '../../../../sanity/sanity-utils';
 import { Review } from '../../../../types/reviews';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { review } from '../../../../sanity/schemas/review';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
+
+import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 
 const reviews = [
   {
@@ -42,44 +51,40 @@ const reviews = [
 
 export default function ReviewCards() {
   //   const reviews = getReviews();
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (index + 1 === reviews.length) {
-        setIndex(0);
-      } else {
-        setIndex((prev) => prev + 1);
-      }
-    }, 3000);
-
-    return () => clearInterval(intervalId);
-  }, [index]);
 
   return (
-    <div className="bg-white  text-black mx-[10px] md:mx-0 p-5 rounded-lg h-auto md:w-[350px] flex flex-col justify-between space-y-10">
+    <div className="bg-white  text-black mx-[10px] md:mx-0 p-5 rounded-lg h-auto md:w-[350px] flex flex-col justify-between space-y-10 relative w-full max-w-[350px] px-3">
       <div>
-        <Tabs value={`review-${index}`} className="">
+        <Swiper
+          spaceBetween={30}
+          effect={'fade'}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Autoplay, EffectFade, Pagination]}
+          className="reviews-swiper"
+        >
           {reviews.map((review, i) => (
-            <TabsContent value={`review-${i}`} key={i}>
-              <div className="flex justify-between items-center mb-10">
-                <p className="text-xs-medium">{review.author}</p>
-                <span className="flex">
-                  {Array.from({ length: review.rating }).map((item, i) => (
-                    <Star key={i} />
-                  ))}
-                </span>
+            <SwiperSlide key={i}>
+              <div className="bg-white min-h-[400px]">
+                <div className="flex justify-between items-center mb-10">
+                  <p className="text-xs-medium">{review.author}</p>
+                  <span className="flex">
+                    {Array.from({ length: review.rating }).map((item, i) => (
+                      <Star key={i} />
+                    ))}
+                  </span>
+                </div>
+                <p className="text-xxs">{review.text}</p>
               </div>
-              <p className="text-xxs">{review.text}</p>
-            </TabsContent>
+            </SwiperSlide>
           ))}
-
-          <TabsList>
-            {Array.from({ length: reviews.length }).map((_, i) => (
-              <TabsTrigger key={i} value={`review-${i}`}></TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
+        </Swiper>
       </div>
     </div>
   );

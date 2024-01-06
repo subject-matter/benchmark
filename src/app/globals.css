@@ -167,3 +167,12 @@ html {
   opacity: 1;
   transition-delay: 0.8s;
 }
+
+/* Reviews swiper */
+.reviews-swiper .swiper-pagination {
+  text-align: start;
+}
+
+.reviews-swiper .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #000;
+}
