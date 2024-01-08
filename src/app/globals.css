@@ -179,6 +179,16 @@ html {
   background-color: #000;
 }
 
+/* Projects swiper pagination position */
 .projects-swiper .swiper-pagination {
   @apply absolute !left-4 !top-4;
+}
+
+/* Projects swiper fade in */
+.projects-swiper .swiper-slide {
+  @apply !opacity-0;
+}
+
+.projects-swiper .swiper-slide-visible {
+  @apply !opacity-100;
 }

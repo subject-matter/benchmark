@@ -8,9 +8,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-fade';
+
 import 'swiper/css/pagination';
 
-import { Pagination } from 'swiper/modules';
+import { Pagination, EffectFade } from 'swiper/modules';
+import clsx from 'clsx';
 
 interface ProjectImage {
   imageUrl: string;
@@ -29,7 +32,7 @@ export default function UpcomingProjectsList({ projects }: any) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
 
-  const [swiper, setSwiper] = useState(null);
+  const [swiper, setSwiper] = useState<any>(null);
 
   const images = selectedProject && [
     selectedProject.featured_image_1.imageUrl,
@@ -58,10 +61,6 @@ export default function UpcomingProjectsList({ projects }: any) {
       header.style.display = 'block';
     }
   };
-
-  useEffect(() => {
-    console.log(selectedProject);
-  }, [selectedProject]);
 
   return (
     <div className="col-span-12">
@@ -99,39 +98,45 @@ export default function UpcomingProjectsList({ projects }: any) {
             onClick={() => openLightbox(upcomingProject, 2)}
           />
 
-          {lightboxOpen && (
-            <div className="fixed top-0 left-0 w-full h-screen bg-opacity-80 backdrop-blur-2xl z-50">
-              <button
-                onClick={closeLightbox}
-                className="w-[100px] md:w-[120px] fixed top-[10px] right-[10px]  text-xxs bg-[#999999] bg-opacity-10 p-3 rounded-[5px] z-20 backdrop-blur-lg flex justify-between items-center"
-              >
-                Close{' '}
-                <span>
-                  <X size={15} />
-                </span>
-              </button>
+          <div
+            className={clsx(
+              'transition-all duration-300 backdrop-blur-2xl h-screen fixed top-0 left-0 w-full',
+              lightboxOpen ? 'opacity-80 visible' : 'opacity-0 invisible'
+            )}
+          >
+            <button
+              onClick={closeLightbox}
+              className="w-[100px] md:w-[120px] fixed top-[10px] right-[10px]  text-xxs bg-[#999999] bg-opacity-10 p-3 rounded-[5px] z-20 backdrop-blur-lg flex justify-between items-center"
+            >
+              Close{' '}
+              <span>
+                <X size={15} />
+              </span>
+            </button>
 
-              <button
-                className="absolute top-[50%] right-5  z-[50] text-white cursor-pointer"
-                onClick={() => swiper.slideNext()}
-              >
-                <Play fill="#999" color="#999" absoluteStrokeWidth={true} />
-              </button>
+            <button
+              className="absolute top-[50%] right-5  z-[50] text-white cursor-pointer"
+              onClick={() => swiper.slideNext()}
+            >
+              <Play fill="#999" color="#999" absoluteStrokeWidth={true} />
+            </button>
 
-              <button
-                className="absolute top-[50%] left-5  z-[50] text-white cursor-pointer"
-                onClick={() => swiper.slidePrev()}
-              >
-                <Play fill="#999" color="#999" absoluteStrokeWidth={true} className="rotate-180" />
-              </button>
+            <button
+              className="absolute top-[50%] left-5  z-[50] text-white cursor-pointer"
+              onClick={() => swiper.slidePrev()}
+            >
+              <Play fill="#999" color="#999" absoluteStrokeWidth={true} className="rotate-180" />
+            </button>
 
+            {lightboxOpen && (
               <Swiper
+                spaceBetween={30}
+                effect="fade"
                 navigation={true}
-                modules={[Pagination]}
+                modules={[Pagination, EffectFade]}
                 className="h-full projects-swiper"
                 loop={true}
                 initialSlide={imageIndex}
-                slidesPerView={1}
                 onSwiper={(s) => setSwiper(s)}
                 pagination={{
                   clickable: true,
@@ -148,41 +153,8 @@ export default function UpcomingProjectsList({ projects }: any) {
                     </SwiperSlide>
                   ))}
               </Swiper>
-            </div>
-          )}
-
-          {/* {lightboxOpen && selectedProject && (
-            <div className="fixed top-0 left-0 w-full h-screen bg-opacity-80 backdrop-blur-2xl z-50 flex justify-center items-center">
-              <Dots numImages={3} currentIndex={imageIndex} />
-
-              <button
-                onClick={closeLightbox}
-                className="w-[100px] md:w-[120px] fixed top-[10px] right-[10px]  text-xxs bg-[#999999] bg-opacity-10 p-3 rounded-[5px] z-20 backdrop-blur-lg flex justify-between items-center"
-              >
-                Close{' '}
-                <span>
-                  <X size={15} />
-                </span>
-              </button>
-
-              <button className="absolute top-[50%] left-5  z-[50] text-white cursor-pointer" onClick={previousImage}>
-                <Play fill="#999" color="#999" absoluteStrokeWidth={true} className="rotate-180" />
-              </button>
-
-              <button className="absolute top-[50%] right-5  z-[50] text-white cursor-pointer" onClick={nextImage}>
-                <Play fill="#999" color="#999" absoluteStrokeWidth={true} />
-              </button>
-
-              <div className="relative w-[75%] h-[80%] p-10">
-                <Image
-                  alt="Selected"
-                  src={getImageUrl(selectedProject, imageIndex)}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            </div>
-          )} */}
+            )}
+          </div>
         </div>
       ))}
     </div>
