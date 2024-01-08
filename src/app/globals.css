@@ -169,10 +169,16 @@ html {
 }
 
 /* Reviews swiper */
-.reviews-swiper .swiper-pagination {
+.reviews-swiper .swiper-pagination,
+.projects-swiper .swiper-pagination {
   text-align: start;
 }
 
-.reviews-swiper .swiper-pagination .swiper-pagination-bullet-active {
+.reviews-swiper .swiper-pagination .swiper-pagination-bullet-active,
+.projects-swiper .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #000;
+}
+
+.projects-swiper .swiper-pagination {
+  @apply absolute !left-4 !top-4;
 }
