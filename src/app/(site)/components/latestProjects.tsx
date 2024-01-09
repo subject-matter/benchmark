@@ -26,18 +26,18 @@ const projects = [
     options: ['223m2', '4 Bedrooms', '2 Bathrooms'],
     url: '/project/02e67060-76ee-4276-8723-96c9870ca453',
   },
-  //   {
-  //     image: Marshall,
-  //     title: 'Marshall',
-  //     options: ['220m2', '4 Bedrooms', '2 Bathrooms'],
-  //     url: '/project/02e67060-76ee-4276-8723-96c9870ca453',
-  //   },
-  //   {
-  //     image: Wilson,
-  //     title: 'Wilson',
-  //     options: ['220m2', '3 Bedrooms', '2 Bathrooms'],
-  //     url: '/project/c32880e8-aa57-4b41-950f-6da501e23ff4',
-  //   },
+  {
+    image: Marshall,
+    title: 'Marshall',
+    options: ['220m2', '4 Bedrooms', '2 Bathrooms'],
+    url: '/project/02e67060-76ee-4276-8723-96c9870ca453',
+  },
+  {
+    image: Wilson,
+    title: 'Wilson',
+    options: ['220m2', '3 Bedrooms', '2 Bathrooms'],
+    url: '/project/c32880e8-aa57-4b41-950f-6da501e23ff4',
+  },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -120,7 +120,12 @@ function LatestProjects() {
             projectsWrapper,
             index,
             () => (animating = true),
-            () => (animating = false)
+            () => {
+              animating = false;
+              //   if (index >= projects.length - 1) {
+              //     resumeScroll();
+              //   }
+            }
           );
         }
       }
@@ -150,8 +155,8 @@ function LatestProjects() {
         lenis?.isStopped && lenis.start();
 
         const position = () => {
-          if (index === 0) return preventScroll.scrollY() - 1;
-          return preventScroll.scrollY() + 1;
+          if (index === 0) return preventScroll.scrollY() - 2;
+          return preventScroll.scrollY() + 2;
         };
 
         lenis.scrollTo(position());
@@ -161,7 +166,7 @@ function LatestProjects() {
         trigger: projectsPin.current,
         pin: true,
         start: 'top top',
-        end: '+=1',
+        end: '-=1 +=1',
         // markers: true,
         // end: '+=300',
         onEnter: () => {
@@ -180,11 +185,6 @@ function LatestProjects() {
           }
         },
       });
-
-      //   ScrollTrigger.create({
-      //     trigger: projectsPin.current,
-      //     markers: true,
-      //   });
     });
 
     return () => ctx.revert();
