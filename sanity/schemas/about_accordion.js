@@ -14,4 +14,10 @@ export const about_accordion = {
 			type: "string",
 		},
 	],
+	preview: {
+		select: {
+			title: "title", 
+			subtitle: "description", 
+		},
+	},
 };

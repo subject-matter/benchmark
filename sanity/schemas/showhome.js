@@ -11,6 +11,12 @@ export const showhome = {
 			type: "string",
 		},
 		{
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: { source: "title" },
+		},
+		{
 			name: "description",
 			title: "Description",
 			type: "text",
@@ -31,25 +37,7 @@ export const showhome = {
 			name: "landscape_hero",
 			title: "Landscape Hero Image",
 			type: "image",
-		},
-		{
-			name: "portrait_hero",
-			title: "Portrait Hero Image",
-			type: "image",
-		},
-		{
-			name: "hero_display",
-			title: "Hero Main Display Image",
-			type: "string",
-			options: {
-				list: ["Landscape", "Portrait"],
-			},
-		},
-		{
-			name: "images",
-			title: "Display Images",
-			type: "array",
-			of: [{ type: "image" }],
+			description: "Image that shows on the Showhomes page",
 		},
 		defineField({
 			name: "pageBuilder",

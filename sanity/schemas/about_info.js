@@ -19,4 +19,13 @@ export const about_info = {
 			type: "text",
 		},
 	],
+	preview: {
+		select: {
+			description: "description", // Use the actual field name for the title
+		},
+		prepare: ({ description }) => ({
+			title: "About Info",
+		}),
+	},
 };
+  

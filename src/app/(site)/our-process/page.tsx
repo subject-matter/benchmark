@@ -1,12 +1,10 @@
-"use client"
-
 import React from "react";
 import {
-  getAllProcesses,
-  getAllWalkthroughs,
+	getAllProcesses,
+	getAllWalkthroughs,
 } from "../../../../sanity/sanity-utils";
 import ProcessesList from "@/app/(site)/components/processes_list";
-import ContactForm from "../components/contact-form";
+
 import LenisScroll from "../components/lenis-provider";
 
 export default async function OurProcess() {
@@ -22,12 +20,6 @@ export default async function OurProcess() {
 							processes={processes.props.processes}
 							walkthroughs={walkthroughs}
 						/>
-					</div>
-					<div className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end ">
-						<p className="text-sm-xl md:text-xl w-full col-span-2 mb-48 md:mt-[20vh]">
-							Get In Touch
-						</p>
-						<ContactForm />
 					</div>
 				</section>
 			</LenisScroll>

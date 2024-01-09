@@ -4,8 +4,6 @@ import AdjacentProjects from "@/app/(site)/components/adjacent_projects";
 import {
 	getAllProjects,
 	getProject,
-	getProjectPage,
-	getProjects,
 } from "../../../../../sanity/sanity-utils";
 import LenisScroll from "../../components/lenis-provider";
 import Image from "next/image";

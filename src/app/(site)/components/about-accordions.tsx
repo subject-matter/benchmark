@@ -14,6 +14,7 @@ function AboutAccordions() {
 			try {
 				const fetchedAccordions = await getAccordions();
 				setAccordions(fetchedAccordions);
+			
 			} catch (error) {
 				throw error;
 			}

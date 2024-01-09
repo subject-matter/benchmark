@@ -4,11 +4,6 @@ export const selectedProjectsSections = {
 	type: "document",
 	fields: [
 		{
-			name: "title",
-			title: "Title",
-			type: "string",
-		},
-		{
 			name: "mainImageCol",
 			title: "Main Image Column",
 			type: "string",
@@ -52,5 +47,13 @@ export const selectedProjectsSections = {
 			type: "image",
 		},
 	],
+	preview: {
+		select: {
+			description: "description", // Use the actual field name for the title
+		},
+		prepare: ({ description }) => ({
+			title: "Projects Row",
+		}),
+	},
 };
 

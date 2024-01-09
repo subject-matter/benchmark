@@ -16,16 +16,16 @@ interface DateTimeOccurrence {
 }
 
 export default async function Project({ params }: { params: { id: string } }) {
-  const showhomes = await getAllShowhomes();
+	const showhomes = await getAllShowhomes();
 
-  return (
+	return (
 		<>
 			<div className="grid grid-cols-6 md:grid-cols-12 gap-x-5 text-xxstext-xs px-[10px] md:px-5 w-full pt-[10px] bg-white pb-5">
 				<h1 className="col-span-12 break-words font-medium text-sm-3xl md:text-3xl my-24 md:mt-0 md:mb-large">
 					Show&shy;homes
 				</h1>
 				<div className="border-[#999999] col-span-12 border-dashed border-t border-1 w-full"></div>
-				{showhomes.props.showhomes.map((showhome: Showhome, index: number) => (
+				{showhomes.map((showhome: Showhome, index: number) => (
 					<div
 						key={index}
 						className={`${
@@ -33,7 +33,7 @@ export default async function Project({ params }: { params: { id: string } }) {
 						} col-span-12 md:col-span-6 grid grid-cols-6 gap-x-5 mt-[10px]`}
 					>
 						<div className="col-span-6 md:col-span-2 font-medium mb-4 md:mb-0">
-							<Link href={`/showhome/${showhome._id}`}>{showhome.title}</Link>
+							<Link href={`/showhome/${showhome.slug}`}>{showhome.title}</Link>
 						</div>
 						<div className="col-span-6 md:col-span-5 md:col-start-3 grid grid-cols-3 gap-x-5">
 							{showhome.showhome_times.map(
@@ -51,15 +51,11 @@ export default async function Project({ params }: { params: { id: string } }) {
 							)}
 						</div>
 						<Link
-							href={`/showhome/${showhome._id}`}
+							href={`/showhome/${showhome.slug}`}
 							className="w-full mt-4 col-span-7"
 						>
 							<Image
-								src={
-									showhome.hero_display == "Landscape"
-										? showhome.landscape_hero.imageUrl
-										: showhome.portrait_hero.imageUrl
-								}
+								src={showhome.image}
 								alt={showhome.title}
 								width={2000}
 								height={2000}
@@ -67,7 +63,7 @@ export default async function Project({ params }: { params: { id: string } }) {
 						</Link>
 
 						<Link
-							href={`/showhome/${showhome._id}`}
+							href={`/showhome/${showhome.slug}`}
 							className="mt-5 w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 mb-10 md:mb-0"
 						>
 							Learn more

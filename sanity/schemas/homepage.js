@@ -40,5 +40,13 @@ export const homepage = {
 			],
 		},
 	],
+	preview: {
+		select: {
+			description: "description", // Use the actual field name for the title
+		},
+		prepare: ({ description }) => ({
+			title: "Homepage Info",
+		}),
+	},
 };
 

@@ -4,15 +4,20 @@ export const reviews = {
 	type: "document",
 	fields: [
 		{
-			name: "reviews",
-			title: "Reviews",
-			type: "array",
-			of: [{ type: "review" }],
+			name: "reviewer",
+			title: "Reviewer Name",
+			type: "string",
+		},
+		{
+			name: "review",
+			title: "Review",
+			type: "text",
 		},
 	],
 	preview: {
 		select: {
-			title: "Review",
+			title: "reviewer", // Use the field containing the reviewer's name
+			subtitle: "review", // Use the field containing the review text as a subtitle
 		},
 	},
 };

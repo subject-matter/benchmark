@@ -89,16 +89,74 @@ export async function getAllUpcomingProjects() {
 }
 
 export async function getAllShowhomes() {
-	const showhomes = await client.fetch(
-		`*[_type == "showhome"]{..., landscape_hero{"imageUrl": asset->url}, portrait_hero{"imageUrl": asset->url}, images[]{'imageUrl': asset->url}}`
+	return client.fetch(
+		groq`
+		*[_type == "showhome"]{
+			title,
+			showhome_times,
+			"image": landscape_hero.asset->url,
+			"slug": slug.current,
+		}
+`
 	);
+}
 
-	return {
-		props: {
-			showhomes,
-		},
-		revalidate: 10,
-	};
+export async function getShowhome(slug: string) {
+	return client.fetch(
+		groq`
+		*[_type == "showhome" && slug.current == $slug][0]{
+  title,
+  description,
+  "slug": slug.current,
+    features,
+    interest_points,
+    address,
+    showhome_times,
+    pageBuilder[]{
+		_type == "fullLandscape" => {
+			_type,
+        "image": image.asset->url,
+          "alt": image.alt,
+      },
+          _type == "bigPortrait" => {
+			_type,
+        "bigImage": BigImage.asset->url,
+          "bigImageAlt": BigImage.alt,
+          "smallImage": SmallImage.asset->url,
+          "smallImageAlt": SmallImage.alt,
+        layout,
+      },
+             _type == "mediumLandscape" => {
+				_type,
+        "landscapeImage": LandscapeImage.asset->url,
+          "landscapeImageAlt": LandscapeImage.alt,
+          "smallImage": SmallImage.asset->url,
+          "smallImageAlt": SmallImage.alt,
+        layout,
+    },
+            _type == "individualImage" => {
+				_type,
+        "image": image.asset->url,
+          "alt": image.alt,
+          layout
+      },
+              _type == "smallPortrait" => {
+				_type,
+        "smallImage1": SmallImageOne.asset->url,
+          "smallImage1Alt": SmallImageOne.alt,
+          "smallImage2": SmallImageTwo.asset->url,
+          "smallImage2Alt": SmallImageTwo.alt,
+           "landscapeImage": LandscapeImage.asset->url,
+          "landscapeImageAlt": LandscapeImage.alt,
+          layout
+      }
+
+        },
+		
+  
+}`,
+		{ slug }
+	);
 }
 
 export async function getAllProcesses() {
@@ -138,9 +196,9 @@ export async function getAboutPageInfo() {
 
 export async function getReviews() {
 	return client.fetch(
-		groq`*[_type == "reviews"] {
-			"review": reviews[0].review,
-			"reviewer": reviews0[].reviewer
+		groq`*[_type == 'reviews']{
+			review,
+			  reviewer
 		  }`
 	);
 }
