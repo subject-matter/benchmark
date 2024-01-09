@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Star from "./ui/star";
 import { getReviews } from "../../../../sanity/sanity-utils";
 import { Review } from "../../../../types/reviews";
@@ -10,7 +10,20 @@ import {
 } from "../components/ui/tabs";
 
 export default function ReviewCards() {
-	const reviews = getReviews();
+	const [reviews, setReviews] = useState([]);
+
+	useEffect(() => {
+		const fetchReviews = async () => {
+			try {
+				const fetchedReviews = await getReviews();
+				setReviews(fetchedReviews);
+			} catch (error) {
+				throw error;
+			}
+		};
+		fetchReviews();
+	}, []);
+
 	return (
 		<div className="bg-white  text-black mx-[10px] md:mx-0 p-5 rounded-lg h-auto md:w-[350px] flex flex-col justify-between space-y-10">
 			<div>

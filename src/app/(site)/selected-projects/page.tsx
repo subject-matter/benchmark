@@ -8,7 +8,7 @@ import LenisScroll from "../components/lenis-provider";
 
 export default async function SelectedProjects() {
 	const selectedProjects = await getSelectedProjects();
-	console.log(selectedProjects);
+
 
 	return (
 		<>
