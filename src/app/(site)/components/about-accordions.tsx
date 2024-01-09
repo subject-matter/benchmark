@@ -5,11 +5,21 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "../components/ui/accordion";
+import { getAccordions } from "../../../../sanity/sanity-utils";
 
 function AboutAccordions() {
+	// const accordions = await getAccordions();
+
 	return (
 		<div>
 			<Accordion type="single" collapsible>
+				{/* {accordions.map((accordion: any, index: number) => (
+					<AccordionItem key={index} value={`item-{index + 1}`}>
+						<AccordionTrigger>{accordion.title}</AccordionTrigger>
+						<AccordionContent>{accordion.description}</AccordionContent>
+					</AccordionItem>
+				))} */}
+
 				<AccordionItem value="item-1">
 					<AccordionTrigger>Experts in Design & Build</AccordionTrigger>
 					<AccordionContent>

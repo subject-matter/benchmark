@@ -14,21 +14,9 @@ export const about_info = {
 			type: "text",
 		},
 		{
-			name: "accordions",
-			title: "Accordions",
-			type: "array",
-			of: [{ type: "about_accordion" }],
-		},
-		{
 			name: "team_description",
 			title: "Our Team Description",
 			type: "text",
-		},
-		{
-			name: "staff_members",
-			title: "Staff Members",
-			type: "array",
-			of: [{ type: "staff_member" }],
 		},
 	],
 };

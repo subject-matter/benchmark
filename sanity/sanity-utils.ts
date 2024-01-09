@@ -18,6 +18,17 @@ export async function getHomepage() {
 	);
 }
 
+export async function getAccordions() {
+	return client.fetch(
+		groq`
+		*[_type == "about_accordion"]{
+			title,
+    		description
+		}
+		`
+	);
+}
+
 export async function getHouses() {
 	return client.fetch(
 		groq`*[_type == "homepage"]{
@@ -25,30 +36,30 @@ export async function getHouses() {
 				  title,
 				  "image": landscape_hero.asset->url,
 				  features,
-				  slug {
-					current
-				  },
-				  _ref
+				  "slug": slug.current
 				}
 			  }
 			  `
 	);
 }
 
-
-export async function getProjects() {
-	const selectedProjectsSections = await client.fetch(
-		`*[_type == "selected-projects"]{..., mainImage{'imageUrl': asset->url}, image1{'imageUrl': asset->url}, image2{'imageUrl': asset->url}, slug{
-			slug{current}
-		  }}`
+export async function getSelectedProjects() {
+	return client.fetch(
+		groq`
+		*[_type == "selected-projects"]{
+"mainProjectTitle": mainProject->title,
+  "imageOneTitle": firstProject->title,
+  "imageTwoTitle": secondProject->title,
+  "mainImage": mainImage.asset->url,
+  "mainProjectSlug": mainProject->slug.current,
+  "imageOne": image1.asset->url,
+  "imageOneSlug": firstProject->slug.current,
+      "imageTwo": image2.asset->url,
+  "imageTwoSlug": secondProject->slug.current,
+  mainImageCol,
+    
+}`
 	);
-
-	return {
-		props: {
-			selectedProjectsSections,
-		},
-		revalidate: 10,
-	};
 }
 
 export async function getAllProjects() {
@@ -145,4 +156,111 @@ export async function getStaff() {
 	);
 }
 
+export async function getProjectPage() {
+	return client.fetch(
+		groq`
+		*[_type == "page"]{
+  title,
+  description,
+  "slug": slug.current,
+    features,
+    interest_points,
+    pageBuilder[]{
+		_type == "fullLandscape" => {
+			_type,
+        "image": image.asset->url,
+          "alt": image.alt,
+      },
+          _type == "bigPortrait" => {
+			_type,
+        "bigImage": BigImage.asset->url,
+          "bigImageAlt": BigImage.alt,
+          "smallImage": SmallImage.asset->url,
+          "smallImageAlt": SmallImage.alt,
+        layout,
+      },
+             _type == "mediumLandscape" => {
+				_type,
+        "landscapeImage": LandscapeImage.asset->url,
+          "landscapeImageAlt": LandscapeImage.alt,
+          "smallImage": SmallImage.asset->url,
+          "smallImageAlt": SmallImage.alt,
+        layout,
+    },
+            _type == "individualImage" => {
+				_type,
+        "image": image.asset->url,
+          "alt": image.alt,
+          layout
+      },
+              _type == "smallPortrait" => {
+				_type,
+        "smallImage1": SmallImageOne.asset->url,
+          "smallImage1Alt": SmallImageOne.alt,
+          "smallImage2": SmallImageTwo.asset->url,
+          "smallImage2Alt": SmallImageTwo.alt,
+           "landscapeImage": LandscapeImage.asset->url,
+          "landscapeImageAlt": LandscapeImage.alt,
+          layout
+      }
 
+        }
+  
+}`
+	);
+}
+
+export async function getProject(slug: string) {
+	return client.fetch(
+		groq`
+		*[_type == "page" && slug.current == $slug][0]{
+		  title,
+		  description,
+		  "slug": slug.current,
+		  features,
+		  interest_points,
+		  pageBuilder[]{
+			_type == "fullLandscape" => {
+			  _type,
+			  "image": image.asset->url,
+			  "alt": image.alt,
+			},
+			_type == "bigPortrait" => {
+			  _type,
+			  "bigImage": BigImage.asset->url,
+			  "bigImageAlt": BigImage.alt,
+			  "smallImage": SmallImage.asset->url,
+			  "smallImageAlt": SmallImage.alt,
+			  layout,
+			},
+			_type == "mediumLandscape" => {
+			  _type,
+			  "landscapeImage": LandscapeImage.asset->url,
+			  "landscapeImageAlt": LandscapeImage.alt,
+			  "smallImage": SmallImage.asset->url,
+			  "smallImageAlt": SmallImage.alt,
+			  layout,
+			},
+			_type == "individualImage" => {
+			  _type,
+			  "image": image.asset->url,
+			  "alt": image.alt,
+			  layout
+			},
+			_type == "smallPortrait" => {
+			  _type,
+			  "smallImage1": SmallImageOne.asset->url,
+			  "smallImage1Alt": SmallImageOne.alt,
+			  "smallImage2": SmallImageTwo.asset->url,
+			  "smallImage2Alt": SmallImageTwo.alt,
+			  "landscapeImage": LandscapeImage.asset->url,
+			  "landscapeImageAlt": LandscapeImage.alt,
+			  layout
+			}
+		  }
+		}
+	  `,
+		{ slug } // Pass the slug as a parameter
+	);
+}
+  

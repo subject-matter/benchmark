@@ -31,10 +31,7 @@ export default function ProjectInfo({ projects, id }: any) {
 			<div className=" col-span-12 md:col-span-4 mb-[50px] md:mb-[150px] grid grid-cols-6 gap-[10px] md:block">
 				<div className="md:flex gap-x-[10px] gap-y-[10px] flex-wrap mb-5 col-span-2">
 					{project.features.map((feature: string, index: number) => (
-						<div
-							key={index}
-							className="bg-[#F5F5F5] rounded-[5px] p-[10px] text-sm-xxs md:text-xxs col-span-2 mb-[7px]"
-						>
+						<div key={index} className="feature-pill col-span-2 mb-[7px]">
 							{feature}
 						</div>
 					))}

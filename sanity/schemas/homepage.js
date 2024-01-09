@@ -35,7 +35,7 @@ export const homepage = {
 			of: [
 				{
 					type: "reference",
-					to: [{ "type": "project" }],
+					to: [{ "type": "page" }],
 				},
 			],
 		},

@@ -1,7 +1,7 @@
 export const staff_member = {
 	name: "staff_member",
-	title: "Staff Member",
-	type: "object",
+	title: "Staff Members",
+	type: "document",
 	fields: [
 		{
 			name: "name",

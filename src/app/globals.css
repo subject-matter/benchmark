@@ -11,12 +11,17 @@ body {
   text-edge: cap;
 }
 
+.feature-pill {
+  @apply bg-[#F5F5F5] rounded-[5px] p-[10px] text-sm-xxs md:text-xxs
+}
+
 .selected-projects-image-blur {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(100px);
   transition: all 0.25s ease-in;
   opacity: 0;
 }
+
 
 html.lenis {
   height: auto;

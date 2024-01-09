@@ -1,7 +1,7 @@
 export const about_accordion = {
 	name: "about_accordion",
-	title: "About Accoprdion",
-	type: "object",
+	title: "About Accordions",
+	type: "document",
 	fields: [
 		{
 			name: "title",

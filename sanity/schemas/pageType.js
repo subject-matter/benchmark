@@ -1,14 +1,22 @@
+// ./schemas/pageType.ts
+
 import { defineArrayMember, defineField, defineType } from "sanity";
 
-export const showhome = {
-	name: "showhome",
-	title: "Showhomes",
+export const pageType = defineType({
+	name: "page",
 	type: "document",
+	title: "All Projects",
 	fields: [
 		{
 			name: "title",
 			title: "Title",
 			type: "string",
+		},
+		{
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: { source: "title" },
 		},
 		{
 			name: "description",
@@ -26,30 +34,6 @@ export const showhome = {
 			name: "interest_points",
 			type: "array",
 			of: [{ type: "string" }],
-		},
-		{
-			name: "landscape_hero",
-			title: "Landscape Hero Image",
-			type: "image",
-		},
-		{
-			name: "portrait_hero",
-			title: "Portrait Hero Image",
-			type: "image",
-		},
-		{
-			name: "hero_display",
-			title: "Hero Main Display Image",
-			type: "string",
-			options: {
-				list: ["Landscape", "Portrait"],
-			},
-		},
-		{
-			name: "images",
-			title: "Display Images",
-			type: "array",
-			of: [{ type: "image" }],
 		},
 		defineField({
 			name: "pageBuilder",
@@ -78,16 +62,5 @@ export const showhome = {
 				}),
 			],
 		}),
-		{
-			name: "showhome_times",
-			title: "Showhome Times",
-			type: "array",
-			of: [{ type: "openTimes" }],
-		},
-		{
-			name: "address",
-			title: "Address",
-			type: "string",
-		},
 	],
-};
+});

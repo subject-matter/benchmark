@@ -1,6 +1,5 @@
 import { homepage } from "./schemas/homepage";
 import { selectedProjectsSections } from "./schemas/selected-projects-sections";
-import { project } from "./schemas/project";
 import { showhome } from "./schemas/showhome";
 import { openTimes } from "./schemas/open-times";
 import { upcomingProject } from "./schemas/upcoming-project";
@@ -11,12 +10,23 @@ import { staff_member } from "./schemas/staff_member";
 import { about_accordion } from "./schemas/about_accordion";
 import { review } from "./schemas/review";
 import { reviews } from "./schemas/reviews";
+import { pageType } from "./schemas/pageType";
+import { fullLandscapeType } from "./schemas/fullLandscapeType";
+import { bigPortraitType } from "./schemas/bigPortrait";
+import { mediumLandscapeType } from "./schemas/mediumLandscape";
+import { smallPortraitType } from "./schemas/smallPortraitType";
+import { individualSmallImageType } from "./schemas/individualImage";
 
 export const schema = {
 	types: [
+		pageType,
+		fullLandscapeType,
+		bigPortraitType,
+		mediumLandscapeType,
+		smallPortraitType,
+		individualSmallImageType,
 		homepage,
 		selectedProjectsSections,
-		project,
 		showhome,
 		upcomingProject,
 		openTimes,
