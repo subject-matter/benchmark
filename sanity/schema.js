@@ -16,6 +16,7 @@ import { bigPortraitType } from "./schemas/bigPortrait";
 import { mediumLandscapeType } from "./schemas/mediumLandscape";
 import { smallPortraitType } from "./schemas/smallPortraitType";
 import { individualSmallImageType } from "./schemas/individualImage";
+import { seo } from "./schemas/seo";
 
 export const schema = {
 	types: [
@@ -37,5 +38,6 @@ export const schema = {
 		about_accordion,
 		review,
 		reviews,
+		seo,
 	],
 };
