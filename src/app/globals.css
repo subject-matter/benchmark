@@ -172,3 +172,28 @@ html {
   opacity: 1;
   transition-delay: 0.8s;
 }
+
+/* Reviews swiper */
+.reviews-swiper .swiper-pagination,
+.projects-swiper .swiper-pagination {
+  text-align: start;
+}
+
+.reviews-swiper .swiper-pagination .swiper-pagination-bullet-active,
+.projects-swiper .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #000;
+}
+
+/* Projects swiper pagination position */
+.projects-swiper .swiper-pagination {
+  @apply absolute !left-4 !top-4;
+}
+
+/* Projects swiper fade in */
+.projects-swiper .swiper-slide {
+  @apply !opacity-0;
+}
+
+.projects-swiper .swiper-slide-visible {
+  @apply !opacity-100;
+}
