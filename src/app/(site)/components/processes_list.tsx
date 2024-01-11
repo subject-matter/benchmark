@@ -6,8 +6,33 @@ import ContactForm from "./contact-form";
 
 export default function ProcessesList({ processes, walkthroughs }: any) {
 	const [isInView, setIsInView] = useState(false);
+	const [isWhite, setIsWhite] = useState(false);
 
 	const sectionRef = useRef(null);
+	const backgroundRef = useRef(null);
+
+	useEffect(() => {
+		const bgObserver = new IntersectionObserver(
+			([entry]) => {
+				if (!isWhite && entry.isIntersecting) {
+					setIsWhite(true);
+				} else {
+					setIsWhite(false);
+				}
+			},
+			{ threshold: 0 }
+		);
+
+		if (backgroundRef.current) {
+			bgObserver.observe(backgroundRef.current);
+		}
+
+		return () => {
+			if (backgroundRef.current) {
+				bgObserver.unobserve(backgroundRef.current);
+			}
+		};
+	}, []);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -88,9 +113,13 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					</h1>
 				</div>
 				<div className="sticky md:relative top-0 md:w-1/2 bg-black">
-					<div className="md:sticky top-0 h-[115px] md:h-screen bg-black w-full">
+					<div
+						className={`md:sticky top-0 h-[115px] md:h-screen w-full fade-in-section ${
+							isWhite ? "bg-white text-black" : "bg-black text-white"
+						}`}
+					>
 						<div
-							className={`relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5 md:pb-[100px] fade-in-section text-white`}
+							className={`relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5 md:pb-[100px] fade-in-section `}
 						>
 							<h1
 								className="font-medium  text-sm md:text-xl md:mb-medium md:absolute md:top-[40%] me-5 md:me-0"
@@ -109,7 +138,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 				</div>
 				<div
 					className={` md:w-1/2 fade-in-section ${
-						isInView ? "bg-black text-white" : ""
+						isInView ? "bg-black text-white" : "bg-white text-black"
 					}`}
 				>
 					<h1 className="hidden md:block font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
@@ -193,7 +222,10 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 				</div>
 				<div></div>
 			</div>
-			<div className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end ">
+			<div
+				ref={backgroundRef}
+				className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end "
+			>
 				<p className="text-sm-xl md:text-xl w-full col-span-2 mb-48 md:mt-[20vh]">
 					Get In Touch
 				</p>
