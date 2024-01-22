@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import Archipro from "../assets/images/ArchiPro.svg";
+import Image from "next/image";
 
 function SocialIcons() {
 	return (
@@ -61,6 +63,12 @@ function SocialIcons() {
 						</clipPath>
 					</defs>
 				</svg>
+			</Link>
+			<Link
+				className="hover:opacity-50 transition my-auto"
+				href="https://archipro.co.nz/professional/benchmark-homes"
+			>
+				<Image src={Archipro} alt="Archipro" width={1000} />
 			</Link>
 		</div>
 	);

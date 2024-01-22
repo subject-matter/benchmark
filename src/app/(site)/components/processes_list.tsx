@@ -102,106 +102,133 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
   }, [processes]);
 
   return (
-    <>
-      <div className="md:flex relative ">
-        <div className="md:hidden custom-full-height pt-[150px] bg-black text-white">
-          <h1 className="font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
-            Our <br /> Process
-          </h1>
-        </div>
-        <div className="sticky z-20 md:relative top-0 md:w-1/2 bg-black">
-          <div
-            className={`md:sticky z-20 top-0 h-[115px] md:h-screen w-full fade-in-section ${
-              isWhite ? 'bg-white text-black' : 'bg-black text-white'
-            }`}
-          >
-            <div
-              className={`relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5 md:pb-[100px] fade-in-section `}
-            >
-              <h1
-                className="font-medium  text-sm md:text-xl md:mb-medium md:absolute md:top-[40%] me-5 md:me-0"
-                id="process-title-index"
-              >
-                01
-              </h1>
-              <h1 className="md:w-1/2 font-medium  text-sm md:text-xl text-wrap" id="process-title">
-                {processes ? processes[0].title : ''}
-              </h1>
-            </div>
-          </div>
-        </div>
-        <div className={` md:w-1/2 fade-in-section ${isInView ? 'bg-black text-white' : 'bg-white text-black'}`}>
-          <h1 className="hidden md:block font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
-            Our <br /> Process
-          </h1>
-          {processes.map((process: any, index: number) => (
-            <div key={index} className={`w-full process  ${index == processes.length - 1 ? '' : 'px-[10px] md:px-5'}`}>
-              {index == processes.length - 1 ? <div className=""></div> : ''}
-              <div
-                ref={index === processes.length - 1 ? sectionRef : null}
-                className={`${
-                  index === processes.length - 1
-                    ? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section ${isInView ? 'bg-black text-white' : ''}`
-                    : 'md:mt-large border-grey border-dashed border-t border-1'
-                } flex flex-col `}
-              >
-                {index == processes.length - 1 ? (
-                  ''
-                ) : (
-                  <div className="mt-[10px] mb-10 text-xs-medium">{index < 10 ? `0${index + 1}` : index}</div>
-                )}
-                <Image
-                  className="w-full h-auto mb-[10px] aspect-[3/2] object-cover"
-                  src={process.hero_image.imageUrl}
-                  alt="Process Image"
-                  width={1000}
-                  height={1000}
-                />
-                <div className="text-xs whitespace-pre-line mb-[10px] md:mb-5">{process.description}</div>
-              </div>
-            </div>
-          ))}
-          <div
-            className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium  px-5 md:px-0 md:pb-[44px] fade-in-section ${
-              isInView ? 'bg-black text-white' : 'bg-white text-black'
-            }`}
-          >
-            <div className="mb-5 md:px-5 font-medium">Virtual Walkthroughs</div>
-            {walkthroughs.props.walkthroughs.map((walkthrough: any, index: number) => (
-              <div
-                key={index}
-                className={`${
-                  index % 2 == 0 ? 'col-start-1 md:ml-5 pr-[9px]' : 'md:col-start-2 pl-[9px] md:mr-5'
-                } mb-14 flex flex-col border-grey border-dashed border-t border-1`}
-              >
-                <div className="mt-[10px] font-medium">{walkthrough.title}</div>
-                <div className="mb-4">{walkthrough.location}</div>
-                <div className="relative z-10">
-                  <iframe
-                    className="vimeo w-full h-auto"
-                    src={walkthrough.url}
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    title="Benchmark Homes - Chisnell - Oxford"
-                  ></iframe>
-                </div>
-              </div>
-            ))}
-            {walkthroughs.props.walkthroughs.length % 2 != 0 ? (
-              <div className="border-grey border-dashed border-t border-1 mr-5"></div>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        <div></div>
-      </div>
-      <div
-        ref={backgroundRef}
-        className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end "
-      >
-        <p className="text-sm-xl md:text-xl w-full col-span-2 mb-48 md:mt-[20vh]">Get In Touch</p>
-        <ContactForm />
-      </div>
-    </>
-  );
+		<>
+			<div className="md:flex relative ">
+				<div className="md:hidden custom-full-height pt-[150px] bg-black text-white">
+					<h1 className="font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
+						Our <br /> Process
+					</h1>
+				</div>
+				<div className="sticky z-20 md:relative top-0 md:w-1/2 bg-black">
+					<div
+						className={`md:sticky z-20 top-0 h-[115px] md:h-screen w-full fade-in-section ${
+							isWhite ? "bg-white text-black" : "bg-black text-white"
+						}`}
+					>
+						<div
+							className={`relative z-[20] h-full flex flex-row md:flex-col items-end md:items-start md:justify-end pl-3 pb-5  fade-in-section `}
+						>
+							<h1
+								className="font-medium  text-sm md:text-xl md:mb-medium md:absolute md:top-[40%] me-5 md:me-0"
+								id="process-title-index"
+							>
+								01
+							</h1>
+							<h1
+								className="md:w-1/2 font-medium  text-sm md:text-xl text-wrap"
+								id="process-title"
+							>
+								{processes ? processes[0].title : ""}
+							</h1>
+						</div>
+					</div>
+				</div>
+				<div
+					className={` md:w-1/2 fade-in-section ${
+						isInView ? "bg-black text-white" : "bg-white text-black"
+					}`}
+				>
+					<h1 className="hidden md:block font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
+						Our <br /> Process
+					</h1>
+					{processes.map((process: any, index: number) => (
+						<div
+							key={index}
+							className={`w-full process  ${
+								index == processes.length - 1 ? "" : "px-[10px] md:px-5"
+							}`}
+						>
+							{index == processes.length - 1 ? <div className=""></div> : ""}
+							<div
+								ref={index === processes.length - 1 ? sectionRef : null}
+								className={`${
+									index === processes.length - 1
+										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section ${
+												isInView ? "bg-black text-white" : ""
+										  }`
+										: "md:mt-large border-grey border-dashed border-t border-1"
+								} flex flex-col `}
+							>
+								{index == processes.length - 1 ? (
+									""
+								) : (
+									<div className="mt-[10px] mb-10 text-xs-medium">
+										{index < 10 ? `0${index + 1}` : index}
+									</div>
+								)}
+								<Image
+									className="w-full h-auto mb-[10px] aspect-[3/2] object-cover"
+									src={process.hero_image.imageUrl}
+									alt="Process Image"
+									width={1000}
+									height={1000}
+								/>
+								<div className="text-xs whitespace-pre-line mb-[10px] md:mb-5">
+									{process.description}
+								</div>
+							</div>
+						</div>
+					))}
+					<div
+						className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium  px-5 md:px-0 md:pb-[44px] fade-in-section ${
+							isInView ? "bg-black text-white" : "bg-white text-black"
+						}
+            ${isWhite ? "bg-white text-black" : "bg-black text-white"} `}
+					>
+						<div className="mb-5 md:px-5 font-medium">Virtual Walkthroughs</div>
+						{walkthroughs.props.walkthroughs.map(
+							(walkthrough: any, index: number) => (
+								<div
+									key={index}
+									className={`${
+										index % 2 == 0
+											? "col-start-1 md:ml-5 pr-[9px]"
+											: "md:col-start-2 pl-[9px] md:mr-5"
+									} mb-14 flex flex-col border-grey border-dashed border-t border-1`}
+								>
+									<div className="mt-[10px] font-medium">
+										{walkthrough.title}
+									</div>
+									<div className="mb-4">{walkthrough.location}</div>
+									<div className="relative z-10">
+										<iframe
+											className="vimeo w-full h-auto"
+											src={walkthrough.url}
+											allow="autoplay; fullscreen; picture-in-picture"
+											title="Benchmark Homes - Chisnell - Oxford"
+										></iframe>
+									</div>
+								</div>
+							)
+						)}
+						{walkthroughs.props.walkthroughs.length % 2 != 0 ? (
+							<div className="border-grey border-dashed border-t border-1 mr-5"></div>
+						) : (
+							""
+						)}
+					</div>
+				</div>
+				<div></div>
+			</div>
+			<div
+				ref={backgroundRef}
+				className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end "
+			>
+				<p className="text-sm-xl md:text-xl w-full col-span-2 mb-48 md:mt-[20vh]">
+					Get In Touch
+				</p>
+				<ContactForm />
+			</div>
+		</>
+	);
 }

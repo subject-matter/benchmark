@@ -82,7 +82,7 @@ function AboutPinned() {
 					<div className="relative mx-[10px] md:mx-5 ">
 						<div
 							ref={yearsRef}
-							className={`w-full   bg-white border-t md:border-b border-dotted border-grey pt-3 pb-32 md:pb-24  col-span-2  md:col-span-1`}
+							className={`w-full   bg-white border-t  border-dotted border-grey pt-3 pb-32 md:pb-24  col-span-2  md:col-span-1`}
 						>
 							<h4 className="md:pt-3 text-xs-medium pb-8 md:pb-0">
 								Years of Experience

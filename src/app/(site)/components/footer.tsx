@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import SocialIcons from "./social-icons";
 
+
 export default function Footer() {
 	return (
 		<footer className="bg-transparent min-h-[100svh]" id="footer">
