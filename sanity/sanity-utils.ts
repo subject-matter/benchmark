@@ -63,17 +63,16 @@ export async function getSelectedProjects() {
 }
 
 export async function getAllProjects() {
-	const projects = await client.fetch(
-		`*[_type == "project"]{..., landscape_hero{"imageUrl": asset->url}, portrait_hero{"imageUrl": asset->url}, images[]{'imageUrl': asset->url},slug{"slug":current}}`
+	return client.fetch(
+		`*[_type == "project"]{
+			title,
+			"slug": slug.current,
+			"portrait": portrait_hero.asset->url,
+			  "landscape": landscape_hero.asset->url,
+		  }`
 	);
+		}
 
-	return {
-		props: {
-			projects,
-		},
-		revalidate: 10,
-	};
-}
 
 export async function getAllUpcomingProjects() {
 	const upcomingProjects = await client.fetch(

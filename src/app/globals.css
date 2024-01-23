@@ -12,7 +12,7 @@ body {
 }
 
 .feature-pill {
-  @apply bg-[#F5F5F5] rounded-[5px] p-[10px] text-sm-xxs md:text-xxs
+  @apply bg-[#F5F5F5] rounded-[5px] p-[10px] text-sm-xxs md:text-xxs w-fit
 }
 
 .selected-projects-image-blur {

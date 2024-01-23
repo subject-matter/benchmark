@@ -63,22 +63,32 @@ function AboutSection({ info }: any) {
 			<div className="grid grid-cols-2 min-h-screen relative">
 				<div className="bg-black md:sticky top-0 h-screen overflow-hidden col-span-2 md:col-span-1 hidden md:block">
 					<Image
-						className="object-cover"
+						className="object-cover h-screen"
 						src={Photo}
 						alt="Richard and Sam"
 						width={2000}
-						height={1000}
+						height={2000}
 						priority
 					/>
 				</div>
-				<div className=" mt-6 col-span-2 md:col-span-1">
+				<div className="col-span-2 md:col-span-1">
 					<div className="bg-white  md:min-h-screen mx-[10px] md:mx-5">
-						<h1 className="font-medium text-sm-xl md:text-xl col-span-11 mb-medium  md:col-span-1 mt-16 md:mt-0">
+						<h1 className="font-medium text-sm-xl md:text-xl col-span-11 mb-medium md:col-span-1 mt-16 md:mt-0">
 							About Us
 						</h1>
 						<div className="text-xs-medium md:text-base mb-5 md:mb-[50vh]">
 							{info.description}
 						</div>
+						
+						<Image
+						src={Photo}
+						alt="Richard and Sam"
+						width={2000}
+						height={1000}
+						priority
+						className="block md:hidden mb-20 md:mb-32"
+					/>
+
 						<div className="text-xxs font-medium md:text-xs-medium my-3 md:my-7 pt-6 ">
 							Over the Years
 						</div>
@@ -104,14 +114,7 @@ function AboutSection({ info }: any) {
 						</div>
 					</div>
 
-					<Image
-						src={Photo}
-						alt="Richard and Sam"
-						width={2000}
-						height={1000}
-						priority
-						className="block md:hidden mb-20 md:mb-32"
-					/>
+				
 
 					<div className="group">
 						<div className="numbers pb-8 bg-white z-[2] border-t  border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2  md:col-span-1">
@@ -138,7 +141,7 @@ function AboutSection({ info }: any) {
 								{countersOn[1] ? (
 									<CountUp
 										start={0}
-										end={20}
+										end={200}
 										duration={0.75}
 										suffix="+"
 										className="font-medium text-sm-2xl md:text-2xl mb-24"
@@ -172,7 +175,7 @@ function AboutSection({ info }: any) {
 							)}
 						</CountScrollTrigger>
 						<div
-							className={`sticky top-0  py-32 md:mb-0 px-[10px] md:px-5 fade-in-section bg-white `}
+							className={`sticky top-0  py-32 md:mb-0 px-[10px] md:px-0 fade-in-section bg-white `}
 						>
 							<AboutAccordions />
 						</div>

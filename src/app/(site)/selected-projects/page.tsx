@@ -13,20 +13,19 @@ export default async function SelectedProjects() {
 	return (
 		<>
 			<LenisScroll>
-				<div className="pt-6 bg-white pb-5 grid">
-					<h1 className="mx-[10px] font-medium text-sm-3xl md:text-3xl my-24 md:mt-0 md:mb-large">
+				<div>
+					<h1 className="mx-[10px] font-medium text-sm-3xl md:text-3xl py-24 md:pt-3 md:pb-large ">
 						Selected <br /> Projects
 					</h1>
 					<div className="col-span-12 selected-projects w-full">
-
 						{selectedProjects.map((project: any, index: number) => (
 							<div
 								key={index}
-								className="mx-[10px] md:mx-5 mb-12 md:mb-[200px]"
+								className="mx-[10px] md:mx-5 mb-12 "
 							>
-								<div className="grid grid-cols-12 gap-x-[10px] md:gap-x-5 text-xs-medium mx-auto w-full border-grey border-dashed border-t border-1">
+								<div className="grid grid-cols-12 gap-x-[10px] md:gap-x-5 text-xs-medium mx-auto w-full md:border-grey border-dashed md:border-t border-1 pb-[60px] md:pb-[200px]">
 									<div
-										className={`col-span-12 md:col-span-6 md:row-start-1 flex-col flex ${
+										className={`col-span-12 md:col-span-6 md:row-start-1 flex-col flex pb-[60px] md:pb-0 border-grey border-dashed border-y border-1 md:border-0 ${
 											project.mainImageCol == "First"
 												? "md:col-start-1"
 												: project.mainImageCol == "Second"

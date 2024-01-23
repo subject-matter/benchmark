@@ -15,14 +15,15 @@ type Props = {
 export default async function Project({ params }: Props) {
 	const slug = params.project;
 	const project = await getProject(slug);
-	const projects = await getAllProjects();
 
 	return (
 		<>
 			<LenisScroll>
-				<div className="grid grid-cols-12 gap-x-5 text-xs px-[10px] md:px-5 w-full pt-[10px] bg-white mb-5 gap-y-[110px] md:gap-y-[180px]">
-					<div className="col-span-12 grid grid-cols-12 gap-x-5 bg-white">
-						<div className="absolute mt-[10px]">{project.title}</div>
+				<div className="grid grid-cols-12 gap-x-5 text-xs px-[10px] md:px-5 w-full pt-[10px] mb-5 gap-y-[110px] md:gap-y-[180px]">
+					<div className="col-span-12 grid grid-cols-12 gap-x-5 ">
+						<h1 className="hidden md:block md:absolute  mt-[10px]">
+							{project.title}
+						</h1>
 						<div className="md:col-start-5 col-span-7 md:col-span-2 mt-[10px] font-medium text-xxs md:text-xs mb-5 md:mb-0">
 							Points of interest:
 						</div>
@@ -38,7 +39,7 @@ export default async function Project({ params }: Props) {
 								))}
 							</div>
 							<div className="flex flex-col text-xxs md:text-xs col-start-3 col-span-4">
-								<ul className="list-outside">
+								<ul className="list-outside md:list-inside">
 									{project.interest_points.map(
 										(point: string, index: number) => (
 											<li className="list-disc" key={index}>
@@ -50,7 +51,8 @@ export default async function Project({ params }: Props) {
 							</div>
 						</div>
 						<div className="row-start-1 md:row-start-3 col-span-12 text-sm-lg md:text-lg mb-20 md:mb-[200px] mt-20 md:mt-0">
-							<div>{project.description}</div>
+							<h1 className="mb-5 md:hidden">{project.title}</h1>
+							<p>{project.description}</p>
 						</div>
 					</div>
 
@@ -179,7 +181,7 @@ export default async function Project({ params }: Props) {
 						</div>
 					))}
 
-					{/* <AdjacentProjects /> */}
+					<AdjacentProjects />
 				</div>
 			</LenisScroll>
 		</>

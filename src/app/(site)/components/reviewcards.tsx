@@ -28,41 +28,41 @@ export default function ReviewCards() {
     fetchReviews();
   }, []);
   return (
-    <div className="bg-white  text-black mx-[10px] md:mx-0 p-5 rounded-lg h-auto md:w-[350px] flex flex-col justify-between space-y-10 relative w-full max-w-[350px] px-3">
-      <div>
-        <Swiper
-          spaceBetween={30}
-          effect={'fade'}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, EffectFade, Pagination]}
-          className="reviews-swiper"
-        >
-          {reviews.map((review: any, i) => (
-            <SwiperSlide key={i}>
-              <div className="bg-white min-h-[400px]">
-                <div className="flex justify-between items-center mb-10">
-                  <p className="text-xs-medium">{review.reviewer}</p>
-                  <span className="flex">
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                  </span>
-                </div>
-                <p className="text-xxs">{review.review}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  );
+		<div className="bg-white  text-black mx-[10px] md:mx-0 p-5 rounded-lg h-[450px] md:w-[400px] flex flex-col justify-between space-y-10 relative">
+			<div>
+				<Swiper
+					spaceBetween={30}
+					effect={"fade"}
+					autoplay={{
+						delay: 3000,
+						disableOnInteraction: false,
+						pauseOnMouseEnter: true,
+					}}
+					pagination={{
+						clickable: true,
+					}}
+					modules={[Autoplay, EffectFade, Pagination]}
+					className="reviews-swiper"
+				>
+					{reviews.map((review: any, i) => (
+						<SwiperSlide key={i}>
+							<div className="bg-white min-h-[400px]">
+								<div className="flex justify-between items-center mb-10">
+									<p className="text-xs-medium">{review.reviewer}</p>
+									<span className="flex">
+										<Star />
+										<Star />
+										<Star />
+										<Star />
+										<Star />
+									</span>
+								</div>
+								<p className="text-xxs">{review.review}</p>
+							</div>
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
+		</div>
+	);
 }

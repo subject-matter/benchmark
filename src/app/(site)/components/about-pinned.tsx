@@ -113,7 +113,7 @@ function AboutPinned() {
 								{countersOn[1] && (
 									<CountUp
 										start={0}
-										end={20}
+										end={200}
 										duration={0.75}
 										suffix="+"
 										className="font-medium text-sm-2xl md:text-2xl"

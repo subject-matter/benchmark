@@ -38,7 +38,7 @@ export default async function Showhome({ params }: Props) {
 								))}
 							</div>
 							<div className="flex flex-col text-xxs md:text-xs col-start-3 col-span-4">
-								<ul className="list-outside">
+								<ul className="list-outside md:list-inside">
 									{showhome.interest_points.map(
 										(point: string, index: number) => (
 											<li className="list-disc" key={index}>

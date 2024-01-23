@@ -12,100 +12,103 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
   const backgroundRef = useRef(null);
 
   useEffect(() => {
-    const bgObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (!isWhite && entry.isIntersecting) {
-          setIsWhite(true);
-        } else {
-          setIsWhite(false);
-        }
-      },
-      { threshold: 0 }
-    );
+		const bgObserver = new IntersectionObserver(
+			([entry]) => {
+				if (!isWhite && entry.isIntersecting) {
+					setIsWhite(true);
+				} else {
+					setIsWhite(false);
+				}
+			},
+			{ threshold: 0 }
+		);
 
-    if (backgroundRef.current) {
-      bgObserver.observe(backgroundRef.current);
-    }
+		if (backgroundRef.current) {
+			bgObserver.observe(backgroundRef.current);
+		}
 
-    return () => {
-      if (backgroundRef.current) {
-        bgObserver.unobserve(backgroundRef.current);
-      }
-    };
-  }, []);
+		return () => {
+			if (backgroundRef.current) {
+				bgObserver.unobserve(backgroundRef.current);
+			}
+		};
+	}, [isWhite]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!isInView && entry.isIntersecting) {
-          setIsInView(true);
-        } else {
-          setIsInView(false);
-        }
-      },
-      { threshold: 0 }
-    );
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (!isInView && entry.isIntersecting) {
+					setIsInView(true);
+				} else {
+					setIsInView(false);
+				}
+			},
+			{ threshold: 0 }
+		);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+		if (sectionRef.current) {
+			observer.observe(sectionRef.current);
+		}
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+		return () => {
+			if (sectionRef.current) {
+				observer.unobserve(sectionRef.current);
+			}
+		};
+	}, [isInView]);
 
-  useEffect(() => {
-    const processContainer = document.getElementById('processes-container');
+	useEffect(() => {
+		const processContainer = document.getElementById("processes-container");
 
-    const checkScrollPos = () => {
-      const title = document.getElementById('process-title');
-      const titleIndex = document.getElementById('process-title-index') as any;
-      const processElements = document.querySelectorAll('.process');
+		const checkScrollPos = () => {
+			const title = document.getElementById("process-title");
+			const titleIndex = document.getElementById("process-title-index") as any;
+			const processElements = document.querySelectorAll(".process");
 
-      let highestVisibleIndex = -1;
-      processElements.forEach((process, index) => {
-        const processRect = process.getBoundingClientRect();
-        if (processRect.bottom > 0 && processRect.top < window.innerHeight) {
-          highestVisibleIndex = index;
-        }
-      });
+			let highestVisibleIndex = -1;
+			processElements.forEach((process, index) => {
+				const processRect = process.getBoundingClientRect();
+				if (processRect.bottom > 0 && processRect.top < window.innerHeight) {
+					highestVisibleIndex = index;
+				}
+			});
 
-      if (!titleIndex) {
-        return;
-      }
+			if (!titleIndex) {
+				return;
+			}
 
-      if (highestVisibleIndex !== -1) {
-        if (highestVisibleIndex === processElements.length - 1) {
-          titleIndex.innerText = '+';
-        } else {
-          titleIndex.innerText = highestVisibleIndex < 9 ? `0${highestVisibleIndex + 1}` : `${highestVisibleIndex + 1}`;
-        }
+			if (highestVisibleIndex !== -1) {
+				if (highestVisibleIndex === processElements.length - 1) {
+					titleIndex.innerText = "+";
+				} else {
+					titleIndex.innerText =
+						highestVisibleIndex < 9
+							? `0${highestVisibleIndex + 1}`
+							: `${highestVisibleIndex + 1}`;
+				}
 
-        if (title && processes[highestVisibleIndex]) {
-          title.innerText = processes[highestVisibleIndex].title;
-        }
-      }
-    };
+				if (title && processes[highestVisibleIndex]) {
+					title.innerText = processes[highestVisibleIndex].title;
+				}
+			}
+		};
 
-    if (processContainer) {
-      window.addEventListener('scroll', checkScrollPos);
-    }
+		if (processContainer) {
+			window.addEventListener("scroll", checkScrollPos);
+		}
 
-    return () => {
-      if (processContainer) {
-        window.removeEventListener('scroll', checkScrollPos);
-      }
-    };
-  }, [processes]);
+		return () => {
+			if (processContainer) {
+				window.removeEventListener("scroll", checkScrollPos);
+			}
+		};
+	}, [processes]);
 
-  return (
+	return (
 		<>
 			<div className="md:flex relative ">
 				<div className="md:hidden custom-full-height pt-[150px] bg-black text-white">
-					<h1 className="font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
+					<h1 className="font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 ">
 						Our <br /> Process
 					</h1>
 				</div>
@@ -180,12 +183,12 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 						</div>
 					))}
 					<div
-						className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium  px-5 md:px-0 md:pb-[44px] fade-in-section ${
+						className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium md:text-xs  px-5 md:px-0 md:pb-[44px] fade-in-section ${
 							isInView ? "bg-black text-white" : "bg-white text-black"
 						}
             ${isWhite ? "bg-white text-black" : "bg-black text-white"} `}
 					>
-						<div className="mb-5 md:px-5 font-medium">Virtual Walkthroughs</div>
+						<p className="mb-5 md:px-5 font-medium ">Virtual Walkthroughs</p>
 						{walkthroughs.props.walkthroughs.map(
 							(walkthrough: any, index: number) => (
 								<div
@@ -196,10 +199,8 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 											: "md:col-start-2 pl-[9px] md:mr-5"
 									} mb-14 flex flex-col border-grey border-dashed border-t border-1`}
 								>
-									<div className="mt-[10px] font-medium">
-										{walkthrough.title}
-									</div>
-									<div className="mb-4">{walkthrough.location}</div>
+									<p className="mt-[10px] font-medium">{walkthrough.title}</p>
+									<p className="mb-4">{walkthrough.location}</p>
 									<div className="relative z-10">
 										<iframe
 											className="vimeo w-full h-auto"

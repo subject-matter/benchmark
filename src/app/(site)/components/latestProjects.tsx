@@ -233,7 +233,7 @@ function LatestProjects() {
 								<p className="font-medium">{project.title}</p>
 								<Link
 									href={project.url}
-									className="col-start-3 col-span-4 flex items-center space-x-5 text-[#999999] "
+									className="col-start-6 md:col-start-3 col-span-4 flex items-center space-x-5 text-[#999999] "
 								>
 									<p>View Home</p>
 									<svg

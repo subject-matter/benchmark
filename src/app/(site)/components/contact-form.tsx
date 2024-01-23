@@ -78,7 +78,7 @@ function ContactForm() {
 						className="h-[35px] flex absolute items-center right-3 bottom-[10px] bg-white p-3 rounded-[5px] z-10 transition duration-300 hover:bg-opacity-50"
 						disabled={state.submitting}
 					>
-						<span className="mr-9">Send</span>
+						<span className="mr-9 text-black">Send</span>
 						<svg
 							width="7"
 							height="12"
