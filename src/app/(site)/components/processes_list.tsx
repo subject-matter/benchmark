@@ -147,7 +147,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					{processes.map((process: any, index: number) => (
 						<div
 							key={index}
-							className={`w-full process  ${
+							className={`w-full process h-[80vh] md:h-[50vh]  ${
 								index == processes.length - 1 ? "" : "px-[10px] md:px-5"
 							}`}
 						>
@@ -159,7 +159,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section ${
 												isInView ? "bg-black text-white" : ""
 										  }`
-										: "md:mt-large border-grey border-dashed border-t border-1"
+										: "mt-[50px] md:mt-large border-grey border-dashed border-t border-1"
 								} flex flex-col `}
 							>
 								{index == processes.length - 1 ? (

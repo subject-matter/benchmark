@@ -82,7 +82,7 @@ export default async function Project({ params }: { params: { id: string } }) {
 								</svg>
 							</div>
 						</Link>
-						<div className="md:hidden border-[#999999] col-span-6 md:col-span-12 border-dashed border-t border-1 w-full"></div>
+
 					</div>
 				))}
 			</div>

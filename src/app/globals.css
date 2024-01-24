@@ -15,6 +15,8 @@ body {
   @apply bg-[#F5F5F5] rounded-[5px] p-[10px] text-sm-xxs md:text-xxs w-fit
 }
 
+
+
 .selected-projects-image-blur {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(100px);
