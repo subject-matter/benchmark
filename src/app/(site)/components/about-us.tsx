@@ -71,10 +71,7 @@ function AboutSection() {
 	}, []);
 
 	return (
-		<section
-			className={`col-span-12 fade-in-section mt-[300px] `}
-			id="about-us-section"
-		>
+		<section className={`fade-in-section md:mt-[300px] `} id="about-us-section">
 			<div className="grid grid-cols-2 min-h-screen relative">
 				<div className={`row-span-4 col-span-2 md:col-span-1`}>
 					<div className="group">
@@ -144,6 +141,27 @@ function AboutSection() {
 								className={`sticky top-0  py-32 md:mb-0 px-[10px] md:px-0 fade-in-section bg-white `}
 							>
 								<AboutAccordions />
+
+								<Link
+									href="/about-us"
+									className="mt-[60px]  w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 text-black"
+								>
+									Learn more
+									<div className="ml-[50px] flex items-center">
+										<svg
+											width="7"
+											height="12"
+											viewBox="0 0 7 12"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M6.3131 5.65685L0.65625 0L0.656372 11.3138L6.3131 5.65685Z"
+												fill="black"
+											/>
+										</svg>
+									</div>
+								</Link>
 							</div>
 						</div>
 					</div>

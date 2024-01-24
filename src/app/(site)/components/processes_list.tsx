@@ -32,7 +32,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 				bgObserver.unobserve(backgroundRef.current);
 			}
 		};
-	}, [isWhite]);
+	}, []);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -55,7 +55,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 				observer.unobserve(sectionRef.current);
 			}
 		};
-	}, [isInView]);
+	}, []);
 
 	useEffect(() => {
 		const processContainer = document.getElementById("processes-container");
@@ -147,7 +147,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					{processes.map((process: any, index: number) => (
 						<div
 							key={index}
-							className={`w-full process h-[80vh] md:h-[50vh]  ${
+							className={`w-full process  ${
 								index == processes.length - 1 ? "" : "px-[10px] md:px-5"
 							}`}
 						>
@@ -163,7 +163,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 								} flex flex-col `}
 							>
 								{index == processes.length - 1 ? (
-									""
+									" "
 								) : (
 									<div className="mt-[10px] mb-10 text-xs-medium">
 										{index < 10 ? `0${index + 1}` : index}
@@ -195,8 +195,8 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 									key={index}
 									className={`${
 										index % 2 == 0
-											? "col-start-1 md:ml-5 pr-[9px]"
-											: "md:col-start-2 pl-[9px] md:mr-5"
+											? "col-start-1 md:ml-5 md:pr-[9px]"
+											: "md:col-start-2 md:pl-[9px] md:mr-5"
 									} mb-14 flex flex-col border-grey border-dashed border-t border-1`}
 								>
 									<p className="mt-[10px] font-medium">{walkthrough.title}</p>
