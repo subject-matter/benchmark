@@ -97,7 +97,7 @@ export default function Footer() {
 						</svg>
 					</div>
 				</a>
-				<div className="col-start-10 flex gap-x-1">
+				<div className="col-start-10 flex gap-x-1 col-span-3">
 					<SocialIcons />
 				</div>
 
