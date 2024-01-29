@@ -84,6 +84,12 @@ export default function SlideMenu() {
 						About Us
 					</a>
 					<a
+						href="/updates"
+						className="hover:opacity-50 transition duration-250 w-fit"
+					>
+						Updates
+					</a>
+					<a
 						href="/contact-us"
 						className="hover:opacity-50 transition duration-250 w-fit"
 					>

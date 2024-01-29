@@ -64,6 +64,12 @@ export default function Footer() {
 						About Us
 					</Link>
 					<Link
+						href="/updates"
+						className="hover:opacity-50 transition duration-250 w-fit"
+					>
+						Updates
+					</Link>
+					<Link
 						href="/contact-us"
 						className="hover:opacity-50 transition duration-250 w-fit"
 					>

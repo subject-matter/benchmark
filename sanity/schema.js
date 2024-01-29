@@ -17,6 +17,7 @@ import { mediumLandscapeType } from "./schemas/mediumLandscape";
 import { smallPortraitType } from "./schemas/smallPortraitType";
 import { individualSmallImageType } from "./schemas/individualImage";
 import { seo } from "./schemas/seo";
+import { post } from "./schemas/post";
 
 export const schema = {
 	types: [
@@ -39,5 +40,6 @@ export const schema = {
 		review,
 		reviews,
 		seo,
+		post,
 	],
 };

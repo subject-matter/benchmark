@@ -321,3 +321,32 @@ export async function getProject(slug: string) {
 	);
 }
   
+export async function getUpdates() {
+	return client.fetch(
+		groq`
+			*[_type == "post"]{
+  title,
+  "slug": slug.current,
+  "image": image.asset->url,
+
+  }
+		`
+	);
+}
+
+export async function getUpdate(slug: string) {
+	return client.fetch(
+		groq`
+		*[_type == "post" && slug.current == $slug][0]{
+  title,
+  "slug": slug.current,
+  "image": image.asset->url,
+  subtitle,
+  "body": body[]{
+    "text": children[].text,
+  }
+}
+  		`,
+		{ slug }
+	);
+}
