@@ -3,15 +3,16 @@
 import Image from 'next/image';
 import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg';
 import CountUp from 'react-countup';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import CountTrigger from 'react-scroll-trigger';
-import Link from 'next/link';
-import ReviewCards from './reviewcards';
-import AboutAccordions from './about-accordions';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import CountTrigger from "react-scroll-trigger";
+import Link from "next/link";
+import ReviewCards from "./reviewcards";
+import AboutAccordions from "./about-accordions";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContactForm from "./contact-form";
+import { TURBO_TRACE_DEFAULT_MEMORY_LIMIT } from "next/dist/shared/lib/constants";
 
 function AboutSection() {
 	const [countersOn, setCountersOn] = useState([false, false, false]);
@@ -41,6 +42,7 @@ function AboutSection() {
 					start: "top-=10 top",
 					end: () => "+=" + window.innerHeight,
 					scrub: 1,
+					pinSpacing: true,
 				},
 			});
 
