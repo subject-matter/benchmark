@@ -66,6 +66,71 @@ function AboutPinned() {
 
   return (
 		<section className={`col-span-12 fade-in-section mt-[300px] `}>
+
+<div className="group">
+						<div className="numbers pb-8 bg-white z-[2] border-t  border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2  md:col-span-1">
+							<h4 className="pt-3 text-xs-medium">Years of Experience</h4>
+							<CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
+								{countersOn[0] ? (
+									<CountUp
+										start={0}
+										end={25}
+										duration={1}
+										suffix="+"
+										className="font-medium text-sm-2xl md:text-2xl "
+									/>
+								) : (
+									<p className="font-medium text-sm-2xl md:text-2xl ">25</p>
+								)}
+							</CountScrollTrigger>
+						</div>
+
+						<div className="awards pb-8  z-[3] relative bg-white border-t border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2 md:col-span-1 ">
+							<h4 className="pt-3 text-xs-medium">Master Builders Awards</h4>
+
+							<CountScrollTrigger onEnter={() => handleEnterViewport(1)}>
+								{countersOn[1] ? (
+									<CountUp
+										start={0}
+										end={200}
+										duration={0.75}
+										suffix="+"
+										className="font-medium text-sm-2xl md:text-2xl mb-24"
+									/>
+								) : (
+									<p className="font-medium text-sm-2xl md:text-2xl ">20</p>
+								)}
+							</CountScrollTrigger>
+						</div>
+					</div>
+
+					<div
+						className={`relative houses z-[5] border-t border-dotted border-grey pt-3 pb-24  mx-[10px] md:mx-5 fade-in-section bg-white`}
+					>
+						<h4 className="pt-3 text-xs-medium">Houses Built</h4>
+
+						<CountScrollTrigger onEnter={() => handleEnterViewport(2)}>
+							{countersOn[2] ? (
+								<CountUp
+									start={0}
+									end={1500}
+									duration={0.5}
+									separator=""
+									suffix="+"
+									className="font-medium text-sm-2xl md:text-2xl mb-24"
+								/>
+							) : (
+								<p className="font-medium text-sm-2xl md:text-2xl mb-24">
+									1500
+								</p>
+							)}
+						</CountScrollTrigger>
+						<div
+							className={`sticky top-0  py-32 md:mb-0 px-[10px] md:px-0 fade-in-section bg-white `}
+						>
+							<AboutAccordions />
+						</div>
+					</div>	
 			<div className="pin grid grid-cols-2 min-h-screen relative">
 				<div className={`row-span-4 col-span-2 md:col-span-1`}>
 					<div

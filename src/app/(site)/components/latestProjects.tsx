@@ -25,19 +25,19 @@ const projects = [
 		image: Mortimer,
 		title: "Mortimer",
 		options: ["223m²", "4 Bedrooms", "2 Bathrooms"],
-		url: "/project/02e67060-76ee-4276-8723-96c9870ca453",
+		url: "/project/mortimer",
 	},
 	{
 		image: Marshall,
 		title: "Marshall",
 		options: ["220m²", "4 Bedrooms", "2 Bathrooms"],
-		url: "/project/02e67060-76ee-4276-8723-96c9870ca453",
+		url: "/project/marshall",
 	},
 	{
 		image: Wilson,
 		title: "Wilson",
 		options: ["220m2", "3 Bedrooms", "2 Bathrooms"],
-		url: "/project/c32880e8-aa57-4b41-950f-6da501e23ff4",
+		url: "/project/wilson",
 	},
 ];
 
