@@ -14,8 +14,8 @@ import { Play } from "lucide-react";
 
 function AboutSection({ info }: any) {
 	const [countersOn, setCountersOn] = useState([false, false, false]);
-
 	const sectionRef = useRef(null);
+	const [isWhite, setIsWhite] = useState(false);
 
 	useEffect(() => {
 		let ctx = gsap.context(() => {
@@ -36,8 +36,8 @@ function AboutSection({ info }: any) {
 			tl.to(".houses", { y: 0 }, "-=0.2");
 
 			const sectionRefAnimation = gsap.to(sectionRef.current, {
-				backgroundColor: "black",
-				color: "white",
+				backgroundColor: "#000000",
+				color: "#ffffff",
 				duration: 0.3,
 			});
 
@@ -48,6 +48,29 @@ function AboutSection({ info }: any) {
 			});
 		});
 		return () => ctx.revert();
+	}, []);
+
+	useEffect(() => {
+		const bgObserver = new IntersectionObserver(
+			([entry]) => {
+				if (!isWhite && entry.isIntersecting) {
+					setIsWhite(true);
+				} else {
+					setIsWhite(false);
+				}
+			},
+			{ threshold: 0 }
+		);
+
+		if (sectionRef.current) {
+			bgObserver.observe(sectionRef.current);
+		}
+
+		return () => {
+			if (sectionRef.current) {
+				bgObserver.unobserve(sectionRef.current);
+			}
+		};
 	}, []);
 
 	const handleEnterViewport = (index: number) => {
@@ -79,15 +102,15 @@ function AboutSection({ info }: any) {
 						<div className="text-xs-medium md:text-base mb-5 md:mb-[50vh]">
 							{info.description}
 						</div>
-						
+
 						<Image
-						src={Photo}
-						alt="Richard and Sam"
-						width={2000}
-						height={1000}
-						priority
-						className="block md:hidden mb-20 md:mb-32"
-					/>
+							src={Photo}
+							alt="Richard and Sam"
+							width={2000}
+							height={1000}
+							priority
+							className="block md:hidden mb-20 md:mb-32"
+						/>
 
 						<div className="text-xxs font-medium md:text-xs-medium my-3 md:my-7 pt-6 ">
 							Over the Years
@@ -113,8 +136,6 @@ function AboutSection({ info }: any) {
 							</div>
 						</div>
 					</div>
-
-				
 
 					<div className="group">
 						<div className="numbers pb-8 bg-white z-[2] border-t  border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2  md:col-span-1">
@@ -182,7 +203,11 @@ function AboutSection({ info }: any) {
 					</div>
 
 					<div ref={sectionRef}>
-						<div className="z-[7] md:h-min-screen pt-[50px]">
+						<div
+							className={`z-[7] md:h-min-screen pt-[50px] fade-in-section ${
+								isWhite ? "bg-black text-white" : "bg-white text-black"
+							}`}
+						>
 							<AboutTeam info={info} />
 						</div>
 					</div>

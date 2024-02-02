@@ -2,12 +2,7 @@ import Image from "next/image";
 import Photo from "../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg";
 import CountUp from "react-countup";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordion";
+
 import { useEffect, useRef, useState } from "react";
 import CountScrollTrigger from "react-scroll-trigger";
 import Link from "next/link";

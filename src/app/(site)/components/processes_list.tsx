@@ -43,7 +43,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					setIsInView(false);
 				}
 			},
-			{ threshold: 0 }
+			{ threshold: 0.6 }
 		);
 
 		if (sectionRef.current) {
@@ -68,7 +68,10 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 			let highestVisibleIndex = -1;
 			processElements.forEach((process, index) => {
 				const processRect = process.getBoundingClientRect();
-				if (processRect.bottom > 0 && processRect.top < window.innerHeight) {
+				if (
+					processRect.bottom > 0 &&
+					processRect.top < window.innerHeight / 2.5
+				) {
 					highestVisibleIndex = index;
 				}
 			});
@@ -156,8 +159,8 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 								ref={index === processes.length - 1 ? sectionRef : null}
 								className={`${
 									index === processes.length - 1
-										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section ${
-												isInView ? "bg-black text-white" : ""
+										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section  ${
+												isInView ? "bg-black text-white" : "bg-white text-black"
 										  }`
 										: "mt-[50px] md:mt-large border-grey border-dashed border-t border-1"
 								} flex flex-col `}
@@ -186,7 +189,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 						className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium md:text-xs  px-5 md:px-0 md:pb-[44px] fade-in-section ${
 							isInView ? "bg-black text-white" : "bg-white text-black"
 						}
-            ${isWhite ? "bg-white text-black" : "bg-black text-white"} `}
+            ${isWhite ? "" : "bg-black text-white"} `}
 					>
 						<p className="mb-5 md:px-5 font-medium ">Virtual Walkthroughs</p>
 						{walkthroughs.props.walkthroughs.map(
