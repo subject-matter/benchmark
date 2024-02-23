@@ -6,6 +6,8 @@ import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import { myStructure } from "/deskStructure";
+import { googleMapsInput } from "@sanity/google-maps-input";
+
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
@@ -17,5 +19,11 @@ export default defineConfig({
 	dataset,
 	// Add and edit the content schema in the './sanity/schema' folder
 	schema,
-	plugins: [deskTool(), visionTool({ defaultApiVersion: apiVersion })],
+	plugins: [
+		deskTool(),
+		visionTool({ defaultApiVersion: apiVersion }),
+		googleMapsInput({
+			apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+		}),
+	],
 });

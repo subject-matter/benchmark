@@ -110,6 +110,8 @@ export async function getShowhome(slug: string) {
     features,
     interest_points,
     address,
+	"lat": location.lat,
+  	"lng": location.lng,
     showhome_times,
     pageBuilder[]{
 		_type == "fullLandscape" => {
@@ -320,7 +322,7 @@ export async function getProject(slug: string) {
 		{ slug } // Pass the slug as a parameter
 	);
 }
-  
+
 export async function getUpdates() {
 	return client.fetch(
 		groq`
@@ -338,13 +340,11 @@ export async function getUpdate(slug: string) {
 	return client.fetch(
 		groq`
 		*[_type == "post" && slug.current == $slug][0]{
-  title,
+			title,
   "slug": slug.current,
   "image": image.asset->url,
   subtitle,
-  "body": body[]{
-    "text": children[].text,
-  }
+  body
 }
   		`,
 		{ slug }

@@ -1,15 +1,20 @@
 import Image from "next/image";
 import { getUpdate } from "../../../../../sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
 
 type Props = {
-	params: { update: string };
+	params: { update: string; body: any };
 };
 
 export default async function Update({ params }: Props) {
 	const slug = params.update;
 	const update = await getUpdate(slug);
-	//@ts-ignore
-	const bodyText = update.body.map((child) => child.text).join(" ");
+
+	const components = {
+		block: {
+			p: ({ children }: any) => <p className="mb-5">{children}</p>,
+		},
+	};
 
 	return (
 		<section className={`col-span-12 overflow-x-clip pb-medium`}>
@@ -40,7 +45,7 @@ export default async function Update({ params }: Props) {
 							priority
 						/>
 						<h3 className="mb-7">{update.subtitle}</h3>
-						<p>{bodyText}</p>
+						<PortableText value={update.body} components={components} />
 					</div>
 				</div>
 			</div>

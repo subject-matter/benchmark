@@ -39,6 +39,16 @@ export const showhome = {
 			type: "image",
 			description: "Image that shows on the Showhomes page",
 		},
+		{
+			name: "address",
+			title: "Address",
+			type: "string",
+		},
+		{
+			title: "Maps Location",
+			name: "location",
+			type: "geopoint",
+		},
 		defineField({
 			name: "pageBuilder",
 			type: "array",
@@ -71,11 +81,6 @@ export const showhome = {
 			title: "Showhome Times",
 			type: "array",
 			of: [{ type: "openTimes" }],
-		},
-		{
-			name: "address",
-			title: "Address",
-			type: "string",
 		},
 	],
 };

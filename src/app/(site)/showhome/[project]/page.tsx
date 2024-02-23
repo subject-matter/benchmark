@@ -8,6 +8,7 @@ import {
 } from "../../../../../sanity/sanity-utils";
 import LenisScroll from "../../components/lenis-provider";
 import Image from "next/image";
+import Map from "../../components/ui/map";
 
 type Props = {
 	params: { project: string };
@@ -20,13 +21,13 @@ export default async function Showhome({ params }: Props) {
 	return (
 		<>
 			<LenisScroll>
-				<div className="grid grid-cols-12 gap-x-5 text-xs px-[10px] md:px-5 w-full pt-[10px] bg-white mb-5 gap-y-[110px] md:gap-y-[180px]">
+				<div className="grid grid-cols-12 gap-x-5 text-xs px-[10px] md:px-5 w-full pt-[10px] bg-white mb-5 gap-y-20 md:gap-y-[110px] ">
 					<div className="col-span-12 grid grid-cols-12 gap-x-5 bg-white">
 						<div className="absolute mt-[10px]">{showhome.title}</div>
 						<div className="md:col-start-5 col-span-7 md:col-span-2 mt-[10px] font-medium text-xxs md:text-xs mb-5 md:mb-0">
 							Points of interest:
 						</div>
-						<div className=" col-span-12 md:col-span-4 mb-[50px] md:mb-[150px] grid grid-cols-6 gap-[10px] md:block">
+						<div className=" col-span-12 md:col-span-4 mb-[50px] md:mb-[100px] grid grid-cols-6 gap-[10px] md:block">
 							<div className="md:flex gap-x-[10px] gap-y-[10px]  mb-5 col-span-2">
 								{showhome.features.map((feature: string, index: number) => (
 									<div
@@ -49,14 +50,14 @@ export default async function Showhome({ params }: Props) {
 								</ul>
 							</div>
 						</div>
-						<div className="row-start-1 md:row-start-3 col-span-12 text-sm-lg md:text-lg mb-20 md:mb-[200px] mt-20 md:mt-0">
+						<div className="row-start-1 md:row-start-3 col-span-12 text-sm-lg md:text-lg mb-20  mt-20 md:mt-0">
 							<div>{showhome.description}</div>
 						</div>
 					</div>
 
-					<div className="col-span-12 flex gap-x-5 mb-[110px] md:mb-[500px]">
-						<div className="md:w-1/2 md:flex gap-x-5">
-							<div className="w-full md:w-1/2 md:grid grid-cols-3 gap-x-5">
+					<div className="col-span-12 flex flex-col-reverse md:flex-row gap-x-5 mb-[110px] md:mb-[500px]">
+						<div className="md:w-1/2 md:flex gap-x-5 items-center">
+							<div className="w-full md:w-1/2  grid-cols-3 gap-x-5">
 								<div className="col-span-3 mb-5 text-xxs font-medium md:text-xs-medium">
 									Open Hours
 								</div>
@@ -81,6 +82,7 @@ export default async function Showhome({ params }: Props) {
 								</div>
 							</div>
 						</div>
+						<Map lat={showhome.lat} lng={showhome.lng} />
 					</div>
 
 					{showhome.pageBuilder &&
