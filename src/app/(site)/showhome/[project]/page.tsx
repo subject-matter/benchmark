@@ -1,14 +1,11 @@
 // @ts-nocheck
 
-import AdjacentProjects from "@/app/(site)/components/adjacent_projects";
-import {
-	getAllProjects,
-	getProject,
-	getShowhome,
-} from "../../../../../sanity/sanity-utils";
+
+import { getShowhome } from "../../../../../sanity/sanity-utils";
 import LenisScroll from "../../components/lenis-provider";
 import Image from "next/image";
 import Map from "../../components/ui/map";
+import AdjacentShowhomes from "../../components/adjacent-showhomes";
 
 type Props = {
 	params: { project: string };
@@ -210,6 +207,7 @@ export default async function Showhome({ params }: Props) {
 									)}
 							</div>
 						))}
+					<AdjacentShowhomes />
 				</div>
 			</LenisScroll>
 		</>

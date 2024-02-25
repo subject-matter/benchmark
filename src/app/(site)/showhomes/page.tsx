@@ -9,10 +9,11 @@ import { Showhome } from "../../../../types/Showhome";
 import { ProjectImage } from "../../../../types/ProjectImage";
 import Link from "next/link";
 import { getAllShowhomes } from "../../../../sanity/sanity-utils";
+import AdjacentProjects from "../components/adjacent-showhomes";
 
 interface DateTimeOccurrence {
-  day_range: string;
-  time_range: string;
+	day_range: string;
+	time_range: string;
 }
 
 export default async function Project({ params }: { params: { id: string } }) {
@@ -82,7 +83,6 @@ export default async function Project({ params }: { params: { id: string } }) {
 								</svg>
 							</div>
 						</Link>
-
 					</div>
 				))}
 			</div>

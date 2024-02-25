@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getUpdate } from "../../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import AdjacentUpdates from "../../components/adjacent-updates";
 
 type Props = {
 	params: { update: string; body: any };
@@ -48,6 +49,7 @@ export default async function Update({ params }: Props) {
 						<PortableText value={update.body} components={components} />
 					</div>
 				</div>
+				{/* <AdjacentUpdates /> */}
 			</div>
 		</section>
 	);

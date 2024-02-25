@@ -3,51 +3,49 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllProjects } from "../../../../sanity/sanity-utils";
+import { getAllShowhomes } from "../../../../sanity/sanity-utils";
 
-export default async function AdjacentProjects() {
+export default async function AdjacentShowhomes() {
 	// Function to get the next and previous projects
-	const getAdjacentProjects = async (currentProjectSlug: string) => {
-		const projects = await getAllProjects();
+	const getAdjacentShowhomes = async (currentShowhomeSlug: string) => {
+		const showhomes = await getAllShowhomes();
 
 		// Find the index of the current project
 
-		const currentIndex = projects.findIndex(
+		const currentIndex = showhomes.findIndex(
 			// @ts-ignore
-			(project) => project.slug.current === currentProjectSlug
+			(showhome) => showhome.slug.current === currentShowhomeSlug
 		);
 
 		// Calculate the index of the next and previous projects
-		const nextIndex = (currentIndex + 1) % projects.length;
-		const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+		const nextIndex = currentIndex + 1;
+		const prevIndex = (currentIndex + showhomes.length) % showhomes.length;
 
-		// Get the next and previous projects
-		const nextProject = projects[nextIndex];
-		const prevProject = projects[prevIndex];
+		// Get the next and previous showhomes
+		const nextProject = showhomes[nextIndex];
+		const prevProject = showhomes[prevIndex];
 
 		return { nextProject, prevProject };
 	};
 
 	// Example usage
 	const currentProjectSlug = ""; // Replace with the actual slug of the current project
-	const { nextProject, prevProject } = await getAdjacentProjects(
+	const { nextProject, prevProject } = await getAdjacentShowhomes(
 		currentProjectSlug
 	);
 
 	return (
 		<div className="col-span-12 grid grid-cols-12 gap-x-5 border-grey border-dashed border-t border-1 text-xs-medium mb-[200px]">
-			<div className="col-span-6 md:col-span-3 flex flex-col mt-[10px]">
+			{/* <div className="col-span-6 md:col-span-3 flex flex-col mt-[10px]">
 				<div className="flex justify-between w-full mb-9 text-xxs md:text-xs">
-					<div>Previous Project</div>
+					<div>Previous Showhome</div>
 					<div>{prevProject.title}</div>
 				</div>
 				<Image
 					className="w-full mb-5"
 					width={1000}
 					height={1000}
-					src={
-						prevProject.portrait ? prevProject.portrait : prevProject.landscape
-					}
+					src={prevProject.image}
 					alt={prevProject.title}
 				/>
 				<Link
@@ -70,25 +68,24 @@ export default async function AdjacentProjects() {
 						</svg>
 					</div>
 				</Link>
-			</div>
+			</div> */}
 
 			<div className="col-span-6 col-start-7 md:col-span-3  md:col-start-10 flex flex-col mt-[10px]">
 				<div className="flex justify-between w-full mb-9 text-xxs md:text-xs">
-					<div>Next Project</div>
+					<div>Next Showhome</div>
+
 					<div>{nextProject.title}</div>
 				</div>
 				<Image
 					className="w-full mb-5"
 					width={1000}
 					height={1000}
-					src={
-						nextProject.portrait ? nextProject.portrait : nextProject.landscape
-					}
+					src={nextProject.image}
 					alt={prevProject.title}
 				/>
 
 				<Link
-					href={`/project/${nextProject.slug}`}
+					href={`/showhome/${nextProject.slug}`}
 					className="w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50"
 				>
 					View Project

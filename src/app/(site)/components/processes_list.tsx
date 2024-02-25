@@ -20,7 +20,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					setIsWhite(false);
 				}
 			},
-			{ threshold: 0 }
+			{ threshold: 0.1 }
 		);
 
 		if (backgroundRef.current) {
@@ -39,6 +39,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 			([entry]) => {
 				if (!isInView && entry.isIntersecting) {
 					setIsInView(true);
+					console.log("In View");
 				} else {
 					setIsInView(false);
 				}
@@ -139,30 +140,26 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 						</div>
 					</div>
 				</div>
-				<div
-					className={` md:w-1/2 fade-in-section ${
-						isInView ? "bg-black text-white" : "bg-white text-black"
-					}`}
-				>
+				<div className={` md:w-1/2 fade-in-section`}>
 					<h1 className="hidden md:block font-medium text-sm-xl md:text-xl mb-[90px] px-[10px] md:px-5 mt-0 md:mt-6">
 						Our <br /> Process
 					</h1>
 					{processes.map((process: any, index: number) => (
 						<div
 							key={index}
-							className={`w-full process  ${
-								index == processes.length - 1 ? "" : "px-[10px] md:px-5"
+							className={`w-full process ${
+								index === processes.length - 1
+									? "fade-in-section " + (isInView ? "bg-black text-white" : "")
+									: "px-[10px] md:px-5 "
 							}`}
+							ref={index === processes.length - 1 ? sectionRef : null}
 						>
 							{index == processes.length - 1 ? <div className=""></div> : ""}
 							<div
-								ref={index === processes.length - 1 ? sectionRef : null}
 								className={`${
 									index === processes.length - 1
-										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section  ${
-												isInView ? "bg-black text-white" : "bg-white text-black"
-										  }`
-										: "mt-[50px] md:mt-large border-grey border-dashed border-t border-1"
+										? `mt-[50px] pt-[400px] px-[10px] md:px-5 fade-in-section  `
+										: `mt-[50px] md:mt-large border-grey border-dashed border-t border-1 `
 								} flex flex-col `}
 							>
 								{index == processes.length - 1 ? (
@@ -187,9 +184,8 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 					))}
 					<div
 						className={`pt-large grid md:grid-cols-2 gap-x-[2px] text-xs—medium md:text-xs  px-5 md:px-0 md:pb-[44px] fade-in-section ${
-							isInView ? "bg-black text-white" : "bg-white text-black"
-						}
-            ${isWhite ? "" : "bg-black text-white"} `}
+							isWhite ? "bg-white text-black" : "bg-black text-white"
+						} `}
 					>
 						<p className="mb-5 md:px-5 font-medium ">Virtual Walkthroughs</p>
 						{walkthroughs.props.walkthroughs.map(
@@ -222,11 +218,10 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 						)}
 					</div>
 				</div>
-				<div></div>
 			</div>
 			<div
-				ref={backgroundRef}
 				className="ml-auto md:w-1/2 grid grid-cols-2 gap-[10px] md:gap-[15px] text-xxs p-5  items-end "
+				ref={backgroundRef}
 			>
 				<p className="text-sm-xl md:text-xl w-full col-span-2 mb-48 md:mt-[20vh]">
 					Get In Touch

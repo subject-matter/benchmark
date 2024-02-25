@@ -15,7 +15,9 @@ body {
   @apply bg-[#F5F5F5] flex items-center rounded-[5px] px-[10px] h-[25px] md:h-[30px] text-sm-xxs md:text-xxs w-fit
 }
 
-
+p {
+  margin-bottom: 20px;
+}
 
 .selected-projects-image-blur {
   background: rgba(255, 255, 255, 0.2);

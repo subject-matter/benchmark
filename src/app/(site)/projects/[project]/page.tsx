@@ -2,7 +2,6 @@
 
 import AdjacentProjects from "@/app/(site)/components/adjacent_projects";
 import {
-	getAllProjects,
 	getProject,
 } from "../../../../../sanity/sanity-utils";
 import LenisScroll from "../../components/lenis-provider";
