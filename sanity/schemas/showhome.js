@@ -82,5 +82,10 @@ export const showhome = {
 			type: "array",
 			of: [{ type: "openTimes" }],
 		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
+		},
 	],
 };

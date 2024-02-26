@@ -27,11 +27,5 @@ export const seo = {
 					"Longer descriptions may be truncated by search engines"
 				),
 		},
-		{
-			title: "Share Graphic",
-			name: "shareGraphic",
-			type: "image",
-			description: "Share graphics will be cropped to 1200x630",
-		},
 	],
 };

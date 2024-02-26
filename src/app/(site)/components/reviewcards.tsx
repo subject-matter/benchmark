@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Star from './ui/star';
 import { getReviews } from '../../../../sanity/sanity-utils';
-import { Review } from '../../../../types/reviews';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
-import { review } from '../../../../sanity/schemas/review';
+
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 

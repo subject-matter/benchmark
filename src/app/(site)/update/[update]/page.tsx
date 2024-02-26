@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getUpdate } from "../../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import AdjacentUpdates from "../../components/adjacent-updates";
+import Head from "next/head";
 
 type Props = {
 	params: { update: string; body: any };
@@ -19,6 +20,14 @@ export default async function Update({ params }: Props) {
 
 	return (
 		<section className={`col-span-12 overflow-x-clip pb-medium`}>
+			<Head>
+				<meta property="og:title" content={update.metatitle} key="title" />
+				<meta
+					property="og:description"
+					content={update.metaDesc}
+					key="description"
+				/>
+			</Head>
 			<div className="grid grid-cols-2 min-h-screen relative">
 				<div className="bg-black md:sticky top-0 h-screen overflow-hidden col-span-2 md:col-span-1 hidden md:block">
 					<Image
@@ -31,7 +40,7 @@ export default async function Update({ params }: Props) {
 					/>
 				</div>
 
-				<div className="col-span-2 md:col-span-1">
+				<div className="col-span-2 md:col-span-1 update">
 					<div className="relative md:min-h-screen mx-[10px] md:mx-5">
 						<h4 className="text-xs-medium mt-5">Updates</h4>
 						<h1 className="text-sm-lg md:text-lg md:w-2/3 mt-20 md:mt-[300px] mb-20 md:mb-large">

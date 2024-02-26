@@ -13,10 +13,38 @@ export const about_info = {
 			title: "Over the Years",
 			type: "text",
 		},
+
+		{
+			name: "accordions",
+			title: "Accordions",
+			type: "array",
+			of: [
+				{
+					type: "reference",
+					to: [{ "type": "about_accordion" }],
+				},
+			],
+		},
 		{
 			name: "team_description",
 			title: "Our Team Description",
 			type: "text",
+		},
+		{
+			name: "teamMembers",
+			title: "Team Members",
+			type: "array",
+			of: [
+				{
+					type: "reference",
+					to: [{ "type": "staff_member" }],
+				},
+			],
+		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
 		},
 	],
 	preview: {

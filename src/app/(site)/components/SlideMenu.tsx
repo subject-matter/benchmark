@@ -36,7 +36,7 @@ export default function SlideMenu() {
 			id="menu"
 		>
 			<button
-				className="flex items-center fixed top-2 right-[10px] md:right-5 text-xxs bg-white bg-opacity-20 backdrop-blur-lg  p-[10px] rounded-[5px] z-10 text-white transition duration-500 hover:bg-opacity-50"
+				className="flex items-center fixed top-2 right-[10px] md:right-5 text-xxs bg-white bg-opacity-20 backdrop-blur-lg h-[30px] md:h-[35px] px-[10px] rounded-[5px] z-10 text-white transition duration-500 hover:bg-opacity-50"
 				id={"closeMenuButton"}
 			>
 				Close{" "}

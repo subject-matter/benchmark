@@ -32,7 +32,15 @@ export const post = {
 				{
 					type: "block",
 				},
+				{
+					type: "image",
+				},
 			],
+		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
 		},
 	],
 	preview: {

@@ -1,12 +1,14 @@
 export const selectedProjectsSections = {
 	name: "selected-projects",
-	title: "Selected Projects Sections",
+	title: "Selected Projects",
 	type: "document",
 	fields: [
 		{
 			name: "mainImageCol",
 			title: "Main Image Column",
 			type: "string",
+			description:
+				"Choose which column you would like the larger image to sit in",
 			options: {
 				list: ["First", "Third"],
 			},
@@ -25,7 +27,7 @@ export const selectedProjectsSections = {
 		},
 
 		{
-			title: "First Project",
+			title: "Second Project",
 			name: "firstProject",
 			type: "reference",
 			to: [{ type: "page" }],
@@ -36,7 +38,7 @@ export const selectedProjectsSections = {
 			type: "image",
 		},
 		{
-			title: "Second Project",
+			title: "Third Project",
 			name: "secondProject",
 			type: "reference",
 			to: [{ type: "page" }],
@@ -46,7 +48,13 @@ export const selectedProjectsSections = {
 			title: "Image 2",
 			type: "image",
 		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
+		},
 	],
+
 	preview: {
 		select: {
 			description: "description", // Use the actual field name for the title

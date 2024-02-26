@@ -9,9 +9,9 @@ function AboutTeam({ info }: any) {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const fetchedTeam = await getStaff();
-        setTeam(fetchedTeam);
-      } catch (error) {
+				const fetchedTeam = await getStaff();
+				setTeam(fetchedTeam);
+			} catch (error) {
         throw error;
       }
     };

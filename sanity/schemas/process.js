@@ -1,6 +1,6 @@
 export const process = {
 	name: "process",
-	title: "Processes",
+	title: "Our Process",
 	type: "document",
 	fields: [
 		{
@@ -22,6 +22,11 @@ export const process = {
 			name: "order",
 			title: "Order",
 			type: "number",
+		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
 		},
 	],
 };

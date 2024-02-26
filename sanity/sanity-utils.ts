@@ -13,7 +13,14 @@ export async function getHomepage() {
         title,
         description,
         "image":mainImage.asset->url,
-        "alt": mainImage.alt
+        "alt": mainImage.alt,
+		"reviews": reviews[]->{
+    "review": review,
+    "reviewer": reviewer
+  },
+		"metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc,
+	
     }`
 	);
 }
@@ -21,10 +28,10 @@ export async function getHomepage() {
 export async function getAccordions() {
 	return client.fetch(
 		groq`
-		*[_type == "about_accordion"]{
-			title,
-    		description
-		}
+		*[_type == "homepage"].Accordions[]->{
+title,
+    description
+  }
 		`
 	);
 }
@@ -57,6 +64,8 @@ export async function getSelectedProjects() {
       "imageTwo": image2.asset->url,
   "imageTwoSlug": secondProject->slug.current,
   mainImageCol,
+  "metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
     
 }`
 	);
@@ -71,8 +80,7 @@ export async function getAllProjects() {
 			  "landscape": landscape_hero.asset->url,
 		  }`
 	);
-		}
-
+}
 
 export async function getAllUpcomingProjects() {
 	const upcomingProjects = await client.fetch(
@@ -154,7 +162,8 @@ export async function getShowhome(slug: string) {
 
         },
 		
-  
+		"metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
 }`,
 		{ slug }
 	);
@@ -197,19 +206,19 @@ export async function getAboutPageInfo() {
 
 export async function getReviews() {
 	return client.fetch(
-		groq`*[_type == 'reviews']{
-			review,
-			  reviewer
-		  }`
+		groq`*[_type == "homepage"].reviews[]->{
+			"review": review,
+			"reviewer": reviewer
+		  
+		}`
 	);
 }
 
 export async function getStaff() {
 	return client.fetch(
-		groq`*[_type == "staff_member"]{
-			..., 
-			name, 
-			role, 
+		groq`*[_type == "about_info"][0].teamMembers[]->{
+			name,
+			role,
 			"image": image.asset->url
 		  }`
 	);
@@ -264,6 +273,8 @@ export async function getProjectPage() {
       }
 
         }
+		"metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
   
 }`
 	);
@@ -316,7 +327,9 @@ export async function getProject(slug: string) {
 			  "landscapeImageAlt": LandscapeImage.alt,
 			  layout
 			}
-		  }
+		  },
+		  "metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
 		}
 	  `,
 		{ slug } // Pass the slug as a parameter
@@ -330,6 +343,8 @@ export async function getUpdates() {
   title,
   "slug": slug.current,
   "image": image.asset->url,
+  "metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
 
   }
 		`
@@ -344,7 +359,9 @@ export async function getUpdate(slug: string) {
   "slug": slug.current,
   "image": image.asset->url,
   subtitle,
-  body
+  body,
+  "metatitle": seo.metaTitle,
+  	"metaDesc": seo.metaDesc
 }
   		`,
 		{ slug }

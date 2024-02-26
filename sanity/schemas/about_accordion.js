@@ -16,8 +16,8 @@ export const about_accordion = {
 	],
 	preview: {
 		select: {
-			title: "title", 
-			subtitle: "description", 
+			title: "title",
+			subtitle: "description",
 		},
 	},
 };

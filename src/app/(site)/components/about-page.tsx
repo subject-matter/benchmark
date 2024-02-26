@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg';
 import CountUp from 'react-countup';
 import CountScrollTrigger from 'react-scroll-trigger';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AboutAccordions from './about-accordions';
 import AboutTeam from './about-team';
 import gsap from 'gsap';

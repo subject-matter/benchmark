@@ -31,6 +31,7 @@ export const homepage = {
 		{
 			name: "projectSlider",
 			title: "Project Slider",
+			description: "Projects that will feature on the slider",
 			type: "array",
 			of: [
 				{
@@ -39,13 +40,40 @@ export const homepage = {
 				},
 			],
 		},
+		{
+			name: "Accordions",
+			title: "Accordions",
+			type: "array",
+			of: [
+				{
+					type: "reference",
+					to: [{ "type": "about_accordion" }],
+				},
+			],
+		},
+		{
+			name: "reviews",
+			title: "Reviews",
+			type: "array",
+			of: [
+				{
+					type: "reference",
+					to: [{ "type": "reviews" }],
+				},
+			],
+		},
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
+		},
 	],
 	preview: {
 		select: {
 			description: "description", // Use the actual field name for the title
 		},
 		prepare: ({ description }) => ({
-			title: "Homepage Info",
+			title: "Home",
 		}),
 	},
 };

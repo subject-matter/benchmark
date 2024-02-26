@@ -62,5 +62,10 @@ export const pageType = defineType({
 				}),
 			],
 		}),
+		{
+			title: "SEO / Share Settings",
+			name: "seo",
+			type: "seo",
+		},
 	],
 });

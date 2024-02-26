@@ -5,42 +5,50 @@ import LatestProjects from "./components/latestProjects";
 import SmoothScrolling from "./components/SmoothScrolling";
 import { getHomepage } from "../../../sanity/sanity-utils";
 import { Homepage } from "../types/homepage";
+import Head from 'next/head';
 
 export default async function Home() {
-	const homepage: Homepage[] = await getHomepage();
-	return (
-		<>
-			<SmoothScrolling>
-				<Container>
-					<h1 className="font-medium text-sm-3xl lg:text-2xl xl:text-3xl col-span-12 md:col-span-11 m-translate-x-[10px] md:-translate-x-5 mb-large mt-24 md:mt-3  ">
-						Benchmark <br />
-						Homes
-					</h1>
+  const homepage: Homepage[] = await getHomepage();
+  return (
+    <>
+      <Head>
+        <meta property="og:title" content={homepage[0].metatitle} key="title" />
+        <meta
+          property="og:description"
+          content={homepage[0].metaDesc}
+          key="description"
+        />
+      </Head>
 
-					<p className="col-span-6 md:col-span-2  font-medium text-sm mb-3 md:mb-0">
-						{homepage[0].title}
-					</p>
-					<div className="col-start-1 col-span-12 md:col-start-7 md:col-span-6">
-						<Image
-							className="aspect-[3/2] object-cover"
-							src={homepage[0].image}
-							alt={homepage[0].alt}
-							width={1200}
-							height={600}
-						/>
-					</div>
+      <SmoothScrolling>
+        <Container>
+          <h1 className="m-translate-x-[10px] col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-3 md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
+            Benchmark <br />
+            Homes
+          </h1>
 
-					<p className="font-medium text-sm md:text-lg col-span-12 my-medium">
-						{homepage[0].description}
-					</p>
+          <p className="col-span-6 mb-3  text-sm font-medium md:col-span-2 md:mb-0">
+            {homepage[0].title}
+          </p>
+          <div className="col-span-12 col-start-1 md:col-span-6 md:col-start-7">
+            <Image
+              className="aspect-[3/2] object-cover"
+              src={homepage[0].image}
+              alt={homepage[0].alt}
+              width={1200}
+              height={600}
+            />
+          </div>
+          <p className="col-span-12 my-medium text-sm font-medium md:text-lg">
+            {homepage[0].description}
+          </p>
+          <p></p>
+        </Container>
 
-					<p></p>
-				</Container>
+        <LatestProjects />
 
-				<LatestProjects />
-
-				<AboutSection />
-			</SmoothScrolling>
-		</>
-	);
+        <AboutSection />
+      </SmoothScrolling>
+    </>
+  );
 }
