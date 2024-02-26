@@ -4,10 +4,9 @@
 
 import {visionTool} from '@sanity/vision'
 import { defineConfig } from "sanity";
-import { googleMapsInput } from "@sanity/google-maps-input";
-import { presentationTool } from "sanity/presentation";
+import { googleMapsInput } from '@sanity/google-maps-input';
 import { structureTool } from "sanity/structure";
-import { structure } from "./structure";
+
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
