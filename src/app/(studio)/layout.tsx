@@ -1,5 +1,4 @@
-import { draftMode } from "next/headers";
-import LiveVisualEditing from "./components/LiveVisualEditing";
+
 
 export const metadata = {
 	title: "Benchmark Homes – Sanity",
