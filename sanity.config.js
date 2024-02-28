@@ -8,6 +8,7 @@ import { googleMapsInput } from '@sanity/google-maps-input';
 import { structureTool } from "sanity/structure";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
+import {media} from 'sanity-plugin-media'
 
 export default defineConfig({
 	basePath: "/studio",
@@ -20,5 +21,6 @@ export default defineConfig({
 		googleMapsInput({
 			apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
 		}),
+		media(),
 	],
 });
