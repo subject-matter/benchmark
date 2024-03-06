@@ -11,6 +11,8 @@ import { schema } from "./sanity/schema";
 import {media} from 'sanity-plugin-media'
 import { myStructure } from './deskStructure';
 import Logo from './src/app/(studio)/components/logo';
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
+
 
 export default defineConfig({
   basePath: '/studio',
@@ -26,5 +28,6 @@ export default defineConfig({
       apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
     }),
     media(),
+    vercelDeployTool(),
   ],
 });

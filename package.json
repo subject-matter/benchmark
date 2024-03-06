@@ -47,6 +47,7 @@
     "react-scroll-trigger": "^0.6.14",
     "sanity": "^3.30.1",
     "sanity-plugin-media": "^2.2.5",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
     "server-only": "^0.0.1",
     "styled-components": "5.2",
     "suspend-react": "^0.1.3",
