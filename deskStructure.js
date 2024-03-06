@@ -27,4 +27,7 @@ export const myStructure = (S) =>
         ].includes(listItem.getId())
       ),
       S.divider(),
+      ...S.documentTypeListItems().filter((listItem) =>
+        ['page'].includes(listItem.getId())
+      ),
     ]);
