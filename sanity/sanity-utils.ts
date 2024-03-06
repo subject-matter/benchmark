@@ -9,7 +9,7 @@ const client = createClient({
 });
 export async function getHomepage() {
 	return client.fetch(
-		groq`*[_type == "homepage"]{
+    groq`*[_type == "homepage"]{
         title,
         description,
         "image":mainImage.asset->url,
@@ -22,7 +22,7 @@ export async function getHomepage() {
   	"metaDesc": seo.metaDesc,
 	
     }`
-	);
+  );
 }
 
 export async function getAccordions() {
