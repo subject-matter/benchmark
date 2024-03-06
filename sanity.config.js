@@ -9,18 +9,22 @@ import { structureTool } from "sanity/structure";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import {media} from 'sanity-plugin-media'
+import { myStructure } from './deskStructure';
+import Logo from './src/app/(studio)/components/logo';
 
 export default defineConfig({
-	basePath: "/studio",
-	projectId,
-	dataset,
-	schema,
-	plugins: [
-		structureTool(),
-		visionTool({ defaultApiVersion: apiVersion }),
-		googleMapsInput({
-			apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
-		}),
-		media(),
-	],
+  basePath: '/studio',
+  projectId,
+  dataset,
+  schema,
+  plugins: [
+    structureTool({
+      structure: myStructure,
+    }),
+    visionTool({ defaultApiVersion: apiVersion }),
+    googleMapsInput({
+      apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+    }),
+    media(),
+  ],
 });
