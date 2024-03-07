@@ -1,15 +1,20 @@
-import { createClient } from 'next-sanity'
+// ./sanity/lib/client.ts
 
-import { apiVersion, dataset, projectId, useCdn } from '../env'
+import { createClient } from "@sanity/client";
 
-export const client = createClient({
-	apiVersion,
-	dataset,
-	projectId,
-	useCdn,
-	perspective: "published",
-	stega: {
-		enabled: false,
-		studioUrl: "/studio",
-	},
-});
+import { apiVersion, dataset, projectId, useCdn } from "../env";
+
+export const client = createClient({ 
+  apiVersion,
+  dataset,
+  projectId,
+  useCdn,
+  // These settings will be overridden in 
+  // ./sanity/lib/store.ts when draftMode is enabled
+  perspective: "published",
+  stega: {
+    enabled: false,
+    studioUrl: "/studio",
+  },
+ 
+}); 
