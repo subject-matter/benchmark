@@ -23,6 +23,7 @@ export async function getHomepage() {
 	
     }`
   );
+  revalidate: 10;
 }
 
 export async function getAccordions() {
