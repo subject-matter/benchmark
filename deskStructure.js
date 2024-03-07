@@ -1,4 +1,8 @@
-export const myStructure = (S) =>
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
+import { HomeIcon } from '@sanity/icons';
+import { FolderIcon } from '@sanity/icons';
+
+export const myStructure = (S, context) =>
   S.list()
     .title('Content')
     .items([
@@ -17,14 +21,17 @@ export const myStructure = (S) =>
             .schemaType('about_info')
             .documentId('cccc9700-b126-41bc-826c-a0fddb77eb06')
         ),
+      orderableDocumentListDeskItem({
+        type: 'selected-projects',
+        title: 'Selected Projects',
+        S,
+        context,
+        icon: FolderIcon,
+      }),
       ...S.documentTypeListItems().filter((listItem) =>
-        [
-          'selected-projects',
-          'showhome',
-          'upcoming_project',
-          'process',
-          'post',
-        ].includes(listItem.getId())
+        ['showhome', 'upcoming_project', 'process', 'post'].includes(
+          listItem.getId()
+        )
       ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) =>

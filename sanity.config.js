@@ -10,7 +10,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import {media} from 'sanity-plugin-media'
 import { myStructure } from './deskStructure';
-import Logo from './src/app/(studio)/components/logo';
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
 
 

@@ -53,8 +53,8 @@ export async function getHouses() {
 
 export async function getSelectedProjects() {
 	return client.fetch(
-		groq`
-		*[_type == "selected-projects"]{
+    groq`
+		*[_type == "selected-projects"] | order(orderRank){
 "mainProjectTitle": mainProject->title,
   "imageOneTitle": firstProject->title,
   "imageTwoTitle": secondProject->title,
@@ -66,10 +66,10 @@ export async function getSelectedProjects() {
   "imageTwoSlug": secondProject->slug.current,
   mainImageCol,
   "metatitle": seo.metaTitle,
-  	"metaDesc": seo.metaDesc
-    
+  	"metaDesc": seo.metaDesc 
+	 
 }`
-	);
+  );
 }
 
 export async function getAllProjects() {
