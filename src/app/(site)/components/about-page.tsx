@@ -9,6 +9,7 @@ import AboutAccordions from './about-accordions';
 import AboutTeam from './about-team';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getGroup } from '../../../../sanity/sanity-utils';
 
 function AboutSection({ info }: any) {
 	const [countersOn, setCountersOn] = useState([false, false, false]);
@@ -79,140 +80,155 @@ function AboutSection({ info }: any) {
 		});
 	};
 
+	const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const fetchedTeam = await getGroup();
+        setTeam(fetchedTeam);
+      } catch (error) {
+        throw error;
+      }
+    };
+
+    fetchTeam();
+  }, []);
+
 	return (
-		<section className={`col-span-12 overflow-x-clip`}>
-			<div className="grid grid-cols-2 min-h-screen relative">
-				<div className="bg-black md:sticky top-0 h-screen overflow-hidden col-span-2 md:col-span-1 hidden md:block">
-					<Image
-						className="object-cover h-screen"
-						src={Photo}
-						alt="Richard and Sam"
-						width={2000}
-						height={2000}
-						priority
-					/>
-				</div>
-				<div className="col-span-2 md:col-span-1">
-					<div className="bg-white  md:min-h-screen mx-[10px] md:mx-5">
-						<h1 className="font-medium text-sm-xl md:text-xl col-span-11 mb-medium md:col-span-1 mt-16 md:mt-0">
-							About Us
-						</h1>
-						<div className="text-xs-medium md:text-base mb-5 md:mb-[50vh]">
-							{info.description}
-						</div>
+    <section className={`col-span-12 overflow-x-clip`}>
+      <div className="relative grid min-h-screen grid-cols-2">
+        <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
+          <Image
+            className="h-screen object-cover"
+            src={team[0].team}
+            alt={team[0].teamAlt}
+            width={2000}
+            height={2000}
+            priority
+          />
+        </div>
+        <div className="col-span-2 md:col-span-1">
+          <div className="mx-[10px]  bg-white md:mx-5 md:min-h-screen">
+            <h1 className="col-span-11 mb-medium mt-16 text-sm-xl font-medium md:col-span-1 md:mt-0 md:text-xl">
+              About Us
+            </h1>
+            <div className="mb-5 text-xs-medium md:mb-[50vh] md:text-base">
+              {info.description}
+            </div>
 
-						<Image
-							src={Photo}
-							alt="Richard and Sam"
-							width={2000}
-							height={1000}
-							priority
-							className="block md:hidden mb-20 md:mb-32"
-						/>
+            <Image
+              src={Photo}
+              alt="Richard and Sam"
+              width={2000}
+              height={1000}
+              priority
+              className="mb-20 block md:mb-32 md:hidden"
+            />
 
-						<div className="text-xxs font-medium md:text-xs-medium my-3 md:my-7 pt-6 ">
-							Over the Years
-						</div>
-						<div className="text-xxs md:text-xs mb-[48px]  whitespace-pre-line">
-							{info.over_the_years}
-						</div>
-						<div className="text-xxs md:text-xs flex justify-between mb-medium md:mb-large">
-							<div className="me-5 md:me-0 font-medium">Magazine</div>
-							<div>
-								<p>
-									Want to learn more about us? Check out our magazine{" "}
-									<span>
-										{" "}
-										<a target="_blank" href="/">
-											here
-										</a>
-									</span>
-									<span>
-										<a target="_blank" href="/"></a>
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
+            <div className="my-3 pt-6 text-xxs font-medium md:my-7 md:text-xs-medium ">
+              Over the Years
+            </div>
+            <div className="mb-[48px] whitespace-pre-line text-xxs  md:text-xs">
+              {info.over_the_years}
+            </div>
+            <div className="mb-medium flex justify-between text-xxs md:mb-large md:text-xs">
+              <div className="me-5 font-medium md:me-0">Magazine</div>
+              <div>
+                <p>
+                  Want to learn more about us? Check out our magazine{' '}
+                  <span>
+                    {' '}
+                    <a target="_blank" href="/">
+                      here
+                    </a>
+                  </span>
+                  <span>
+                    <a target="_blank" href="/"></a>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
 
-					<div className="group">
-						<div className="numbers pb-8 bg-white z-[2] border-t  border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2  md:col-span-1">
-							<h4 className="pt-3 text-xs-medium">Years of Experience</h4>
-							<CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
-								{countersOn[0] ? (
-									<CountUp
-										start={0}
-										end={25}
-										duration={1}
-										suffix="+"
-										className="font-medium text-sm-2xl md:text-2xl "
-									/>
-								) : (
-									<p className="font-medium text-sm-2xl md:text-2xl ">25</p>
-								)}
-							</CountScrollTrigger>
-						</div>
+          <div className="group">
+            <div className="numbers z-[2] col-span-2 mx-[10px] border-t  border-dotted border-grey bg-white  pb-8 pt-3 md:col-span-1  md:mx-5">
+              <h4 className="pt-3 text-xs-medium">Years of Experience</h4>
+              <CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
+                {countersOn[0] ? (
+                  <CountUp
+                    start={0}
+                    end={25}
+                    duration={1}
+                    suffix="+"
+                    className="text-sm-2xl font-medium md:text-2xl "
+                  />
+                ) : (
+                  <p className="text-sm-2xl font-medium md:text-2xl ">25</p>
+                )}
+              </CountScrollTrigger>
+            </div>
 
-						<div className="awards pb-8  z-[3] relative bg-white border-t border-dotted border-grey pt-3  mx-[10px] md:mx-5 col-span-2 md:col-span-1 ">
-							<h4 className="pt-3 text-xs-medium">Master Builders Awards</h4>
+            <div className="awards relative  z-[3] col-span-2 mx-[10px] border-t border-dotted border-grey bg-white  pb-8 pt-3 md:col-span-1 md:mx-5 ">
+              <h4 className="pt-3 text-xs-medium">Master Builders Awards</h4>
 
-							<CountScrollTrigger onEnter={() => handleEnterViewport(1)}>
-								{countersOn[1] ? (
-									<CountUp
-										start={0}
-										end={200}
-										duration={0.75}
-										suffix="+"
-										className="font-medium text-sm-2xl md:text-2xl mb-24"
-									/>
-								) : (
-									<p className="font-medium text-sm-2xl md:text-2xl ">20</p>
-								)}
-							</CountScrollTrigger>
-						</div>
-					</div>
+              <CountScrollTrigger onEnter={() => handleEnterViewport(1)}>
+                {countersOn[1] ? (
+                  <CountUp
+                    start={0}
+                    end={200}
+                    duration={0.75}
+                    suffix="+"
+                    className="mb-24 text-sm-2xl font-medium md:text-2xl"
+                  />
+                ) : (
+                  <p className="text-sm-2xl font-medium md:text-2xl ">20</p>
+                )}
+              </CountScrollTrigger>
+            </div>
+          </div>
 
-					<div
-						className={`relative houses z-[5] border-t border-dotted border-grey pt-3 pb-24  mx-[10px] md:mx-5 fade-in-section bg-white`}
-					>
-						<h4 className="pt-3 text-xs-medium">Houses Built</h4>
+          <div
+            className={`houses fade-in-section relative z-[5] mx-[10px] border-t border-dotted border-grey  bg-white pb-24 pt-3 md:mx-5`}
+          >
+            <h4 className="pt-3 text-xs-medium">Houses Built</h4>
 
-						<CountScrollTrigger onEnter={() => handleEnterViewport(2)}>
-							{countersOn[2] ? (
-								<CountUp
-									start={0}
-									end={1500}
-									duration={0.5}
-									separator=""
-									suffix="+"
-									className="font-medium text-sm-2xl md:text-2xl mb-24"
-								/>
-							) : (
-								<p className="font-medium text-sm-2xl md:text-2xl mb-24">
-									1500
-								</p>
-							)}
-						</CountScrollTrigger>
-						<div
-							className={`sticky top-0  py-32 md:mb-0 px-[10px] md:px-0 fade-in-section bg-white `}
-						>
-							<AboutAccordions />
-						</div>
-					</div>
+            <CountScrollTrigger onEnter={() => handleEnterViewport(2)}>
+              {countersOn[2] ? (
+                <CountUp
+                  start={0}
+                  end={1500}
+                  duration={0.5}
+                  separator=""
+                  suffix="+"
+                  className="mb-24 text-sm-2xl font-medium md:text-2xl"
+                />
+              ) : (
+                <p className="mb-24 text-sm-2xl font-medium md:text-2xl">
+                  1500
+                </p>
+              )}
+            </CountScrollTrigger>
+            <div
+              className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 md:mb-0 md:px-0 `}
+            >
+              <AboutAccordions />
+            </div>
+          </div>
 
-					<div ref={sectionRef}>
-						<div
-							className={`z-[7] md:h-min-screen pt-[50px] fade-in-section ${
-								isWhite ? "bg-black text-white" : "bg-white text-black"
-							}`}
-						>
-							<AboutTeam info={info} />
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+          <div ref={sectionRef}>
+            <div
+              className={`md:h-min-screen fade-in-section z-[7] pt-[50px] ${
+                isWhite ? 'bg-black text-white' : 'bg-white text-black'
+              }`}
+            >
+              <AboutTeam info={info} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default AboutSection;

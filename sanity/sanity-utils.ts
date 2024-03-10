@@ -1,19 +1,24 @@
 import { createClient, groq } from "next-sanity";
+import isPreviewMode from './lib/isPreviewMode';
 
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2023-10-19',
-  useCdn: true,
+  useCdn: isPreviewMode ? false : true,
+  perspective: isPreviewMode ? 'previewDrafts' : published,
+  token: isPreviewMode ? PUBLIC_SANITY_AUTH_TOKEN : undefined,
+  ignoreBrowserTokenWarning: isPreviewMode ? true : false,
 });
 export async function getHomepage() {
-	return client.fetch(
+  return client.fetch(
     groq`*[_type == "homepage"]{
         title,
         description,
         "image":mainImage.asset->url,
         "alt": mainImage.alt,
+		
 		"reviews": reviews[]->{
     "review": review,
     "reviewer": reviewer
@@ -23,7 +28,16 @@ export async function getHomepage() {
 	
     }`
   );
-  revalidate: 10;
+}
+
+export async function getGroup() {
+  return client.fetch(
+    groq`
+		*[_type == "homepage"]{
+			"team": teamImage.asset->url,
+			"teamAlt": teamImage.alt,
+		}`
+  );
 }
 
 export async function getAccordions() {
