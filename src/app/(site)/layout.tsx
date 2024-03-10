@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import SlideMenu from "./components/SlideMenu";
-import { motion } from 'framer-motion';
+
 
 const moderat = localFont({
   src: [
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   description: 'Design and build architecture',
 };
 
+export const revalidate = 10; 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${moderat.variable} font-sans`}>
