@@ -1,15 +1,11 @@
 import { createClient, groq } from "next-sanity";
-import isPreviewMode from './lib/isPreviewMode';
 
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2023-10-19',
-  useCdn: isPreviewMode ? false : true,
-  perspective: isPreviewMode ? 'previewDrafts' : published,
-  token: isPreviewMode ? PUBLIC_SANITY_AUTH_TOKEN : undefined,
-  ignoreBrowserTokenWarning: isPreviewMode ? true : false,
+  useCdn: true,
 });
 export async function getHomepage() {
   return client.fetch(
