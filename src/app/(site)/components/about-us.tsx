@@ -25,6 +25,8 @@ function AboutSection() {
     });
   };
 
+
+
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -199,8 +201,8 @@ function AboutSection() {
           <div className="top-0 z-[6] bg-black md:sticky">
             <Image
               className="h-screen object-cover"
-              src={team[0].team}
-              alt={team[0].teamAlt}
+              src={`team[0].team`}
+              alt={`team[0].teamAlt`}
               width={2000}
               height={2000}
             />
