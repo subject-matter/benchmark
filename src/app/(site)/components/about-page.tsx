@@ -101,8 +101,8 @@ function AboutSection({ info }: any) {
         <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
           <Image
             className="h-screen object-cover"
-            src={team[0].team}
-            alt={team[0].teamAlt}
+            src={`team[0].team`}
+            alt={`team[0].teamAlt`}
             width={2000}
             height={2000}
             priority
