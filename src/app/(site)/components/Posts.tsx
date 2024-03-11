@@ -7,9 +7,9 @@ export default function Posts({ posts }: { posts: SanityDocument[] }) {
   return (
     <main className="container mx-auto grid grid-cols-1 divide-y divide-blue-100">
     {posts?.length > 0 ? (
-        posts.map((post) => (
+        posts.map((post , index) => (
           
-            <h2 className="p-4 hover:bg-blue-50">{post.title}</h2>
+            <h2  key={index} className="p-4 hover:bg-blue-50">{post.title}</h2>
      
          
         ))

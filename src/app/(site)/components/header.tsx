@@ -7,12 +7,17 @@ import { usePathname } from "next/navigation";
 
 import { Plus } from "lucide-react";
 
+
 export default function Header() {
-	
+	const [isOurProcessPage, setIsOurProcessPage] = useState(Boolean);
 	const pathname = usePathname();
 	// @ts-ignore
-	const isOurProcessPage =
-		pathname === "/our-process" && window.innerWidth <= 767;
+	
+	useEffect(()=> {
+		const isOurProcessPage =
+		pathname === "/our-process" && window?.innerWidth <= 767;
+		setIsOurProcessPage(isOurProcessPage)
+	}, [])
 
 	useEffect(() => {
 		const openMenu = () => {
