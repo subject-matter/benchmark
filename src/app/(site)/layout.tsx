@@ -58,9 +58,9 @@ export default function RootLayout({
 				<SlideMenu />
 
 				<div className="bg-white main-content z-[2] relative shadow-md mb-5">
+					{children}
 					{draftMode().isEnabled && <LiveVisualEditing />}
 					
-					{children}
 				</div>
 				<Footer />
 			</body>
