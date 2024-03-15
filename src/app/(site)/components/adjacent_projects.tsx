@@ -36,7 +36,7 @@ export default async function AdjacentProjects() {
       <div className="col-span-6 mt-[10px] flex flex-col md:col-span-3">
         <div className="mb-9 flex w-full justify-between text-xxs md:text-xs">
           <div>Previous Project</div>
-          <div>{prevProject.title}</div>
+          <div>{prevProject.title ? prevProject.title : ''}</div>
         </div>
         <Image
           className="mb-5 w-full"
@@ -72,7 +72,7 @@ export default async function AdjacentProjects() {
       <div className="col-span-6 col-start-7 mt-[10px]  flex flex-col md:col-span-3 md:col-start-10">
         <div className="mb-9 flex w-full justify-between text-xxs md:text-xs">
           <div>Next Project</div>
-          <div>{nextProject.title}</div>
+          <div>{nextProject.title ? nextProject.title : ''}</div>
         </div>
         <Image
           className="mb-5 w-full"

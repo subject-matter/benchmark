@@ -26,6 +26,15 @@ export async function getHomepage() {
   );
 }
 
+export async function getContact() {
+  return client.fetch(
+    groq`
+		*[_type == "contact"]{
+		"image": contactImage.asset->url
+}`
+  );
+}
+
 export async function getGroup() {
   return client.fetch(
     groq`
@@ -37,28 +46,33 @@ export async function getGroup() {
 }
 
 export async function getAccordions() {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "homepage"].Accordions[]->{
 title,
     description
   }
 		`
-	);
+  );
 }
 
 export async function getHouses() {
-	return client.fetch(
-		groq`*[_type == "homepage"]{
-				"projectSlider": projectSlider[]->{
-				  title,
-				  "image": landscape_hero.asset->url,
-				  features,
-				  "slug": slug.current
-				}
-			  }
+  return client.fetch(
+    groq`*[_type == "homepage"] {
+		"projectSlider": projectSlider[]->{
+		  title,
+		  features,
+		  "slug": slug.current,
+		  pageBuilder[]{
+			_type == "fullLandscape" => {
+			  "image": image.asset->url  
+			}
+		  }
+		}
+	  }
+	  
 			  `
-	);
+  );
 }
 
 export async function getSelectedProjects() {

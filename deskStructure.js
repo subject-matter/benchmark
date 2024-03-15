@@ -33,6 +33,13 @@ export const myStructure = (S, context) =>
           listItem.getId()
         )
       ),
+      S.listItem()
+        .title('Contact')
+        .child(
+          S.document()
+            .schemaType('contact')
+            .documentId('367d8af0-66c1-4b99-9771-9d05cec99383')
+        ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) =>
         ['page'].includes(listItem.getId())

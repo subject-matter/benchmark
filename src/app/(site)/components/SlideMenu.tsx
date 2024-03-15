@@ -6,22 +6,20 @@ import SocialIcons from "./social-icons";
 
 export default function SlideMenu() {
 	const closeMenu = () => {
-		const menu = document.getElementById("menu");
-		const glass = document.getElementById("glass");
-		const body = document.body;
-		if (menu && glass) {
-			menu.classList.remove("open");
-			glass.style.opacity = "0";
+    const menu = document.getElementById('menu');
+    const glass = document.getElementById('glass');
+    const body = document.body;
+    if (menu && glass) {
+      menu.classList.remove('open');
+      glass.style.opacity = '0';
 
-			body.classList.remove("overflow-y-hidden");
+      body.classList.remove('overflow-y-hidden');
 
-			setTimeout(() => {
-				glass.style.visibility = "hidden";
-			}, 500);
-		}
-
-		console.log("Function ran");
-	};
+      setTimeout(() => {
+        glass.style.visibility = 'hidden';
+      }, 500);
+    }
+  };
 
 	useEffect(() => {
 		const button = document.getElementById("closeMenuButton");

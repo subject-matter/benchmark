@@ -18,28 +18,30 @@ import { smallPortraitType } from "./schemas/smallPortraitType";
 import { individualSmallImageType } from "./schemas/individualImage";
 import { seo } from "./schemas/seo";
 import { post } from "./schemas/post";
+import { contact } from './schemas/contact';
 
 export const schema = {
-	types: [
-		pageType,
-		fullLandscapeType,
-		bigPortraitType,
-		mediumLandscapeType,
-		smallPortraitType,
-		individualSmallImageType,
-		homepage,
-		selectedProjectsSections,
-		showhome,
-		upcomingProject,
-		openTimes,
-		process,
-		walkthrough,
-		about_info,
-		staff_member,
-		about_accordion,
-		review,
-		reviews,
-		seo,
-		post,
-	],
+  types: [
+    pageType,
+    fullLandscapeType,
+    bigPortraitType,
+    mediumLandscapeType,
+    smallPortraitType,
+    individualSmallImageType,
+    homepage,
+    selectedProjectsSections,
+    showhome,
+    upcomingProject,
+    openTimes,
+    process,
+    walkthrough,
+    about_info,
+    staff_member,
+    about_accordion,
+    review,
+    reviews,
+    seo,
+    post,
+    contact,
+  ],
 };

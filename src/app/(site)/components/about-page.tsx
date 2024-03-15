@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 'use client';
 
 import Image from 'next/image';
@@ -12,99 +14,99 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getGroup } from '../../../../sanity/sanity-utils';
 
 function AboutSection({ info }: any) {
-	const [countersOn, setCountersOn] = useState([false, false, false]);
-	const sectionRef = useRef(null);
-	const [isWhite, setIsWhite] = useState(false);
-
-	useEffect(() => {
-		let ctx = gsap.context(() => {
-			gsap.set(".awards", { y: "70vh" });
-			gsap.set(".houses", { y: "50vh" });
-
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: ".group",
-					pin: true,
-					start: "top-=100 top",
-					end: () => "+=" + window.innerHeight,
-					scrub: 1,
-				},
-			});
-
-			tl.to(".awards", { y: 0 }, "-=0.2");
-			tl.to(".houses", { y: 0 }, "-=0.2");
-
-			const sectionRefAnimation = gsap.to(sectionRef.current, {
-				backgroundColor: "#000000",
-				color: "#ffffff",
-				duration: 0.3,
-			});
-
-			ScrollTrigger.create({
-				trigger: sectionRef.current,
-				animation: sectionRefAnimation,
-				toggleActions: "play none none reverse",
-			});
-		});
-		return () => ctx.revert();
-	}, []);
-
-	useEffect(() => {
-		const bgObserver = new IntersectionObserver(
-			([entry]) => {
-				if (!isWhite && entry.isIntersecting) {
-					setIsWhite(true);
-				} else {
-					setIsWhite(false);
-				}
-			},
-			{ threshold: 0 }
-		);
-
-		if (sectionRef.current) {
-			bgObserver.observe(sectionRef.current);
-		}
-
-		return () => {
-			if (sectionRef.current) {
-				bgObserver.unobserve(sectionRef.current);
-			}
-		};
-	}, []);
-
-	const handleEnterViewport = (index: number) => {
-		setCountersOn((prev) => {
-			const newState = [...prev];
-			newState[index] = true;
-			return newState;
-		});
-	};
-
-	const [team, setTeam] = useState([]);
+  const [countersOn, setCountersOn] = useState([false, false, false]);
+  const sectionRef = useRef(null);
+  const [isWhite, setIsWhite] = useState(false);
 
   useEffect(() => {
-    const fetchTeam = async () => {
+    let ctx = gsap.context(() => {
+      gsap.set('.awards', { y: '70vh' });
+      gsap.set('.houses', { y: '50vh' });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.group',
+          pin: true,
+          start: 'top-=100 top',
+          end: () => '+=' + window.innerHeight,
+          scrub: 1,
+        },
+      });
+
+      tl.to('.awards', { y: 0 }, '-=0.2');
+      tl.to('.houses', { y: 0 }, '-=0.2');
+
+      const sectionRefAnimation = gsap.to(sectionRef.current, {
+        backgroundColor: '#000000',
+        color: '#ffffff',
+        duration: 0.3,
+      });
+
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        animation: sectionRefAnimation,
+        toggleActions: 'play none none reverse',
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const bgObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!isWhite && entry.isIntersecting) {
+          setIsWhite(true);
+        } else {
+          setIsWhite(false);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    if (sectionRef.current) {
+      bgObserver.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        bgObserver.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const handleEnterViewport = (index: number) => {
+    setCountersOn((prev) => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
+
+  const [staff, setStaff] = useState([]);
+
+  useEffect(() => {
+    const fetchStaff = async () => {
       try {
-        const fetchedTeam = await getGroup();
-        setTeam(fetchedTeam);
+        const fetchedStaff = await getGroup();
+        setStaff(fetchedStaff[0]);
       } catch (error) {
         throw error;
       }
     };
 
-    fetchTeam();
+    fetchStaff();
   }, []);
 
-	return (
+  return (
     <section className={`col-span-12 overflow-x-clip`}>
       <div className="relative grid min-h-screen grid-cols-2">
         <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
           <Image
             className="h-screen object-cover"
-            src={`team[0].team`}
-            alt={`team[0].teamAlt`}
-            width={2000}
-            height={2000}
+            src={staff.team}
+            alt={staff.teamAlt}
+            width={8000}
+            height={8000}
             priority
           />
         </div>

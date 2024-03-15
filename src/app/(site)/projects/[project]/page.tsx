@@ -68,10 +68,9 @@ export default async function Project({ params }: Props) {
                   />
                 )}
 
-                {item._type === 'bigPortrait' &&
-                  item.bigImage &&
-                  item.smallImage && (
-                    <div className={`grid grid-cols-4 gap-[10px] md:gap-5`}>
+                {item._type === 'bigPortrait' && (
+                  <div className={`grid grid-cols-4 gap-[10px] md:gap-5`}>
+                    {item.bigImage && (
                       <Image
                         className={`col-span-2 w-full ${
                           item.layout == 'left' ? '' : 'col-start-3'
@@ -81,37 +80,10 @@ export default async function Project({ params }: Props) {
                         width={600}
                         height={600}
                       />
+                    )}
+                    {item.smallImage && (
                       <Image
                         className={`col-span-2 md:col-span-1 ${
-                          item.layout == 'left'
-                            ? 'col-start-4'
-                            : 'col-start-1 row-start-1'
-                        }`}
-                        src={item.smallImage}
-                        alt={item.smallImageAlt}
-                        width={600}
-                        height={600}
-                      />
-                    </div>
-                  )}
-
-                {item._type === 'mediumLandscape' &&
-                  item.landscapeImage &&
-                  item.smallImage && (
-                    <div className="grid grid-cols-4 gap-[10px] md:gap-5">
-                      <Image
-                        className={`col-span-2 w-full ${
-                          item.layout == 'left'
-                            ? 'col-start-1'
-                            : 'col-start-3 row-start-1'
-                        }`}
-                        src={item.landscapeImage}
-                        alt={item.landscapeImageAlt}
-                        width={600}
-                        height={600}
-                      />
-                      <Image
-                        className={`col-span-2 w-full md:col-span-1 ${
                           item.layout == 'left'
                             ? 'md:col-start-4'
                             : 'col-start-1 row-start-1'
@@ -121,8 +93,40 @@ export default async function Project({ params }: Props) {
                         width={600}
                         height={600}
                       />
-                    </div>
-                  )}
+                    )}
+                  </div>
+                )}
+
+                {item._type === 'mediumLandscape' && (
+                  <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                    {item.landscapeImage && (
+                      <Image
+                        className={`col-span-2 w-full ${
+                          item.layout == 'left'
+                            ? 'col-start-1'
+                            : 'row-start-1 md:col-start-3'
+                        }`}
+                        src={item.landscapeImage}
+                        alt={item.landscapeImageAlt}
+                        width={600}
+                        height={600}
+                      />
+                    )}
+                    {item.smallImage && (
+                      <Image
+                        className={`smallImage col-span-2 w-full md:col-span-1 ${
+                          item.layout == 'left'
+                            ? 'md:col-start-4'
+                            : 'col-start-1 row-start-1'
+                        }`}
+                        src={item.smallImage}
+                        alt={item.smallImageAlt}
+                        width={600}
+                        height={600}
+                      />
+                    )}
+                  </div>
+                )}
 
                 {item._type === 'individualImage' && item.image && (
                   <div className="grid grid-cols-4 gap-[10px] md:gap-5">
@@ -130,7 +134,7 @@ export default async function Project({ params }: Props) {
                       className={`col-span-2 w-full md:col-span-1 ${
                         item.layout == 'left'
                           ? 'col-start-1 md:col-start-2'
-                          : 'col-start-3'
+                          : 'md:col-start-3'
                       }`}
                       src={item.image}
                       alt={item.alt}
@@ -140,15 +144,13 @@ export default async function Project({ params }: Props) {
                   </div>
                 )}
 
-                {item._type === 'smallPortrait' &&
-                  item.smallImage1 &&
-                  item.smallImage2 &&
-                  item.landscapeImage && (
-                    <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                {item._type === 'smallPortrait' && (
+                  <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                    {item.smallImage1 && (
                       <Image
                         className={`one col-span-2 w-full md:col-span-1 ${
                           item.layout == 'left'
-                            ? 'col-start-1 md:col-start-4'
+                            ? 'col-start-1'
                             : 'col-start-4 row-start-1'
                         }`}
                         src={item.smallImage1}
@@ -156,10 +158,12 @@ export default async function Project({ params }: Props) {
                         width={600}
                         height={600}
                       />
+                    )}
+                    {item.smallImage2 && (
                       <Image
-                        className={`two col-span-2 w-full md:col-span-1  ${
+                        className={`two col-span-2 w-full  ${
                           item.layout == 'left'
-                            ? ''
+                            ? 'md:col-span-1'
                             : 'row-start-1 md:col-start-4'
                         }`}
                         src={item.smallImage2}
@@ -167,10 +171,12 @@ export default async function Project({ params }: Props) {
                         width={600}
                         height={600}
                       />
+                    )}
+                    {item.landscapeImage && (
                       <Image
-                        className={`three ${
+                        className={`three  ${
                           item.layout == 'left'
-                            ? 'md:col-start-4'
+                            ? 'md:col-span-1 md:col-start-4'
                             : 'col-start-1 row-start-1'
                         }`}
                         src={item.landscapeImage}
@@ -178,8 +184,9 @@ export default async function Project({ params }: Props) {
                         width={600}
                         height={600}
                       />
-                    </div>
-                  )}
+                    )}
+                  </div>
+                )}
               </div>
             ))}
 

@@ -1,11 +1,14 @@
-import Image from "next/image";
-import Container from "./components/container";
-import AboutSection from "./components/about-us";
-import LatestProjects from "./components/latestProjects";
-import SmoothScrolling from "./components/SmoothScrolling";
-import { getHomepage } from "../../../sanity/sanity-utils";
-import { Homepage } from "../types/homepage";
+// @ts-nocheck
+
+import Image from 'next/image';
+import Container from './components/container';
+import AboutSection from './components/about-us';
+import LatestProjects from './components/latestProjects';
+import SmoothScrolling from './components/SmoothScrolling';
+import { getHomepage } from '../../../sanity/sanity-utils';
+import { Homepage } from '../types/homepage';
 import Head from 'next/head';
+
 
 export default async function Home() {
   const homepage: Homepage[] = await getHomepage();
@@ -22,7 +25,7 @@ export default async function Home() {
 
       <SmoothScrolling>
         <Container>
-          <h1 className="m-translate-x-[10px] col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-3 md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
+          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-[5px] md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
             Benchmark <br />
             Homes
           </h1>

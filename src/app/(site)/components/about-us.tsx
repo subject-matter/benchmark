@@ -1,7 +1,8 @@
+// @ts-nocheck
+
 'use client';
 
 import Image from 'next/image';
-import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg';
 import CountUp from 'react-countup';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import CountScrollTrigger from 'react-scroll-trigger';
@@ -11,8 +12,7 @@ import AboutAccordions from './about-accordions';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactForm from './contact-form';
-import { TURBO_TRACE_DEFAULT_MEMORY_LIMIT } from 'next/dist/shared/lib/constants';
-import { getGroup, getHomepage } from '../../../../sanity/sanity-utils';
+import { getGroup } from '../../../../sanity/sanity-utils';
 
 function AboutSection() {
   const [countersOn, setCountersOn] = useState([false, false, false]);
@@ -24,8 +24,6 @@ function AboutSection() {
       return newState;
     });
   };
-
-
 
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef(null);
@@ -73,19 +71,19 @@ function AboutSection() {
     };
   }, []);
 
-  const [team, setTeam] = useState([]);
+  const [staff, setStaff] = useState([]);
 
   useEffect(() => {
-    const fetchTeam = async () => {
+    const fetchStaff = async () => {
       try {
-        const fetchedTeam = await getGroup();
-        setTeam(fetchedTeam);
+        const fetchedStaff = await getGroup();
+        setStaff(fetchedStaff[0]);
       } catch (error) {
         throw error;
       }
     };
 
-    fetchTeam();
+    fetchStaff();
   }, []);
 
   return (
@@ -201,8 +199,8 @@ function AboutSection() {
           <div className="top-0 z-[6] bg-black md:sticky">
             <Image
               className="h-screen object-cover"
-              src={`team[0].team`}
-              alt={`team[0].teamAlt`}
+              src={staff.team}
+              alt={staff.teamAlt}
               width={2000}
               height={2000}
             />
