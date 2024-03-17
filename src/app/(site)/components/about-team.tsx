@@ -19,7 +19,6 @@ function AboutTeam({ info }: any) {
     fetchTeam();
   }, []);
 
-  console.log(team);
 
   return (
 		<div className="p-[10px] md:p-5 py-32 md:pb-[228px] text-xxs md:text-xs">
