@@ -18,11 +18,11 @@ export default async function SelectedProjects() {
           </h1>
           <div className="selected-projects col-span-12 w-full">
             {selectedProjects.map((project: any, index: number) => (
-              <div key={index} className="mx-[10px] mb-12 md:mx-5 ">
-                <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium md:gap-x-5 md:border-t md:border-grey md:pb-[200px]">
+              <div key={index} className="mx-[10px] md:mx-5 md:mb-12 ">
+                <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5 md:border-t md:pb-[200px]">
                   {project.mainProjectTitle && (
                     <div
-                      className={`border-1 col-span-12 flex flex-col border-y border-dashed border-grey pb-[60px] md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
+                      className={`border-1 col-span-12 mt-[60px] flex flex-col border-t border-dashed border-grey pb-[60px] md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
                         project.mainImageCol == 'First'
                           ? 'md:col-start-1'
                           : project.mainImageCol == 'Second'

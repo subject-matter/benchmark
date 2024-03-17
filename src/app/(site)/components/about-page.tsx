@@ -120,8 +120,8 @@ function AboutSection({ info }: any) {
             </div>
 
             <Image
-              src={Photo}
-              alt="Richard and Sam"
+              src={staff.team}
+              alt={staff.teamAlt}
               width={2000}
               height={1000}
               priority

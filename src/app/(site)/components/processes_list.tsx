@@ -36,16 +36,14 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (!isInView && entry.isIntersecting) {
-					setIsInView(true);
-					
-				} else {
-					setIsInView(false);
-				}
-			},
-			{ threshold: 0.6 }
-		);
+      ([entry]) => {
+        if (!isInView && entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+        }
+      },
+      { threshold: 0.2 }
+    );
 
 		if (sectionRef.current) {
 			observer.observe(sectionRef.current);

@@ -6,131 +6,134 @@ import SocialIcons from "./social-icons";
 
 
 export default function Footer() {
-	return (
-		<footer className="bg-transparent min-h-[100svh]" id="footer">
-			<div className="absolute bottom-0 grid grid-cols-12 gap-x-5 text-xs-medium mx-auto w-full bg-white md:p-5 footer-container ">
-				<div className="col-start-10 md:col-start-1 row-start-1 md:col-span-2">
-					<svg
-						className="mt-[10px] md:mt-0"
-						width="80"
-						height="20"
-						viewBox="0 0 80 20"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							fillRule="evenodd"
-							clipRule="evenodd"
-							d="M20 0L0 20V0H20ZM20 0L40 20H80L60 0H20Z"
-							fill="black"
-						/>
-					</svg>
-				</div>
-				<div className="p-[10px] md:p-0 col-start-1 col-span-9 md:col-start-10 md:col-span-3 md flex flex-col text-base md:mb-[233px]">
-					<Link
-						href="/"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Home
-					</Link>
-					<Link
-						href="/selected-projects"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Selected Projects
-					</Link>
-					<Link
-						href="/showhomes"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Showhomes
-					</Link>
-					<Link
-						href="/upcoming-projects"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Upcoming Projects
-					</Link>
-					<Link
-						href="/our-process"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Our Process
-					</Link>
-					<Link
-						href="/about-us"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						About Us
-					</Link>
-					<Link
-						href="/updates"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Updates
-					</Link>
-					<Link
-						href="/contact-us"
-						className="hover:opacity-50 transition duration-250 w-fit"
-					>
-						Contact
-					</Link>
-				</div>
-				<a
-					target="_blank"
-					href="https://buildertrend.net/"
-					className="mx-[10px] h-[35px] px-[10px] md:ml-0 col-span-2 row-start-3 w-fit bg-[#F5F5F5] rounded-[5px]  text-xxs p-3 mb-[80px]  hover:opacity-50 flex items-center"
-				>
-					<span>Login</span>
-					<div className="ml-[50px] flex items-center">
-						<svg
-							width="7"
-							height="12"
-							viewBox="0 0 7 12"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M6.3131 5.65685L0.65625 0L0.656372 11.3138L6.3131 5.65685Z"
-								fill="black"
-							/>
-						</svg>
-					</div>
-				</a>
-				<div className="col-start-9 flex gap-x-1 col-span-3">
-					<SocialIcons />
-				</div>
 
-				<div className="row-start-4 col-span-12 grid grid-cols-12 gap-x-5 items-end">
-					<div className="pl-[10px] md:pl-0 col-span-12 md:col-span-3 flex flex-col text-xxs md:text-xs-medium">
-						<span>
-							<Link
-								href="tel:033438260"
-								className="hover:opacity-50 transition duration-250 w-fit"
-							>
-								+64 3 343 8260
-							</Link>
-							<br />
-							<Link
-								href="mailto:info@benchmarkhomes.co.nz"
-								className="hover:opacity-50 transition duration-250 w-fit"
-							>
-								info@benchmarkhomes.co.nz
-							</Link>
-						</span>
-					</div>
-					<div className="pr-[10px] md:pr-0 ml-auto md:ml-0 col-span-12 md:col-start-4 md:col-span-3 text-xxs md:text-xs-medium">
-						12 Whitburn Ave, Milns Park,
-						<br /> Halswell, Christchurch, New Zealand
-					</div>
-					<div className="pl-[10px]  py-[10px] md:py-0 mt-auto md:mt-0 bg-black md:bg-white text-[#999999]  md:text-black col-span-12 md:col-start-10 md:col-span-3 text-[12px] leading-[14px] md:leading-normal md:text-xxs font-medium">
-						Copyright © 2023 Benchmark Homes | All Rights Reserved.{" "}
-						<br className="hidden lg:block" />
-						View <span className="underline">Privacy Policy</span> &{" "}
-						<span className="underline">Email Disclaimer.</span>
-					</div>
-				</div>
-			</div>
-		</footer>
-	);
+	const today = new Date();
+  const year = today.getFullYear();
+  return (
+    <footer className="min-h-[100svh] bg-transparent" id="footer">
+      <div className="footer-container absolute bottom-0 mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium md:p-5 ">
+        <div className="col-start-10 row-start-1 md:col-span-2 md:col-start-1">
+          <svg
+            className="mt-[10px] md:mt-0"
+            width="80"
+            height="20"
+            viewBox="0 0 80 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M20 0L0 20V0H20ZM20 0L40 20H80L60 0H20Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+        <div className="md col-span-9 col-start-1 flex flex-col p-[10px] text-base md:col-span-3 md:col-start-10 md:mb-[233px] md:p-0">
+          <Link
+            href="/"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Home
+          </Link>
+          <Link
+            href="/selected-projects"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Selected Projects
+          </Link>
+          <Link
+            href="/showhomes"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Showhomes
+          </Link>
+          <Link
+            href="/upcoming-projects"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Upcoming Projects
+          </Link>
+          <Link
+            href="/our-process"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Our Process
+          </Link>
+          <Link
+            href="/about-us"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/updates"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Updates
+          </Link>
+          <Link
+            href="/contact-us"
+            className="duration-250 w-fit transition hover:opacity-50"
+          >
+            Contact
+          </Link>
+        </div>
+        <a
+          target="_blank"
+          href="https://buildertrend.net/"
+          className="col-span-2 row-start-3 mx-[10px] mb-[80px] flex h-[35px] w-fit items-center rounded-[5px]  bg-[#F5F5F5] p-3 px-[10px]  text-xxs hover:opacity-50 md:ml-0"
+        >
+          <span>Login</span>
+          <div className="ml-[50px] flex items-center">
+            <svg
+              width="7"
+              height="12"
+              viewBox="0 0 7 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.3131 5.65685L0.65625 0L0.656372 11.3138L6.3131 5.65685Z"
+                fill="black"
+              />
+            </svg>
+          </div>
+        </a>
+        <div className="col-span-4 col-start-9 flex gap-x-1">
+          <SocialIcons />
+        </div>
+
+        <div className="col-span-12 row-start-4 grid grid-cols-12 items-end gap-x-5">
+          <div className="col-span-12 flex flex-col pl-[10px] text-xxs md:col-span-3 md:pl-0 md:text-xs-medium">
+            <span>
+              <Link
+                href="tel:033438260"
+                className="duration-250 w-fit transition hover:opacity-50"
+              >
+                +64 3 343 8260
+              </Link>
+              <br />
+              <Link
+                href="mailto:info@benchmarkhomes.co.nz"
+                className="duration-250 w-fit transition hover:opacity-50"
+              >
+                info@benchmarkhomes.co.nz
+              </Link>
+            </span>
+          </div>
+          <div className="col-span-12 ml-auto pr-[10px] text-xxs md:col-span-3 md:col-start-4 md:ml-0 md:pr-0 md:text-xs-medium">
+            12 Whitburn Ave, Milns Park,
+            <br /> Halswell, Christchurch, New Zealand
+          </div>
+          <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] md:col-span-3 md:col-start-10 md:mt-0 md:bg-white md:py-0 md:text-xxs md:leading-normal md:text-black">
+            Copyright © {year} Benchmark Homes | All Rights Reserved.{' '}
+            <br className="hidden lg:block" />
+            View <span className="underline">Privacy Policy</span> &{' '}
+            <span className="underline">Email Disclaimer.</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

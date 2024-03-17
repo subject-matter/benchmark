@@ -9,15 +9,17 @@ function AboutTeam({ info }: any) {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-				const fetchedTeam = await getStaff();
-				setTeam(fetchedTeam);
-			} catch (error) {
+        const fetchedTeam = await getStaff();
+        setTeam(fetchedTeam);
+      } catch (error) {
         throw error;
       }
     };
 
     fetchTeam();
   }, []);
+
+  console.log(team);
 
   return (
 		<div className="p-[10px] md:p-5 py-32 md:pb-[228px] text-xxs md:text-xs">

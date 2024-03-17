@@ -176,7 +176,7 @@ export default async function Project({ params }: Props) {
                       <Image
                         className={`three  ${
                           item.layout == 'left'
-                            ? 'md:col-span-1 md:col-start-4'
+                            ? 'col-span-2 mt-[110px] md:col-span-1 md:col-start-4 md:mt-0'
                             : 'col-start-1 row-start-1'
                         }`}
                         src={item.landscapeImage}

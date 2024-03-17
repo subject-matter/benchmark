@@ -90,6 +90,7 @@ function Contact() {
                   alt=""
                   width={1000}
                   height={900}
+                  priority
                 />
               </div>
             </div>

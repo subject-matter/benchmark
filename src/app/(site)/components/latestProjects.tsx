@@ -7,62 +7,31 @@ import Project from './project';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
 import { useLenis } from '@studio-freight/react-lenis';
-
-import Wilson from '../assets/images/Projects-Wilson-1500x1000-High-Res-1.jpg';
-import Mortimer from '../assets/images/Projects-Mortimer-1500-x-1000-High-Res-6.jpg';
-import Marshall from '../assets/images/Projects-Marshall-21500-x-1000-High-Res.jpg';
 import Link from 'next/link';
-
 import { isMobile } from 'react-device-detect';
 import { getHouses } from '../../../../sanity/sanity-utils';
-
-const projects = [
-  {
-    image: Wilson,
-    title: 'Wilson',
-    options: ['220m²', '3 Bedrooms', '2 Bathrooms'],
-    url: '/project/c32880e8-aa57-4b41-950f-6da501e23ff4',
-  },
-  {
-    image: Mortimer,
-    title: 'Mortimer',
-    options: ['223m²', '4 Bedrooms', '2 Bathrooms'],
-    url: '/project/mortimer',
-  },
-  {
-    image: Marshall,
-    title: 'Marshall',
-    options: ['220m²', '4 Bedrooms', '2 Bathrooms'],
-    url: '/project/marshall',
-  },
-  {
-    image: Wilson,
-    title: 'Wilson',
-    options: ['220m2', '3 Bedrooms', '2 Bathrooms'],
-    url: '/project/wilson',
-  },
-];
 
 gsap.registerPlugin(ScrollTrigger);
 
 function LatestProjects() {
   let lenis = useLenis();
 
-  const [houses, setHouses] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const fetchHouses = async () => {
+    const fetchProjects = async () => {
       try {
         const fetchedProjects = await getHouses();
-        setHouses(fetchedProjects);
-       
+        setProjects(fetchedProjects[0].projectSlider);
       } catch (error) {
         throw error;
       }
     };
 
-    fetchHouses();
+    fetchProjects();
   }, []);
+
+  document.querySelectorAll('.project')[index].classList.add('project--active');
 
   const projectsPin = useRef(null);
   const projectsWrapper = useRef(null);
@@ -76,9 +45,6 @@ function LatestProjects() {
     document
       .querySelectorAll('.project')
       .forEach((project) => project.classList.remove('project--active'));
-    document
-      .querySelectorAll('.project')
-      [index].classList.add('project--active');
 
     gsap.to(target.current, {
       xPercent: -index * 100,
@@ -226,13 +192,25 @@ function LatestProjects() {
         </p>
         <div ref={projectsWrapper} className="relative flex">
           {projects.map((project, i) => (
-            <div className="project w-full flex-shrink-0" key={i}>
-              <Project image={project.image} url={project.url} />
+            <div
+              className="project project--active w-full flex-shrink-0"
+              key={i}
+            >
+              {project.pageBuilder.map(
+                (page) =>
+                  page.image && (
+                    <Project
+                      key={i}
+                      image={page.image}
+                      url={`/projects/${project.slug}`}
+                    />
+                  )
+              )}
 
               <div className="project-details mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] md:mt-5 md:px-5">
                 <p className="font-medium">{project.title}</p>
                 <Link
-                  href={project.url}
+                  href={`/projects/${project.slug}`}
                   className="col-span-4 col-start-6 flex items-center space-x-5 text-[#999999] md:col-start-3 "
                 >
                   <p>View Home</p>
@@ -252,9 +230,9 @@ function LatestProjects() {
 
                 <span className="col-span-12 col-start-1 mt-5 flex items-center md:col-span-3 md:col-start-10 md:ml-auto md:mt-0 md:justify-center">
                   <div className="mb-5 flex flex-wrap gap-x-[10px] gap-y-[10px]">
-                    {project?.options.map((item) => (
+                    {project?.features.map((item, index) => (
                       <div
-                        key={item}
+                        key={index}
                         className="rounded-[5px] bg-[#F5F5F5] p-[6px] text-xxs"
                       >
                         {item}
