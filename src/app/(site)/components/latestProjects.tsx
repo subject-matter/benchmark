@@ -187,17 +187,14 @@ function LatestProjects() {
   }, [lenis]);
 
   return (
-    <section className="scroll-section-outer col-span-12 overflow-hidden bg-white pb-20 pt-6">
+    <section className="scroll-section-outer col-span-12 hidden h-full overflow-hidden bg-white pb-20 pt-6 md:block">
       <div ref={projectsPin} className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium md:pl-5">
           Latest Projects
         </p>
         <div ref={projectsWrapper} className="relative flex">
           {projects.map((project, i) => (
-            <div
-              className="project w-full flex-shrink-0"
-              key={i}
-            >
+            <div className="project w-full flex-shrink-0" key={i}>
               {project.pageBuilder.map(
                 (page) =>
                   page.image && (

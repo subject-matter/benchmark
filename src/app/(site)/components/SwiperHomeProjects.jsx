@@ -32,18 +32,15 @@ function SwiperHomeProjects() {
   }, []);
 
   return (
-    <section className="scroll-section-outer col-span-12 overflow-hidden bg-white pb-20 pt-6">
-      <div ref={projectsPin} className="pt-5">
+    <section className="scroll-section-outer col-span-12 overflow-hidden bg-white pb-20 pt-6 md:hidden">
+      <div className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium md:pl-5">
           Latest Projects
         </p>
         <Swiper
           spaceBetween={30}
           effect={'fade'}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, EffectFade, Pagination]}
+          modules={EffectFade}
           className="relative flex"
         >
           {projects.map((project, i) => (

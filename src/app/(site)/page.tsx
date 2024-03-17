@@ -8,6 +8,7 @@ import SmoothScrolling from './components/SmoothScrolling';
 import { getHomepage } from '../../../sanity/sanity-utils';
 import { Homepage } from '../types/homepage';
 import Head from 'next/head';
+import SwiperHomeProjects from './components/SwiperHomeProjects';
 
 
 export default async function Home() {
@@ -49,7 +50,7 @@ export default async function Home() {
         </Container>
 
         <LatestProjects />
-
+        <SwiperHomeProjects />
         <AboutSection />
       </SmoothScrolling>
     </>
