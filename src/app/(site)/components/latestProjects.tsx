@@ -31,7 +31,7 @@ function LatestProjects() {
     fetchProjects();
   }, []);
 
-  document.querySelectorAll('.project')[index].classList.add('project--active');
+  // document.querySelectorAll('.project')[index].classList.add('project--active');
 
   const projectsPin = useRef(null);
   const projectsWrapper = useRef(null);
@@ -45,6 +45,7 @@ function LatestProjects() {
     document
       .querySelectorAll('.project')
       .forEach((project) => project.classList.remove('project--active'));
+      document.querySelectorAll('.project')[index].classList.add('project--active');
 
     gsap.to(target.current, {
       xPercent: -index * 100,
@@ -62,9 +63,10 @@ function LatestProjects() {
       let animating = false;
       let index = 0;
 
-      document
-        .querySelectorAll('.project')
-        [index].classList.add('project--active');
+    if (document.querySelectorAll('.project').length) {
+      document.querySelectorAll('.project')[index].classList.add('project--active');
+    }
+    
 
       const observer = ScrollTrigger.observe({
         type: 'wheel,touch,pointer',
@@ -193,7 +195,7 @@ function LatestProjects() {
         <div ref={projectsWrapper} className="relative flex">
           {projects.map((project, i) => (
             <div
-              className="project project--active w-full flex-shrink-0"
+              className="project w-full flex-shrink-0"
               key={i}
             >
               {project.pageBuilder.map(
