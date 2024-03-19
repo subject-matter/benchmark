@@ -157,15 +157,21 @@ html {
   opacity: 1;
 }
 
-.project-details {
-  opacity: 0;
-  transition: opacity 0.4s ease;
+@media only screen and (min-width: 767px) {
+
+  .project-details {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .project--active .project-details {
+    opacity: 1;
+    transition-delay: 0.8s;
+  }
+
 }
 
-.project--active .project-details {
-  opacity: 1;
-  transition-delay: 0.8s;
-}
+
 
 /* Reviews swiper */
 .reviews-swiper .swiper-pagination,

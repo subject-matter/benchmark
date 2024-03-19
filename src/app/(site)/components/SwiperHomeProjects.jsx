@@ -59,7 +59,7 @@ function SwiperHomeProjects() {
                   )
               )}
 
-              <div className="project-details mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] md:mt-5 md:px-5">
+              <div className="project-details  project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] md:mt-5 md:px-5">
                 <p className="font-medium">{project.title}</p>
                 <Link
                   href={`/projects/${project.slug}`}

@@ -28,7 +28,7 @@ export default async function Update({ params }: Props) {
 	return (
     <section className={`col-span-12 overflow-x-clip pb-medium`}>
       <div className="relative grid min-h-screen grid-cols-2">
-        <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
+        <div className="top-0 col-span-2 hidden h-screen bg-black md:sticky md:col-span-1 md:block">
           <Image
             className="h-screen object-cover"
             src={update.image}

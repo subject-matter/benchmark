@@ -184,10 +184,10 @@ function AboutSection() {
         </div>
 
         <div
-          className={`top-0 z-[5] col-span-2 row-span-6 h-screen border-r border-dotted border-grey bg-black pl-3 text-white md:sticky md:col-span-1 md:row-start-7 `}
+          className={`top-0 z-[5] col-span-2 row-span-6 border-r border-dotted border-grey bg-black pl-3 text-white md:sticky md:col-span-1 md:row-start-7 md:h-screen `}
         >
           <p className="absolute left-5 top-5">Reviews</p>
-          <div className={`flex h-screen items-center justify-center`}>
+          <div className={`flex items-center justify-center md:h-screen`}>
             <ReviewCards />
           </div>
         </div>
@@ -198,7 +198,7 @@ function AboutSection() {
           </p>
           <div className="top-0 z-[6] bg-black md:sticky">
             <Image
-              className="h-screen object-cover"
+              className="md:h-screen md:object-cover"
               src={staff.team}
               alt={staff.teamAlt}
               width={2000}

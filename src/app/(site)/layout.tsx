@@ -37,7 +37,7 @@ export const revalidate = 10;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${moderat.variable} font-sans`}>
-      <body className="bg-white pb-[100vh] md:pb-[675px] ">
+      <body className="bg-white pb-[100vh] md:pb-[675px]">
         <div
           id="glass"
           className="invisible fixed left-0 top-0 z-[10] h-screen w-full bg-white bg-opacity-20 opacity-0 backdrop-blur-2xl transition duration-300"
