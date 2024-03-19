@@ -63,10 +63,11 @@ function LatestProjects() {
       let animating = false;
       let index = 0;
 
-    if (document.querySelectorAll('.project').length) {
-      document.querySelectorAll('.project')[index].classList.add('project--active');
-    }
-    
+      if (document.querySelectorAll('.project').length) {
+        document
+          .querySelectorAll('.project')
+          [index].classList.add('project--active');
+      }
 
       const observer = ScrollTrigger.observe({
         type: 'wheel,touch,pointer',
@@ -162,6 +163,7 @@ function LatestProjects() {
         trigger: projectsPin.current,
         pin: true,
         start: 'top top',
+        pinSpacing: false,
         end: '-=1 +=1',
         // markers: true,
         // end: '+=300',

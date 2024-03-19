@@ -35,9 +35,11 @@ export default function UpcomingProjectsList({ projects }: any) {
   const [swiper, setSwiper] = useState<any>(null);
 
   const images = selectedProject && [
-    selectedProject.featured_image_1.imageUrl,
-    selectedProject.featured_image_2.imageUrl,
-    selectedProject.hero_image.imageUrl,
+    selectedProject.featured_image_1.imageUrl &&
+      selectedProject.featured_image_1.imageUrl,
+    selectedProject.featured_image_2.imageUrl &&
+      selectedProject.featured_image_2.imageUrl,
+    selectedProject.hero_image.imageUrl && selectedProject.hero_image.imageUrl,
   ];
 
   const openLightbox = (project: Project, index: number) => {
@@ -67,46 +69,55 @@ export default function UpcomingProjectsList({ projects }: any) {
       {projects.map((upcomingProject: Project, index: number) => (
         <div
           key={index}
-          className="border-grey border-dashed border-t border-1 mb-[60px] grid grid-cols-6 md:grid-cols-12 gap-x-5 col-span-12"
+          className="border-1 col-span-12 mb-[60px] grid grid-cols-6 gap-x-5 border-t border-dashed border-grey md:grid-cols-12"
         >
-          <div className="col-span-3 md:col-span-2 mt-[10px] mb-9">Suburbtest</div>
-          <div className="col-span-3 md:col-span-10 mt-[10px] md:col-start-3 ">{upcomingProject.suburb}</div>
+          <div className="col-span-3 mb-9 mt-[10px] md:col-span-2">Suburb</div>
+          <div className="col-span-3 mt-[10px] md:col-span-10 md:col-start-3 ">
+            {upcomingProject.suburb}
+          </div>
 
-          <Image
-            alt=""
-            src={upcomingProject.featured_image_1.imageUrl}
-            className="cursor-pointer upcoming-project order-2 md:order-1 my-3 md:my-0 md:row-start-2 col-span-3 md:col-span-2 col-start-4 md:col-start-1 w-full"
-            width={1000}
-            height={1000}
-            onClick={() => openLightbox(upcomingProject, 0)}
-          />
-          <Image
-            alt=""
-            src={upcomingProject.featured_image_2.imageUrl}
-            className="cursor-pointer upcoming-project order-3 md:order-2 my-3 md:my-0 md:row-start-2 col-span-3 md:col-span-2 col-start-4 md:col-start-3  w-full"
-            width={1000}
-            height={1000}
-            onClick={() => openLightbox(upcomingProject, 1)}
-          />
+          {upcomingProject.featured_image_1 && (
+            <Image
+              alt=""
+              src={upcomingProject.featured_image_1.imageUrl}
+              className="upcoming-project order-2 col-span-3 col-start-4 my-3 w-full cursor-pointer md:order-1 md:col-span-2 md:col-start-1 md:row-start-2 md:my-0"
+              width={1000}
+              height={1000}
+              onClick={() => openLightbox(upcomingProject, 0)}
+            />
+          )}
 
-          <Image
-            alt=""
-            src={upcomingProject.hero_image.imageUrl}
-            className="cursor-pointer upcoming-project col-span-6 md:col-start-7"
-            width={1000}
-            height={1000}
-            onClick={() => openLightbox(upcomingProject, 2)}
-          />
+          {upcomingProject.featured_image_2 && (
+            <Image
+              alt=""
+              src={upcomingProject.featured_image_2.imageUrl}
+              className="upcoming-project order-3 col-span-3 col-start-4 my-3 w-full cursor-pointer md:order-2 md:col-span-2 md:col-start-3 md:row-start-2  md:my-0"
+              width={1000}
+              height={1000}
+              onClick={() => openLightbox(upcomingProject, 1)}
+            />
+          )}
+
+          {upcomingProject.hero_image && (
+            <Image
+              alt=""
+              src={upcomingProject.hero_image.imageUrl}
+              className="upcoming-project col-span-6 cursor-pointer md:col-start-7"
+              width={1000}
+              height={1000}
+              onClick={() => openLightbox(upcomingProject, 2)}
+            />
+          )}
 
           <div
             className={clsx(
-              'transition-all duration-300 backdrop-blur-2xl h-screen fixed top-0 left-0 w-full',
-              lightboxOpen ? 'opacity-80 visible' : 'opacity-0 invisible'
+              'fixed left-0 top-0 h-screen w-full backdrop-blur-2xl transition-all duration-300',
+              lightboxOpen ? 'visible opacity-80' : 'invisible opacity-0'
             )}
           >
             <button
               onClick={closeLightbox}
-              className="w-[100px] md:w-[120px] fixed top-[10px] right-[10px]  text-xxs bg-[#999999] bg-opacity-10 p-3 rounded-[5px] z-20 backdrop-blur-lg flex justify-between items-center"
+              className="fixed right-[10px] top-[10px] z-20 flex  w-[100px] items-center justify-between rounded-[5px] bg-[#999999] bg-opacity-10 p-3 text-xxs backdrop-blur-lg md:w-[120px]"
             >
               Close{' '}
               <span>
@@ -115,17 +126,22 @@ export default function UpcomingProjectsList({ projects }: any) {
             </button>
 
             <button
-              className="absolute top-[50%] right-5  z-[50] text-white cursor-pointer"
+              className="absolute right-5 top-[50%]  z-[50] cursor-pointer text-white"
               onClick={() => swiper.slideNext()}
             >
               <Play fill="#999" color="#999" absoluteStrokeWidth={true} />
             </button>
 
             <button
-              className="absolute top-[50%] left-5  z-[50] text-white cursor-pointer"
+              className="absolute left-5 top-[50%]  z-[50] cursor-pointer text-white"
               onClick={() => swiper.slidePrev()}
             >
-              <Play fill="#999" color="#999" absoluteStrokeWidth={true} className="rotate-180" />
+              <Play
+                fill="#999"
+                color="#999"
+                absoluteStrokeWidth={true}
+                className="rotate-180"
+              />
             </button>
 
             {lightboxOpen && (
@@ -134,7 +150,7 @@ export default function UpcomingProjectsList({ projects }: any) {
                 effect="fade"
                 navigation={true}
                 modules={[Pagination, EffectFade]}
-                className="h-full projects-swiper"
+                className="projects-swiper h-full"
                 loop={true}
                 initialSlide={imageIndex}
                 onSwiper={(s) => setSwiper(s)}
@@ -145,9 +161,14 @@ export default function UpcomingProjectsList({ projects }: any) {
                 {images &&
                   images.map((image, i) => (
                     <SwiperSlide key={i}>
-                      <div className="flex justify-center items-center h-full">
-                        <div className="relative w-[75%] h-[80%] p-10">
-                          <Image alt="Selected" src={image} layout="fill" objectFit="contain" />
+                      <div className="flex h-full items-center justify-center">
+                        <div className="relative h-[80%] w-[75%] p-10">
+                          <Image
+                            alt="Selected"
+                            src={image}
+                            layout="fill"
+                            objectFit="contain"
+                          />
                         </div>
                       </div>
                     </SwiperSlide>
