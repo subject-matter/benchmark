@@ -206,7 +206,7 @@ function AboutSection() {
             />
           </div>
         </div>
-        <div className="row-span-6 flex h-screen bg-black  text-white ">
+        <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  md:col-span-1 ">
           <div className="mt-auto w-full p-5">
             <p className="col-span-2 mb-48 w-full text-sm-xl md:mt-[20vh] md:text-xl">
               Get In Touch

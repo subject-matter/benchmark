@@ -15,15 +15,6 @@ export default async function Home() {
   const homepage: Homepage[] = await getHomepage();
   return (
     <>
-      <Head>
-        <meta property="og:title" content={homepage[0].metatitle} key="title" />
-        <meta
-          property="og:description"
-          content={homepage[0].metaDesc}
-          key="description"
-        />
-      </Head>
-
       <SmoothScrolling>
         <Container>
           <h1 className="col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-[5px] md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
