@@ -31,7 +31,6 @@ function LatestProjects() {
     fetchProjects();
   }, []);
 
-  // document.querySelectorAll('.project')[index].classList.add('project--active');
 
   const projectsPin = useRef(null);
   const projectsWrapper = useRef(null);
@@ -45,7 +44,9 @@ function LatestProjects() {
     document
       .querySelectorAll('.project')
       .forEach((project) => project.classList.remove('project--active'));
-      document.querySelectorAll('.project')[index].classList.add('project--active');
+    document
+      .querySelectorAll('.project')
+      [index].classList.add('project--active');
 
     gsap.to(target.current, {
       xPercent: -index * 100,
@@ -163,8 +164,8 @@ function LatestProjects() {
         trigger: projectsPin.current,
         pin: true,
         start: 'top top',
-        pinSpacing: false,
         end: '-=1 +=1',
+        pinSpacing: false,
         // markers: true,
         // end: '+=300',
         onEnter: () => {
@@ -189,7 +190,7 @@ function LatestProjects() {
   }, [lenis]);
 
   return (
-    <section className="scroll-section-outer col-span-12 hidden h-full overflow-hidden bg-white pb-20 pt-6 md:block">
+    <section className="scroll-section-outer col-span-12 hidden h-screen  overflow-hidden bg-white pb-20 pt-6 md:block">
       <div ref={projectsPin} className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium md:pl-5">
           Latest Projects

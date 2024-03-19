@@ -3,6 +3,10 @@ import { getUpdate } from "../../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import AdjacentUpdates from "../../components/adjacent-updates";
 import Head from "next/head";
+import { Metadata } from 'next';
+ 
+
+
 
 type Props = {
 	params: { update: string; body: any };
@@ -18,48 +22,43 @@ export default async function Update({ params }: Props) {
 		},
 	};
 
-	return (
-		<section className={`col-span-12 overflow-x-clip pb-medium`}>
-			<Head>
-				<meta property="og:title" content={update.metatitle} key="title" />
-				<meta
-					property="og:description"
-					content={update.metaDesc}
-					key="description"
-				/>
-			</Head>
-			<div className="grid grid-cols-2 min-h-screen relative">
-				<div className="bg-black md:sticky top-0 h-screen overflow-hidden col-span-2 md:col-span-1 hidden md:block">
-					<Image
-						className="object-cover h-screen"
-						src={update.image}
-						alt={update.title}
-						width={2000}
-						height={2000}
-						priority
-					/>
-				</div>
+	
+	
 
-				<div className="col-span-2 md:col-span-1 update">
-					<div className="relative md:min-h-screen mx-[10px] md:mx-5">
-						<h4 className="text-xs-medium mt-5">Updates</h4>
-						<h1 className="text-sm-lg md:text-lg md:w-2/3 mt-20 md:mt-[300px] mb-20 md:mb-large">
-							{update.title}
-						</h1>
-						<Image
-							className="md:hidden mb-20"
-							src={update.image}
-							alt={update.title}
-							width={2000}
-							height={2000}
-							priority
-						/>
-						<h3 className="mb-7">{update.subtitle}</h3>
-						<PortableText value={update.body} components={components} />
-					</div>
-				</div>
-				{/* <AdjacentUpdates /> */}
-			</div>
-		</section>
-	);
+	return (
+    <section className={`col-span-12 overflow-x-clip pb-medium`}>
+      <div className="relative grid min-h-screen grid-cols-2">
+        <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
+          <Image
+            className="h-screen object-cover"
+            src={update.image}
+            alt={update.title}
+            width={2000}
+            height={2000}
+            priority
+          />
+        </div>
+
+        <div className="update col-span-2 md:col-span-1">
+          <div className="relative mx-[10px] md:mx-5 md:min-h-screen">
+            <h4 className="mt-5 text-xs-medium">Updates</h4>
+            <h1 className="mb-20 mt-20 text-sm-lg md:mb-large md:mt-[300px] md:w-2/3 md:text-lg">
+              {update.title}
+            </h1>
+            <Image
+              className="mb-20 md:hidden"
+              src={update.image}
+              alt={update.title}
+              width={2000}
+              height={2000}
+              priority
+            />
+            <h3 className="mb-7">{update.subtitle}</h3>
+            <PortableText value={update.body} components={components} />
+          </div>
+        </div>
+        {/* <AdjacentUpdates /> */}
+      </div>
+    </section>
+  );
 }
