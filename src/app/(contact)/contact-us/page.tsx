@@ -9,6 +9,7 @@ import Image from 'next/image';
 import LenisScroll from '@/app/(site)/components/lenis-provider';
 import ContactForm from '@/app/(site)/components/contact-form';
 import { getContact } from '../../../../sanity/sanity-utils';
+import Color from '@/app/(site)/components/dynamic-color';
 
 function Contact() {
   const [info, setInfo] = useState([]);

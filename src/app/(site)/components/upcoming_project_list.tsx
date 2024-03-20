@@ -34,13 +34,11 @@ export default function UpcomingProjectsList({ projects }: any) {
 
   const [swiper, setSwiper] = useState<any>(null);
 
-  const images = selectedProject && [
-    selectedProject.featured_image_1.imageUrl &&
-      selectedProject.featured_image_1.imageUrl,
-    selectedProject.featured_image_2.imageUrl &&
-      selectedProject.featured_image_2.imageUrl,
-    selectedProject.hero_image.imageUrl && selectedProject.hero_image.imageUrl,
-  ];
+  const images = [
+    selectedProject?.featured_image_1?.imageUrl,
+    selectedProject?.featured_image_2?.imageUrl,
+    selectedProject?.hero_image?.imageUrl,
+  ].filter((url) => url);
 
   const openLightbox = (project: Project, index: number) => {
     setSelectedProject(project);
@@ -157,6 +155,7 @@ export default function UpcomingProjectsList({ projects }: any) {
                 pagination={{
                   clickable: true,
                 }}
+                draggable={true}
               >
                 {images &&
                   images.map((image, i) => (
@@ -164,10 +163,10 @@ export default function UpcomingProjectsList({ projects }: any) {
                       <div className="flex h-full items-center justify-center">
                         <div className="relative h-[80%] w-[75%] p-10">
                           <Image
+                            className="object-contain"
                             alt="Selected"
                             src={image}
                             layout="fill"
-                            objectFit="contain"
                           />
                         </div>
                       </div>

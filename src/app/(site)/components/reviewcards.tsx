@@ -26,7 +26,7 @@ export default function ReviewCards() {
     fetchReviews();
   }, []);
   return (
-    <div className="relative  mx-[10px] flex flex-col justify-between space-y-10 rounded-lg bg-white p-5 text-black md:mx-0 md:w-[400px]">
+    <div className="relative flex w-full flex-col justify-between space-y-10 rounded-lg bg-white p-5 text-black  md:w-[400px]">
       <div>
         <Swiper
           spaceBetween={30}

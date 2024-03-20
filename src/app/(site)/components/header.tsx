@@ -11,7 +11,6 @@ export default function Header() {
 	
   const currentPathname = usePathname();
 
-  // Define state to store whether the page is '/our-process' or not
   const [isOurProcessPage, setIsOurProcessPage] = useState(false);
 
   // Check if the current pathname is '/our-process'
@@ -45,7 +44,7 @@ export default function Header() {
           <nav className="ml-auto flex w-full space-x-3 text-sm md:w-auto md:text-base">
             <button
               id={'openMenuButton'}
-              className={`fixed right-[10px] top-[10px] z-20 flex h-[30px] w-[100px] items-center justify-between rounded-[5px] bg-[#999999] bg-opacity-10 px-3 text-xxs backdrop-blur-lg md:right-5 md:h-[35px] md:w-[120px] ${isOurProcessPage ? 'text-white md:text-black' : ''} `}
+              className={`fixed right-[10px] top-[10px] z-20 flex h-[30px] w-[100px] items-center justify-between rounded-[5px] bg-[#999999] bg-opacity-10 px-3 text-xxs backdrop-blur-lg md:right-5 md:h-[35px] md:w-[120px] ${isOurProcessPage ? 'text-white md:text-black' : 'text-black'} `}
             >
               Menu{' '}
               <span>

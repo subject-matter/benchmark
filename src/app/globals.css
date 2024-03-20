@@ -115,36 +115,6 @@ html {
   object-fit: cover;
 }
 
-.test {
-  height: 200vh;
-  background: olive;
-  text-align: center;
-  color: white;
-  font-size: 40px;
-  padding: 5rem;
-}
-.swipe-section {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: visible;
-}
-
-.swipe-section .panel {
-  position: absolute;
-  width: 100vw;
-  height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  font-size: 1.5em;
-  text-align: center;
-  color: white;
-  box-sizing: border-box;
-  padding: 10px;
-  object-fit: cover;
-}
 
 
 .fade-in {
@@ -157,10 +127,11 @@ html {
   opacity: 1;
 }
 
+
 @media only screen and (min-width: 767px) {
 
   .project-details {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.4s ease;
   }
   

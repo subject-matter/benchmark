@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
 import { useLenis } from '@studio-freight/react-lenis';
 import Link from 'next/link';
-import { isMobile } from 'react-device-detect';
+
 import { getHouses } from '../../../../sanity/sanity-utils';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,163 +31,154 @@ function LatestProjects() {
     fetchProjects();
   }, []);
 
-
   const projectsPin = useRef(null);
   const projectsWrapper = useRef(null);
 
-  const animate = (
-    target: RefObject<HTMLDivElement>,
-    index: number,
-    onStart: () => void,
-    onComplete: () => void
-  ) => {
-    document
-      .querySelectorAll('.project')
-      .forEach((project) => project.classList.remove('project--active'));
-    document
-      .querySelectorAll('.project')
-      [index].classList.add('project--active');
+  // const animate = (
+  //   target: RefObject<HTMLDivElement>,
+  //   index: number,
+  //   onStart: () => void,
+  //   onComplete: () => void
+  // ) => {
+  //   document
+  //     .querySelectorAll('.project')
+  //     .forEach((project) => project.classList.remove('project--active'));
+  //   document
+  //     .querySelectorAll('.project')
+  //     [index].classList.add('project--active');
 
-    gsap.to(target.current, {
-      xPercent: -index * 100,
-      duration: 1,
-      ease: 'power2.inOut',
-      force3D: true,
+  //   gsap.to(target.current, {
+  //     xPercent: -index * 100,
+  //     duration: 1,
+  //     ease: 'power2.inOut',
+  //     force3D: true,
+  //     onStart: () => onStart(),
+  //     onComplete: () => onComplete(),
+  //   });
+  // };
 
-      onStart: () => onStart(),
-      onComplete: () => onComplete(),
-    });
-  };
+  // useEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     let animating = false;
+  //     let index = 0;
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      let animating = false;
-      let index = 0;
+  //     if (document.querySelectorAll('.project').length) {
+  //       document
+  //         .querySelectorAll('.project')
+  //         [index].classList.add('project--active');
+  //     }
 
-      if (document.querySelectorAll('.project').length) {
-        document
-          .querySelectorAll('.project')
-          [index].classList.add('project--active');
-      }
+  //     const observer = ScrollTrigger.observe({
+  //       type: 'wheel,touch,pointer',
+  //       preventDefault: true,
+  //       tolerance: 10,
+  //       onUp: () => {
+  //         if (animating) return;
 
-      const observer = ScrollTrigger.observe({
-        type: 'wheel,touch,pointer',
-        preventDefault: true,
-        tolerance: 10,
-        onUp: () => {
-          if (animating) return;
-          if (isMobile) {
-            goDown();
-          } else {
-            goUp();
-          }
-        },
-        onDown: () => {
-          if (animating) return;
-          if (isMobile) {
-            goUp();
-          } else {
-            goDown();
-          }
-        },
-      });
+  //         goUp();
+  //       },
+  //       onDown: () => {
+  //         if (animating) return;
 
-      observer.disable();
+  //         goDown();
+  //       },
+  //     });
 
-      let preventScroll = ScrollTrigger.observe({
-        preventDefault: true,
-        type: 'wheel,scroll',
-        allowClicks: true,
-        onEnable: (self) => (self.savedScroll = self.scrollY()),
-        onChangeY: (self) => self.scrollY(self.savedScroll),
-      });
-      preventScroll.disable();
+  //     observer.disable();
 
-      function goDown() {
-        if (index === projects.length - 1) {
-          resumeScroll();
-          !isMobile &&
-            lenis.scrollTo('#about-us-section', {
-              duration: 1.2,
-            });
-        }
-        if (index < projects.length - 1) {
-          index++;
+  //     let preventScroll = ScrollTrigger.observe({
+  //       preventDefault: true,
+  //       type: 'wheel,scroll',
+  //       allowClicks: true,
+  //       onEnable: (self) => (self.savedScroll = self.scrollY()),
+  //       onChangeY: (self) => self.scrollY(self.savedScroll),
+  //     });
+  //     preventScroll.disable();
 
-          animate(
-            projectsWrapper,
-            index,
-            () => (animating = true),
-            () => {
-              animating = false;
-              //   if (index >= projects.length - 1) {
-              //     resumeScroll();
-              //   }
-            }
-          );
-        }
-      }
+  //     function goDown() {
+  //       if (index === projects.length - 1) {
+  //         resumeScroll();
+  //         lenis.scrollTo('#about-us-section', {
+  //           duration: 1.2,
+  //         });
+  //       }
+  //       if (index < projects.length - 1) {
+  //         index++;
 
-      function goUp() {
-        if (index !== 0) {
-          index--;
+  //         animate(
+  //           projectsWrapper,
+  //           index,
+  //           () => (animating = true),
+  //           () => {
+  //             animating = false;
+  //             if (index >= projects.length - 1) {
+  //               resumeScroll();
+  //             }
+  //           }
+  //         );
+  //       }
+  //     }
 
-          animate(
-            projectsWrapper,
-            index,
-            () => (animating = true),
-            () => {
-              animating = false;
-              if (index === 0) {
-                resumeScroll();
-              }
-            }
-          );
-        }
-      }
+  //     function goUp() {
+  //       if (index !== 0) {
+  //         index--;
 
-      function resumeScroll() {
-        observer.disable();
-        preventScroll.disable();
+  //         animate(
+  //           projectsWrapper,
+  //           index,
+  //           () => (animating = true),
+  //           () => {
+  //             animating = false;
+  //             if (index === 0) {
+  //               resumeScroll();
+  //             }
+  //           }
+  //         );
+  //       }
+  //     }
 
-        lenis?.isStopped && lenis.start();
+  //     function resumeScroll() {
+  //       observer.disable();
+  //       preventScroll.disable();
 
-        const position = () => {
-          if (index === 0) return preventScroll.scrollY() - 2;
-          return preventScroll.scrollY() + 2;
-        };
+  //       lenis?.isStopped && lenis.start();
 
-        lenis.scrollTo(position());
-      }
+  //       const position = () => {
+  //         if (index === 0) return preventScroll.scrollY() - 2;
+  //         return preventScroll.scrollY() + 2;
+  //       };
 
-      ScrollTrigger.create({
-        trigger: projectsPin.current,
-        pin: true,
-        start: 'top top',
-        end: '-=1 +=1',
-        pinSpacing: false,
-        // markers: true,
-        // end: '+=300',
-        onEnter: () => {
-          if (preventScroll.isEnabled === false) {
-            preventScroll.enable();
-            observer.enable();
-            !lenis?.isStopped && lenis?.stop();
-          }
-        },
+  //       lenis.scrollTo(position());
+  //     }
 
-        onEnterBack: () => {
-          if (preventScroll.isEnabled === false) {
-            preventScroll.enable();
-            observer.enable();
-            !lenis?.isStopped && lenis?.stop();
-          }
-        },
-      });
-    });
+  //     ScrollTrigger.create({
+  //       trigger: projectsPin.current,
+  //       pin: true,
+  //       start: 'top top',
+  //       end: '-=1 +=1',
+  //       pinSpacing: false,
+  //       // markers: true,
+  //       // end: '+=300',
+  //       onEnter: () => {
+  //         if (preventScroll.isEnabled === false) {
+  //           preventScroll.enable();
+  //           observer.enable();
+  //           !lenis?.isStopped && lenis?.stop();
+  //         }
+  //       },
 
-    return () => ctx.revert();
-  }, [lenis]);
+  //       onEnterBack: () => {
+  //         if (preventScroll.isEnabled === false) {
+  //           preventScroll.enable();
+  //           observer.enable();
+  //           !lenis?.isStopped && lenis?.stop();
+  //         }
+  //       },
+  //     });
+  //   });
+
+  //   return () => ctx.revert();
+  // }, [lenis]);
 
   return (
     <section className="scroll-section-outer col-span-12 hidden h-screen  overflow-hidden bg-white pb-20 pt-6 md:block">
@@ -209,7 +200,7 @@ function LatestProjects() {
                   )
               )}
 
-              <div className="project-details project--active mt-[10px]  grid w-full grid-cols-12 items-start bg-white px-[10px] md:mt-5 md:px-5">
+              <div className="project-details mt-[10px]  grid w-full grid-cols-12 items-start bg-white px-[10px] md:mt-5 md:px-5">
                 <p className="font-medium">{project.title}</p>
                 <Link
                   href={`/projects/${project.slug}`}

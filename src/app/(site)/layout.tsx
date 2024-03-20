@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import SlideMenu from "./components/SlideMenu";
-
+import SmoothScrolling from './components/SmoothScrolling';
 
 const moderat = localFont({
   src: [
@@ -33,11 +33,18 @@ export const metadata: Metadata = {
   description: 'Design and build architecture',
 };
 
-export const revalidate = 10; 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const revalidate = 10;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${moderat.variable} font-sans`}>
-      <body className="bg-white pb-[100vh] md:pb-[675px]">
+    <html lang="en">
+      {/* <SmoothScrolling> */}
+      <body
+        className={`bg-white pb-[100vh] md:pb-[675px] ${moderat.variable} font-sans`}
+      >
         <div
           id="glass"
           className="invisible fixed left-0 top-0 z-[10] h-screen w-full bg-white bg-opacity-20 opacity-0 backdrop-blur-2xl transition duration-300"
@@ -50,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <Footer />
       </body>
+      {/* </SmoothScrolling> */}
     </html>
   );
 }

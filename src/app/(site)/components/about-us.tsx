@@ -25,51 +25,28 @@ function AboutSection() {
     });
   };
 
-  const [isInView, setIsInView] = useState(false);
-  const sectionRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
 
-  let mm = gsap.matchMedia();
+  // useEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     gsap.set('.awards', { y: '70vh' });
+  //     gsap.set('.houses', { y: '50vh' });
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.set('.awards', { y: '70vh' });
-      gsap.set('.houses', { y: '50vh' });
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: '.group',
+  //         pin: true,
+  //         start: 'top-=10 top',
+  //         end: () => '+=' + window.innerHeight,
+  //         scrub: 1,
+  //       },
+  //     });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.group',
-          pin: true,
-          start: 'top-=10 top',
-          end: () => '+=' + window.innerHeight,
-          scrub: 1,
-        },
-      });
-
-      tl.to('.awards', { y: 0 }, '-=0.2');
-      tl.to('.houses', { y: 0 }, '-=0.2');
-    });
-    return () => ctx.revert();
-  }, []);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.15 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  //     tl.to('.awards', { y: 0 }, '-=0.2');
+  //     tl.to('.houses', { y: 0 }, '-=0.2');
+  //   });
+  //   return () => ctx.revert();
+  // }, []);
 
   const [staff, setStaff] = useState([]);
 
@@ -135,7 +112,7 @@ function AboutSection() {
           </div>
 
           <div
-            className={`houses fade-in-section relative z-[5] mx-[10px] border-t border-dotted border-grey  bg-white pb-24 pt-3 md:mx-5`}
+            className={`houses fade-in-section relative z-[5] mx-[10px] border-t border-dotted border-grey  bg-white pt-3 md:mx-5 md:pb-24`}
           >
             <h4 className="pt-3 text-xs-medium">Houses Built</h4>
 
@@ -184,10 +161,10 @@ function AboutSection() {
         </div>
 
         <div
-          className={`top-0 z-[5] col-span-2 row-span-6 border-r border-dotted border-grey bg-black pl-3 text-white md:sticky md:col-span-1 md:row-start-7 md:h-screen `}
+          className={`x-[10px] top-0 z-[5] col-span-2 h-screen border-r border-dotted border-grey bg-black p-[10px] text-white md:sticky md:col-span-1 md:row-span-6 md:row-start-7 md:pl-3 `}
         >
-          <p className="absolute left-5 top-5">Reviews</p>
-          <div className={`flex items-center justify-center md:h-screen`}>
+          <p className="left-5 top-5 md:absolute">Reviews</p>
+          <div className={`flex h-screen items-center justify-center`}>
             <ReviewCards />
           </div>
         </div>
@@ -196,9 +173,9 @@ function AboutSection() {
           <p className="block p-[10px] text-xs-medium text-black md:hidden md:py-5">
             About Us
           </p>
-          <div className="top-0 z-[6] bg-black md:sticky">
+          <div className="sticky top-0 z-[6] bg-black">
             <Image
-              className="md:h-screen md:object-cover"
+              className="object-contain md:h-screen md:object-cover"
               src={staff.team}
               alt={staff.teamAlt}
               width={2000}
@@ -207,7 +184,7 @@ function AboutSection() {
           </div>
         </div>
         <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  md:col-span-1 ">
-          <div className="mt-auto w-full p-5">
+          <div className="w-full p-5 md:mt-auto">
             <p className="col-span-2 mb-48 w-full text-sm-xl md:mt-[20vh] md:text-xl">
               Get In Touch
             </p>

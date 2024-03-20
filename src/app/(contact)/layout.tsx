@@ -3,7 +3,7 @@ import "../globals.css";
 import localFont from "next/font/local";
 import Header from "../(site)/components/header";
 import SlideMenu from "../(site)/components/SlideMenu";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+
 
 const moderat = localFont({
   src: [

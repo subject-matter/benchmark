@@ -15,35 +15,33 @@ export default async function Home() {
   const homepage: Homepage[] = await getHomepage();
   return (
     <>
-      <SmoothScrolling>
-        <Container>
-          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-[5px] md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
-            Benchmark <br />
-            Homes
-          </h1>
+      <Container>
+        <h1 className="col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-[5px] md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
+          Benchmark <br />
+          Homes
+        </h1>
 
-          <p className="col-span-6 mb-3  text-sm font-medium md:col-span-2 md:mb-0">
-            {homepage[0].title}
-          </p>
-          <div className="col-span-12 col-start-1 md:col-span-6 md:col-start-7">
-            <Image
-              className="aspect-[3/2] object-cover"
-              src={homepage[0].image}
-              alt={homepage[0].alt}
-              width={1200}
-              height={600}
-            />
-          </div>
-          <p className="col-span-12 my-medium text-sm font-medium md:text-lg">
-            {homepage[0].description}
-          </p>
-          <p></p>
-        </Container>
+        <p className="col-span-6 mb-3  text-sm font-medium md:col-span-2 md:mb-0">
+          {homepage[0].title}
+        </p>
+        <div className="col-span-12 col-start-1 md:col-span-6 md:col-start-7">
+          <Image
+            className="aspect-[3/2] object-cover"
+            src={homepage[0].image}
+            alt={homepage[0].alt}
+            width={1200}
+            height={600}
+          />
+        </div>
+        <p className="col-span-12 my-medium text-sm font-medium md:text-lg">
+          {homepage[0].description}
+        </p>
+        <p></p>
+      </Container>
 
-        <LatestProjects />
-        <SwiperHomeProjects />
-        <AboutSection />
-      </SmoothScrolling>
+      <LatestProjects />
+      <SwiperHomeProjects />
+      <AboutSection />
     </>
   );
 }
