@@ -23,7 +23,7 @@
     "@sanity/react-loader": "^1.8.7",
     "@sanity/structure": "^2.36.2",
     "@sanity/ui": "^2.0.12",
-    "@sanity/vision": "^3.18.1",
+    "@sanity/vision": "3.35.1",
     "@sentry/nextjs": "^7.86.0",
     "@studio-freight/lenis": "^1.0.29",
     "@studio-freight/react-lenis": "^0.0.36",
