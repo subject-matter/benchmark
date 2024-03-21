@@ -43,22 +43,41 @@ function AboutSection() {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
+      let mm = gsap.matchMedia();
       gsap.set('.awards', { y: '70vh' });
       gsap.set('.houses', { y: '50vh' });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.group',
-          pin: true,
-          start: 'top-=10 top',
-          end: () => '+=' + window.innerHeight,
-          scrub: 1,
-        },
+      mm.add('(min-width: 1024px)', () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.group',
+            pin: true,
+            start: 'top-=10 top',
+            end: () => '+=' + window.innerHeight,
+            scrub: 1,
+          },
+        });
+
+        tl.to('.awards', { y: 0 }, '-=0.2');
+        tl.to('.houses', { y: 0 }, '-=0.2');
       });
 
-      tl.to('.awards', { y: 0 }, '-=0.2');
-      tl.to('.houses', { y: 0 }, '-=0.2');
+      mm.add('(max-width: 1024px)', () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.group',
+            pin: true,
+            start: 'top-=50vh top',
+            end: () => '+=' + window.innerHeight,
+            scrub: 1,
+          },
+        });
+
+        tl.to('.awards', { y: 0 }, '-=0.2');
+        tl.to('.houses', { y: 0 }, '-=0.2');
+      });
     });
+
     return () => ctx.revert();
   }, []);
 
@@ -176,7 +195,7 @@ function AboutSection() {
             <Image
               className="h-[75vh] object-cover lg:h-screen"
               src={staff.team}
-              alt="Benchmark Team"
+              alt={staff.teamAlt}
               width={2000}
               height={2000}
             />

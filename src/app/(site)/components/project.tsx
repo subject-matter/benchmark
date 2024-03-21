@@ -16,6 +16,7 @@ function Project(props: any) {
           alt="House"
           height={8000}
           width={1000}
+          priority
         />
       </Link>
     </div>

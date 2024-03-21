@@ -78,10 +78,6 @@ function LatestProjects() {
       let animating = false;
       let index = 0;
 
-      //   document
-      //     .querySelectorAll('.project')
-      //     [index].classList.add('project--active');
-
       if (document.querySelectorAll('.project').length) {
         document
           .querySelectorAll('.project')
@@ -182,28 +178,32 @@ function LatestProjects() {
         lenis.scrollTo(position());
       }
 
-      ScrollTrigger.create({
-        trigger: projectsPin.current,
-        pin: true,
-        start: 'top top',
-        end: '-=1 +=1',
-        // markers: true,
-        // end: '+=300',
-        onEnter: () => {
-          if (preventScroll.isEnabled === false) {
-            preventScroll.enable();
-            observer.enable();
-            !lenis?.isStopped && lenis?.stop();
-          }
-        },
+      let mm = gsap.matchMedia;
+      mm('(min-width: 1024px)', () => {
+        ScrollTrigger.create({
+          trigger: projectsPin.current,
+          pin: true,
+          start: 'top top',
+          end: '-=1 +=1',
+          // markers: true,
+          // end: '+=300',
+          onEnter: () => {
+            if (preventScroll.isEnabled === false) {
+              console.log('pinned');
+              preventScroll.enable();
+              observer.enable();
+              !lenis?.isStopped && lenis?.stop();
+            }
+          },
 
-        onEnterBack: () => {
-          if (preventScroll.isEnabled === false) {
-            preventScroll.enable();
-            observer.enable();
-            !lenis?.isStopped && lenis?.stop();
-          }
-        },
+          onEnterBack: () => {
+            if (preventScroll.isEnabled === false) {
+              preventScroll.enable();
+              observer.enable();
+              !lenis?.isStopped && lenis?.stop();
+            }
+          },
+        });
       });
     });
 
@@ -211,14 +211,14 @@ function LatestProjects() {
   }, [lenis]);
 
   return (
-    <section className="scroll-section-outer col-span-12 hidden h-screen overflow-hidden bg-white pb-20 pt-6 lg:block">
+    <section className="scroll-section-outer col-span-12 hidden overflow-hidden bg-white pb-20 pt-6 lg:block lg:h-screen ">
       <div ref={projectsPin} className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
           Latest Projects
         </p>
         <div ref={projectsWrapper} className="relative flex">
           {projects.map((project, i) => (
-            <div className="project h-[85vh] w-full flex-shrink-0" key={i}>
+            <div className="project w-full flex-shrink-0 lg:h-[85vh]" key={i}>
               {project.image && (
                 <Project
                   image={project.image}

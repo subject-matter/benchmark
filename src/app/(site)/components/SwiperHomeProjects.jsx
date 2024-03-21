@@ -39,7 +39,7 @@ function SwiperHomeProjects() {
           spaceBetween={30}
           effect={'fade'}
           modules={EffectFade}
-          className="relative flex"
+          className="relative flex h-[40vh]"
         >
           {projects.map((project, i) => (
             <SwiperSlide
