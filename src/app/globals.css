@@ -131,7 +131,7 @@ html {
 @media only screen and (min-width: 767px) {
 
   .project-details {
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.4s ease;
   }
   
