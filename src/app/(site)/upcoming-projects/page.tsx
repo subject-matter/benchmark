@@ -7,19 +7,19 @@ export default async function UpcomingProjects() {
 	const upcomingProjects = await getAllUpcomingProjects();
 
 	return (
-		<>
-			<LenisScroll>
-				<div>
-					<div className="grid grid-cols-12 gap-x-5 text-xs px-[10px] md:px-5 ">
-						<h1 className="font-medium text-sm-3xl md:text-3xl my-24 md:mt-0 md:mb-large ">
-							Upcoming <br /> Projects
-						</h1>
-						<UpcomingProjectsList
-							projects={upcomingProjects.props.upcomingProjects}
-						/>
-					</div>
-				</div>
-			</LenisScroll>
-		</>
-	);
+    <>
+      <LenisScroll>
+        <div>
+          <div className="grid grid-cols-12 gap-x-5 px-[10px] text-xs md:px-5 ">
+            <h1 className="my-24 text-sm-3xl font-medium md:mb-large md:mt-0 lg:text-3xl ">
+              Upcoming <br /> Projects
+            </h1>
+            <UpcomingProjectsList
+              projects={upcomingProjects.props.upcomingProjects}
+            />
+          </div>
+        </div>
+      </LenisScroll>
+    </>
+  );
 }

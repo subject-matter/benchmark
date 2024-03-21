@@ -16,11 +16,8 @@ body {
 }
 
 .update p {
-  margin-bottom: 20px;
-  font-size: 18px;
-  line-height: 20px;
-  letter-spacing: 0.18px;
-  font-weight: 400;
+  @apply whitespace-pre-line text-xxs  md:text-xs mb-5
+ 
 }
 
 
@@ -45,9 +42,12 @@ html.lenis {
   overscroll-behavior: contain;
 }
 
-.lenis.lenis-stopped {
-  overflow: hidden;
+@media only screen and (min-width:767px) {
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
 }
+
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;

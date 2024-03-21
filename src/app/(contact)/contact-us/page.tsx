@@ -30,22 +30,22 @@ function Contact() {
   return (
     <>
       <LenisScroll>
-        <section className="bg-white md:h-screen">
+        <section className="bg-white lg:h-screen">
           <div>
-            <div className="grid md:grid-cols-2">
-              <div className="flex h-screen flex-col justify-between p-[10px] md:p-5">
+            <div className="grid lg:grid-cols-2">
+              <div className="flex h-screen flex-col justify-between p-[10px] lg:p-5">
                 <div className="flex items-start justify-between">
-                  <h1 className="mt-[68px] text-sm-xl md:mt-0 md:text-xl">
+                  <h1 className="mt-[68px] text-sm-xl lg:mt-0 lg:text-xl">
                     Contact
                   </h1>
-                  <div className="absolute left-[10px] top-5 space-x-5 md:relative md:flex ">
+                  <div className="absolute left-[10px] top-5 space-x-5 lg:relative lg:flex ">
                     <SocialIcons />
                   </div>
                 </div>
 
                 <ContactForm />
-                <div className="grid grid-cols-6 text-xxs md:grid-cols-2 md:text-xs-medium">
-                  <span className="col-span-4 col-start-3 md:col-start-1">
+                <div className="grid grid-cols-6 text-xxs lg:grid-cols-2 lg:text-xs-medium">
+                  <span className="col-span-4 col-start-3 lg:col-start-1">
                     <p>
                       <span className="font-medium">
                         Office/Milns Park Showhome
@@ -57,7 +57,7 @@ function Contact() {
                     </p>
                   </span>
 
-                  <span className="col-span-6 mb-4 md:col-span-1 md:col-start-1 md:mb-0">
+                  <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
                     <Link
                       href="tel:033438260"
                       className="duration-250 w-fit transition hover:opacity-50"
@@ -73,7 +73,7 @@ function Contact() {
                     </Link>
                     <br />
                   </span>
-                  <span className="col-span-4 col-start-3 md:col-span-1 md:col-start-2">
+                  <span className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2">
                     <p>
                       {' '}
                       12 Whitburn Ave, Milns Park,

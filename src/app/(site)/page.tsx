@@ -7,41 +7,44 @@ import LatestProjects from './components/latestProjects';
 import SmoothScrolling from './components/SmoothScrolling';
 import { getHomepage } from '../../../sanity/sanity-utils';
 import { Homepage } from '../types/homepage';
-import Head from 'next/head';
-import SwiperHomeProjects from './components/SwiperHomeProjects';
 
+import SwiperHomeProjects from './components/SwiperHomeProjects';
 
 export default async function Home() {
   const homepage: Homepage[] = await getHomepage();
+
   return (
     <>
-      <Container>
-        <h1 className="col-span-12 mb-large mt-24 text-sm-3xl md:col-span-11 md:mt-[5px] md:-translate-x-5 lg:text-2xl xl:text-3xl  ">
-          Benchmark <br />
-          Homes
-        </h1>
+      <SmoothScrolling>
+        <Container>
+          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl lg:col-span-11 lg:mt-[5px] lg:-translate-x-5 lg:text-2xl xl:text-3xl  ">
+            Benchmark <br />
+            Homes
+          </h1>
 
-        <p className="col-span-6 mb-3  text-sm font-medium md:col-span-2 md:mb-0">
-          {homepage[0].title}
-        </p>
-        <div className="col-span-12 col-start-1 md:col-span-6 md:col-start-7">
-          <Image
-            className="aspect-[3/2] object-cover"
-            src={homepage[0].image}
-            alt={homepage[0].alt}
-            width={1200}
-            height={600}
-          />
-        </div>
-        <p className="col-span-12 my-medium text-sm font-medium md:text-lg">
-          {homepage[0].description}
-        </p>
-        <p></p>
-      </Container>
+          <p className="col-span-6 mb-3  text-sm font-medium lg:col-span-2 lg:mb-0">
+            {homepage[0].title}
+          </p>
+          <div className="col-span-12 col-start-1 lg:col-span-6 lg:col-start-7">
+            <Image
+              className="aspect-[3/2] object-cover"
+              src={homepage[0].image}
+              alt={homepage[0].alt}
+              width={1200}
+              height={600}
+            />
+          </div>
+          <p className="col-span-12 my-medium text-sm font-medium lg:text-lg">
+            {homepage[0].description}
+          </p>
+          <p></p>
+        </Container>
 
-      <LatestProjects />
-      <SwiperHomeProjects />
-      <AboutSection />
+        <LatestProjects />
+
+        <SwiperHomeProjects />
+        <AboutSection />
+      </SmoothScrolling>
     </>
   );
 }

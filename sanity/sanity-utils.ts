@@ -62,14 +62,12 @@ export async function getHouses() {
 		"projectSlider": projectSlider[]->{
 		  title,
 		  features,
+		  "image": slider_image.asset->url,
 		  "slug": slug.current,
-		  pageBuilder[]{
-			_type == "fullLandscape" => {
-			  "image": image.asset->url  
-			}
+		 
 		  }
 		}
-	  }
+	  
 	  
 			  `
   );

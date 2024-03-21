@@ -28,7 +28,7 @@ export default async function Update({ params }: Props) {
 	return (
     <section className={`col-span-12 overflow-x-clip pb-medium`}>
       <div className="relative grid min-h-screen grid-cols-2">
-        <div className="top-0 col-span-2 hidden h-screen bg-black md:sticky md:col-span-1 md:block">
+        <div className="top-0 col-span-2 hidden h-screen bg-black lg:sticky lg:col-span-1 lg:block">
           <Image
             className="h-screen object-cover"
             src={update.image}
@@ -39,21 +39,21 @@ export default async function Update({ params }: Props) {
           />
         </div>
 
-        <div className="update col-span-2 md:col-span-1">
-          <div className="relative mx-[10px] md:mx-5 md:min-h-screen">
+        <div className="update col-span-2 lg:col-span-1">
+          <div className="relative mx-[10px] lg:mx-5 lg:min-h-screen">
             <h4 className="mt-5 text-xs-medium">Updates</h4>
-            <h1 className="mb-20 mt-20 text-sm-lg md:mb-large md:mt-[300px] md:w-2/3 md:text-lg">
+            <h1 className="mb-20 mt-20 text-sm-lg lg:mb-large lg:mt-[300px] lg:w-2/3 lg:text-lg">
               {update.title}
             </h1>
             <Image
-              className="mb-20 md:hidden"
+              className="mb-20 lg:hidden"
               src={update.image}
               alt={update.title}
               width={2000}
               height={2000}
               priority
             />
-            <h3 className="mb-7">{update.subtitle}</h3>
+            <p className="mb-7">{update.subtitle}</p>
             <PortableText value={update.body} components={components} />
           </div>
         </div>

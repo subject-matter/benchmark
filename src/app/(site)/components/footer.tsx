@@ -11,10 +11,10 @@ export default function Footer() {
   const year = today.getFullYear();
   return (
     <footer className="min-h-[100svh] bg-transparent" id="footer">
-      <div className="footer-container absolute bottom-0 mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium md:p-5 ">
-        <div className="col-start-10 row-start-1 md:col-span-2 md:col-start-1">
+      <div className="footer-container absolute bottom-0 mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
+        <div className="col-start-10 row-start-1 lg:col-span-2 lg:col-start-1">
           <svg
-            className="mt-[10px] md:mt-0"
+            className="mt-[10px] lg:mt-0"
             width="80"
             height="20"
             viewBox="0 0 80 20"
@@ -29,7 +29,7 @@ export default function Footer() {
             />
           </svg>
         </div>
-        <div className="md col-span-9 col-start-1 flex flex-col p-[10px] text-base md:col-span-3 md:col-start-10 md:mb-[233px] md:p-0">
+        <div className="lg col-span-9 col-start-1 flex flex-col p-[10px] text-base lg:col-span-3 lg:col-start-10 lg:mb-[233px] lg:p-0">
           <Link
             href="/"
             className="duration-250 w-fit transition hover:opacity-50"
@@ -82,7 +82,7 @@ export default function Footer() {
         <a
           target="_blank"
           href="https://buildertrend.net/"
-          className="col-span-2 row-start-3 mx-[10px] mb-[80px] flex h-[35px] w-fit items-center rounded-[5px]  bg-[#F5F5F5] p-3 px-[10px]  text-xxs hover:opacity-50 md:ml-0"
+          className="col-span-2 row-start-3 mx-[10px] mb-[80px] flex h-[35px] w-fit items-center rounded-[5px]  bg-[#F5F5F5] p-3 px-[10px]  text-xxs hover:opacity-50 lg:ml-0"
         >
           <span>Login</span>
           <div className="ml-[50px] flex items-center">
@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="col-span-12 row-start-4 grid grid-cols-12 items-end gap-x-5">
-          <div className="col-span-12 flex flex-col pl-[10px] text-xxs md:col-span-3 md:pl-0 md:text-xs-medium">
+          <div className="col-span-12 flex flex-col pl-[10px] text-xxs lg:col-span-3 lg:pl-0 lg:text-xs-medium">
             <span>
               <Link
                 href="tel:033438260"
@@ -122,11 +122,11 @@ export default function Footer() {
               </Link>
             </span>
           </div>
-          <div className="col-span-12 ml-auto pr-[10px] text-xxs md:col-span-3 md:col-start-4 md:ml-0 md:pr-0 md:text-xs-medium">
+          <div className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium">
             12 Whitburn Ave, Milns Park,
             <br /> Halswell, Christchurch, New Zealand
           </div>
-          <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] md:col-span-3 md:col-start-10 md:mt-0 md:bg-white md:py-0 md:text-xxs md:leading-normal md:text-black">
+          <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
             Copyright © {year} Benchmark Homes | All Rights Reserved.{' '}
             <br className="hidden lg:block" />
             View <span className="underline">Privacy Policy</span> &{' '}

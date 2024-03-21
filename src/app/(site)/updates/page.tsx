@@ -10,78 +10,78 @@ import Image from "next/image";
 export default async function Updates() {
 	const updates = await getUpdates();
 	return (
-		<>
-			<LenisScroll>
-				<div className="mx-[10px] mb-large">
-					<h1 className=" font-medium text-sm-3xl md:text-3xl py-24 md:pt-3 md:pb-large ">
-						Updates
-					</h1>
+    <>
+      <LenisScroll>
+        <div className="mx-[10px] mb-large">
+          <h1 className=" py-24 text-sm-3xl font-medium lg:pb-large lg:pt-3 lg:text-3xl ">
+            Updates
+          </h1>
 
-					<div className="col-span-12 selected-projects w-full">
-						<div className="text-xxs feature-pill mx-[5px] md:m-[10px]">
-							Latest Update
-						</div>
-						<div className=" md:mx-5 mb-12 ">
-							<div className="grid grid-cols-12 gap-x-[10px] md:gap-x-5 text-xs-medium mx-auto w-full md:border-grey border-dashed md:border-t border-1 pb-[60px] md:pb-[200px]">
-								{updates.map((update: any, index: number) => (
-									<div
-										key={index}
-										className={`mt-[15px] mb-10 ${
-											index == 0
-												? "col-span-12 md:col-span-8 "
-												: index == 1
-												? "col-span-6 md:col-span-4"
-												: "col-span-6 md:col-span-3 "
-										} `}
-									>
-										<div className="mb-10">
-											<Link href={`update/${update.slug}`}>{update.title}</Link>
-										</div>
+          <div className="selected-projects col-span-12 w-full">
+            <div className="feature-pill mx-[5px] text-xxs lg:m-[10px]">
+              Latest Update
+            </div>
+            <div className=" mb-12 lg:mx-5 ">
+              <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium lg:gap-x-5 lg:border-t lg:border-grey lg:pb-[200px]">
+                {updates.map((update: any, index: number) => (
+                  <div
+                    key={index}
+                    className={`mb-10 mt-[15px] ${
+                      index == 0
+                        ? 'col-span-12 lg:col-span-8 '
+                        : index == 1
+                          ? 'col-span-6 lg:col-span-4'
+                          : 'col-span-6 lg:col-span-3 '
+                    } `}
+                  >
+                    <div className="mb-10">
+                      <Link href={`update/${update.slug}`}>{update.title}</Link>
+                    </div>
 
-										<Link
-											href={`update/${update.slug}`}
-											className="selected-projects-image-container relative"
-										>
-											<Image
-												className="selected-projects-image w-full object-cover"
-												src={update.image}
-												alt={update.title}
-												width={1000}
-												height={1000}
-											/>
-											<div className="selected-projects-image-blur absolute w-full h-full top-0 left-0"></div>
-										</Link>
-										<Link
-											href={`update/${update.slug}`}
-											className="mt-5 w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 text-black"
-										>
-											Read more
-											<div className="ml-[50px] flex items-center">
-												<svg
-													width="7"
-													height="12"
-													viewBox="0 0 7 12"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<path
-														d="M6.3131 5.65685L0.65625 0L0.656372 11.3138L6.3131 5.65685Z"
-														fill="black"
-													/>
-												</svg>
-											</div>
-										</Link>
-										{index % 4 === 3 && (
-											<div className="col-span-12 md:border-grey border-dashed md:border-t border-1 pb-[60px]"></div>
-										)}
-									</div>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-			</LenisScroll>
-		</>
-	);
+                    <Link
+                      href={`update/${update.slug}`}
+                      className="selected-projects-image-container relative"
+                    >
+                      <Image
+                        className="selected-projects-image w-full object-cover"
+                        src={update.image}
+                        alt={update.title}
+                        width={1000}
+                        height={1000}
+                      />
+                      <div className="selected-projects-image-blur absolute left-0 top-0 h-full w-full"></div>
+                    </Link>
+                    <Link
+                      href={`update/${update.slug}`}
+                      className="col-span-6 mt-5 flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs text-black hover:opacity-50"
+                    >
+                      Read more
+                      <div className="ml-[50px] flex items-center">
+                        <svg
+                          width="7"
+                          height="12"
+                          viewBox="0 0 7 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.3131 5.65685L0.65625 0L0.656372 11.3138L6.3131 5.65685Z"
+                            fill="black"
+                          />
+                        </svg>
+                      </div>
+                    </Link>
+                    {index % 4 === 3 && (
+                      <div className="border-1 col-span-12 border-dashed pb-[60px] lg:border-t lg:border-grey"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </LenisScroll>
+    </>
+  );
 }
 

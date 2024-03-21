@@ -11,6 +11,20 @@ interface SmoothScrollingProps {
 }
 
 const SmoothScrolling = ({ children }: SmoothScrollingProps) => {
+  const lenisRef = useRef<any>();
+
+  useEffect(() => {
+    function update(time: any) {
+      lenisRef.current?.raf(time * 1000);
+    }
+
+    gsap.ticker.add(update);
+
+    return () => {
+      gsap.ticker.remove(update);
+    };
+  });
+
   return (
     <Lenis root options={{}}>
       {children}

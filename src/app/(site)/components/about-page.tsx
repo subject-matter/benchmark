@@ -100,42 +100,42 @@ function AboutSection({ info }: any) {
   return (
     <section className={`col-span-12 overflow-x-clip`}>
       <div className="relative grid min-h-screen grid-cols-2">
-        <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black md:sticky md:col-span-1 md:block">
+        <div className="top-0 col-span-2 hidden h-screen overflow-hidden bg-black lg:sticky lg:col-span-1 lg:block">
           <Image
             className="h-screen object-cover"
             src={staff.team}
             alt={staff.teamAlt}
             width={8000}
             height={8000}
-            priority
           />
         </div>
-        <div className="col-span-2 md:col-span-1">
-          <div className="mx-[10px]  bg-white md:mx-5 md:min-h-screen">
-            <h1 className="col-span-11 mb-medium mt-16 text-sm-xl font-medium md:col-span-1 md:mt-0 md:text-xl">
+        <div className="col-span-2 lg:col-span-1">
+          <div className="mx-[10px]  bg-white lg:mx-5 lg:min-h-screen">
+            <h1 className="col-span-11 mb-medium mt-16 text-sm-xl font-medium lg:col-span-1 lg:mt-0 lg:text-xl">
               About Us
             </h1>
-            <div className="mb-5 text-xs-medium md:mb-[50vh] md:text-base">
+            <div className="mb-5 text-xs-medium lg:mb-[50vh] lg:text-base">
               {info.description}
             </div>
 
-            <Image
-              src={staff.team}
-              alt={staff.teamAlt}
-              width={2000}
-              height={1000}
-              priority
-              className="mb-20 block md:mb-32 md:hidden"
-            />
+            <div className="mb-20 block h-[75vh] lg:mb-32 lg:hidden">
+              <Image
+                src={staff.team}
+                alt={staff.teamAlt}
+                width={2000}
+                height={1000}
+                className=""
+              />
+            </div>
 
-            <div className="my-3 pt-6 text-xxs font-medium md:my-7 md:text-xs-medium ">
+            <div className="my-3 pt-6 text-xxs font-medium lg:my-7 lg:text-xs-medium ">
               Over the Years
             </div>
-            <div className="mb-[48px] whitespace-pre-line text-xxs  md:text-xs">
+            <div className="mb-[48px] whitespace-pre-line text-xxs  lg:text-xs">
               {info.over_the_years}
             </div>
-            <div className="mb-medium flex justify-between text-xxs md:mb-large md:text-xs">
-              <div className="me-5 font-medium md:me-0">Magazine</div>
+            <div className="mb-medium flex justify-between text-xxs lg:mb-large lg:text-xs">
+              <div className="me-5 font-medium lg:me-0">Magazine</div>
               <div>
                 <p>
                   Want to learn more about us? Check out our magazine{' '}
@@ -154,7 +154,7 @@ function AboutSection({ info }: any) {
           </div>
 
           <div className="group">
-            <div className="numbers z-[2] col-span-2 mx-[10px] border-t  border-dotted border-grey bg-white  pb-8 pt-3 md:col-span-1  md:mx-5">
+            <div className="numbers z-[2] col-span-2 mx-[10px] border-t  border-dotted border-grey bg-white  pb-8 pt-3 lg:col-span-1  lg:mx-5">
               <h4 className="pt-3 text-xs-medium">Years of Experience</h4>
               <CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
                 {countersOn[0] ? (
@@ -163,15 +163,15 @@ function AboutSection({ info }: any) {
                     end={25}
                     duration={1}
                     suffix="+"
-                    className="text-sm-2xl font-medium md:text-2xl "
+                    className="text-sm-2xl font-medium lg:text-2xl "
                   />
                 ) : (
-                  <p className="text-sm-2xl font-medium md:text-2xl ">25</p>
+                  <p className="text-sm-2xl font-medium lg:text-2xl ">25</p>
                 )}
               </CountScrollTrigger>
             </div>
 
-            <div className="awards relative  z-[3] col-span-2 mx-[10px] border-t border-dotted border-grey bg-white  pb-8 pt-3 md:col-span-1 md:mx-5 ">
+            <div className="awards relative  z-[3] col-span-2 mx-[10px] border-t border-dotted border-grey bg-white  pb-8 pt-3 lg:col-span-1 lg:mx-5 ">
               <h4 className="pt-3 text-xs-medium">Master Builders Awards</h4>
 
               <CountScrollTrigger onEnter={() => handleEnterViewport(1)}>
@@ -181,17 +181,17 @@ function AboutSection({ info }: any) {
                     end={200}
                     duration={0.75}
                     suffix="+"
-                    className="mb-24 text-sm-2xl font-medium md:text-2xl"
+                    className="mb-24 text-sm-2xl font-medium lg:text-2xl"
                   />
                 ) : (
-                  <p className="text-sm-2xl font-medium md:text-2xl ">20</p>
+                  <p className="text-sm-2xl font-medium lg:text-2xl ">20</p>
                 )}
               </CountScrollTrigger>
             </div>
           </div>
 
           <div
-            className={`houses fade-in-section relative z-[5] mx-[10px] border-t border-dotted border-grey  bg-white pb-24 pt-3 md:mx-5`}
+            className={`houses fade-in-section relative z-[5] mx-[10px] border-t border-dotted border-grey  bg-white pb-24 pt-3 lg:mx-5`}
           >
             <h4 className="pt-3 text-xs-medium">Houses Built</h4>
 
@@ -203,16 +203,16 @@ function AboutSection({ info }: any) {
                   duration={0.5}
                   separator=""
                   suffix="+"
-                  className="mb-24 text-sm-2xl font-medium md:text-2xl"
+                  className="mb-24 text-sm-2xl font-medium lg:text-2xl"
                 />
               ) : (
-                <p className="mb-24 text-sm-2xl font-medium md:text-2xl">
+                <p className="mb-24 text-sm-2xl font-medium lg:text-2xl">
                   1500
                 </p>
               )}
             </CountScrollTrigger>
             <div
-              className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 md:mb-0 md:px-0 `}
+              className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 lg:mb-0 lg:px-0 `}
             >
               <AboutAccordions />
             </div>
@@ -220,7 +220,7 @@ function AboutSection({ info }: any) {
 
           <div ref={sectionRef}>
             <div
-              className={`md:h-min-screen fade-in-section z-[7] pt-[50px] ${
+              className={`lg:h-min-screen fade-in-section z-[7] pt-[50px] ${
                 isWhite ? 'bg-black text-white' : 'bg-white text-black'
               }`}
             >

@@ -13,16 +13,16 @@ export default async function SelectedProjects() {
     <>
       <LenisScroll>
         <div>
-          <h1 className="mx-[10px] py-24 text-sm-3xl font-medium md:pb-large md:pt-3 md:text-3xl ">
+          <h1 className="mx-[10px] py-24 text-sm-3xl font-medium md:pb-large md:pt-3 lg:text-3xl ">
             Selected <br /> Projects
           </h1>
           <div className="selected-projects col-span-12 w-full">
             {selectedProjects.map((project: any, index: number) => (
               <div key={index} className="mx-[10px] md:mx-5 md:mb-12 ">
-                <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5 md:border-t md:pb-[200px]">
+                <div className="mx-auto grid w-full grid-cols-12 gap-x-[10px] border-t border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5  md:pb-[200px]">
                   {project.mainProjectTitle && (
                     <div
-                      className={`border-1 col-span-12 mt-[60px] flex flex-col border-t border-dashed border-grey pb-[60px] md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
+                      className={`col-span-12 flex  flex-col  border-t   border-dashed border-grey pb-[60px] md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
                         project.mainImageCol == 'First'
                           ? 'md:col-start-1'
                           : project.mainImageCol == 'Second'
@@ -55,7 +55,7 @@ export default async function SelectedProjects() {
 
                   {project.imageOneTitle && (
                     <div
-                      className={`col-span-6 flex  flex-col md:col-span-3 ${
+                      className={`col-span-6 flex flex-col border-t border-dashed border-grey  md:col-span-3 md:border-0 ${
                         project.mainImageCol == 'First'
                           ? 'sm:row-start-2 md:col-start-7 md:row-start-1'
                           : 'md:col-start-1 md:row-start-1'
@@ -87,7 +87,7 @@ export default async function SelectedProjects() {
 
                   {project.imageTwoTitle && (
                     <div
-                      className={`col-span-6 flex flex-col md:col-span-3 ${
+                      className={`col-span-6 flex flex-col border-t border-dashed border-grey md:col-span-3 md:border-0 ${
                         project.mainImageCol == 'Third'
                           ? 'md:col-start-4 md:row-start-1'
                           : 'sm:row-start-2 md:col-start-10 md:row-start-1'
