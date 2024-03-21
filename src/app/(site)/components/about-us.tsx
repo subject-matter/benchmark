@@ -16,6 +16,11 @@ import ContactForm from './contact-form';
 import { getGroup } from '../../../../sanity/sanity-utils';
 
 function AboutSection() {
+
+  setTimeout(function() {
+    ScrollTrigger.refresh()
+  }, 200)
+  
   const [staff, setStaff] = useState([]);
   const [countersOn, setCountersOn] = useState([false, false, false]);
   gsap.registerPlugin(ScrollTrigger);
@@ -47,35 +52,18 @@ function AboutSection() {
       gsap.set('.awards', { y: '70vh' });
       gsap.set('.houses', { y: '50vh' });
 
-      mm.add('(min-width: 1024px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.group',
-            pin: true,
-            start: 'top-=10 top',
-            end: () => '+=' + window.innerHeight,
-            scrub: 1,
-          },
-        });
-
-        tl.to('.awards', { y: 0 }, '-=0.2');
-        tl.to('.houses', { y: 0 }, '-=0.2');
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.group',
+          pin: true,
+          start: 'top-=10 top',
+          end: () => '+=' + window.innerHeight,
+          scrub: 1,
+        },
       });
 
-      mm.add('(max-width: 1024px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.group',
-            pin: true,
-            start: 'top-=50vh top',
-            end: () => '+=' + window.innerHeight,
-            scrub: 1,
-          },
-        });
-
-        tl.to('.awards', { y: 0 }, '-=0.2');
-        tl.to('.houses', { y: 0 }, '-=0.2');
-      });
+      tl.to('.awards', { y: 0 }, '-=0.2');
+      tl.to('.houses', { y: 0 }, '-=0.2');
     });
 
     return () => ctx.revert();

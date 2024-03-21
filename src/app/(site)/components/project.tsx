@@ -14,7 +14,7 @@ function Project(props: any) {
           className="scroll-section w-full object-cover md:h-[85vh]"
           src={props.image}
           alt="House"
-          height={8000}
+          height={2000}
           width={1000}
           priority
         />

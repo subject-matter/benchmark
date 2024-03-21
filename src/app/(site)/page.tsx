@@ -25,13 +25,14 @@ export default async function Home() {
           <p className="col-span-6 mb-3  text-sm font-medium lg:col-span-2 lg:mb-0">
             {homepage[0].title}
           </p>
-          <div className="col-span-12 col-start-1 lg:col-span-6 lg:col-start-7">
+          <div className="col-span-12 col-start-1 aspect-[3/2] h-[30vh] w-full md:h-full lg:col-span-6 lg:col-start-7">
             <Image
               className="aspect-[3/2] object-cover"
               src={homepage[0].image}
               alt={homepage[0].alt}
               width={1200}
               height={600}
+              priority
             />
           </div>
           <p className="col-span-12 my-medium text-sm font-medium lg:text-lg">

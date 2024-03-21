@@ -30,7 +30,7 @@ function SwiperHomeProjects() {
   }, []);
 
   return (
-    <section className="scroll-section-outer col-span-12 overflow-hidden bg-white pb-20 pt-6 lg:hidden">
+    <section className="col-span-12 overflow-hidden bg-white pb-20 pt-6 lg:hidden">
       <div className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
           Latest Projects
@@ -39,20 +39,22 @@ function SwiperHomeProjects() {
           spaceBetween={30}
           effect={'fade'}
           modules={EffectFade}
-          className="relative flex h-[40vh]"
+          className="relative flex "
         >
           {projects.map((project, i) => (
             <SwiperSlide
-              className="project project--active w-full flex-shrink-0"
+              className="project project--active  w-full flex-shrink-0"
               key={i}
             >
-              {project.image && (
-                <Project
-                  key={i}
-                  image={project.image}
-                  url={`/projects/${project.slug}`}
-                />
-              )}
+              <div className="image-container aspect-[3/2] w-full">
+                {project.image && (
+                  <Project
+                    key={i}
+                    image={project.image}
+                    url={`/projects/${project.slug}`}
+                  />
+                )}
+              </div>
 
               <div className="project-details  project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
                 <p className="font-medium">{project.title}</p>

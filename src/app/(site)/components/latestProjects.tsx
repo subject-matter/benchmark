@@ -178,15 +178,14 @@ function LatestProjects() {
         lenis.scrollTo(position());
       }
 
-      let mm = gsap.matchMedia;
-      mm('(min-width: 1024px)', () => {
+      let mm = gsap.matchMedia();
+      mm.add('(min-width: 1024px)', () => {
         ScrollTrigger.create({
           trigger: projectsPin.current,
           pin: true,
           start: 'top top',
           end: '-=1 +=1',
-          // markers: true,
-          // end: '+=300',
+
           onEnter: () => {
             if (preventScroll.isEnabled === false) {
               console.log('pinned');
@@ -212,7 +211,7 @@ function LatestProjects() {
 
   return (
     <section className="scroll-section-outer col-span-12 hidden overflow-hidden bg-white pb-20 pt-6 lg:block lg:h-screen ">
-      <div ref={projectsPin} className="pt-5">
+      <div ref={projectsPin} className="aspect-[2/3] h-full w-full pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
           Latest Projects
         </p>
@@ -225,7 +224,7 @@ function LatestProjects() {
                   url={`/projects/${project.slug}`}
                 />
               )}
-              <div className="project-details mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
+              <div className="project-details project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
                 <p className="font-medium">{project.title}</p>
                 <Link
                   href={`/projects/${project.slug}`}
