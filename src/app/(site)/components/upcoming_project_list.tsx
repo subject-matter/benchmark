@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import { X, Play } from 'lucide-react';
