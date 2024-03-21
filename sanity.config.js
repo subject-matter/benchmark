@@ -28,6 +28,5 @@ export default defineConfig({
       apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
     }),
     media(),
-    vercelDeployTool(),
   ],
 });
