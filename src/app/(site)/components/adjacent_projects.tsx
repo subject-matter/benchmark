@@ -5,19 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "../../../../sanity/sanity-utils";
 
-export default async function AdjacentProjects() {
+export default async function AdjacentProjects({ slug }: string) {
   // Function to get the next and previous projects
   const getAdjacentProjects = async (currentProjectSlug: string) => {
     const projects = await getAllProjects();
 
-    const currentIndex = projects.findIndex(
-      // @ts-ignore
-      (project) => project.slug.current === currentProjectSlug
-    );
+    const currentIndex = projects.findIndex((project) => project.slug === slug);
 
     // Calculate the index of the next and previous projects
-    const nextIndex = Math.floor(Math.random() * projects.length) + 1;
-    const prevIndex = Math.floor(Math.random() * projects.length) - 1;
+    const nextIndex = (currentIndex + 1) % projects.length;
+    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
 
     // Get the next and previous projects
     const nextProject = projects[nextIndex];
@@ -38,15 +35,22 @@ export default async function AdjacentProjects() {
           <div>Previous Project</div>
           <div>{prevProject.title ? prevProject.title : ''}</div>
         </div>
-        <Image
-          className="mb-5 w-full"
-          width={1000}
-          height={1000}
-          src={
-            prevProject.portrait ? prevProject.portrait : prevProject.landscape
-          }
-          alt={prevProject.title}
-        />
+        {prevProject.pageBuilder.portrait ||
+        prevProject.pageBuilder.landscape ? (
+          <Image
+            className="mb-5 w-full"
+            width={1000}
+            height={1000}
+            src={
+              prevProject.pageBuilder.portrait
+                ? prevProject.pageBuilder.portrait
+                : prevProject.pageBuilder.landscape
+            }
+            alt={prevProject.title}
+          />
+        ) : (
+          <p></p>
+        )}
         <Link
           href={`/projects/${prevProject.slug}`}
           className="flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50"
@@ -74,15 +78,22 @@ export default async function AdjacentProjects() {
           <div>Next Project</div>
           <div>{nextProject.title ? nextProject.title : ''}</div>
         </div>
-        <Image
-          className="mb-5 w-full"
-          width={1000}
-          height={1000}
-          src={
-            nextProject.portrait ? nextProject.portrait : nextProject.landscape
-          }
-          alt={prevProject.title}
-        />
+        {nextProject.pageBuilder.portrait ||
+        nextProject.pageBuilder.landscape ? (
+          <Image
+            className="mb-5 w-full"
+            width={1000}
+            height={1000}
+            src={
+              nextProject.pageBuilder.portrait
+                ? nextProject.pageBuilder.portrait
+                : nextProject.pageBuilder.landscape
+            }
+            alt={nextProject.title}
+          />
+        ) : (
+          <p></p>
+        )}
 
         <Link
           href={`/projects/${nextProject.slug}`}

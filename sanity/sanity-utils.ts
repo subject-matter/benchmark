@@ -96,13 +96,14 @@ export async function getSelectedProjects() {
 
 export async function getAllProjects() {
 	return client.fetch(
-		`*[_type == "project"]{
-			title,
-			"slug": slug.current,
-			"portrait": portrait_hero.asset->url,
-			  "landscape": landscape_hero.asset->url,
-		  }`
-	);
+    `*[_type == "page"]{
+		title,
+		"slug": slug.current,
+		 pageBuilder[0]{
+		  "portrait": BigImage.asset->url,
+		  "landscape": image.asset->url
+		  }}`
+  );
 }
 
 export async function getAllUpcomingProjects() {
