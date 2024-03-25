@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sanity.config.js", "sanity/schemas/page-schema.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sanity.config.js", "sanity/schemas/page-schema.js", "src/app/(site)/playground/page.jsx", "src/app/(site)/components/magazine.tsx"],
   "exclude": ["node_modules"]
 }

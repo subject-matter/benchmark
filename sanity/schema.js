@@ -19,6 +19,7 @@ import { individualSmallImageType } from "./schemas/individualImage";
 import { seo } from "./schemas/seo";
 import { post } from "./schemas/post";
 import { contact } from './schemas/contact';
+import { articleSection } from './schemas/article-section';
 
 export const schema = {
   types: [
@@ -43,5 +44,6 @@ export const schema = {
     seo,
     post,
     contact,
+    articleSection,
   ],
 };
