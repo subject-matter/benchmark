@@ -73,12 +73,17 @@ export default function Sample() {
         ref={setContainerRef}
       >
         <Document
-          className={'relative mx-auto flex w-[200px]'}
+          className={'relative mx-auto flex'}
           file={file}
           onLoadSuccess={onDocumentLoadSuccess}
         >
-          <Page pageNumber={pageNumber} loading="Loading page..." />
-          <Page className={'hidden lg:block'} pageNumber={pageNumber + 1} />
+          <Page
+            pageNumber={pageNumber}
+            loading="Loading page..."
+            width={
+              containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
+            }
+          />
         </Document>
         <div className="my-20 text-center">
           <button
