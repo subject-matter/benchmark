@@ -95,6 +95,7 @@ function SocialIcons() {
         </svg>
       </Link>
       <Link
+        target="_blank"
         className="transition hover:opacity-50 md:my-auto"
         href="https://archipro.co.nz/professional/benchmark-homes"
       >

@@ -62,8 +62,8 @@ export default async function Project({ params }: Props) {
                   <Image
                     src={item.image}
                     alt={item.alt}
-                    width={1000}
-                    height={1000}
+                    width={2000}
+                    height={2000}
                     className="w-full"
                     priority
                   />
@@ -78,8 +78,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.bigImage}
                         alt={item.bigImageAlt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                     {item.smallImage && (
@@ -91,8 +91,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.smallImage}
                         alt={item.smallImageAlt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                   </div>
@@ -109,8 +109,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.landscapeImage}
                         alt={item.landscapeImageAlt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                     {item.smallImage && (
@@ -122,8 +122,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.smallImage}
                         alt={item.smallImageAlt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                   </div>
@@ -139,8 +139,8 @@ export default async function Project({ params }: Props) {
                       }`}
                       src={item.image}
                       alt={item.alt}
-                      width={1000}
-                      height={1000}
+                      width={2000}
+                      height={2000}
                     />
                   </div>
                 )}
@@ -156,8 +156,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.smallImage1}
                         alt={item.smallImage1Alt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                     {item.smallImage2 && (
@@ -169,8 +169,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.smallImage2}
                         alt={item.smallImage2Alt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                     {item.landscapeImage && (
@@ -182,8 +182,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.landscapeImage}
                         alt={item.landscapeImageAlt}
-                        width={1000}
-                        height={1000}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                   </div>
