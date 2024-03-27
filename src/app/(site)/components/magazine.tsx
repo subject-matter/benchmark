@@ -64,7 +64,7 @@ export default function Sample() {
   }
 
   return (
-    <div className="mx-[10px] mb-large h-screen bg-white lg:min-h-screen ">
+    <div className="mx-[10px] mb-large min-h-screen bg-white ">
       <h1 className="w-full py-24 pb-12 text-sm-3xl font-medium lg:pb-24 lg:pt-3 lg:text-3xl ">
         Magazine
       </h1>
