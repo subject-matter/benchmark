@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <div className="mb-5  min-h-screen w-full grid-cols-2 gap-x-5 gap-y-[110px] px-[10px] pt-[10px] text-xs md:gap-y-[180px] lg:grid lg:px-5">
       <div className="absolute mt-[10px]">Privacy Policy</div>
 
-      <div className="mt-[50px] flex flex-col items-center md:mb-[100px] lg:col-start-2">
+      <div className="mt-[50px] flex flex-col md:mb-[100px] lg:col-start-2">
         <div className="mb-5">
           <p className="font-medium">Privacy Policy - General</p>
           <p>
@@ -16,10 +16,10 @@ export default function PrivacyPolicy() {
         </div>
 
         <div className="mb-5">
-          <p className="font-medium">Where do we collect your personal data?</p>
+          <p className="font-medium">Where do we collect your personal data</p>
           <p>
-            Benchmark Homes collects your data through our website
-            https://www.benchmarkhomes.co.nz
+            We collect your data through our website,{' '}
+            <a href="/">benchmarkhomes.co.nz</a>
           </p>
         </div>
 
