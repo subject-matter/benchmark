@@ -141,12 +141,12 @@ function AboutSection({ info }: any) {
                   Want to learn more about us? Check out our magazine{' '}
                   <span>
                     {' '}
-                    <a target="_blank" href="/magazine">
+                    <a class="underline" target="_blank" href="/magazine">
                       here
                     </a>
                   </span>
                   <span>
-                    <a target="_blank" href="/magazine"></a>
+                    <a class="underline" target="_blank" href="/magazine"></a>
                   </span>
                 </p>
               </div>
