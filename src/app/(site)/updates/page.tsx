@@ -28,7 +28,7 @@ export default async function Updates() {
                     key={index}
                     className={`mb-10 mt-[15px] ${
                       index == 0
-                        ? 'col-span-12 lg:col-span-8 '
+                        ? 'col-span-12 lg:col-span-6'
                         : index == 1
                           ? 'col-span-6 lg:col-span-4'
                           : 'col-span-6 lg:col-span-3 '
