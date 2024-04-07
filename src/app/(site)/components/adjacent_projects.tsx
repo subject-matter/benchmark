@@ -37,17 +37,19 @@ export default async function AdjacentProjects({ slug }: string) {
         </div>
         {prevProject.pageBuilder.portrait ||
         prevProject.pageBuilder.landscape ? (
-          <Image
-            className="mb-5 w-full"
-            width={1000}
-            height={1000}
-            src={
-              prevProject.pageBuilder.portrait
-                ? prevProject.pageBuilder.portrait
-                : prevProject.pageBuilder.landscape
-            }
-            alt={prevProject.title}
-          />
+          <Link href={`/projects/${prevProject.slug}`}>
+            <Image
+              className="mb-5 w-full"
+              width={1000}
+              height={1000}
+              src={
+                prevProject.pageBuilder.portrait
+                  ? prevProject.pageBuilder.portrait
+                  : prevProject.pageBuilder.landscape
+              }
+              alt={prevProject.title}
+            />
+          </Link>
         ) : (
           <p></p>
         )}
@@ -80,17 +82,19 @@ export default async function AdjacentProjects({ slug }: string) {
         </div>
         {nextProject.pageBuilder.portrait ||
         nextProject.pageBuilder.landscape ? (
-          <Image
-            className="mb-5 w-full"
-            width={1000}
-            height={1000}
-            src={
-              nextProject.pageBuilder.portrait
-                ? nextProject.pageBuilder.portrait
-                : nextProject.pageBuilder.landscape
-            }
-            alt={nextProject.title}
-          />
+          <Link href={`/projects/${nextProject.slug}`}>
+            <Image
+              className="mb-5 w-full"
+              width={1000}
+              height={1000}
+              src={
+                nextProject.pageBuilder.portrait
+                  ? nextProject.pageBuilder.portrait
+                  : nextProject.pageBuilder.landscape
+              }
+              alt={nextProject.title}
+            />
+          </Link>
         ) : (
           <p></p>
         )}

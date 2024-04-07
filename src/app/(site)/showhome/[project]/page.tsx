@@ -52,8 +52,8 @@ export default async function Showhome({ params }: Props) {
             </div>
           </div>
 
-          <div className="col-span-12 mb-[110px] flex flex-col-reverse gap-x-5 md:mb-[500px] md:flex-row">
-            <div className="items-center gap-x-5 md:flex ">
+          <div className="col-span-12 mb-[110px]  grid grid-cols-1 gap-x-5 md:mb-[500px] lg:grid-cols-2">
+            <div className="order-2 items-center gap-x-5 md:flex">
               <div className="mt-5 grid-cols-2 gap-5 lg:grid">
                 <div className="w-full grid-cols-3  gap-x-5 ">
                   <div className="col-span-3 mb-5 text-xxs font-medium md:text-xs-medium">
@@ -112,9 +112,9 @@ export default async function Showhome({ params }: Props) {
                         height={2000}
                       />
                       <Image
-                        className={`col-span-2 md:col-span-1${
+                        className={`col-span-2 md:col-span-1 ${
                           item.layout == 'left'
-                            ? 'col-start-4'
+                            ? 'md:col-start-4'
                             : 'col-start-1 row-start-1'
                         }`}
                         src={item.smallImage}

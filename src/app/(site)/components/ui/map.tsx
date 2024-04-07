@@ -54,11 +54,11 @@ function Map({ lat, lng }: MapProps) {
 		initMap();
 	}, []);
 	return (
-		<div
-			className="h-full w-full  md:w-1/2 object-cover aspect-square grayscale"
-			ref={mapRef}
-		></div>
-	);
+    <div
+      className="aspect-square h-full w-full  object-cover grayscale lg:order-2"
+      ref={mapRef}
+    ></div>
+  );
 }
 
 export default Map;
