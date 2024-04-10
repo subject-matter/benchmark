@@ -27,7 +27,7 @@ export const selectedProjectsSections = {
     },
     {
       name: 'mainImage',
-      title: 'Main Image',
+      title: 'Main Project Image',
       type: 'image',
     },
 
@@ -39,7 +39,7 @@ export const selectedProjectsSections = {
     },
     {
       name: 'image1',
-      title: 'Image 1',
+      title: 'Second Project Image',
       type: 'image',
     },
     {
@@ -50,7 +50,7 @@ export const selectedProjectsSections = {
     },
     {
       name: 'image2',
-      title: 'Image 2',
+      title: 'Third Project Image',
       type: 'image',
     },
     {
