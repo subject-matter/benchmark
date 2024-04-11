@@ -1,12 +1,17 @@
 import { createClient, groq } from "next-sanity";
+import { draftMode } from 'next/headers';
+
 
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2023-10-19',
+  perspective:  'published',
   useCdn: true,
 });
+
+
 export async function getHomepage() {
   return client.fetch(
     groq`*[_type == "homepage"]{

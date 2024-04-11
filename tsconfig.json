@@ -31,6 +31,6 @@
     "sanity/schemas/page-schema.js",
     "src/app/(site)/magazine/page.jsx",
     "src/app/(site)/components/magazine.tsx"
-  ],
+, "src/app/defaultDocumentNode.js", "sanity/lib/preview.js"  ],
   "exclude": ["node_modules"]
 }

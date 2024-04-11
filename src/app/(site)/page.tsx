@@ -21,7 +21,7 @@ export default async function Home() {
             Benchmark <br />
             Homes
           </h1>
-
+        
           <p className="col-span-6 mb-3  text-sm font-medium lg:col-span-2 lg:mb-0">
             {homepage[0].title}
           </p>

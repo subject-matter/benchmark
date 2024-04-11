@@ -7,15 +7,15 @@ import {
 import LenisScroll from "../../components/lenis-provider";
 import Image from "next/image";
 
+
 type Props = {
-	params: { project: string };
+  params: { project: string };
 };
 
 export default async function Project({ params }: Props) {
-	const slug = params.project;
-	const project = await getProject(slug);
-
-	return (
+  const slug = params.project;
+  const project = await getProject(slug);
+  return (
     <>
       <LenisScroll>
         <div className="mb-5 grid w-full grid-cols-12 gap-x-5 gap-y-[110px] px-[10px] pt-[10px] text-xs md:gap-y-[180px] md:px-5">

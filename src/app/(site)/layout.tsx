@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import Footer from './components/footer';
 import Header from './components/header';
 import SlideMenu from './components/SlideMenu';
+import { draftMode } from 'next/headers';
 
 const moderat = localFont({
   src: [
@@ -38,6 +39,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { isEnabled } = draftMode();
   return (
     <html lang="en">
       <body
@@ -50,7 +52,7 @@ export default function RootLayout({
           ></div>
           <Header />
           <SlideMenu />
-
+          <p>Draft Mode is currently {isEnabled ? 'Enabled' : 'Disabled'}</p>
           <div className="main-content relative z-[2] mb-5 bg-white shadow-md">
             {children}
           </div>
