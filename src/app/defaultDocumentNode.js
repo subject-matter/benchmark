@@ -1,10 +1,10 @@
-import { Iframe } from 'sanity-plugin-iframe-pane';
+import { Iframe } from "sanity-plugin-iframe-pane";
 
 // Customise this function to show the correct URL based on the current document
 function getPreviewUrl(doc) {
   return doc?.slug?.current
-    ? `http://benchmarkhomes.co.nz/projects/${doc.slug.current}`
-    : `http://benchmarkhomes.co.nz/project`;
+    ? `${process.env.NEXT_PUBLIC_APP_URL}/projects/${doc.slug.current}`
+    : `${process.env.NEXT_PUBLIC_APP_URL}/project`;
 }
 
 // Import this into the deskTool() plugin
@@ -16,6 +16,6 @@ export const defaultDocumentNode = (S) => {
       .options({
         url: (doc) => getPreviewUrl(doc),
       })
-      .title('Preview'),
+      .title("Preview"),
   ]);
 };

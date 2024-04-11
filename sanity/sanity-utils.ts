@@ -1,16 +1,16 @@
 import { createClient, groq } from "next-sanity";
-import { draftMode } from 'next/headers';
 
-
+const isPreviewMode = process.env.NEXT_PUBLIC_PREVIEW_MODE === "true";
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: '2023-10-19',
-  perspective:  'published',
-  useCdn: true,
+  apiVersion: "2023-10-19",
+  perspective: isPreviewMode ? "previewDrafts" : "published",
+  useCdn: isPreviewMode ? false : true,
+  token: isPreviewMode ? process.env.PUBLIC_SANITY_AUTH_TOKEN : undefined,
+  ignoreBrowserTokenWarning: isPreviewMode ? true : false,
 });
-
 
 export async function getHomepage() {
   return client.fetch(
@@ -79,7 +79,7 @@ export async function getHouses() {
 }
 
 export async function getSelectedProjects() {
-	return client.fetch(
+  return client.fetch(
     groq`
 		*[_type == "selected-projects"] | order(orderRank){
 "mainProjectTitle": mainProject->title,
@@ -100,7 +100,7 @@ export async function getSelectedProjects() {
 }
 
 export async function getAllProjects() {
-	return client.fetch(
+  return client.fetch(
     `*[_type == "page"]{
 		title,
 		"slug": slug.current,
@@ -112,21 +112,21 @@ export async function getAllProjects() {
 }
 
 export async function getAllUpcomingProjects() {
-	const upcomingProjects = await client.fetch(
-		`*[_type == "upcoming_project"]{..., hero_image{"imageUrl": asset->url}, featured_image_1{"imageUrl": asset->url}, featured_image_2{"imageUrl": asset->url}, images[]{'imageUrl': asset->url}, slug{"slug":current}}`
-	);
+  const upcomingProjects = await client.fetch(
+    `*[_type == "upcoming_project"]{..., hero_image{"imageUrl": asset->url}, featured_image_1{"imageUrl": asset->url}, featured_image_2{"imageUrl": asset->url}, images[]{'imageUrl': asset->url}, slug{"slug":current}}`
+  );
 
-	return {
-		props: {
-			upcomingProjects,
-		},
-		revalidate: 10,
-	};
+  return {
+    props: {
+      upcomingProjects,
+    },
+    revalidate: 10,
+  };
 }
 
 export async function getAllShowhomes() {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "showhome"]{
 			title,
 			showhome_times,
@@ -134,12 +134,12 @@ export async function getAllShowhomes() {
 			"slug": slug.current,
 		}
 `
-	);
+  );
 }
 
 export async function getShowhome(slug: string) {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "showhome" && slug.current == $slug][0]{
   title,
   description,
@@ -194,68 +194,68 @@ export async function getShowhome(slug: string) {
 		"metatitle": seo.metaTitle,
   	"metaDesc": seo.metaDesc
 }`,
-		{ slug }
-	);
+    { slug }
+  );
 }
 
 export async function getAllProcesses() {
-	const processes = await client.fetch(
-		`*[_type == "process"]{..., hero_image{"imageUrl": asset->url}} | order(order asc)`
-	);
+  const processes = await client.fetch(
+    `*[_type == "process"]{..., hero_image{"imageUrl": asset->url}} | order(order asc)`
+  );
 
-	return {
-		props: {
-			processes,
-		},
-		revalidate: 10,
-	};
+  return {
+    props: {
+      processes,
+    },
+    revalidate: 10,
+  };
 }
 
 export async function getAllWalkthroughs() {
-	const walkthroughs = await client.fetch(`*[_type == "walkthrough"]`);
+  const walkthroughs = await client.fetch(`*[_type == "walkthrough"]`);
 
-	return {
-		props: {
-			walkthroughs,
-		},
-		revalidate: 10,
-	};
+  return {
+    props: {
+      walkthroughs,
+    },
+    revalidate: 10,
+  };
 }
 
 export async function getAboutPageInfo() {
-	const [info] = await client.fetch(`*[_type == "about_info"]`);
+  const [info] = await client.fetch(`*[_type == "about_info"]`);
 
-	return {
-		props: {
-			info,
-		},
-		revalidate: 10,
-	};
+  return {
+    props: {
+      info,
+    },
+    revalidate: 10,
+  };
 }
 
 export async function getReviews() {
-	return client.fetch(
-		groq`*[_type == "homepage"].reviews[]->{
+  return client.fetch(
+    groq`*[_type == "homepage"].reviews[]->{
 			"review": review,
 			"reviewer": reviewer
 		  
 		}`
-	);
+  );
 }
 
 export async function getStaff() {
-	return client.fetch(
-		groq`*[_type == "about_info"][0].teamMembers[]->{
+  return client.fetch(
+    groq`*[_type == "about_info"][0].teamMembers[]->{
 			name,
 			role,
 			"image": image.asset->url
 		  }`
-	);
+  );
 }
 
 export async function getProjectPage() {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "page"]{
   title,
   description,
@@ -306,12 +306,12 @@ export async function getProjectPage() {
   	"metaDesc": seo.metaDesc
   
 }`
-	);
+  );
 }
 
 export async function getProject(slug: string) {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "page" && slug.current == $slug][0]{
 		  title,
 		  description,
@@ -361,13 +361,13 @@ export async function getProject(slug: string) {
   	"metaDesc": seo.metaDesc
 		}
 	  `,
-		{ slug } // Pass the slug as a parameter
-	);
+    { slug } // Pass the slug as a parameter
+  );
 }
 
 export async function getUpdates() {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 			*[_type == "post"]{
   title,
   "slug": slug.current,
@@ -377,12 +377,12 @@ export async function getUpdates() {
 
   }
 		`
-	);
+  );
 }
 
 export async function getUpdate(slug: string) {
-	return client.fetch(
-		groq`
+  return client.fetch(
+    groq`
 		*[_type == "post" && slug.current == $slug][0]{
 			title,
   "slug": slug.current,
@@ -393,6 +393,6 @@ export async function getUpdate(slug: string) {
   	"metaDesc": seo.metaDesc
 }
   		`,
-		{ slug }
-	);
+    { slug }
+  );
 }
