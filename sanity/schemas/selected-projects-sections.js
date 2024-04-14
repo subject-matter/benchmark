@@ -10,6 +10,12 @@ export const selectedProjectsSections = {
   orderings: [orderRankOrdering],
   fields: [
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      definedValue: 'selected-projects',
+    },
+    {
       name: 'mainImageCol',
       title: 'Main Image Column',
       type: 'string',

@@ -52,7 +52,6 @@ export default function RootLayout({
           ></div>
           <Header />
           <SlideMenu />
-          <p>Draft Mode is currently {isEnabled ? 'Enabled' : 'Disabled'}</p>
           <div className="main-content relative z-[2] mb-5 bg-white shadow-md">
             {children}
           </div>
