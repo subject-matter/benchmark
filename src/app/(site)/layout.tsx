@@ -6,6 +6,7 @@ import Header from './components/header';
 import SlideMenu from './components/SlideMenu';
 import { draftMode } from 'next/headers';
 import { FacebookPixelEvents } from './components/pixel-events';
+import { Suspense } from 'react';
 
 const moderat = localFont({
   src: [
@@ -43,7 +44,9 @@ export default function RootLayout({
   const { isEnabled } = draftMode();
   return (
     <html lang="en">
-      <FacebookPixelEvents />
+      <Suspense>
+        <FacebookPixelEvents />
+      </Suspense>
       <body
         className={`bg-white pb-[100vh] md:pb-[675px] ${moderat.variable} font-sans`}
       >
