@@ -76,7 +76,7 @@ function Contact() {
                   <span className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2">
                     <p>
                       {' '}
-                      12 Whitburn Ave, Milns Park,
+                      79A Milns Road,, Milns Park,
                       <br /> Halswell, Christchurch, New Zealand
                       <br />
                     </p>

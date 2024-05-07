@@ -123,7 +123,7 @@ export default function Footer() {
             </span>
           </div>
           <div className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium">
-            12 Whitburn Ave, Milns Park,
+            79A Milns Road,, Milns Park,
             <br /> Halswell, Christchurch, New Zealand
           </div>
           <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
