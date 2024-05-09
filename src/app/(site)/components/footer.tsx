@@ -1,14 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import SocialIcons from "./social-icons";
+import { getSiteInfo } from "../../../../sanity/sanity-utils";
 
-
-export default function Footer() {
-
-	const today = new Date();
+export default async function Footer() {
+  const today = new Date();
   const year = today.getFullYear();
+  const siteInfo = getSiteInfo();
+
   return (
     <footer className="min-h-[100svh] bg-transparent" id="footer">
       <div className="footer-container absolute bottom-0 mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
@@ -108,32 +107,39 @@ export default function Footer() {
           <div className="col-span-12 flex flex-col pl-[10px] text-xxs lg:col-span-3 lg:pl-0 lg:text-xs-medium">
             <span>
               <Link
-                href="tel:033438260"
+                href={`tel:${siteInfo.phone ? siteInfo.phone : "03 343 8260"}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                +64 3 343 8260
+                {siteInfo.phone ? siteInfo.phone : "03 343 8260"}
               </Link>
               <br />
               <Link
                 href="mailto:info@benchmarkhomes.co.nz"
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                info@benchmarkhomes.co.nz
+                {siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}
               </Link>
             </span>
           </div>
-          <div className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium">
-            12 Whitburn Ave, Milns Park,
-            <br /> Halswell, Christchurch, New Zealand
-          </div>
+          <div
+            className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium"
+            dangerouslySetInnerHTML={{
+              __html: siteInfo.address
+                ? siteInfo.address.replace(/, /g, (offset: number) =>
+                    offset === 2 ? ",<br />" : ", "
+                  )
+                : "12 Whitburn Ave, Milns Park,<br /> Halswell, Christchurch, New Zealand",
+            }}
+          />
+
           <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
-            Copyright © {year} Benchmark Homes | All Rights Reserved.{' '}
+            Copyright © {year} Benchmark Homes | All Rights Reserved.{" "}
             <br className="hidden lg:block" />
-            View{' '}
+            View{" "}
             <a href="/privacy-policy" className="underline">
               Privacy Policy
-            </a>{' '}
-            &{' '}
+            </a>{" "}
+            &{" "}
             <a href="/email-disclaimer" className="underline">
               Email Disclaimer.
             </a>

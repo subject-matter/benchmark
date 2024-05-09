@@ -1,18 +1,18 @@
 // @ts-nocheck
 
-'use client';
+"use client";
 
-import SocialIcons from '@/app/(site)/components/social-icons';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import LenisScroll from '@/app/(site)/components/lenis-provider';
-import ContactForm from '@/app/(site)/components/contact-form';
-import { getContact } from '../../../../sanity/sanity-utils';
-import Color from '@/app/(site)/components/dynamic-color';
+import SocialIcons from "@/app/(site)/components/social-icons";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import LenisScroll from "@/app/(site)/components/lenis-provider";
+import ContactForm from "@/app/(site)/components/contact-form";
+import { getContact, getSiteInfo } from "../../../../sanity/sanity-utils";
 
 function Contact() {
   const [info, setInfo] = useState([]);
+  const [siteInfo, setSiteInfo] = useState([]);
 
   useEffect(() => {
     const fetchInfo = async () => {
@@ -24,7 +24,17 @@ function Contact() {
       }
     };
 
+    const fetchSiteInfo = async () => {
+      try {
+        const fetchedSiteInfo = await getSiteInfo();
+        setInfo(fetchedSiteInfo[0]);
+      } catch (error) {
+        throw error;
+      }
+    };
+
     fetchInfo();
+    fetchSiteInfo();
   }, []);
 
   return (
@@ -59,28 +69,26 @@ function Contact() {
 
                   <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
                     <Link
-                      href="tel:033438260"
+                      href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
                       className="duration-250 w-fit transition hover:opacity-50"
                     >
-                      +64 3 343 8260
-                    </Link>
-                    <br />
-                    <Link
-                      href="mailto:info@benchmarkhomes.co.nz"
-                      className="duration-250 w-fit transition hover:opacity-50"
-                    >
-                      info@benchmarkhomes.co.nz
+                      {siteInfo.email
+                        ? siteInfo.email
+                        : "info@benchmarkhomes.co.nz"}
                     </Link>
                     <br />
                   </span>
-                  <span className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2">
-                    <p>
-                      {' '}
-                      12 Whitburn Ave, Milns Park,
-                      <br /> Halswell, Christchurch, New Zealand
-                      <br />
-                    </p>
-                  </span>
+                  <div className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: siteInfo.address
+                          ? siteInfo.address.replace(/, /g, (match, offset) =>
+                              offset === "Milns Park" ? ",<br />" : ", "
+                            )
+                          : "12 Whitburn Ave, Milns Park,<br /> Halswell, Christchurch, New Zealand",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
 

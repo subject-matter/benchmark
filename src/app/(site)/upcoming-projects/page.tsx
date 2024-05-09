@@ -2,11 +2,10 @@ import UpcomingProjectsList from "@/app/(site)/components/upcoming_project_list"
 import { getAllUpcomingProjects } from "../../../../sanity/sanity-utils";
 import LenisScroll from "../components/lenis-provider";
 
-
 export default async function UpcomingProjects() {
-	const upcomingProjects = await getAllUpcomingProjects();
+  const upcomingProjects = await getAllUpcomingProjects();
 
-	return (
+  return (
     <>
       <LenisScroll>
         <div>

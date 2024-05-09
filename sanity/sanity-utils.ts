@@ -137,6 +137,19 @@ export async function getAllShowhomes() {
   );
 }
 
+export async function getSiteInfo() {
+  return client.fetch(
+    groq`
+		*[_type == "site-info"]{
+			title,
+			email,
+			phone,
+			address
+		}
+`
+  );
+}
+
 export async function getShowhome(slug: string) {
   return client.fetch(
     groq`

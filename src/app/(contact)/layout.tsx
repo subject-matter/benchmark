@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import Header from "../(site)/components/header";
 import SlideMenu from "../(site)/components/SlideMenu";
 
-
 const moderat = localFont({
   src: [
     {
@@ -38,20 +37,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-		<html lang="en" className={`${moderat.variable} font-sans`}>
-			<body className="bg-white">
-				<div
-					id="glass"
-					className="fixed top-0 left-0 bg-white bg-opacity-20 backdrop-blur-2xl h-screen w-full z-[10] transition duration-300 invisible opacity-0"
-				></div>
-				<Header />
-				<SlideMenu />
+    <html lang="en" className={`${moderat.variable} font-sans`}>
+      <body className="bg-white">
+        <div
+          id="glass"
+          className="fixed top-0 left-0 bg-white bg-opacity-20 backdrop-blur-2xl h-screen w-full z-[10] transition duration-300 invisible opacity-0"
+        ></div>
+        <Header />
+        <SlideMenu />
 
-				<div className="bg-white main-content z-[2] relative ">
-					{children}
-				</div>
-			
-			</body>
-		</html>
-	);
+        <div className="bg-white main-content z-[2] relative ">{children}</div>
+      </body>
+    </html>
+  );
 }

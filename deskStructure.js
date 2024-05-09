@@ -1,10 +1,10 @@
-import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
-import { HomeIcon } from '@sanity/icons';
-import { FolderIcon } from '@sanity/icons';
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+import { HomeIcon } from "@sanity/icons";
+import { FolderIcon } from "@sanity/icons";
 
 export const myStructure = (S, context) =>
   S.list()
-    .title('Content')
+    .title("Content")
     .items([
       S.divider(),
       // S.listItem()
@@ -15,11 +15,11 @@ export const myStructure = (S, context) =>
       //       .documentId('edcbeb59-42da-4f6d-bd32-bbc9d995c79c')
       //   ),
       ...S.documentTypeListItems().filter((listItem) =>
-        ['homepage'].includes(listItem.getId())
+        ["homepage"].includes(listItem.getId())
       ),
 
       ...S.documentTypeListItems().filter((listItem) =>
-        ['about_info'].includes(listItem.getId())
+        ["about_info"].includes(listItem.getId())
       ),
       // S.listItem()
       //   .title('About Us')
@@ -29,13 +29,13 @@ export const myStructure = (S, context) =>
       //       .documentId('cccc9700-b126-41bc-826c-a0fddb77eb06')
       //   ),
       orderableDocumentListDeskItem({
-        type: 'selected-projects',
-        title: 'Selected Projects',
+        type: "selected-projects",
+        title: "Selected Projects",
         S,
         context,
       }),
       ...S.documentTypeListItems().filter((listItem) =>
-        ['showhome', 'upcoming_project', 'process', 'post'].includes(
+        ["showhome", "upcoming_project", "process", "post"].includes(
           listItem.getId()
         )
       ),
@@ -47,10 +47,14 @@ export const myStructure = (S, context) =>
       //       .documentId('367d8af0-66c1-4b99-9771-9d05cec99383')
       //   ),
       ...S.documentTypeListItems().filter((listItem) =>
-        ['contact'].includes(listItem.getId())
+        ["contact"].includes(listItem.getId())
       ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) =>
-        ['page'].includes(listItem.getId())
+        ["page"].includes(listItem.getId())
+      ),
+      S.divider(),
+      ...S.documentTypeListItems().filter((listItem) =>
+        ["site-info"].includes(listItem.getId())
       ),
     ]);
