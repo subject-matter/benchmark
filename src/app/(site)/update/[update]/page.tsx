@@ -1,9 +1,20 @@
 import Image from "next/image";
 import { getUpdate } from "../../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import { SanityImageAssetDocument } from "next-sanity";
+import urlBuilder from "@sanity/image-url";
+import { dataset, projectId } from "../../../../../sanity/env";
 
 type Props = {
   params: { update: string; body: any };
+};
+
+type ContentItem = {
+  contentTitle?: string;
+  content?: string;
+  mediaID?: string;
+  mediaImage?: SanityImageAssetDocument;
+  _type: string;
 };
 
 export default async function Update({ params }: Props) {
@@ -69,7 +80,64 @@ export default async function Update({ params }: Props) {
               )}
             </div>
             <div className="border border-grey my-5 h-[1px] border-dashed	" />
-            <p className="mb-7">{update.subtitle}</p>
+            <span className="mb-7 text-sm font-medium">{update.subtitle}</span>
+            <div className="mt-20 lg:mt-40">
+              {update.updateContent &&
+                update.updateContent.map((item: ContentItem, index: number) => (
+                  <div key={index}>
+                    {item._type === "mediaElements" && (
+                      <>
+                        {item.mediaID ? (
+                          <div className="relative h-[450px] w-[800px] my-10 lg:my-20">
+                            <iframe
+                              src={`https://player.vimeo.com/video/${item.mediaID}?h=d7e55d0879&color=ffffff&title=0&byline=0&portrait=0`}
+                              width="800"
+                              height="360"
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowFullScreen
+                              aria-label="Benchmark Homes - Virtual Reality Service"
+                              className="absolute inset-0 w-full h-full"
+                            />
+                          </div>
+                        ) : (
+                          <div className="my-10 lg:my-20">
+                            {projectId && dataset && (
+                              <Image
+                                alt={item.mediaImage?.alt}
+                                loading="lazy"
+                                layout="responsive"
+                                src={urlBuilder({ projectId, dataset })
+                                  .image(item.mediaImage?.asset)
+                                  .fit("max")
+                                  .auto("format")
+                                  .url()}
+                                width={1000}
+                                height={1000}
+                              />
+                            )}
+                          </div>
+                        )}
+                      </>
+                    )}
+                    {item._type === "contentElements" && (
+                      <div className="mb-5 flex lg:flex-row flex-col">
+                        <div
+                          className={`w-1/3 pr-0 lg:pr-8 ${!item.contentTitle && "hidden"}`}
+                        >
+                          <p>
+                            <strong>{item.contentTitle}</strong>
+                          </p>
+                        </div>
+                        <div
+                          className={`${item.contentTitle ? "w-2/3" : "w-full"} mt-5 lg:mt-0`}
+                        >
+                          <p>{item.content}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+            </div>
             <PortableText value={update.body} components={components} />
           </div>
         </div>

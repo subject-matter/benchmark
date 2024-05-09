@@ -6,7 +6,7 @@ import { getSiteInfo } from "../../../../sanity/sanity-utils";
 export default async function Footer() {
   const today = new Date();
   const year = today.getFullYear();
-  const siteInfo = getSiteInfo();
+  const siteInfo = await getSiteInfo();
 
   return (
     <footer className="min-h-[100svh] bg-transparent" id="footer">

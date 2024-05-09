@@ -22,6 +22,8 @@ import { contact } from "./schemas/contact";
 import { articleSection } from "./schemas/article-section";
 import { siteInfo } from "./schemas/siteInfo";
 import { tag } from "./schemas/tag";
+import { contentElement } from "./schemas/contentElement";
+import { mediaElement } from "./schemas/mediaElement";
 
 export const schema = {
   types: [
@@ -49,5 +51,7 @@ export const schema = {
     articleSection,
     siteInfo,
     tag,
+    contentElement,
+    mediaElement,
   ],
 };

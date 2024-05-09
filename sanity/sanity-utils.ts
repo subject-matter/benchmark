@@ -413,6 +413,7 @@ export async function getUpdate(slug: string) {
   "image": image.asset->url,
   subtitle,
   tags[]->,
+  updateContent,
   publishDate,
   body,
   "metatitle": seo.metaTitle,
