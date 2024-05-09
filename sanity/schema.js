@@ -6,7 +6,6 @@ import { upcomingProject } from "./schemas/upcoming-project";
 import { process } from "./schemas/process";
 import { walkthrough } from "./schemas/walkthrough";
 import { about_info } from "./schemas/about_info";
-import { siteInfo } from "./schemas/siteInfo";
 import { staff_member } from "./schemas/staff_member";
 import { about_accordion } from "./schemas/about_accordion";
 import { review } from "./schemas/review";
@@ -21,6 +20,8 @@ import { seo } from "./schemas/seo";
 import { post } from "./schemas/post";
 import { contact } from "./schemas/contact";
 import { articleSection } from "./schemas/article-section";
+import { siteInfo } from "./schemas/siteInfo";
+import { tag } from "./schemas/tag";
 
 export const schema = {
   types: [
@@ -47,5 +48,6 @@ export const schema = {
     contact,
     articleSection,
     siteInfo,
+    tag,
   ],
 };

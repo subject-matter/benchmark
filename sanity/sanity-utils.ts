@@ -150,6 +150,17 @@ export async function getSiteInfo() {
   );
 }
 
+export async function getTags() {
+  return client.fetch(
+    groq`
+		*[_type == "tag"]{
+			title
+
+		}
+`
+  );
+}
+
 export async function getShowhome(slug: string) {
   return client.fetch(
     groq`
@@ -401,6 +412,8 @@ export async function getUpdate(slug: string) {
   "slug": slug.current,
   "image": image.asset->url,
   subtitle,
+  tags[]->,
+  publishDate,
   body,
   "metatitle": seo.metaTitle,
   	"metaDesc": seo.metaDesc

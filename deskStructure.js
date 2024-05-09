@@ -53,6 +53,9 @@ export const myStructure = (S, context) =>
       ...S.documentTypeListItems().filter((listItem) =>
         ["page"].includes(listItem.getId())
       ),
+      ...S.documentTypeListItems().filter((listItem) =>
+        ["tag"].includes(listItem.getId())
+      ),
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) =>
         ["site-info"].includes(listItem.getId())
