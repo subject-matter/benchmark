@@ -1,3 +1,5 @@
+"use client";
+
 import { NextSeo } from "next-seo";
 import React from "react";
 import { getAboutPageInfo } from "../../../../sanity/sanity-utils";
