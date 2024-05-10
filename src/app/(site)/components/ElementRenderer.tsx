@@ -104,7 +104,7 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
           {item._type === "mediaElements" && (
             <>
               {item.mediaID ? (
-                <div className="relative w-full my-10 lg:my-20 max-h-[675px] min-h-[150px] md:min-h-[575px] lg:min-h-[675px]">
+                <div className="relative w-full my-10 lg:my-20 max-h-[675px] min-h-[150px] md:min-h-[575px] lg:min-h-[459px] xxl:min-h-[675px]">
                   <iframe
                     src={`https://player.vimeo.com/video/${item.mediaID}?h=d7e55d0879&color=ffffff&title=0&byline=0&portrait=0`}
                     width="1200"
