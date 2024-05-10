@@ -99,7 +99,7 @@ export default async function Footer() {
             </svg>
           </div>
         </a>
-        <div className="col-span-4 col-start-9 flex gap-x-1">
+        <div className="col-span-4 col-start-10 flex gap-x-1">
           <SocialIcons />
         </div>
 
@@ -107,17 +107,17 @@ export default async function Footer() {
           <div className="col-span-12 flex flex-col pl-[10px] text-xxs lg:col-span-3 lg:pl-0 lg:text-xs-medium">
             <span>
               <Link
-                href={`tel:${siteInfo.phone ? siteInfo.phone : "03 343 8260"}`}
+                href={`tel:${siteInfo.phone ? siteInfo.phone : '03 343 8260'}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.phone ? siteInfo.phone : "03 343 8260"}
+                {siteInfo.phone ? siteInfo.phone : '03 343 8260'}
               </Link>
               <br />
               <Link
                 href="mailto:info@benchmarkhomes.co.nz"
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}
+                {siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}
               </Link>
             </span>
           </div>
@@ -126,19 +126,19 @@ export default async function Footer() {
             dangerouslySetInnerHTML={{
               __html: siteInfo.address
                 ? siteInfo.address.replace(/, /g, (offset: number) =>
-                    offset === 2 ? ",<br />" : ", "
+                    offset === 2 ? ',<br />' : ', '
                   )
-                : "12 Whitburn Ave, Milns Park,<br /> Halswell, Christchurch, New Zealand",
+                : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
             }}
           />
           <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
-            Copyright © {year} Benchmark Homes | All Rights Reserved.{" "}
+            Copyright © {year} Benchmark Homes | All Rights Reserved.{' '}
             <br className="hidden lg:block" />
-            View{" "}
+            View{' '}
             <a href="/privacy-policy" className="underline">
               Privacy Policy
-            </a>{" "}
-            &{" "}
+            </a>{' '}
+            &{' '}
             <a href="/email-disclaimer" className="underline">
               Email Disclaimer.
             </a>

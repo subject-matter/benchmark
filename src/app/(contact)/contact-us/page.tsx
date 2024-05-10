@@ -69,12 +69,12 @@ function Contact() {
 
                   <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
                     <Link
-                      href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
+                      href={`mailto:${siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}`}
                       className="duration-250 w-fit transition hover:opacity-50"
                     >
                       {siteInfo.email
                         ? siteInfo.email
-                        : "info@benchmarkhomes.co.nz"}
+                        : 'info@benchmarkhomes.co.nz'}
                     </Link>
                     <br />
                   </span>
@@ -83,13 +83,12 @@ function Contact() {
                       dangerouslySetInnerHTML={{
                         __html: siteInfo.address
                           ? siteInfo.address.replace(/, /g, (match, offset) =>
-                              offset === "Milns Park" ? ",<br />" : ", "
+                              offset === 'Milns Park' ? ',<br />' : ', '
                             )
-                          : "12 Whitburn Ave, Milns Park,<br /> Halswell, Christchurch, New Zealand",
+                          : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
                       }}
                     />
                   </div>
-
                 </div>
               </div>
 

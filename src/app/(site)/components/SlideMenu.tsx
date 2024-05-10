@@ -14,9 +14,9 @@ export default async function SlideMenu() {
       >
         <button
           className="fixed right-[10px] top-2 z-10 flex h-[30px] items-center rounded-[5px] bg-white bg-opacity-20 px-[10px] text-xxs text-white backdrop-blur-lg transition duration-500 hover:bg-opacity-50 md:right-5 md:h-[35px]"
-          id={"closeMenuButton"}
+          id={'closeMenuButton'}
         >
-          Close{" "}
+          Close{' '}
           <div className="ml-12">
             <X size={15} />
           </div>
@@ -79,16 +79,16 @@ export default async function SlideMenu() {
           <div className="m-5 mt-auto flex flex-col justify-between space-y-5 text-xxs text-white md:text-xs lg:flex-row">
             <div className="mb-3 flex flex-col md:mb-0">
               <a
-                href={`tel:${siteInfo.phone ? siteInfo.phone : "03 343 8260"}`}
+                href={`tel:${siteInfo.phone ? siteInfo.phone : '03 343 8260'}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.phone ? siteInfo.phone : "03 343 8260"}
+                {siteInfo.phone ? siteInfo.phone : '03 343 8260'}
               </a>
               <a
-                href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
+                href={`mailto:${siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}
+                {siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}
               </a>
             </div>
             <div className="sm:flex sm:justify-end">
@@ -97,9 +97,9 @@ export default async function SlideMenu() {
                 dangerouslySetInnerHTML={{
                   __html: siteInfo.address
                     ? siteInfo.address.replace(/, /g, (offset: number) =>
-                        offset === 2 ? ",<br />" : ", "
+                        offset === 2 ? ',<br />' : ', '
                       )
-                    : "12 Whitburn Ave, Milns Park,<br /> Halswell, Christchurch, New Zealand",
+                    : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
                 }}
               />
             </div>
