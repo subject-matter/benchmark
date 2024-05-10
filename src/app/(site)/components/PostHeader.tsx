@@ -17,20 +17,6 @@ const PostHeader: React.FC<PostHeaderProps> = ({
 }) => {
   return (
     <>
-      <h1 className="mb-20 mt-20 text-sm-lg lg:mb-large lg:mt-[300px] lg:w-2/3 lg:text-lg">
-        {title}
-      </h1>
-      {image && (
-        <Image
-          className="mb-20 lg:hidden"
-          src={image}
-          alt={title}
-          width={2000}
-          height={2000}
-          priority
-        />
-      )}
-
       <div className="flex">
         {tags && tags.length > 0 && (
           <div className="mb-5 flex flex-wrap w-full lg:w-1/3">
