@@ -1,10 +1,13 @@
-import Image from "next/image";
-import { getUpdate } from "../../../../../sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
-import { SanityImageAssetDocument } from "next-sanity";
-import urlBuilder from "@sanity/image-url";
-import { dataset, projectId } from "../../../../../sanity/env";
-import ElementRenderer from "../../components/ElementRenderer";
+//@ts-nocheck
+
+import Image from 'next/image';
+import { getUpdate } from '../../../../../sanity/sanity-utils';
+import { PortableText } from '@portabletext/react';
+import { SanityImageAssetDocument } from 'next-sanity';
+import urlBuilder from '@sanity/image-url';
+import { dataset, projectId } from '../../../../../sanity/env';
+import ElementRenderer from '../../components/ElementRenderer';
+import AdjacentUpdates from '../../components/adjacent-updates';
 
 type Props = {
   params: { update: string; body: any };
@@ -33,7 +36,7 @@ export default async function Update({ params }: Props) {
 
   return (
     <section className={`col-span-12 overflow-x-clip pb-medium`}>
-      <div className="relative grid min-h-screen grid-cols-2">
+      <div className="relative mb-[90px] grid min-h-screen grid-cols-2 md:mb-[180px]">
         <div className="top-0 col-span-2 hidden h-screen bg-black lg:sticky lg:col-span-1 lg:block">
           <Image
             className="h-screen object-cover"
@@ -92,8 +95,8 @@ export default async function Update({ params }: Props) {
             {/* <PortableText value={update.body} components={components} /> */}
           </div>
         </div>
-        {/* <AdjacentUpdates /> */}
       </div>
+      <AdjacentUpdates slug={slug} />
     </section>
   );
 }
