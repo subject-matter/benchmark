@@ -102,7 +102,7 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
           {item._type === "mediaElements" && (
             <>
               {item.mediaID ? (
-                <div className="relative h-[450px] w-[800px] my-10 lg:my-20">
+                <div className="relative h-[450px] w-full my-10 lg:my-20">
                   <iframe
                     src={`https://player.vimeo.com/video/${item.mediaID}?h=d7e55d0879&color=ffffff&title=0&byline=0&portrait=0`}
                     width="800"
