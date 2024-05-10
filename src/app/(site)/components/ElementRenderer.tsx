@@ -76,7 +76,9 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
               <div className="border border-grey my-5 h-[1px] border-dashed	" />
               <div className="flex flex-col lg:flex-row">
                 <div className="flex w-full mt-5 lg:mt-0 lg:w-1/2 pr-0 md:pr-8 lg:pr-12">
-                  <span className="text-sm font-medium">{item.quote}</span>
+                  <span className="text-sm font-medium mb-4 lg:mb-0">
+                    {item.quote}
+                  </span>
                 </div>
                 <div className="flex w-full lg:w-1/2">
                   {projectId && dataset && (
