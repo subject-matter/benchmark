@@ -36,12 +36,6 @@ export const post = {
       type: "array",
       of: [{ type: "reference", to: { type: "tag" } }],
     }),
-    // defineField({
-    //   name: "updateContent",
-    //   type: "array",
-    //   title: "Content Elements",
-    //   of: [{ type: "reference", to: { type: "contentElement" } }],
-    // }),
     defineField({
       name: "updateContent",
       type: "array",
