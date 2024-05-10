@@ -24,6 +24,8 @@ import { siteInfo } from "./schemas/siteInfo";
 import { tag } from "./schemas/tag";
 import { contentElement } from "./schemas/contentElement";
 import { mediaElement } from "./schemas/mediaElement";
+import { quoteElement } from "./schemas/quoteElement";
+import { imageElement } from "./schemas/imageElement";
 
 export const schema = {
   types: [
@@ -53,5 +55,7 @@ export const schema = {
     tag,
     contentElement,
     mediaElement,
+    quoteElement,
+    imageElement,
   ],
 };

@@ -12,10 +12,11 @@ export const contentElement = defineType({
       type: "string",
       title: "Title",
     }),
-    {
+    defineField({
       name: "content",
       title: "Content",
-      type: "string",
-    },
+      type: "text",
+      rows: 4,
+    }),
   ],
 });

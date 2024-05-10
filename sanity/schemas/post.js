@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineArrayMember, defineField } from "sanity";
 
 export const post = {
   title: "Updates",
@@ -54,6 +54,14 @@ export const post = {
         defineArrayMember({
           name: "mediaElements",
           type: "mediaElement",
+        }),
+        defineArrayMember({
+          name: "quoteElements",
+          type: "quoteElement",
+        }),
+        defineArrayMember({
+          name: "imageElements",
+          type: "imageElement",
         }),
       ],
     }),

@@ -14,6 +14,9 @@ type ContentItem = {
   content?: string;
   mediaID?: string;
   mediaImage?: SanityImageAssetDocument;
+  quote?: string;
+  quoteImage?: SanityImageAssetDocument;
+  images?: SanityImageAssetDocument[];
   _type: string;
 };
 
@@ -57,11 +60,11 @@ export default async function Update({ params }: Props) {
             />
             <div className="flex">
               {update.tags && update.tags.length > 0 && (
-                <div className="col-span-2 mb-5 gap-x-[10px]  gap-y-[10px] md:flex">
+                <div className="mb-5 flex flex-wrap w-full lg:w-1/3">
                   {update.tags.map((tag: any, index: number) => (
                     <span
                       key={index}
-                      className="feature-pill mb-[7px] md:col-span-2"
+                      className={`feature-pill mb-[7px] md:col-span-2 ${index === 0 ? "mr-2" : ""}`}
                     >
                       {tag.title}
                     </span>
@@ -69,7 +72,7 @@ export default async function Update({ params }: Props) {
                 </div>
               )}
               {update.publishDate && (
-                <div className="mx-auto">
+                <div className="flex w-full lg:w-2/3">
                   <span className="feature-pill mb-[7px] md:col-span-2">
                     {new Date(update.publishDate).toLocaleDateString("en-US", {
                       month: "long",
@@ -85,6 +88,70 @@ export default async function Update({ params }: Props) {
               {update.updateContent &&
                 update.updateContent.map((item: ContentItem, index: number) => (
                   <div key={index}>
+                    {item._type === "imageElements" && (
+                      <div className="my-10 lg:my-20">
+                        {item.images && item.images.length > 0 && (
+                          <div className="flex flex-col lg:flex-row">
+                            {item.images.map((image, index) => (
+                              <div
+                                key={index}
+                                className={
+                                  index % 2 === 0
+                                    ? "w-full lg:w-1/2"
+                                    : "h-full lg:w-1/2 lg:flex lg:justify-end mt-10 lg:mt-40"
+                                }
+                              >
+                                {projectId && dataset && (
+                                  <Image
+                                    alt={image?.asset.ref}
+                                    loading="lazy"
+                                    src={urlBuilder({ projectId, dataset })
+                                      .image(image?.asset)
+                                      .fit("max")
+                                      .auto("format")
+                                      .url()}
+                                    width={index % 2 === 0 ? 335 : 207}
+                                    height={index % 2 === 0 ? 224 : 298}
+                                  />
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {item._type === "quoteElements" && (
+                      <div className="my-8 lg:my-16">
+                        <div className="border border-grey my-5 h-[1px] border-dashed	" />
+
+                        <div className="flex flex-col lg:flex-row">
+                          <div className="flex w-full mt-5 lg:mt-0 lg:w-1/2 pr-0 md:pr-8 lg:pr-12">
+                            <span className="text-sm font-medium">
+                              {item.quote}
+                            </span>
+                          </div>
+
+                          <div className="flex w-full  lg:w-1/2">
+                            {projectId && dataset && (
+                              <Image
+                                alt={item.quoteImage?.alt}
+                                loading="lazy"
+                                src={urlBuilder({ projectId, dataset })
+                                  .image(item.quoteImage?.asset)
+                                  .fit("crop")
+                                  .width(365)
+                                  .height(458)
+                                  .auto("format")
+                                  .url()}
+                                width={365}
+                                height={458}
+                              />
+                            )}
+                          </div>
+                        </div>
+                        <div className="border border-grey my-5 h-[1px] border-dashed	" />
+                      </div>
+                    )}
                     {item._type === "mediaElements" && (
                       <>
                         {item.mediaID ? (
@@ -105,7 +172,6 @@ export default async function Update({ params }: Props) {
                               <Image
                                 alt={item.mediaImage?.alt}
                                 loading="lazy"
-                                layout="responsive"
                                 src={urlBuilder({ projectId, dataset })
                                   .image(item.mediaImage?.asset)
                                   .fit("max")
@@ -122,7 +188,7 @@ export default async function Update({ params }: Props) {
                     {item._type === "contentElements" && (
                       <div className="mb-5 flex lg:flex-row flex-col">
                         <div
-                          className={`w-1/3 pr-0 lg:pr-8 ${!item.contentTitle && "hidden"}`}
+                          className={`w-1/3 pr-0 md:pr-8 lg:pr-12 ${!item.contentTitle && "hidden"}`}
                         >
                           <p>
                             <strong>{item.contentTitle}</strong>
