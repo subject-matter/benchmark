@@ -61,11 +61,11 @@ export default async function Update({ params }: Props) {
             />
             <div className="flex">
               {update.tags && update.tags.length > 0 && (
-                <div className="mb-5 flex flex-wrap w-full lg:w-1/3">
+                <div className="flex flex-wrap w-full lg:w-1/3">
                   {update.tags.map((tag: any, index: number) => (
                     <span
                       key={index}
-                      className={`feature-pill mb-[7px] md:col-span-2 ${index === 0 ? "mr-2" : ""}`}
+                      className={`feature-pill md:col-span-2 ${index === 0 ? "mr-2" : ""}`}
                     >
                       {tag.title}
                     </span>
@@ -83,7 +83,7 @@ export default async function Update({ params }: Props) {
                 </div>
               )}
             </div>
-            <div className="border border-grey my-5 h-[1px] border-dashed	" />
+            <div className="border border-grey mb-5 mt-[15px] h-[1px] border-dashed	" />
             <span className="mb-7 text-sm font-medium">{update.subtitle}</span>
             <ElementRenderer content={update.updateContent} />
             {/* To remove once new elements approved */}

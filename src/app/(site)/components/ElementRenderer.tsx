@@ -80,7 +80,7 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
                     {item.quote}
                   </span>
                 </div>
-                <div className="flex w-full lg:w-1/2">
+                <div className="flex w-full justify-center lg:justify-end lg:w-1/2">
                   {projectId && dataset && (
                     <Image
                       alt={item.quoteImage?.alt ?? "Quote Image"}
@@ -104,15 +104,15 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
           {item._type === "mediaElements" && (
             <>
               {item.mediaID ? (
-                <div className="relative h-[450px] w-full my-10 lg:my-20">
+                <div className="relative w-full my-10 lg:my-20 max-h-[675px] min-h-[150px] md:min-h-[575px] lg:min-h-[675px]">
                   <iframe
                     src={`https://player.vimeo.com/video/${item.mediaID}?h=d7e55d0879&color=ffffff&title=0&byline=0&portrait=0`}
-                    width="800"
-                    height="360"
+                    width="1200"
+                    height="675"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
                     aria-label="Benchmark Homes - Virtual Reality Service"
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute w-full h-full"
                   />
                 </div>
               ) : (
