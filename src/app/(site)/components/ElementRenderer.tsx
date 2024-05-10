@@ -135,14 +135,14 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({ content }) => {
           {item._type === "contentElements" && (
             <div className="mb-5 flex lg:flex-row flex-col">
               <div
-                className={`w-1/3 pr-0 md:pr-8 lg:pr-12 ${!item.contentTitle && "hidden"}`}
+                className={`w-full lg:w-1/3 pr-0 md:pr-8 lg:pr-12 ${!item.contentTitle && "hidden"}`}
               >
                 <p>
                   <strong>{item.contentTitle}</strong>
                 </p>
               </div>
               <div
-                className={`${item.contentTitle ? "w-2/3" : "w-full"} mt-5 lg:mt-0`}
+                className={`${item.contentTitle ? "w-full lg:w-2/3" : "w-full"} mt-5 lg:mt-0`}
               >
                 <p>{item.content}</p>
               </div>
