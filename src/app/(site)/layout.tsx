@@ -7,7 +7,6 @@ import SlideMenu from "./components/SlideMenu";
 import { draftMode } from "next/headers";
 import { FacebookPixelEvents } from "./components/pixel-events";
 import { Suspense } from "react";
-import Script from "next/script";
 
 const moderat = localFont({
   src: [
@@ -47,30 +46,6 @@ export default function RootLayout({
     <html lang="en">
       <Suspense>
         <FacebookPixelEvents />
-        <Script strategy="afterInteractive" id="close-menu">
-          {`
-            function closeMenu() {
-                  var menu = document.getElementById("menu");
-                  var glass = document.getElementById("glass");
-                  var body = document.body;
-                  if (menu && glass) {
-                      menu.classList.remove("open");
-                      glass.style.opacity = "0";
-
-                      body.classList.remove("overflow-y-hidden");
-
-                      setTimeout(function() {
-                          glass.style.visibility = "hidden";
-                      }, 500);
-                  }
-              }
-
-              var button = document.getElementById("closeMenuButton");
-              if (button) {
-                  button.addEventListener("click", closeMenu);
-              }
-          `}
-        </Script>
       </Suspense>
       <body
         className={`bg-white pb-[100vh] md:pb-[675px] ${moderat.variable} font-sans`}

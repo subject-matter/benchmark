@@ -2,21 +2,46 @@ import { X } from "lucide-react";
 import React from "react";
 import SocialIcons from "./social-icons";
 import { getSiteInfo } from "../../../../sanity/sanity-utils";
+import Script from "next/script";
 
 export default async function SlideMenu() {
   const siteInfo = await getSiteInfo();
 
   return (
     <>
+      <Script strategy="afterInteractive" id="close-menu">
+        {`
+            function closeMenu() {
+                  var menu = document.getElementById("menu");
+                  var glass = document.getElementById("glass");
+                  var body = document.body;
+                  if (menu && glass) {
+                      menu.classList.remove("open");
+                      glass.style.opacity = "0";
+
+                      body.classList.remove("overflow-y-hidden");
+
+                      setTimeout(function() {
+                          glass.style.visibility = "hidden";
+                      }, 500);
+                  }
+              }
+
+              var button = document.getElementById("closeMenuButton");
+              if (button) {
+                  button.addEventListener("click", closeMenu);
+              }
+          `}
+      </Script>
       <section
         className="fixed left-0 top-0 z-20 grid h-screen w-full translate-x-full transform grid-cols-2 transition duration-500 ease-in-out"
         id="menu"
       >
         <button
           className="fixed right-[10px] top-2 z-10 flex h-[30px] items-center rounded-[5px] bg-white bg-opacity-20 px-[10px] text-xxs text-white backdrop-blur-lg transition duration-500 hover:bg-opacity-50 md:right-5 md:h-[35px]"
-          id={'closeMenuButton'}
+          id={"closeMenuButton"}
         >
-          Close{' '}
+          Close{" "}
           <div className="ml-12">
             <X size={15} />
           </div>
@@ -79,27 +104,23 @@ export default async function SlideMenu() {
           <div className="m-5 mt-auto flex flex-col justify-between space-y-5 text-xxs text-white md:text-xs lg:flex-row">
             <div className="mb-3 flex flex-col md:mb-0">
               <a
-                href={`tel:${siteInfo.phone ? siteInfo.phone : '03 343 8260'}`}
+                href={`tel:${siteInfo[0].phone}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.phone ? siteInfo.phone : '03 343 8260'}
+                {siteInfo[0].phone}
               </a>
               <a
-                href={`mailto:${siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}`}
+                href={`mailto:${siteInfo[0].email}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}
+                {siteInfo[0].email}
               </a>
             </div>
             <div className="sm:flex sm:justify-end">
               <div
-                className="float-right"
+                className="w-1/2"
                 dangerouslySetInnerHTML={{
-                  __html: siteInfo.address
-                    ? siteInfo.address.replace(/, /g, (offset: number) =>
-                        offset === 2 ? ',<br />' : ', '
-                      )
-                    : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
+                  __html: `<p className="float-right">${siteInfo[0].address}</p>`,
                 }}
               />
             </div>

@@ -1,17 +1,17 @@
 // @ts-nocheck
 
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg';
-import CountUp from 'react-countup';
-import CountScrollTrigger from 'react-scroll-trigger';
-import { useEffect, useRef, useState } from 'react';
-import AboutAccordions from './about-accordions';
-import AboutTeam from './about-team';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { getGroup } from '../../../../sanity/sanity-utils';
+import Image from "next/image";
+import Photo from "../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg";
+import CountUp from "react-countup";
+import CountScrollTrigger from "react-scroll-trigger";
+import { useEffect, useRef, useState } from "react";
+import AboutAccordions from "./about-accordions";
+import AboutTeam from "./about-team";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGroup } from "../../../../sanity/sanity-utils";
 
 function AboutSection({ info }: any) {
   const [countersOn, setCountersOn] = useState([false, false, false]);
@@ -20,32 +20,32 @@ function AboutSection({ info }: any) {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set('.awards', { y: '70vh' });
-      gsap.set('.houses', { y: '50vh' });
+      gsap.set(".awards", { y: "70vh" });
+      gsap.set(".houses", { y: "50vh" });
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: '.group',
+          trigger: ".group",
           pin: true,
-          start: 'top-=100 top',
-          end: () => '+=' + window.innerHeight,
+          start: "top-=100 top",
+          end: () => "+=" + window.innerHeight,
           scrub: 1,
         },
       });
 
-      tl.to('.awards', { y: 0 }, '-=0.2');
-      tl.to('.houses', { y: 0 }, '-=0.2');
+      tl.to(".awards", { y: 0 }, "-=0.2");
+      tl.to(".houses", { y: 0 }, "-=0.2");
 
       const sectionRefAnimation = gsap.to(sectionRef.current, {
-        backgroundColor: '#000000',
-        color: '#ffffff',
+        backgroundColor: "#000000",
+        color: "#ffffff",
         duration: 0.3,
       });
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
         animation: sectionRefAnimation,
-        toggleActions: 'play none none reverse',
+        toggleActions: "play none none reverse",
       });
     });
     return () => ctx.revert();
@@ -138,9 +138,13 @@ function AboutSection({ info }: any) {
               <div className="me-5 font-medium lg:me-0">Magazine</div>
               <div>
                 <p>
-                  Want to learn more about us? Check out our magazine{' '}
+                  Want to learn more about us? Check out our magazine{" "}
                   <span>
+<<<<<<< HEAD
                     {' '}
+=======
+                    {" "}
+>>>>>>> 8107612 (fix: site info)
                     <a className="underline" target="_blank" href="/magazine">
                       here
                     </a>
@@ -225,7 +229,7 @@ function AboutSection({ info }: any) {
           <div ref={sectionRef}>
             <div
               className={`lg:h-min-screen fade-in-section z-[7] pt-[50px] ${
-                isWhite ? 'bg-black text-white' : 'bg-white text-black'
+                isWhite ? "bg-black text-white" : "bg-white text-black"
               }`}
             >
               <AboutTeam info={info} />

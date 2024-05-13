@@ -27,7 +27,7 @@ function Contact() {
     const fetchSiteInfo = async () => {
       try {
         const fetchedSiteInfo = await getSiteInfo();
-        setInfo(fetchedSiteInfo[0]);
+        setSiteInfo(fetchedSiteInfo[0]);
       } catch (error) {
         throw error;
       }
@@ -69,26 +69,19 @@ function Contact() {
 
                   <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
                     <Link
-                      href={`mailto:${siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}`}
+                      href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
                       className="duration-250 w-fit transition hover:opacity-50"
                     >
-                      {siteInfo.email
-                        ? siteInfo.email
-                        : 'info@benchmarkhomes.co.nz'}
+                      {siteInfo.email && siteInfo.email}
                     </Link>
                     <br />
                   </span>
-                  <div className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2">
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: siteInfo.address
-                          ? siteInfo.address.replace(/, /g, (match, offset) =>
-                              offset === 'Milns Park' ? ',<br />' : ', '
-                            )
-                          : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
-                      }}
-                    />
-                  </div>
+                  <div
+                    className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2"
+                    dangerouslySetInnerHTML={{
+                      __html: `<p>${siteInfo.address}</p>`,
+                    }}
+                  />
                 </div>
               </div>
 

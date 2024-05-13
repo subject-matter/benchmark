@@ -107,38 +107,34 @@ export default async function Footer() {
           <div className="col-span-12 flex flex-col pl-[10px] text-xxs lg:col-span-3 lg:pl-0 lg:text-xs-medium">
             <span>
               <Link
-                href={`tel:${siteInfo.phone ? siteInfo.phone : '03 343 8260'}`}
+                href={`tel:${siteInfo[0].phone}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.phone ? siteInfo.phone : '03 343 8260'}
+                {siteInfo[0].phone}
               </Link>
               <br />
               <Link
                 href="mailto:info@benchmarkhomes.co.nz"
                 className="duration-250 w-fit transition hover:opacity-50"
               >
-                {siteInfo.email ? siteInfo.email : 'info@benchmarkhomes.co.nz'}
+                {siteInfo[0].email}
               </Link>
             </span>
           </div>
           <div
             className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium"
             dangerouslySetInnerHTML={{
-              __html: siteInfo.address
-                ? siteInfo.address.replace(/, /g, (offset: number) =>
-                    offset === 2 ? ',<br />' : ', '
-                  )
-                : '79a Milns Road, Milns Park,<br /> Halswell, Christchurch, New Zealand',
+              __html: `<p>${siteInfo[0].address}</p>`,
             }}
           />
           <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
-            Copyright © {year} Benchmark Homes | All Rights Reserved.{' '}
+            Copyright © {year} Benchmark Homes | All Rights Reserved.{" "}
             <br className="hidden lg:block" />
-            View{' '}
+            View{" "}
             <a href="/privacy-policy" className="underline">
               Privacy Policy
-            </a>{' '}
-            &{' '}
+            </a>{" "}
+            &{" "}
             <a href="/email-disclaimer" className="underline">
               Email Disclaimer.
             </a>
