@@ -140,11 +140,7 @@ function AboutSection({ info }: any) {
                 <p>
                   Want to learn more about us? Check out our magazine{" "}
                   <span>
-<<<<<<< HEAD
-                    {' '}
-=======
                     {" "}
->>>>>>> 8107612 (fix: site info)
                     <a className="underline" target="_blank" href="/magazine">
                       here
                     </a>
