@@ -118,7 +118,7 @@ export default async function SlideMenu() {
             </div>
             <div className="sm:flex sm:justify-end">
               <div
-                className="w-1/2"
+                className="w-2/3"
                 dangerouslySetInnerHTML={{
                   __html: `<p className="float-right">${siteInfo[0].address}</p>`,
                 }}
