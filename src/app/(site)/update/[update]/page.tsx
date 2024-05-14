@@ -96,7 +96,7 @@ export default async function Update({ params }: Props) {
           </div>
         </div>
       </div>
-      <AdjacentUpdates slug={slug} />
+      {/* <AdjacentUpdates slug={slug} /> */}
     </section>
   );
 }
