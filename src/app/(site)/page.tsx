@@ -17,7 +17,7 @@ export default async function Home() {
     <>
       <SmoothScrolling>
         <Container>
-          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl lg:col-span-11 lg:mt-[5px] lg:-translate-x-5 lg:text-2xl xl:text-3xl  ">
+          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl lg:col-span-11 lg:mt-[5px] lg:-translate-x-5 lg:text-xl   ">
             Benchmark <br />
             Homes
           </h1>
@@ -41,7 +41,7 @@ export default async function Home() {
           <p></p>
         </Container>
 
-        <LatestProjects />
+        {/* <LatestProjects /> */}
 
         <SwiperHomeProjects />
         <AboutSection />

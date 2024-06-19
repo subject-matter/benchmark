@@ -48,7 +48,7 @@ export default function RootLayout({
         <FacebookPixelEvents />
       </Suspense>
       <body
-        className={`bg-white pb-[100vh] md:pb-[675px] ${moderat.variable} font-sans`}
+        className={`bg-white  ${moderat.variable} font-sans`}
       >
         <main>
           <div

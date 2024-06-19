@@ -5,14 +5,14 @@
 import { useRef, useEffect, RefObject, useState } from 'react';
 import Project from './project';
 import Link from 'next/link';
-
 import { getHouses } from '../../../../sanity/sanity-utils';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
-import { EffectFade } from 'swiper/modules';
+import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 function SwiperHomeProjects() {
   const [projects, setProjects] = useState([]);
 
@@ -30,23 +30,26 @@ function SwiperHomeProjects() {
   }, []);
 
   return (
-    <section className="col-span-12 overflow-hidden bg-white pb-20 pt-6 lg:hidden">
+    <section className="col-span-12 overflow-hidden bg-white pb-20 pt-6 ">
       <div className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
           Latest Projects
         </p>
         <Swiper
+        modules={[EffectFade, Pagination, Autoplay]}
           spaceBetween={30}
           effect={'fade'}
-          modules={EffectFade}
-          className="relative flex "
+          autoplay={{ delay: 3000 }}
+          pagination={true}
+          
+          className="homeboy relative flex  "
         >
           {projects.map((project, i) => (
             <SwiperSlide
-              className="project project--active  w-full flex-shrink-0"
+              className="project project--active  w-full "
               key={i}
             >
-              <div className="image-container aspect-[3/2] w-full">
+              <div className="image-container  w-full">
                 {project.image && (
                   <Project
                     key={i}
@@ -56,7 +59,7 @@ function SwiperHomeProjects() {
                 )}
               </div>
 
-              <div className="project-details  project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
+              <div className=" project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
                 <p className="font-medium">{project.title}</p>
                 <Link
                   href={`/projects/${project.slug}`}

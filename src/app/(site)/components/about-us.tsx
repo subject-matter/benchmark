@@ -70,7 +70,7 @@ function AboutSection() {
   }, []);
 
   return (
-    <section className={`fade-in-section lg:mt-[300px] `} id="about-us-section">
+    <section className={`fade-in-section  `} id="about-us-section">
       <div className="relative grid min-h-screen grid-cols-2">
         <div className={`col-span-2 row-span-4 h-auto lg:col-span-1`}>
           <div className="group">
@@ -191,7 +191,7 @@ function AboutSection() {
         </div>
         <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  lg:col-span-1 ">
           <div className="w-full p-5 lg:mt-auto">
-            <p className="col-span-2 mb-48 w-full text-sm-xl lg:mt-[20vh] lg:text-xl">
+            <p className="col-span-2 mb-40 w-full text-sm-xl lg:mt-[20vh] lg:text-xl">
               Get In Touch
             </p>
             <ContactForm />

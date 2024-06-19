@@ -9,8 +9,8 @@ export default async function Footer() {
   const siteInfo = await getSiteInfo();
 
   return (
-    <footer className="min-h-[100svh] bg-transparent" id="footer">
-      <div className="footer-container absolute bottom-0 mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
+    <footer className="bg-transparent" id="footer">
+      <div className="footer-container mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
         <div className="col-start-10 row-start-1 lg:col-span-2 lg:col-start-1">
           <svg
             className="mt-[10px] lg:mt-0"
@@ -99,7 +99,7 @@ export default async function Footer() {
             </svg>
           </div>
         </a>
-        <div className="col-span-4 col-start-10 flex gap-x-1">
+        <div className="col-span-4 col-start-9 md:col-start-10 flex gap-x-1">
           <SocialIcons />
         </div>
 
@@ -122,7 +122,7 @@ export default async function Footer() {
             </span>
           </div>
           <div
-            className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium"
+            className="col-span-12 ml-auto pr-[10px] text-xxs lg:col-span-3 pl-[10px] lg:col-start-4 lg:ml-0 lg:pr-0 lg:text-xs-medium"
             dangerouslySetInnerHTML={{
               __html: `<p>${siteInfo[0].address}</p>`,
             }}
