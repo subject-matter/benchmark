@@ -57,7 +57,7 @@ export default function RootLayout({
           ></div>
           <Header />
           <SlideMenu />
-          <div className="main-content relative z-[2] mb-5 bg-white shadow-md">
+          <div className="main-content relative z-[2] mb-5 bg-white border-grey border-b border-dashed">
             {children}
           </div>
           <Footer />

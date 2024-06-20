@@ -36,10 +36,10 @@ export default async function SelectedProjects() {
                       >
                         {project.mainProjectTitle}
                       </Link>
-
+                      <div  className="selected-projects-image-container relative">
                       <Link
                         href={`projects/${project.mainProjectSlug}`}
-                        className="selected-projects-image-container relative"
+                        className="selected-projects-image-link "
                       >
                         <Image
                           className="selected-projects-image w-full object-cover"
@@ -48,8 +48,9 @@ export default async function SelectedProjects() {
                           width={1000}
                           height={1000}
                         />
-                        <div className="selected-projects-image-blur absolute left-0 top-0 h-full w-full"></div>
                       </Link>
+                      </div>
+                     
                     </div>
                   )}
 
@@ -68,9 +69,10 @@ export default async function SelectedProjects() {
                         {project.imageOneTitle}
                       </Link>
 
+                      <div  className="selected-projects-image-container relative">
                       <Link
                         href={`projects/${project.imageOneSlug}`}
-                        className="selected-projects-image-container relative"
+                        className="selected-projects-image-link "
                       >
                         <Image
                           className="selected-projects-image"
@@ -80,8 +82,9 @@ export default async function SelectedProjects() {
                           height={1000}
                         />
 
-                        <div className="selected-projects-image-blur absolute left-0 top-0 h-full w-full"></div>
                       </Link>
+                      </div>
+                      
                     </div>
                   )}
 
@@ -100,20 +103,18 @@ export default async function SelectedProjects() {
                         {project.imageTwoTitle}
                       </Link>
 
-                      <Link
-                        href={`projects/${project.imageTwoSlug}`}
-                        className="selected-projects-image-container relative"
-                      >
-                        <Image
-                          className="selected-projects-image"
-                          src={project.imageTwo}
-                          alt={project.imageTwoTitle}
-                          width={1000}
-                          height={1000}
-                        />
+                      <div className="selected-projects-image-container relative">
+  <Link href={`projects/${project.imageTwoSlug}`} className="selected-projects-image-link">
+    <Image
+      className="selected-projects-image"
+      src={project.imageTwo}
+      alt={project.imageTwoTitle}
+      width={1000}
+      height={1000}
+    />
+  </Link>
+</div>
 
-                        <div className="selected-projects-image-blur absolute left-0 top-0 h-full w-full"></div>
-                      </Link>
                     </div>
                   )}
                 </div>

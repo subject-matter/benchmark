@@ -13,7 +13,7 @@ export default async function Updates() {
     <>
       <LenisScroll>
         <div className="mx-[10px] mb-large">
-          <h1 className=" py-24 text-sm-3xl font-medium lg:pb-large lg:pt-3 lg:text-3xl ">
+          <h1 className=" py-24 text-sm-3xl font-medium lg:pb-large lg:pt-3 lg:text-xl ">
             Updates
           </h1>
 
@@ -37,10 +37,10 @@ export default async function Updates() {
                     <div className="mb-10">
                       <Link href={`update/${update.slug}`}>{update.title}</Link>
                     </div>
-
+                    <div className="selected-projects-image-container relative">
                     <Link
                       href={`update/${update.slug}`}
-                      className="selected-projects-image-container relative"
+                      className="selected-projects-image-link "
                     >
                       <Image
                         className="selected-projects-image w-full object-cover"
@@ -49,8 +49,9 @@ export default async function Updates() {
                         width={1000}
                         height={1000}
                       />
-                      <div className="selected-projects-image-blur absolute left-0 top-0 h-full w-full"></div>
                     </Link>
+                    </div>
+                    
                     <Link
                       href={`update/${update.slug}`}
                       className="col-span-6 mt-5 flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs text-black hover:opacity-50"

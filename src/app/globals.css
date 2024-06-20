@@ -31,14 +31,7 @@ body {
   font-weight: 500;
 }
 
-.selected-projects-image-blur {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(100px);
-  transition: all 0.25s ease-in;
-  opacity: 0;
-  margin: 0 ;
-  padding: 0;
-}
+
 
 
 html.lenis {
@@ -64,21 +57,24 @@ html.lenis {
   pointer-events: none;
 }
 
-@media only screen and (min-width: 767px) {
-  .selected-projects:has(.selected-projects-image-container:hover)
-    .selected-projects-image-container:not(:hover)
-    .selected-projects-image-blur {
-    opacity: 1;
-    transition-delay: 300ms;
-  }
-}
+
 
 .fade-in-section {
   transition: background-color 0.3s ease;
   transition-delay: 100ms;
 }
 
+.selected-projects-image-container {
+  overflow: hidden; /* Ensures the zoomed image does not overflow the container */
+}
 
+.selected-projects-image {
+  transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+}
+
+.selected-projects-image-link:hover .selected-projects-image {
+  transform: scale(1.05); /* Adjust the scale factor as needed */
+}
 
 
 /** @format */
@@ -172,7 +168,11 @@ html {
 
 .homeboy .swiper-pagination {
   position: absolute;
-  bottom: 30px !important;
+  bottom: 15px !important;
+  width: 100px !important;
+  position: absolute;
+  left: 50% !important;
+  transform: translateX(-50%);
 }
 
 .homeboy .swiper-pagination-bullet-active {
@@ -183,4 +183,13 @@ html {
   .homeboy .swiper-pagination {
    display: none;
 }
+}
+
+.homeboy .swiper-button-next,
+.homeboy .swiper-button-prev {
+ position: absolute;
+ top: 0;
+ height: 96%;
+ width: 20%;
+opacity: 0;
 }

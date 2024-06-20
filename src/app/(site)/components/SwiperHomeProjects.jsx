@@ -11,8 +11,9 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import 'swiper/css/navigation';
 
-import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
+import { EffectFade, Pagination, Autoplay, Navigation } from 'swiper/modules';
 function SwiperHomeProjects() {
   const [projects, setProjects] = useState([]);
 
@@ -30,19 +31,20 @@ function SwiperHomeProjects() {
   }, []);
 
   return (
-    <section className="col-span-12 overflow-hidden bg-white pb-20 pt-6 ">
+    <section className="col-span-12 overflow-hidden bg-white mb-20 pt-6 ">
       <div className="pt-5">
         <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
           Latest Projects
         </p>
         <Swiper
-        modules={[EffectFade, Pagination, Autoplay]}
+        modules={[EffectFade, Pagination, Autoplay, Navigation]}
           spaceBetween={30}
           effect={'fade'}
           autoplay={{ delay: 3000 }}
-          pagination={true}
-          
+          pagination={{clickable: true}}
+          navigation={true}
           className="homeboy relative flex  "
+          loop={true}
         >
           {projects.map((project, i) => (
             <SwiperSlide
