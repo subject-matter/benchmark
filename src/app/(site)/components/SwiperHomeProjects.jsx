@@ -45,6 +45,7 @@ function SwiperHomeProjects() {
           navigation={true}
           className="homeboy relative flex  "
           loop={true}
+          draggable={true} 
         >
           {projects.map((project, i) => (
             <SwiperSlide
@@ -82,12 +83,13 @@ function SwiperHomeProjects() {
                   </svg>
                 </Link>
 
-                <span className="col-span-12 col-start-1 mt-5 flex items-center lg:col-span-3 lg:col-start-10 lg:ml-auto lg:mt-0 lg:justify-center">
+                <span className="col-span-12 col-start-1 mt-5 flex items-center lg:col-span-3 lg:col-start-10 lg:ml-auto lg:mt-0 lg:justify-end">
                   <div className="mb-5 flex flex-wrap gap-x-[10px] gap-y-[10px]">
                     {project?.features.map((item, index) => (
                       <div
                         key={index}
-                        className="rounded-[5px] bg-[#F5F5F5] p-[6px] text-xxs"
+                        className="rounded-[5px] bg-[#F5F5F5] text-xxs"
+                        style={{ padding: '6px' }}
                       >
                         {item}
                       </div>

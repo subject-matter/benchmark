@@ -179,7 +179,7 @@ html {
   background: #000 !important;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
   .homeboy .swiper-pagination {
    display: none;
 }
