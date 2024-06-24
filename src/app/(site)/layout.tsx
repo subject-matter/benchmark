@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "../globals.css";
 import localFont from "next/font/local";
@@ -7,6 +8,8 @@ import SlideMenu from "./components/SlideMenu";
 import { draftMode } from "next/headers";
 import { FacebookPixelEvents } from "./components/pixel-events";
 import { Suspense } from "react";
+import { usePathname } from "next/navigation";
+import Footerborder from "./components/footerborder";
 
 const moderat = localFont({
   src: [
@@ -42,6 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled } = draftMode();
+
   return (
     <html lang="en">
       <Suspense>
@@ -57,8 +61,11 @@ export default function RootLayout({
           ></div>
           <Header />
           <SlideMenu />
-          <div className="main-content relative z-[2] mb-5 bg-white border-grey border-b border-dashed">
+          <div className="main-content relative z-[2] mb-5 bg-white ">
             {children}
+          <Footerborder/>
+
+
           </div>
           <Footer />
         </main>
