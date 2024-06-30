@@ -44,9 +44,9 @@ export default function RootLayout({
   const { isEnabled } = draftMode();
   return (
     <html lang="en">
-      <Suspense>
+      {/* <Suspense>
         <FacebookPixelEvents />
-      </Suspense>
+      </Suspense> */}
       <body
         className={`bg-white pb-[100vh] md:pb-[675px] ${moderat.variable} font-sans`}
       >
