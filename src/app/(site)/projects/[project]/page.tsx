@@ -78,8 +78,8 @@ export default async function Project({ params }: Props) {
                         }`}
                         src={item.bigImage}
                         alt={item.bigImageAlt}
-                        width={2000}
-                        height={2000}
+                        width={1000}
+                        height={1000}
                       />
                     )}
                     {item.smallImage && (
