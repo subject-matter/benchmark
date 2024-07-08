@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import Archipro from "../assets/images/ArchiPro.svg";
 import Image from "next/image";
@@ -6,7 +5,7 @@ import Image from "next/image";
 function SocialIcons() {
 	return (
     <div className="flex items-center">
-      <Link
+      <a
         target="_blank"
         href="https://www.pinterest.nz/benchmarkhomes_newzealand/"
         className="duration-250 mr-2 w-fit transition hover:opacity-50"
@@ -35,8 +34,8 @@ function SocialIcons() {
             </g>
           </g>
         </svg>
-      </Link>
-      <Link
+      </a>
+      <a
         target="_blank"
         href="https://www.instagram.com/benchmarkhomesnz/"
         className="duration-250 mr-2 w-fit transition hover:opacity-50"
@@ -68,8 +67,8 @@ function SocialIcons() {
             </clipPath>
           </defs>
         </svg>
-      </Link>
-      <Link
+      </a>
+      <a
         target="_blank"
         href="https://www.facebook.com/BenchmarkHomesNZ/"
         className="duration-250 w-fit transition hover:opacity-50"
@@ -93,8 +92,8 @@ function SocialIcons() {
             </clipPath>
           </defs>
         </svg>
-      </Link>
-      <Link
+      </a>
+      <a
         target="_blank"
         className="transition hover:opacity-50 md:my-auto"
         href="https://archipro.co.nz/professional/benchmark-homes"
@@ -106,7 +105,7 @@ function SocialIcons() {
           width={300}
           height={200}
         />
-      </Link>
+      </a>
     </div>
   );
 }

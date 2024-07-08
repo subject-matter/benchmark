@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import SocialIcons from "./social-icons";
 import { getSiteInfo } from "../../../../sanity/sanity-utils";
@@ -29,54 +28,54 @@ export default async function Footer() {
           </svg>
         </div>
         <div className="lg col-span-9 col-start-1 flex flex-col p-[10px] text-base lg:col-span-3 lg:col-start-10 lg:mb-[233px] lg:p-0">
-          <Link
+          <a
             href="/"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Home
-          </Link>
-          <Link
+          </a>
+          <a
             href="/selected-projects"
             className="duration-250 w-fit transition hover:opacity-50"
           >
-            Selected Projects
-          </Link>
-          <Link
+            Completed Projects
+          </a>
+          <a
             href="/showhomes"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Showhomes
-          </Link>
-          <Link
+          </a>
+          <a
             href="/upcoming-projects"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Upcoming Projects
-          </Link>
-          <Link
+          </a>
+          <a
             href="/our-process"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Our Process
-          </Link>
-          <Link
+          </a>
+          <a
             href="/about-us"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             About Us
-          </Link>
-          <Link
+          </a>
+          <a
             href="/updates"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Updates
-          </Link>
-          <Link
+          </a>
+          <a
             href="/contact-us"
             className="duration-250 w-fit transition hover:opacity-50"
           >
             Contact
-          </Link>
+          </a>
         </div>
         <a
           target="_blank"
@@ -106,19 +105,19 @@ export default async function Footer() {
         <div className="col-span-12 row-start-4 grid grid-cols-12 items-end gap-x-5">
           <div className="col-span-12 flex flex-col pl-[10px] text-xxs lg:col-span-3 lg:pl-0 lg:text-xs-medium">
             <span>
-              <Link
+              <a
                 href={`tel:${siteInfo[0].phone}`}
                 className="duration-250 w-fit transition hover:opacity-50"
               >
                 {siteInfo[0].phone}
-              </Link>
+              </a>
               <br />
-              <Link
+              <a
                 href="mailto:info@benchmarkhomes.co.nz"
                 className="duration-250 w-fit transition hover:opacity-50"
               >
                 {siteInfo[0].email}
-              </Link>
+              </a>
             </span>
           </div>
           <div

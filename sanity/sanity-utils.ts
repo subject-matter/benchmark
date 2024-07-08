@@ -392,17 +392,17 @@ export async function getProject(slug: string) {
 export async function getUpdates() {
   return client.fetch(
     groq`
-			*[_type == "post"]{
-  title,
-  "slug": slug.current,
-  "image": image.asset->url,
-  "metatitle": seo.metaTitle,
-  	"metaDesc": seo.metaDesc
-
-  }
-		`
+      *[_type == "post"]|order(_createdAt desc){
+        title,
+        "slug": slug.current,
+        "image": image.asset->url,
+        "metatitle": seo.metaTitle,
+        "metaDesc": seo.metaDesc
+      }
+    `
   );
 }
+
 
 export async function getUpdate(slug: string) {
   return client.fetch(

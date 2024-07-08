@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { getAllProjects } from "../../../../sanity/sanity-utils";
 
 export default async function AdjacentProjects({ slug }: string) {
@@ -32,12 +31,12 @@ export default async function AdjacentProjects({ slug }: string) {
     <div className="border-1 col-span-12 mb-[200px] grid grid-cols-12 gap-x-5 border-t border-dashed border-grey text-xs-medium">
       <div className="col-span-6 mt-[10px] flex flex-col md:col-span-3">
         <div className="mb-9 flex w-full justify-between text-xxs md:text-xs">
-          <div>Previous Project</div>
+          <div>Previous</div>
           <div>{prevProject.title ? prevProject.title : ''}</div>
         </div>
         {prevProject.pageBuilder.portrait ||
         prevProject.pageBuilder.landscape ? (
-          <Link href={`/projects/${prevProject.slug}`}>
+          <a href={`/projects/${prevProject.slug}`}>
             <Image
               className="mb-5 w-full"
               width={1000}
@@ -49,11 +48,11 @@ export default async function AdjacentProjects({ slug }: string) {
               }
               alt={prevProject.title}
             />
-          </Link>
+          </a>
         ) : (
           <p></p>
         )}
-        <Link
+        <a
           href={`/projects/${prevProject.slug}`}
           className="flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50"
         >
@@ -72,17 +71,17 @@ export default async function AdjacentProjects({ slug }: string) {
               />
             </svg>
           </div>
-        </Link>
+        </a>
       </div>
 
       <div className="col-span-6 col-start-7 mt-[10px]  flex flex-col md:col-span-3 md:col-start-10">
         <div className="mb-9 flex w-full justify-between text-xxs md:text-xs">
-          <div>Next Project</div>
+          <div>Next</div>
           <div>{nextProject.title ? nextProject.title : ''}</div>
         </div>
         {nextProject.pageBuilder.portrait ||
         nextProject.pageBuilder.landscape ? (
-          <Link href={`/projects/${nextProject.slug}`}>
+          <a href={`/projects/${nextProject.slug}`}>
             <Image
               className="mb-5 w-full"
               width={1000}
@@ -94,12 +93,12 @@ export default async function AdjacentProjects({ slug }: string) {
               }
               alt={nextProject.title}
             />
-          </Link>
+          </a>
         ) : (
           <p></p>
         )}
 
-        <Link
+        <a
           href={`/projects/${nextProject.slug}`}
           className="flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50"
         >
@@ -118,7 +117,7 @@ export default async function AdjacentProjects({ slug }: string) {
               />
             </svg>
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );

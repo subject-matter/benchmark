@@ -105,8 +105,8 @@ function AboutSection({ info }: any) {
             className="h-screen object-cover"
             src={staff.team}
             alt={staff.teamAlt}
-            width={8000}
-            height={8000}
+            width={2000}
+            height={2000}
           />
         </div>
         <div className="col-span-2 lg:col-span-1">

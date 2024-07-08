@@ -10,7 +10,7 @@ function Footerborder() {
   return (
     <>
               {pathname !== "/about-us" && pathname !== '/' && (
-        <hr className="border-grey border-b border-dashed mx-5" />
+        <hr className="border-grey border-b border-dashed mx-[10px] md:mx-5" />
 )}</>
   )
 }

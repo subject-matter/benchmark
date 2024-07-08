@@ -15,6 +15,9 @@ export default async function Showhome({ params }: Props) {
 	const slug = params.project;
 	const showhome = await getShowhome(slug);
 
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showhome.address)}`;
+
+
 	return (
     <>
       <LenisScroll>
@@ -35,8 +38,8 @@ export default async function Showhome({ params }: Props) {
                   </div>
                 ))}
               </div>
-              <div className="col-span-4 col-start-3 flex flex-col text-xxs md:text-xs">
-                <ul className="list-outside md:list-inside">
+              <div className="ml-[15px] col-span-4 col-start-3 flex flex-col text-xxs md:text-xs">
+                <ul className="list-outside">
                   {showhome.interest_points.map(
                     (point: string, index: number) => (
                       <li className="list-disc" key={index}>
@@ -75,14 +78,15 @@ export default async function Showhome({ params }: Props) {
                 </div>
                 <div className="mt-5 flex w-full flex-col text-xxs md:mt-0  md:text-xs-medium">
                   Address:
-                  <div className="mt-5 text-xxs md:text-xs">
+                  <a target="_blank" href={googleMapsUrl} className="mt-5 text-xxs md:text-xs">
                     {showhome.address}
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
-
-            <Map lat={showhome.lat} lng={showhome.lng} />
+            <a className="lg:order-2" target="_blank" href={googleMapsUrl} >            
+              <Map lat={showhome.lat} lng={showhome.lng} />
+            </a>
           </div>
 
           {showhome.pageBuilder &&

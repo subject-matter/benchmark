@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { getUpdates } from "../../../../sanity/sanity-utils";
 
 export default async function AdjacentUpdates({ slug }: string) {
@@ -45,7 +44,7 @@ export default async function AdjacentUpdates({ slug }: string) {
           src={prevUpdate.image}
           alt={prevUpdate.title}
         />
-        <Link
+        <a
           href={`/update/${prevUpdate.slug}`}
           className="flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50"
         >
@@ -64,7 +63,7 @@ export default async function AdjacentUpdates({ slug }: string) {
               />
             </svg>
           </div>
-        </Link>
+        </a>
       </div>
 
       <div className="col-span-6 col-start-7 mt-[10px]  flex flex-col md:col-span-3 md:col-start-10">
@@ -79,7 +78,7 @@ export default async function AdjacentUpdates({ slug }: string) {
           alt={nextUpdate.title}
         />
 
-        <Link
+        <a
           href={`/update/${nextUpdate.slug}`}
           className="flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50"
         >
@@ -98,7 +97,7 @@ export default async function AdjacentUpdates({ slug }: string) {
               />
             </svg>
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );

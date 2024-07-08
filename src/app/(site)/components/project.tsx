@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import Link from "next/link";
 
 function Project(props: any) {
 	return (
@@ -9,7 +8,7 @@ function Project(props: any) {
       id="projectImage"
       className=" relative col-span-12 flex w-full flex-col px-[10px]  md:px-5"
     >
-      <Link href={props.url} className="">
+      <a href={props.url} className="">
         <Image
           className="scroll-section w-full object-cover aspect-video "
           src={props.image}
@@ -18,7 +17,7 @@ function Project(props: any) {
           width={1000}
           priority
         />
-      </Link>
+      </a>
     </div>
   );
 }

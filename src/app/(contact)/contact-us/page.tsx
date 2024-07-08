@@ -3,7 +3,6 @@
 "use client";
 
 import SocialIcons from "@/app/(site)/components/social-icons";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import LenisScroll from "@/app/(site)/components/lenis-provider";
@@ -55,32 +54,24 @@ function Contact() {
 
                 <ContactForm />
                 <div className="grid grid-cols-6 text-xxs lg:grid-cols-2 lg:text-xs-medium">
-                  <span className="col-span-4 col-start-3 lg:col-start-1">
-                    <p>
-                      <span className="font-medium">
-                        Office/Milns Park Showhome
-                      </span>
-                      <br />
-                      Mon–Fri: 9am–5pm
-                      <br />
-                      <br />
-                    </p>
-                  </span>
+                  
 
                   <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
-                    <Link
+                    <a
                       href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
                       className="duration-250 w-fit transition hover:opacity-50"
                     >
                       {siteInfo.email && siteInfo.email}
-                    </Link>
+                    </a>
                     <br />
                   </span>
                   <div
-                    className="col-span-4 col-start-3 lg:col-span-1 lg:col-start-2"
+                    className="col-span-6  lg:col-span-1 lg:col-start-2"
                     dangerouslySetInnerHTML={{
-                      __html: `<p>${siteInfo.address}</p>`,
+                      __html: `<p>${siteInfo.address}</p> <br/>
+                      <p> Mon–Fri: 9am–5pm</p>`,
                     }}
+                    
                   />
                 </div>
               </div>

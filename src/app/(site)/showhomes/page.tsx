@@ -7,7 +7,6 @@ import React from "react";
 import Image from "next/image";
 import { Showhome } from "../../../../types/Showhome";
 import { ProjectImage } from "../../../../types/ProjectImage";
-import Link from "next/link";
 import { getAllShowhomes } from "../../../../sanity/sanity-utils";
 import AdjacentProjects from "../components/adjacent-showhomes";
 
@@ -34,7 +33,7 @@ export default async function Project({ params }: { params: { id: string } }) {
             } col-span-12 mt-[10px] grid grid-cols-6 gap-x-5 md:col-span-6`}
           >
             <div className="col-span-6 mb-4 font-medium md:col-span-2 md:mb-0">
-              <Link href={`/showhome/${showhome.slug}`}>{showhome.title}</Link>
+              <a href={`/showhome/${showhome.slug}`}>{showhome.title}</a>
             </div>
             <div className="col-span-6 grid grid-cols-3 gap-x-5 md:col-span-5 md:col-start-3">
               {showhome.showhome_times.map(
@@ -51,7 +50,7 @@ export default async function Project({ params }: { params: { id: string } }) {
                 )
               )}
             </div>
-            <Link
+            <a
               href={`/showhome/${showhome.slug}`}
               className="col-span-7 mt-4 w-full"
             >
@@ -61,9 +60,9 @@ export default async function Project({ params }: { params: { id: string } }) {
                 width={2000}
                 height={2000}
               />
-            </Link>
+            </a>
 
-            <Link
+            <a
               href={`/showhome/${showhome.slug}`}
               className="col-span-6 mb-10 mt-5 flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50 md:mb-0"
             >
@@ -82,7 +81,7 @@ export default async function Project({ params }: { params: { id: string } }) {
                   />
                 </svg>
               </div>
-            </Link>
+            </a>
           </div>
         ))}
       </div>

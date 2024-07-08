@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { SelectedProject } from '../../../../types/SelectedProject';
-import Link from 'next/link';
 import { getSelectedProjects } from '../../../../sanity/sanity-utils';
 import LenisScroll from '../components/lenis-provider';
 
@@ -14,30 +13,30 @@ export default async function SelectedProjects() {
       <LenisScroll>
         <div>
           <h1 className="mx-[10px] py-24 text-sm-3xl font-medium md:pb-large md:pt-3 lg:text-xl ">
-            Selected <br /> Projects
+            Completed <br /> Projects
           </h1>
           <div className="selected-projects col-span-12 w-full">
             {selectedProjects.map((project: any, index: number) => (
               <div key={index} className="mx-[10px] md:mx-5 md:mb-12 ">
-                <div className="mx-auto grid w-full grid-cols-12 gap-x-[10px] border-t border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5  md:pb-[200px]">
+                <div className="mx-auto grid w-full grid-cols-12 gap-x-[10px] md:border-t border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5   md:pb-[200px]">
                   {project.mainProjectTitle && (
                     <div
-                      className={`col-span-12 flex  flex-col  border-t   border-dashed border-grey pb-[60px] md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
+                      className={`col-span-12 flex  flex-col  border-t   border-dashed border-grey  md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
                         project.mainImageCol == 'First'
                           ? 'md:col-start-1'
                           : project.mainImageCol == 'Second'
                             ? 'md:col-start-4'
-                            : 'row-start-2 md:col-start-7 md:row-start-1'
+                            : 'row-start-2 md:col-start-7 md:row-start-1 pb-[60px] md:pb-0 border-b md:border-b-0'
                       }`}
                     >
-                      <Link
+                      <a
                         href={`projects/${project.mainProjectSlug}`}
                         className="mb-9 mt-2"
                       >
                         {project.mainProjectTitle}
-                      </Link>
+                      </a>
                       <div  className="selected-projects-image-container relative">
-                      <Link
+                      <a
                         href={`projects/${project.mainProjectSlug}`}
                         className="selected-projects-image-link "
                       >
@@ -48,29 +47,30 @@ export default async function SelectedProjects() {
                           width={1000}
                           height={1000}
                         />
-                      </Link>
+                      </a>
                       </div>
                      
                     </div>
                   )}
 
+                    <hr className='mt-[60px] col-span-12 border-t border-dashed border-grey md:hidden' />
                   {project.imageOneTitle && (
                     <div
-                      className={`col-span-6 flex flex-col border-t border-dashed border-grey  md:col-span-3 md:border-0 ${
+                      className={`col-span-6 flex flex-col   md:col-span-3 ${
                         project.mainImageCol == 'First'
                           ? 'sm:row-start-2 md:col-start-7 md:row-start-1'
                           : 'md:col-start-1 md:row-start-1'
                       }`}
                     >
-                      <Link
+                      <a
                         href={`projects/${project.imageOneSlug}`}
                         className="mb-9 mt-2"
                       >
                         {project.imageOneTitle}
-                      </Link>
+                      </a>
 
                       <div  className="selected-projects-image-container relative">
-                      <Link
+                      <a
                         href={`projects/${project.imageOneSlug}`}
                         className="selected-projects-image-link "
                       >
@@ -82,7 +82,7 @@ export default async function SelectedProjects() {
                           height={1000}
                         />
 
-                      </Link>
+                      </a>
                       </div>
                       
                     </div>
@@ -90,21 +90,21 @@ export default async function SelectedProjects() {
 
                   {project.imageTwoTitle && (
                     <div
-                      className={`col-span-6 flex flex-col border-t border-dashed border-grey md:col-span-3 md:border-0 ${
+                      className={`col-span-6 flex flex-col  md:col-span-3 ${
                         project.mainImageCol == 'Third'
                           ? 'md:col-start-4 md:row-start-1'
                           : 'sm:row-start-2 md:col-start-10 md:row-start-1'
                       }`}
                     >
-                      <Link
+                      <a
                         href={`projects/${project.imageTwoSlug}`}
                         className="mb-9 mt-2"
                       >
                         {project.imageTwoTitle}
-                      </Link>
+                      </a>
 
                       <div className="selected-projects-image-container relative">
-  <Link href={`projects/${project.imageTwoSlug}`} className="selected-projects-image-link">
+  <a href={`projects/${project.imageTwoSlug}`} className="selected-projects-image-link">
     <Image
       className="selected-projects-image"
       src={project.imageTwo}
@@ -112,7 +112,7 @@ export default async function SelectedProjects() {
       width={1000}
       height={1000}
     />
-  </Link>
+  </a>
 </div>
 
                     </div>

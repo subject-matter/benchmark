@@ -37,8 +37,8 @@ export default async function Project({ params }: Props) {
                   </div>
                 ))}
               </div>
-              <div className="col-span-4 col-start-3 flex flex-col text-xxs md:text-xs">
-                <ul className="list-outside md:list-inside">
+              <div className="ml-[15px] col-span-4 col-start-3 flex flex-col text-xxs md:text-xs">
+                <ul className="list-outside">
                   {project.interest_points.map(
                     (point: string, index: number) => (
                       <li className="list-disc" key={index}>

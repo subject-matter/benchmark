@@ -4,7 +4,6 @@ import {
 	getSelectedProjects,
 	getUpdates,
 } from "../../../../sanity/sanity-utils";
-import Link from "next/link";
 import Image from "next/image";
 
 export default async function Updates() {
@@ -18,11 +17,12 @@ export default async function Updates() {
           </h1>
 
           <div className="selected-projects col-span-12 w-full">
-            <div className="feature-pill mx-[5px] text-xxs lg:m-[10px]">
+            <div className="feature-pill my-[5px] text-xxs lg:m-[10px]">
               Latest Update
             </div>
             <div className=" mb-12 lg:mx-5 ">
               <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium lg:gap-x-5 lg:border-t lg:border-grey lg:pb-[200px]">
+                <hr className="col-span-12 border-t border-dashed border-grey" />
                 {updates.map((update: any, index: number) => (
                   <div
                     key={index}
@@ -30,15 +30,15 @@ export default async function Updates() {
                       index == 0
                         ? 'col-span-12 lg:col-span-6'
                         : index == 1
-                          ? 'col-span-6 lg:col-span-4'
-                          : 'col-span-6 lg:col-span-3 '
+                          ? 'col-span-6 lg:col-span-6'
+                          : 'col-span-6 lg:col-span-4 '
                     } `}
                   >
                     <div className="mb-10">
-                      <Link href={`update/${update.slug}`}>{update.title}</Link>
+                      <a href={`update/${update.slug}`}>{update.title}</a>
                     </div>
                     <div className="selected-projects-image-container relative">
-                    <Link
+                    <a
                       href={`update/${update.slug}`}
                       className="selected-projects-image-link "
                     >
@@ -49,10 +49,10 @@ export default async function Updates() {
                         width={1000}
                         height={1000}
                       />
-                    </Link>
+                    </a>
                     </div>
                     
-                    <Link
+                    <a
                       href={`update/${update.slug}`}
                       className="col-span-6 mt-5 flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs text-black hover:opacity-50"
                     >
@@ -71,10 +71,10 @@ export default async function Updates() {
                           />
                         </svg>
                       </div>
-                    </Link>
-                    {index % 4 === 3 && (
+                    </a>
+                    {/* {index % 4 === 3 && (
                       <div className="border-1 col-span-12 border-dashed pb-[60px] lg:border-t lg:border-grey"></div>
-                    )}
+                    )} */}
                   </div>
                 ))}
               </div>

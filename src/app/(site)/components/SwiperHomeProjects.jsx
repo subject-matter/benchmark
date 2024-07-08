@@ -4,7 +4,6 @@
 
 import { useRef, useEffect, RefObject, useState } from 'react';
 import Project from './project';
-import Link from 'next/link';
 import { getHouses } from '../../../../sanity/sanity-utils';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -63,10 +62,10 @@ function SwiperHomeProjects() {
               </div>
 
               <div className=" project--active mt-[10px] grid  w-full grid-cols-12 items-start bg-white px-[10px] lg:mt-5 lg:px-5">
-                <p className="font-medium">{project.title}</p>
-                <Link
+                <p className="font-medium col-span-4 md:col-span-1">{project.title}</p>
+                <a
                   href={`/projects/${project.slug}`}
-                  className="col-span-4 col-start-6 flex items-center space-x-5 text-[#999999] lg:col-start-3 "
+                  className="col-span-4 col-start-9 flex justify-end md:justify-normal items-center space-x-5 text-[#999999] lg:col-start-3 "
                 >
                   <p>View Home</p>
                   <svg
@@ -81,7 +80,7 @@ function SwiperHomeProjects() {
                       fill="#999999"
                     />
                   </svg>
-                </Link>
+                </a>
 
                 <span className="col-span-12 col-start-1 mt-5 flex items-center lg:col-span-3 lg:col-start-10 lg:ml-auto lg:mt-0 lg:justify-end">
                   <div className="mb-5 flex flex-wrap gap-x-[10px] gap-y-[10px]">

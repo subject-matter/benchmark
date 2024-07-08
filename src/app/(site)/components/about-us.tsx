@@ -7,7 +7,6 @@ import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large
 import CountUp from 'react-countup';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import CountScrollTrigger from 'react-scroll-trigger';
-import Link from 'next/link';
 import ReviewCards from './reviewcards';
 import AboutAccordions from './about-accordions';
 import gsap from 'gsap';
@@ -142,7 +141,7 @@ function AboutSection() {
               className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 lg:mb-0 lg:px-0 `}
             >
               <AboutAccordions />
-              <Link
+              <a
                 href="/about-us"
                 className="col-span-6  mt-[60px] flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs text-black hover:opacity-50"
               >
@@ -161,7 +160,7 @@ function AboutSection() {
                     />
                   </svg>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

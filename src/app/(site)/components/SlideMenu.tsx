@@ -59,7 +59,7 @@ export default async function SlideMenu() {
               href="/selected-projects"
               className="duration-250 w-fit transition hover:opacity-50"
             >
-              Selected Projects
+              Completed Projects
             </a>
             <a
               href="/showhomes"

@@ -1,8 +1,6 @@
 "use client";
 
-import gsap from "gsap";
 import _ScrollTrigger from "gsap/ScrollTrigger";
-import Link from "next/link";
 import React, { useEffect } from "react";
 
 function ProcessText() {
@@ -38,7 +36,7 @@ function ProcessText() {
         </div>
       ))}
 
-      <Link
+      <a
         href="/about-us"
         className="mt-[60px] w-fit bg-[#F5F5F5] rounded-[5px] flex text-xxs p-[10px] cursor-pointer hover:opacity-50 col-span-6 text-black"
       >
@@ -57,7 +55,7 @@ function ProcessText() {
             />
           </svg>
         </div>
-      </Link>
+      </a>
     </div>
   );
 }

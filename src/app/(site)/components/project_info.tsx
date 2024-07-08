@@ -38,7 +38,7 @@ export default function ProjectInfo({ projects, id }: any) {
 				</div>
 				<div className="flex flex-col text-xxs md:text-xs col-start-3 col-span-4">
 					{project.interest_points.map((point: string, index: number) => (
-						<li className="list-outside md:list-inside" key={index}>
+						<li className="list-outside" key={index}>
 							{point}
 						</li>
 					))}

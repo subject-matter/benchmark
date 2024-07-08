@@ -51,6 +51,7 @@ export default function ShowhomeInfo({ showhomes, id }: any) {
 				</div>
 				<div className="w-full md:w-1/2 flex flex-col text-xxs md:text-xs-medium mt-5 md:mt-0">
 					Address:
+			
 					<div className="mt-5 text-xxs md:text-xs">{showhome.address}</div>
 				</div>
 			</div>

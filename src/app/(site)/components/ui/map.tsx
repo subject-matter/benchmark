@@ -55,7 +55,7 @@ function Map({ lat, lng }: MapProps) {
 	}, []);
 	return (
     <div
-      className="aspect-square h-full w-full  object-cover grayscale lg:order-2"
+      className="aspect-square h-full w-full  object-cover grayscale "
       ref={mapRef}
     ></div>
   );
