@@ -392,7 +392,7 @@ export async function getProject(slug: string) {
 export async function getUpdates() {
   return client.fetch(
     groq`
-      *[_type == "post"]|order(_createdAt desc){
+      *[_type == "post"]|order(_updatedAt desc){
         title,
         "slug": slug.current,
         "image": image.asset->url,
