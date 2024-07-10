@@ -1,3 +1,6 @@
+import { type } from "os";
+import { title } from "process";
+
 export const upcomingProject = {
 	name: "upcoming_project",
 	title: "Upcoming Projects",
@@ -9,14 +12,14 @@ export const upcomingProject = {
 			type: "image",
 		},
 		{
-			name: "featured_image_1",
-			title: "Featured Image 1",
-			type: "image",
-		},
-		{
-			name: "featured_image_2",
-			title: "Featured Image 2",
-			type: "image",
+			name: 'content',
+			title: 'Content',
+			type: 'array',
+			of: [
+			  {
+				type: 'block',
+			  },
+			],
 		},
 		{
 			name: "images",

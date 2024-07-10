@@ -32,7 +32,7 @@ function SwiperHomeProjects() {
   return (
     <section className="col-span-12 overflow-hidden bg-white mb-20 pt-6 ">
       <div className="pt-5">
-        <p className="col-span-12 mb-5 pl-[10px] text-sm font-medium lg:pl-5">
+        <p className="col-span-12 mb-5 pl-[10px]  text-sm font-medium lg:pl-[20px]">
           Latest Projects
         </p>
         <Swiper

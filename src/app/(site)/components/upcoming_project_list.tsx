@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 
 import { Pagination, EffectFade } from 'swiper/modules';
 import clsx from 'clsx';
+import { PortableText } from 'next-sanity';
 
 interface ProjectImage {
   imageUrl: string;
@@ -68,13 +69,32 @@ export default function UpcomingProjectsList({ projects }: any) {
       {projects.map((upcomingProject: Project, index: number) => (
         <div
           key={index}
-          className="border-1 col-span-12 mb-[60px] grid grid-cols-6 gap-x-5 border-t border-dashed border-grey md:grid-cols-12"
+          className="border-1 col-span-12 mb-9 md:mb-[60px] grid grid-cols-6 gap-x-5 border-t border-dashed border-grey md:grid-cols-12"
         >
           <div className="col-span-3 mb-9 mt-[10px] md:col-span-2">Suburb</div>
-          <div className="col-span-3 mt-[10px] md:col-span-10 md:col-start-3 ">
+          <div className="col-span-3 mt-[10px] md:col-span-4 md:col-start-3 ">
             {upcomingProject.suburb}
           </div>
 
+          {upcomingProject.hero_image && (
+            <Image
+              alt=""
+              src={upcomingProject.hero_image.imageUrl}
+              className="upcoming-project col-span-6 cursor-pointer md:col-start-7 md:mt-[10px] row-span-3"
+              width={1000}
+              height={1000}
+              onClick={() => openLightbox(upcomingProject, 2)}
+            />
+          )}
+
+          {upcomingProject.content && 
+          <div className='mt-9 md:mt-0 col-start-1 col-span-6 md:col-span-5 '>
+          <PortableText value={upcomingProject.content} />
+          </div>
+           
+          }
+         
+{/* 
           {upcomingProject.featured_image_1 && (
             <Image
               alt=""
@@ -95,18 +115,9 @@ export default function UpcomingProjectsList({ projects }: any) {
               height={1000}
               onClick={() => openLightbox(upcomingProject, 1)}
             />
-          )}
+          )} */}
 
-          {upcomingProject.hero_image && (
-            <Image
-              alt=""
-              src={upcomingProject.hero_image.imageUrl}
-              className="upcoming-project col-span-6 cursor-pointer md:col-start-7"
-              width={1000}
-              height={1000}
-              onClick={() => openLightbox(upcomingProject, 2)}
-            />
-          )}
+         
 
           <div
             className={clsx(
