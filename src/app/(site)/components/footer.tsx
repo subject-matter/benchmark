@@ -126,7 +126,7 @@ export default async function Footer() {
               __html: `<p>${siteInfo[0].address}</p>`,
             }}
           />
-          <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
+          <div className="col-span-12  mt-auto bg-black py-[10px] pl-[10px] md:pl-0 text-[12px] font-medium leading-[14px]  text-[#999999] lg:col-span-3 lg:col-start-10 lg:mt-0 lg:bg-white lg:py-0 lg:text-xxs lg:leading-normal lg:text-black">
             Copyright © {year} Benchmark Homes | All Rights Reserved.{" "}
             <br className="hidden lg:block" />
             View{" "}
