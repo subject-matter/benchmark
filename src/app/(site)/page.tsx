@@ -17,12 +17,12 @@ export default async function Home() {
     <>
       <SmoothScrolling>
         <Container>
-          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl lg:col-span-11 lg:mt-[5px] lg:-translate-x-[10px] lg:text-xl   ">
+          <h1 className="col-span-12 mb-large mt-24 text-sm-3xl lg:col-span-11 lg:mt-0 lg:-translate-x-[10px] lg:text-xl   ">
             Benchmark <br />
             Homes
           </h1>
         
-          <p className="col-span-6 mb-3  text-sm font-medium lg:col-span-2 lg:mb-0">
+          <p className="col-span-6 mb-3  text-sm md:text-base font-medium lg:col-span-2 lg:mb-0">
             {homepage[0].title}
           </p>
           <div className="col-span-12 col-start-1 aspect-[3/2] h-[30vh] w-full md:h-full lg:col-span-6 lg:col-start-7">

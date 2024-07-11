@@ -21,7 +21,7 @@ export default async function Project({ params }: { params: { id: string } }) {
 	return (
     <>
       <div className="grid grid-cols-6 gap-x-5 px-[10px] pb-large md:grid-cols-12  md:px-5">
-        <h1 className="col-span-12 my-24 break-words text-sm-3xl font-medium md:mb-large md:mt-0 lg:text-xl">
+        <h1 className="col-span-12 my-24 break-words text-sm-3xl font-medium md:mb-large md:mt-0 lg:text-xl md:-translate-x-2">
           Show&shy;homes
         </h1>
         <div className="border-1 col-span-12 w-full border-t border-dashed border-[#999999]"></div>

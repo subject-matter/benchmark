@@ -44,7 +44,7 @@ export default function Header() {
           <nav className="ml-auto flex w-full space-x-3 text-sm md:w-auto md:text-base">
             <button
               id={'openMenuButton'}
-              className={`fixed right-[10px] top-[10px] z-20 flex h-[30px] w-[100px] items-center justify-between rounded-[5px] bg-[#282828] px-3 text-xxs backdrop-blur-lg md:right-5 md:h-[35px] md:w-[120px] text-white `}
+              className={`fixed right-[10px] top-[10px] z-20 flex h-[30px] w-[100px] items-center justify-between rounded-[5px] bg-[#282828] px-3 text-xxs backdrop-blur-lg  md:h-[35px] md:w-[120px] text-white `}
             >
               Menu{' '}
               <span>

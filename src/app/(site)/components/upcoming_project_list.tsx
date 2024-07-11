@@ -65,11 +65,11 @@ export default function UpcomingProjectsList({ projects }: any) {
   };
 
   return (
-    <div className="col-span-12">
+    <div className="col-span-12 ">
       {projects.map((upcomingProject: Project, index: number) => (
         <div
           key={index}
-          className="border-1 col-span-12 mb-9 md:mb-[60px] grid grid-cols-6 gap-x-5 border-t border-dashed border-grey md:grid-cols-12"
+          className="border-1 col-span-12 mb-9 md:mx-[10px] md:mb-[60px] grid grid-cols-6 gap-x-5 border-t border-dashed border-grey md:grid-cols-12"
         >
           <div className="col-span-3 mb-9 mt-[10px] md:col-span-2">Suburb</div>
           <div className="col-span-3 mt-[10px] md:col-span-4 md:col-start-3 ">

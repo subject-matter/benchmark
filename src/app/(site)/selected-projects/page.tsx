@@ -12,7 +12,7 @@ export default async function SelectedProjects() {
     <>
       <LenisScroll>
         <div>
-          <h1 className="mx-[10px] py-24 text-sm-3xl font-medium md:pb-large md:pt-3 lg:text-xl ">
+          <h1 className="mx-[10px] py-24 text-sm-3xl font-medium md:pb-large md:pt-0 lg:text-xl ">
             Completed <br /> Projects
           </h1>
           <div className="selected-projects col-span-12 w-full">

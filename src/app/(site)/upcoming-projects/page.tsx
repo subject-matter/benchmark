@@ -9,7 +9,7 @@ export default async function UpcomingProjects() {
     <>
       <LenisScroll>
         <div>
-          <div className="grid grid-cols-12 gap-x-5 px-[10px] text-xs md:px-5 ">
+          <div className="grid grid-cols-12 gap-x-5 px-[10px] text-xs  ">
             <h1 className="my-24 text-sm-3xl font-medium md:mb-large md:mt-0 lg:text-xl ">
               Upcoming <br /> Projects
             </h1>
