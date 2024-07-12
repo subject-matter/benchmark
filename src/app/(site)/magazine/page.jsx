@@ -2,7 +2,7 @@ import Magazine from '../components/magazine';
 function App() {
   return (
     <div className="App">
-      <Magazine />
+      <Magazine /> 
     </div>
   );
 }
