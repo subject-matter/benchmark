@@ -21,7 +21,7 @@ export default async function SelectedProjects() {
                 <div className="mx-auto grid w-full grid-cols-12 gap-x-[10px] md:border-t border-dashed border-grey pb-[60px] text-xs-medium md:gap-x-5   md:pb-[200px]">
                   {project.mainProjectTitle && (
                     <div
-                      className={`col-span-12 flex  flex-col  border-t   border-dashed border-grey  md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
+                      className={`col-span-12 flex  flex-col  border-t  border-dashed border-grey  md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
                         project.mainImageCol == 'First'
                           ? 'md:col-start-1'
                           : project.mainImageCol == 'Second'
@@ -53,7 +53,7 @@ export default async function SelectedProjects() {
                     </div>
                   )}
 
-                    <hr className='mt-[60px] col-span-12 border-t border-dashed border-grey md:hidden' />
+                    <hr className='mt-[60px] col-span-12  border-dashed border-grey md:hidden' />
                   {project.imageOneTitle && (
                     <div
                       className={`col-span-6 flex flex-col   md:col-span-3 ${
