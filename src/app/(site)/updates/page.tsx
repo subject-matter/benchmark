@@ -17,7 +17,7 @@ export default async function Updates() {
           </h1>
 
           <div className="selected-projects col-span-12 w-full">
-            <div className="feature-pill my-[5px] text-xxs lg:m-[10px]">
+            <div className="feature-pill px-0 my-[5px] text-xxs lg:m-[15px]">
               Latest Update
             </div>
             <div className=" mb-12 lg:mx-5 ">
