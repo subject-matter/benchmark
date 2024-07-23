@@ -12,15 +12,12 @@ body {
 }
 
 
-<<<<<<< HEAD
 @media (max-width: 768px) {
   .footer-container {
       height: 100vh;
   }
 }
 
-=======
->>>>>>> 5c08b3ef77c7f20ce7f685665cb84998f069bca4
 
 
 .update p {

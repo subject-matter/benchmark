@@ -12,6 +12,7 @@ import AboutTeam from "./about-team";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getGroup } from "../../../../sanity/sanity-utils";
+import { urlFor } from "../../(site)/helpers/imageBuilder"
 
 function AboutSection({ info }: any) {
   const [countersOn, setCountersOn] = useState([false, false, false]);
@@ -105,8 +106,8 @@ function AboutSection({ info }: any) {
             className="h-screen object-cover"
             src={staff.team}
             alt={staff.teamAlt}
-            width={2000}
-            height={2000}
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="col-span-2 lg:col-span-1">
@@ -122,7 +123,7 @@ function AboutSection({ info }: any) {
               <Image
                 src={staff.team}
                 alt={staff.teamAlt}
-                width={2000}
+                width={1000}
                 height={1000}
                 className=""
               />

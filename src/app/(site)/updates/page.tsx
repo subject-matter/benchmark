@@ -12,12 +12,12 @@ export default async function Updates() {
     <>
       <LenisScroll>
         <div className="mx-[10px] mb-large">
-          <h1 className=" py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0 lg:text-xl ">
+          <h1 className="pl-2 py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0 lg:text-xl ">
             Updates
           </h1>
 
           <div className="selected-projects col-span-12 w-full">
-            <div className="feature-pill px-0 my-[5px] text-xxs lg:m-[15px]">
+            <div className="feature-pill px-0 my-[5px] text-xxs lg:m-[15px] lg:translate-x-1">
               Latest Update
             </div>
             <div className=" mb-12 lg:mx-5 ">

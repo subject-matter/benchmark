@@ -93,19 +93,7 @@ function SocialIcons() {
           </defs>
         </svg>
       </a>
-      <a
-        target="_blank"
-        className="transition hover:opacity-50 md:my-auto"
-        href="https://archipro.co.nz/professional/benchmark-homes"
-      >
-        <Image
-          className="w-20"
-          src={Archipro}
-          alt="Archipro"
-          width={300}
-          height={200}
-        />
-      </a>
+    
     </div>
   );
 }
