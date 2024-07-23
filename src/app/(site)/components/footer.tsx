@@ -98,7 +98,7 @@ export default async function Footer() {
             </svg>
           </div>
         </a>
-        <div className="col-span-4 col-start-9 md:col-start-10 flex gap-x-1 translate-y-9">
+        <div className="col-span-4 col-start-9 md:col-start-10 flex gap-x-1 translate-y-[75px]  md:translate-y-9">
           <SocialIcons />
         </div>
 

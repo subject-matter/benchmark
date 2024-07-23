@@ -17,6 +17,7 @@ export default async function Showhome({ params }: Props) {
 
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showhome.address)}`;
 
+  // console.log(showhome)
 
 	return (
     <>
@@ -175,41 +176,45 @@ export default async function Showhome({ params }: Props) {
                 )}
 
                 {item._type === 'smallPortrait' &&
-                  item.smallImage &&
-                  item.smallImage2 &&
-                  item.landscapeImage && (
+                   (
                     <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                      {item.smallImage1 && 
+                           <Image
+                           className={`col-span-2 w-full md:col-span-1 ${
+                             item.layout == 'left'
+                               ? 'col-start-1'
+                               : 'col-start-3 row-start-1'
+                           }`}
+                           src={item.smallImage1}
+                           alt={item.smallImage1Alt}
+                           width={2000}
+                           height={2000}
+                         />
+                      }
+                      {item.smallImage2 && 
                       <Image
-                        className={`col-span-2 w-full md:col-span-1 ${
-                          item.layout == 'left'
-                            ? 'col-start-1'
-                            : 'col-start-3 row-start-1'
-                        }`}
-                        src={item.smallImage1}
-                        alt={item.smallImage1Alt}
-                        width={2000}
-                        height={2000}
-                      />
-                      <Image
-                        className={`col-span-2 w-full md:col-span-1 ${
-                          item.layout == 'left' ? '' : 'col-start-4 row-start-1'
-                        }`}
-                        src={item.smallImage2}
-                        alt={item.smallImage2Alt}
-                        width={2000}
-                        height={2000}
-                      />
-                      <Image
-                        className={`${
-                          item.layout == 'left'
-                            ? 'col-start-4'
-                            : 'col-start-1 row-start-1'
-                        }`}
-                        src={item.landscapeImage}
-                        alt={item.landscapeImageAlt}
-                        width={2000}
-                        height={2000}
-                      />
+                      className={`col-span-2 w-full md:col-span-1 ${
+                        item.layout == 'left' ? '' : 'col-start-4 row-start-1'
+                      }`}
+                      src={item.smallImage2}
+                      alt={item.smallImage2Alt}
+                      width={2000}
+                      height={2000}
+                    />}
+                      {item.landscapeImage &&
+                       <Image
+                       className={`${
+                         item.layout == 'left'
+                           ? 'col-start-4'
+                           : 'col-start-1 row-start-1'
+                       }`}
+                       src={item.landscapeImage}
+                       alt={item.landscapeImageAlt}
+                       width={2000}
+                       height={2000}
+                     />
+                      }
+                     
                     </div>
                   )}
               </div>
