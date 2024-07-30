@@ -149,7 +149,7 @@ export default async function Project({ params }: Props) {
                   <div className="grid grid-cols-4 gap-[10px] md:gap-5">
                     {item.smallImage1 && (
                       <Image
-                        className={`one col-span-2 h-auto w-full md:col-span-1 ${
+                        className={`one col-span-2 h-full w-full md:col-span-1 ${
                           item.layout == 'left'
                             ? 'col-start-1'
                             : 'row-start-1 md:col-start-3'
@@ -162,7 +162,7 @@ export default async function Project({ params }: Props) {
                     )}
                     {item.smallImage2 && (
                       <Image
-                        className={`two col-span-2 w-full  ${
+                        className={`two col-span-2 w-full h-full  ${
                           item.layout == 'left'
                             ? 'md:col-span-1'
                             : 'row-start-1 md:col-start-4'
