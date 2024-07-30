@@ -34,7 +34,7 @@ export default async function SlideMenu() {
           `}
       </Script>
       <section
-        className="fixed left-0 top-0 z-20 grid h-[100dvh] w-full translate-x-full transform grid-cols-2 transition duration-500 ease-in-out"
+        className="fixed left-0 top-0 z-20 grid h-[100svh] w-full translate-x-full transform grid-cols-2 transition duration-500 ease-in-out"
         id="menu"
       >
         <button
