@@ -12,7 +12,7 @@ export default async function Footer() {
       <div className="footer-container mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
         <div className="col-start-10 row-start-1 lg:col-span-2 lg:col-start-1">
           <svg
-            className="mt-[10px] mr-[30px] lg:mt-0 -translate-x-[8px] lg:-translate-x-0"
+            className="mt-[10px]  lg:mt-0 "
             width="80"
             height="20"
             viewBox="0 0 80 20"
@@ -98,7 +98,7 @@ export default async function Footer() {
             </svg>
           </div>
         </a>
-        <div className="col-span-4 col-start-9 md:col-start-10 flex gap-x-1 translate-y-[75px]  md:translate-y-[35px]">
+        <div className="col-span-4 col-start-9 md:col-start-10 flex gap-x-1 translate-y-[75px] ml-auto mr-[15px]  md:translate-y-[35px]">
           <SocialIcons />
         </div>
 

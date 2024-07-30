@@ -18,7 +18,7 @@ export default async function SelectedProjects() {
           <div className="selected-projects col-span-12 w-full">
             {selectedProjects.map((project: any, index: number) => (
               <div key={index} className="mx-[10px] md:mx-5 md:mb-12 ">
-                <div className="mx-auto grid w-full grid-cols-12 gap-x-[10px] md:border-t md:border-dashed md:border-grey pb-[60px] text-xs-medium md:gap-x-5   md:pb-[200px]">
+                <div className="mx-auto grid w-full grid-cols-12  md:border-t md:border-dashed md:border-grey pb-[60px] text-xs-medium md:gap-x-5   md:pb-[200px]">
                   {project.mainProjectTitle && (
                     <div
                       className={`col-span-12 flex  flex-col   md:col-span-6 md:row-start-1 md:border-0 md:pb-0 ${
@@ -61,7 +61,7 @@ export default async function SelectedProjects() {
                       className={`col-span-6 flex flex-col   md:col-span-3  ${
                         project.mainImageCol == 'First'
                           ? 'sm:row-start-2 md:col-start-7 md:row-start-1 '
-                          : 'md:col-start-1 md:row-start-1'
+                          : 'md:col-start-1 md:row-start-1 border-t border-dashed border-grey md:border-0'
                       }`}
                     >
                       
@@ -72,7 +72,7 @@ export default async function SelectedProjects() {
                         {project.imageOneTitle}
                       </a>
 
-                      <div  className="selected-projects-image-container relative">
+                      <div  className="selected-projects-image-container mr-[10px] md:mx-0 relative">
                         
                       <a
                         href={`projects/${project.imageOneSlug}`}
@@ -92,12 +92,13 @@ export default async function SelectedProjects() {
                     </div>
                   )}
 
+
                   {project.imageTwoTitle && (
                     <div
                       className={`col-span-6 flex flex-col  md:col-span-3  ${
                         project.mainImageCol == 'Third'
-                          ? 'md:col-start-4 md:row-start-1'
-                          : 'sm:row-start-2 md:col-start-10 md:row-start-1'
+                          ? 'md:col-start-4 md:row-start-1 border-t border-dashed border-grey md:border-0'
+                          : 'sm:row-start-2 md:col-start-10 md:row-start-1 '
                       }`}
                     >
                       <a
@@ -121,6 +122,8 @@ export default async function SelectedProjects() {
 
                     </div>
                   )}
+
+                  
                 </div>
               </div>
             ))}
