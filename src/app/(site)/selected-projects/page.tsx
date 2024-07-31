@@ -44,8 +44,9 @@ export default async function SelectedProjects() {
                           className="selected-projects-image w-full object-cover"
                           src={project.mainImage}
                           alt={project.mainProjectTitle}
-                          width={1000}
-                          height={1000}
+                          width={900}
+                          height={900}
+                          priority={true}
                         />
                       </a>
                       </div>
@@ -72,7 +73,7 @@ export default async function SelectedProjects() {
                         {project.imageOneTitle}
                       </a>
 
-                      <div  className="selected-projects-image-container mr-[10px] md:mx-0 relative">
+                      <div  className="selected-projects-image-container mr-[10px] md:mr-0 md:mx-0 relative">
                         
                       <a
                         href={`projects/${project.imageOneSlug}`}
@@ -82,8 +83,9 @@ export default async function SelectedProjects() {
                           className="selected-projects-image"
                           src={project.imageOne}
                           alt={project.imageOneTitle}
-                          width={1000}
-                          height={1000}
+                          width={900}
+                          height={900}
+                          priority={true}
                         />
 
                       </a>
@@ -114,8 +116,9 @@ export default async function SelectedProjects() {
       className="selected-projects-image"
       src={project.imageTwo}
       alt={project.imageTwoTitle}
-      width={1000}
-      height={1000}
+      width={900}
+      height={900}
+      priority={true}
     />
   </a>
 </div>

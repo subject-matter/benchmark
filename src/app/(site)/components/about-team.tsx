@@ -43,7 +43,7 @@ function AboutTeam({ info }: any) {
                 alt="Richard and Sam"
                 width={2000}
                 height={1000}
-                priority
+                priority={true}
               />
             </div>
             <p className="mt-2">{teamMember.name}</p>
