@@ -101,7 +101,7 @@ export default async function SlideMenu() {
               <SocialIcons />
             </div>
           </div>
-          <div className="m-[10px] lg:m-5 mt-auto flex flex-col justify-between space-y-5 text-xxs text-white md:text-xs lg:flex-row">
+          <div className="mx-[10px] lg:mx-5 mt-auto flex flex-col justify-between space-y-5 text-xxs text-white md:text-xs lg:flex-row">
             <div className="mb-3 flex flex-col md:mb-0">
               <a
                 href={`tel:${siteInfo[0].phone}`}
