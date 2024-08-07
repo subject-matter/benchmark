@@ -64,10 +64,13 @@ html.lenis {
 
 .selected-projects-image-container {
   overflow: hidden; /* Ensures the zoomed image does not overflow the container */
+
 }
 
 .selected-projects-image {
   transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+  height: 100%;
+
 }
 
 .selected-projects-image-link:hover .selected-projects-image {

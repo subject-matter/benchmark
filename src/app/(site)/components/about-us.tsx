@@ -179,13 +179,17 @@ function AboutSection() {
             About Us
           </p>
           <div className="sticky top-0 z-[6] h-[75vh] bg-black lg:h-screen">
+            {staff.team && 
             <Image
-              className="h-[75vh] object-cover lg:h-screen"
-              src={staff.team}
-              alt={staff.teamAlt}
-              width={2000}
-              height={2000}
-            />
+            className="h-[75vh] object-cover lg:h-screen"
+            src={staff.team}
+            alt={staff.teamAlt}
+            width={1000}
+            height={1000}
+            fetchPriority='high'
+          />
+            }
+            
           </div>
         </div>
         <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  lg:col-span-1 ">

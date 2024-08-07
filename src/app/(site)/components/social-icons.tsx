@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function SocialIcons() {
 	return (
-    <div className="flex items-center">
+    <div className="flex items-start  ">
       <a
         target="_blank"
         href="https://www.pinterest.nz/benchmarkhomes_newzealand/"

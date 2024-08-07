@@ -173,7 +173,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
                   alt="Process Image"
                   width={1000}
                   height={1000}
-                  priority
+                  priority={true}
                 />
                 <div className="mb-[10px] whitespace-pre-line text-xs lg:mb-5">
                   {process.description}

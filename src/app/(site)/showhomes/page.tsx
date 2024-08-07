@@ -59,6 +59,7 @@ export default async function Project({ params }: { params: { id: string } }) {
                 alt={showhome.title}
                 width={2000}
                 height={2000}
+                priority={true}
               />
             </a>
 

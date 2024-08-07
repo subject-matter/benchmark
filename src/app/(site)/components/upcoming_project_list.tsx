@@ -84,6 +84,7 @@ export default function UpcomingProjectsList({ projects }: any) {
               width={1000}
               height={1000}
               onClick={() => openLightbox(upcomingProject, 2)}
+              priority={true}
             />
           )}
 
