@@ -149,11 +149,7 @@ export default async function Project({ params }: Props) {
                   <div className="grid grid-cols-4 gap-[10px] md:gap-5">
                     {item.smallImage1 && (
                       <Image
-<<<<<<< HEAD
-                        className={`one col-span-2 w-full md:col-span-1 h-full object-cover ${
-=======
                         className={`one col-span-2 h-full w-full md:col-span-1 ${
->>>>>>> refs/remotes/origin/main
                           item.layout == 'left'
                             ? 'col-start-1'
                             : 'row-start-1 md:col-start-3'
