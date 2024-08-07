@@ -11,16 +11,16 @@ export default async function Updates() {
 	return (
     <>
       <LenisScroll>
-        <div className="mx-[10px] mb-large">
-          <h1 className="pl-2 py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0 lg:text-xl ">
+        <div className="mx-[10px] lg:mx-5 mb-large">
+          <h1 className="pl-2 py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0 lg:pl-0 lg:text-xl ">
             Updates
           </h1>
 
           <div className="selected-projects col-span-12 w-full">
-            <div className="feature-pill px-0 my-[5px] text-xxs lg:m-[15px] lg:translate-x-1">
+            <div className="feature-pill px-0 my-[5px] text-xxs  ">
               Latest Update
             </div>
-            <div className=" mb-12 lg:mx-5 ">
+            <div className=" mb-12  ">
               <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium lg:gap-x-5 lg:border-t lg:border-grey lg:pb-[200px]">
                 <hr className="col-span-12 border-t border-dashed border-grey" />
                 {updates.map((update: any, index: number) => (

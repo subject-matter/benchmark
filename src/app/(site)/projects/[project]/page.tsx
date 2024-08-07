@@ -149,15 +149,15 @@ export default async function Project({ params }: Props) {
                   <div className="grid grid-cols-4 gap-[10px] md:gap-5">
                     {item.smallImage1 && (
                       <Image
-                        className={`one col-span-2 h-auto w-full md:col-span-1 ${
+                        className={`one col-span-2 w-full md:col-span-1 h-full object-cover ${
                           item.layout == 'left'
                             ? 'col-start-1'
                             : 'row-start-1 md:col-start-3'
                         }`}
                         src={item.smallImage1}
                         alt={item.smallImage1Alt}
-                        width={2500}
-                        height={2500}
+                        width={2000}
+                        height={2000}
                       />
                     )}
                     {item.smallImage2 && (
