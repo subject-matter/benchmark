@@ -47,7 +47,7 @@ function Contact() {
                   <h1 className="mt-[68px] text-sm-xl lg:mt-0 lg:text-xl">
                     Contact
                   </h1>
-                  <div className="absolute left-[10px] top-5 space-x-5 lg:relative lg:flex ">
+                  <div className="absolute left-[10px] top-5 space-x-5 lg:relative lg:left-0  lg:flex ">
                     <SocialIcons />
                   </div>
                 </div>
@@ -83,7 +83,7 @@ function Contact() {
                   alt=""
                   width={1000}
                   height={900}
-                  priority
+                  priority={true}
                 />
               </div>
             </div>
