@@ -182,7 +182,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
             </div>
           ))}
           <div
-            className={`text-xs—medium fade-in-section grid gap-x-[2px] px-5 pt-large  lg:grid-cols-2 lg:px-0 lg:pb-[44px] lg:text-xs ${
+            className={`text-xs—medium fade-in-section grid gap-x-[2px] px-[10px] pt-large  lg:grid-cols-2 lg:px-0 lg:pb-[44px] lg:text-xs ${
               isWhite ? 'bg-white text-black' : 'bg-black text-white'
             } `}
           >
@@ -219,7 +219,7 @@ export default function ProcessesList({ processes, walkthroughs }: any) {
         </div>
       </div>
       <div
-        className="ml-auto grid grid-cols-2 items-end gap-[10px] p-5 text-xxs lg:w-1/2  lg:gap-[15px] "
+        className="ml-auto grid grid-cols-2 items-end gap-[10px] px-[10px] md:p-5 text-xxs lg:w-1/2  lg:gap-[15px] "
         ref={backgroundRef}
       >
         <p className="col-span-2 mb-48 w-full text-sm-xl lg:mt-[20vh] lg:text-xl">

@@ -217,7 +217,7 @@ function AboutSection({ info }: any) {
               )}
             </CountScrollTrigger>
             <div
-              className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 lg:mb-0 lg:px-0 `}
+              className={`fade-in-section sticky  top-0 bg-white  py-32 lg:mb-0  `}
             >
               <AboutAccordions />
             </div>

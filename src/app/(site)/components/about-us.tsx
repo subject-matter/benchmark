@@ -138,7 +138,7 @@ function AboutSection() {
               )}
             </CountScrollTrigger>
             <div
-              className={`fade-in-section sticky  top-0 bg-white px-[10px] py-32 lg:mb-0 lg:px-0 `}
+              className={`fade-in-section sticky  top-0 bg-white  py-32 lg:mb-0 lg:px-0 `}
             >
               <AboutAccordions />
               <a
@@ -193,7 +193,7 @@ function AboutSection() {
           </div>
         </div>
         <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  lg:col-span-1 ">
-          <div className="w-full p-5 lg:mt-auto">
+          <div className="w-full px-[10px] md:p-5 lg:mt-auto">
             <p className="col-span-2 mb-40 w-full text-sm-xl lg:mt-[20vh] lg:text-xl">
               Get In Touch
             </p>
