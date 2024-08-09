@@ -3,38 +3,18 @@
 "use client";
 
 import SocialIcons from "@/app/(site)/components/social-icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import LenisScroll from "@/app/(site)/components/lenis-provider";
 import ContactForm from "@/app/(site)/components/contact-form";
 import { getContact, getSiteInfo } from "../../../../sanity/sanity-utils";
 
-function Contact() {
-  const [info, setInfo] = useState([]);
-  const [siteInfo, setSiteInfo] = useState([]);
+async function Contact() {
+  const contactData = await getContact();
+  const siteInfoData = await getSiteInfo();
 
-  useEffect(() => {
-    const fetchInfo = async () => {
-      try {
-        const fetchedInfo = await getContact();
-        setInfo(fetchedInfo[0]);
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    const fetchSiteInfo = async () => {
-      try {
-        const fetchedSiteInfo = await getSiteInfo();
-        setSiteInfo(fetchedSiteInfo[0]);
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    fetchInfo();
-    fetchSiteInfo();
-  }, []);
+  const info = contactData[0];
+  const siteInfo = siteInfoData[0];
 
   return (
     <>
@@ -54,8 +34,6 @@ function Contact() {
 
                 <ContactForm />
                 <div className="grid grid-cols-6 text-xxs lg:grid-cols-2 lg:text-xs-medium">
-                  
-
                   <span className="col-span-6 mb-4 lg:col-span-1 lg:col-start-1 lg:mb-0">
                     <a
                       href={`mailto:${siteInfo.email ? siteInfo.email : "info@benchmarkhomes.co.nz"}`}
@@ -71,7 +49,6 @@ function Contact() {
                       __html: `<p>${siteInfo.address}</p> <br/>
                       <p> Mon–Fri: 9am–5pm</p>`,
                     }}
-                    
                   />
                 </div>
               </div>

@@ -1,17 +1,20 @@
 // @ts-nocheck
 
-import Image from 'next/image';
-import Container from './components/container';
-import AboutSection from './components/about-us';
-import LatestProjects from './components/latestProjects';
-import SmoothScrolling from './components/SmoothScrolling';
-import { getHomepage } from '../../../sanity/sanity-utils';
-import { Homepage } from '../types/homepage';
+import Image from "next/image";
+import Container from "./components/container";
+import AboutSection from "./components/about-us";
+import LatestProjects from "./components/latestProjects";
+import SmoothScrolling from "./components/SmoothScrolling";
+import { getGroup, getHomepage, getHouses } from "../../../sanity/sanity-utils";
+import { Homepage } from "../types/homepage";
 
-import SwiperHomeProjects from './components/SwiperHomeProjects';
+import SwiperHomeProjects from "./components/SwiperHomeProjects";
 
 export default async function Home() {
   const homepage: Homepage[] = await getHomepage();
+  const fetchedStaff = await getGroup();
+  const fetchedProjects = await getHouses();
+  const projects = fetchedProjects[0].projectSlider;
 
   return (
     <>
@@ -21,7 +24,7 @@ export default async function Home() {
             Benchmark <br />
             Homes
           </h1>
-        
+
           <p className="col-span-6 mb-3  text-sm md:text-base font-medium lg:col-span-2 lg:mb-0">
             {homepage[0].title}
           </p>
@@ -43,8 +46,8 @@ export default async function Home() {
 
         {/* <LatestProjects /> */}
 
-        <SwiperHomeProjects />
-        <AboutSection />
+        <SwiperHomeProjects projects={projects} />
+        <AboutSection staff={fetchedStaff[0]} />
       </SmoothScrolling>
     </>
   );

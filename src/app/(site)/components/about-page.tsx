@@ -3,7 +3,6 @@
 "use client";
 
 import Image from "next/image";
-import Photo from "../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg";
 import CountUp from "react-countup";
 import CountScrollTrigger from "react-scroll-trigger";
 import { useEffect, useRef, useState } from "react";
@@ -11,10 +10,8 @@ import AboutAccordions from "./about-accordions";
 import AboutTeam from "./about-team";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { getGroup } from "../../../../sanity/sanity-utils";
-import { urlFor } from "../../(site)/helpers/imageBuilder"
 
-function AboutSection({ info }: any) {
+function AboutSection({ info, staff, team }: any) {
   const [countersOn, setCountersOn] = useState([false, false, false]);
   const sectionRef = useRef(null);
   const [isWhite, setIsWhite] = useState(false);
@@ -82,21 +79,6 @@ function AboutSection({ info }: any) {
       return newState;
     });
   };
-
-  const [staff, setStaff] = useState([]);
-
-  useEffect(() => {
-    const fetchStaff = async () => {
-      try {
-        const fetchedStaff = await getGroup();
-        setStaff(fetchedStaff[0]);
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    fetchStaff();
-  }, []);
 
   return (
     <section className={`col-span-12 overflow-x-clip`}>
@@ -229,7 +211,7 @@ function AboutSection({ info }: any) {
                 isWhite ? "bg-black text-white" : "bg-white text-black"
               }`}
             >
-              <AboutTeam info={info} />
+              <AboutTeam info={info} team={team} />
             </div>
           </div>
         </div>

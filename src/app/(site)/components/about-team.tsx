@@ -1,25 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 import Image from "next/image";
-import { getStaff } from "../../../../sanity/sanity-utils";
 
-function AboutTeam({ info }: any) {
-  const [team, setTeam] = useState([]);
-
-  useEffect(() => {
-    const fetchTeam = async () => {
-      try {
-        const fetchedTeam = await getStaff();
-        setTeam(fetchedTeam);
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    fetchTeam();
-  }, []);
-
-
+function AboutTeam({ info, team }: any) {
   return (
     <div className="p-[10px] py-32 text-xxs lg:p-5 lg:pb-[228px] lg:text-xs">
       <div className="mb-[80px] lg:mb-24">
@@ -33,7 +16,7 @@ function AboutTeam({ info }: any) {
         {team.map((teamMember: any, index: number) => (
           <div
             className={`col-span-6 lg:col-span-4  ${
-              index % 2 !== 0 ? 'lg:col-start-9' : 'lg:col-start-5'
+              index % 2 !== 0 ? "lg:col-start-9" : "lg:col-start-5"
             }`}
             key={index}
           >

@@ -1,41 +1,24 @@
 // @ts-nocheck
 
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Photo from '../assets/images/35ac116a8b1e821cb1bf3bd1e004e6a4-cover-large.jpg';
-import CountUp from 'react-countup';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import CountScrollTrigger from 'react-scroll-trigger';
-import ReviewCards from './reviewcards';
-import AboutAccordions from './about-accordions';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ContactForm from './contact-form';
-import { getGroup } from '../../../../sanity/sanity-utils';
+import Image from "next/image";
+import CountUp from "react-countup";
+import React, { useEffect, useState } from "react";
+import CountScrollTrigger from "react-scroll-trigger";
+import ReviewCards from "./reviewcards";
+import AboutAccordions from "./about-accordions";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ContactForm from "./contact-form";
 
-function AboutSection() {
+function AboutSection({ staff }) {
+  setTimeout(function () {
+    ScrollTrigger.refresh();
+  }, 200);
 
-  setTimeout(function() {
-    ScrollTrigger.refresh()
-  }, 200)
-  
-  const [staff, setStaff] = useState([]);
   const [countersOn, setCountersOn] = useState([false, false, false]);
   gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {
-    const fetchStaff = async () => {
-      try {
-        const fetchedStaff = await getGroup();
-        setStaff(fetchedStaff[0]);
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    fetchStaff();
-  }, []);
 
   const handleEnterViewport = (index: any) => {
     setCountersOn((prev) => {
@@ -48,21 +31,21 @@ function AboutSection() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       let mm = gsap.matchMedia();
-      gsap.set('.awards', { y: '70vh' });
-      gsap.set('.houses', { y: '50vh' });
+      gsap.set(".awards", { y: "70vh" });
+      gsap.set(".houses", { y: "50vh" });
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: '.group',
+          trigger: ".group",
           pin: true,
-          start: 'top-=10 top',
-          end: () => '+=' + window.innerHeight,
+          start: "top-=10 top",
+          end: () => "+=" + window.innerHeight,
           scrub: 1,
         },
       });
 
-      tl.to('.awards', { y: 0 }, '-=0.2');
-      tl.to('.houses', { y: 0 }, '-=0.2');
+      tl.to(".awards", { y: 0 }, "-=0.2");
+      tl.to(".houses", { y: 0 }, "-=0.2");
     });
 
     return () => ctx.revert();
@@ -179,17 +162,16 @@ function AboutSection() {
             About Us
           </p>
           <div className="sticky top-0 z-[6] h-[75vh] bg-black lg:h-screen">
-            {staff.team && 
-            <Image
-            className="h-[75vh] object-cover lg:h-screen"
-            src={staff.team}
-            alt={staff.teamAlt}
-            width={1000}
-            height={1000}
-            fetchPriority='high'
-          />
-            }
-            
+            {staff.team && (
+              <Image
+                className="h-[75vh] object-cover lg:h-screen"
+                src={staff.team}
+                alt={staff.teamAlt}
+                width={1000}
+                height={1000}
+                fetchPriority="high"
+              />
+            )}
           </div>
         </div>
         <div className="col-span-2 row-span-6 flex h-screen bg-black text-white  lg:col-span-1 ">
