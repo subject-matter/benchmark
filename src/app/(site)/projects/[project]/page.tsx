@@ -162,7 +162,7 @@ export default async function Project({ params }: Props) {
                     )}
                     {item.smallImage2 && (
                       <Image
-                        className={`two col-span-2 w-full h-full  ${
+                        className={`two col-span-2 w-full h-full object-cover  ${
                           item.layout == 'left'
                             ? 'md:col-span-1'
                             : 'row-start-1 md:col-start-4'

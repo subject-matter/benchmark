@@ -52,9 +52,10 @@ export default async function Project({ params }: { params: { id: string } }) {
             </div>
             <a
               href={`/showhome/${showhome.slug}`}
-              className="col-span-7 mt-4 w-full"
+              className="col-span-7 mt-4 w-full "
             >
               <Image
+              className="h-full w-full object-cover aspect-[15/10]"
                 src={showhome.image}
                 alt={showhome.title}
                 width={2000}
@@ -65,10 +66,11 @@ export default async function Project({ params }: { params: { id: string } }) {
 
             <a
               href={`/showhome/${showhome.slug}`}
-              className="col-span-6 mb-10 mt-5 flex w-fit cursor-pointer rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50 md:mb-0"
+              className="col-span-6 mb-10 mt-5  w-fit cursor-pointer h-[35px] flex items-center  rounded-[5px] bg-[#F5F5F5] p-[10px] text-xxs hover:opacity-50 md:mb-0"
             >
               Learn more
               <div className="ml-[50px] flex items-center">
+                
                 <svg
                   width="7"
                   height="12"
