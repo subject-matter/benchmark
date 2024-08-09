@@ -3,38 +3,39 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
       },
     ],
+    unoptimized: true,
   },
   async redirects() {
     return [
       {
-        source: '/about',
-        destination: '/about-us',
+        source: "/about",
+        destination: "/about-us",
         permanent: true,
       },
       {
-        source: '/projects',
-        destination: '/selected-projects',
+        source: "/projects",
+        destination: "/selected-projects",
         permanent: true,
       },
       {
-        source: '/upcoming',
-        destination: '/upcoming-projects',
+        source: "/upcoming",
+        destination: "/upcoming-projects",
         permanent: true,
       },
       {
-        source: '/contact',
-        destination: '/contact-us',
+        source: "/contact",
+        destination: "/contact-us",
         permanent: true,
       },
       {
-        source: '/virtual-reality',
-        destination: '/our-process',
+        source: "/virtual-reality",
+        destination: "/our-process",
         permanent: true,
       },
     ];
