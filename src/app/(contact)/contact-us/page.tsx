@@ -24,10 +24,11 @@ async function Contact() {
             <div className="grid lg:grid-cols-2">
               <div className="flex h-screen flex-col justify-between p-[10px] lg:p-5">
                 <div className="flex items-start justify-between">
-                  <h1 className="mt-[68px] text-sm-xl lg:mt-0 lg:text-xl">
+                  <h1 className="mt-[68px] text-sm-xl lg:mt-0 lg:text-xl " 
+                  style={{ 'lineHeight': 0.6}}>
                     Contact
                   </h1>
-                  <div className="absolute left-[10px] top-5 space-x-5 lg:relative lg:left-0  lg:flex ">
+                  <div className="absolute left-[10px] top-5 lg:top-5 space-x-5 lg:relative lg:left-0  lg:flex ">
                     <SocialIcons />
                   </div>
                 </div>

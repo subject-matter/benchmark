@@ -130,10 +130,9 @@ export default async function Showhome({ params }: Props) {
                     </div>
                   )}
 
-                {item._type === 'mediumLandscape' &&
-                  item.landscapeImage &&
-                  item.smallImage && (
-                    <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                                {item._type === 'mediumLandscape' && (
+                  <div className="grid grid-cols-4 gap-[10px] md:gap-5">
+                    {item.landscapeImage && (
                       <Image
                         className={`col-span-2 w-full ${
                           item.layout == 'left'
@@ -145,6 +144,8 @@ export default async function Showhome({ params }: Props) {
                         width={2000}
                         height={2000}
                       />
+                    )}
+                    {item.smallImage && (
                       <Image
                         className={`col-span-2 w-full md:col-span-1 ${
                           item.layout == 'left'
@@ -156,8 +157,9 @@ export default async function Showhome({ params }: Props) {
                         width={2000}
                         height={2000}
                       />
-                    </div>
-                  )}
+                    )}
+                  </div>
+                )}
 
                 {item._type === 'individualImage' && item.image && (
                   <div className="grid grid-cols-4 gap-[10px] md:gap-5">

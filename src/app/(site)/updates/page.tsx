@@ -12,7 +12,7 @@ export default async function Updates() {
     <>
       <LenisScroll>
         <div className="mx-[10px] lg:mx-5 mb-large">
-          <h1 className="pl-2 py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0 lg:pl-0 lg:text-xl ">
+          <h1 className="py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0  lg:text-xl -translate-x-[5px] lg:-translate-x-[10px]">
             Updates
           </h1>
 

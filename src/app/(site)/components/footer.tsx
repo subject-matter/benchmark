@@ -9,8 +9,8 @@ export default async function Footer() {
 
   return (
     <footer className="bg-transparent" id="footer">
-      <div className="footer-container mx-auto grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
-        <div className="col-start-10 row-start-1 lg:col-span-2 lg:col-start-1">
+      <div className="footer-container mx-auto px-[10px] grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
+        <div className="absolute lg:relative right-[10px] lg:right-0 row-start-1 lg:col-span-2 lg:col-start-1">
           <svg
             className="mt-[10px]  lg:mt-0 "
             width="80"
@@ -27,7 +27,7 @@ export default async function Footer() {
             />
           </svg>
         </div>
-        <div className="lg col-span-9 col-start-1 flex flex-col p-[10px] text-base lg:col-span-3 lg:col-start-10 lg:mb-[233px] lg:p-0">
+        <div className="lg col-span-9 col-start-1 flex flex-col  text-base lg:col-span-3 lg:col-start-10 lg:mb-[233px]">
           <a
             href="/"
             className="duration-250 w-fit transition hover:opacity-50"
@@ -98,7 +98,7 @@ export default async function Footer() {
             </svg>
           </div>
         </a>
-        <div className="col-span-4 ml-auto lg:ml-0 col-start-9 md:col-start-10 flex gap-x-1  mr-[15px]  row-start-3 ">
+        <div className="col-span-4 ml-auto lg:ml-0 col-start-9 md:col-start-10 flex gap-x-1  lg:mr-[15px]  row-start-3 ">
           <SocialIcons />
         </div>
 
