@@ -142,7 +142,7 @@ function AboutSection({ info, staff, team }: any) {
 
           <div className="group">
             <div className="numbers z-[2] col-span-2 mx-[10px] border-t  border-dotted border-grey bg-white  pb-8 pt-3 lg:col-span-1  lg:mx-5">
-              <h4 className="pt-3 text-xs-medium">Years of Experience</h4>
+              <h4 className="pt-3 text-xs-medium">Years of Operating</h4>
               <CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
                 {countersOn[0] ? (
                   <CountUp

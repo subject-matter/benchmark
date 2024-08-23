@@ -48,7 +48,7 @@ function ScrollingNumbers() {
             <p className="text-xs-medium text-black lg:py-5 ">About Us</p>
           </div>
           <h4 className="border-t border-dotted border-grey  pt-3 text-xs-medium">
-            Years of Experience
+            Years of Operating
           </h4>
           <CountScrollTrigger onEnter={() => handleEnterViewport(0)}>
             {countersOn[0] ? (
