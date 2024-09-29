@@ -12,7 +12,7 @@ export default async function Updates() {
     <>
       <LenisScroll>
         <div className="mx-[10px] lg:mx-5 ">
-          <h1 className="py-24 text-sm-3xl font-medium lg:pb-large lg:pt-0  lg:text-xl -translate-x-[5px] lg:-translate-x-[10px]">
+          <h1 className="py-24 text-sm-3xl font-medium  lg:pt-0  lg:text-xl -translate-x-[5px] lg:-translate-x-[10px]">
             Updates
           </h1>
 
@@ -21,7 +21,7 @@ export default async function Updates() {
               Latest Update
             </div>
             <div className=" mb-12  ">
-              <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium lg:gap-x-5 lg:border-t lg:border-grey lg:pb-[200px]">
+              <div className="border-1 mx-auto grid w-full grid-cols-12 gap-x-[10px] border-dashed pb-[60px] text-xs-medium lg:gap-x-5 lg:border-t lg:border-grey lg:pb-[100px]">
                 <hr className="col-span-12 border-t border-dashed border-grey" />
                 {updates.map((update: any, index: number) => (
                   <div
