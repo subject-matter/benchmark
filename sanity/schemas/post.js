@@ -69,6 +69,7 @@ export const post = {
           type: "articleSection",
         }),
       ],
+      hidden: true,
     }),
     {
       name: "body",
@@ -82,6 +83,7 @@ export const post = {
           type: "image",
         },
       ],
+      hidden: true,
     },
     {
       title: "SEO / Share Settings",
