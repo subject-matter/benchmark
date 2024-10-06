@@ -12,7 +12,7 @@ export default async function Footer() {
       <div className="footer-container mx-auto  grid w-full grid-cols-12 gap-x-5 bg-white text-xs-medium lg:p-5 ">
         <div className="absolute lg:relative right-[10px] lg:right-0 row-start-1 lg:col-span-2 lg:col-start-1">
           <svg
-            className="mt-[10px]  lg:mt-0 "
+            className="mt-[5px]  lg:mt-0 "
             width="80"
             height="20"
             viewBox="0 0 80 20"
