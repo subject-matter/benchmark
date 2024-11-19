@@ -48,9 +48,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      {/* <Suspense>
+      <Suspense>
         <FacebookPixelEvents />
-      </Suspense> */}
+      </Suspense>
       <body
         className={`bg-white  ${moderat.variable} font-sans`}
       >
