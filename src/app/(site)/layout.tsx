@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import "../globals.css";
 import localFont from "next/font/local";
@@ -10,6 +9,7 @@ import { FacebookPixelEvents } from "./components/pixel-events";
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 import Footerborder from "./components/footerborder";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const moderat = localFont({
   src: [
@@ -48,6 +48,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <Suspense>
         <FacebookPixelEvents />
       </Suspense>
