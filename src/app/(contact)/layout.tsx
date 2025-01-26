@@ -3,6 +3,7 @@ import "../globals.css";
 import localFont from "next/font/local";
 import Header from "../(site)/components/header";
 import SlideMenu from "../(site)/components/SlideMenu";
+import GoogleAnalytics from "../(site)/components/GoogleAnalytics";
 
 const moderat = localFont({
   src: [
@@ -39,6 +40,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${moderat.variable} font-sans`}>
       <body className="bg-white">
+      <GoogleAnalytics />
+
         <div
           id="glass"
           className="fixed top-0 left-0 bg-white bg-opacity-20 backdrop-blur-2xl h-screen w-full z-[10] transition duration-300 invisible opacity-0"
