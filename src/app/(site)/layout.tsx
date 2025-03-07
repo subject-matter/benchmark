@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   description: "Design and build architecture",
 };
 
-export const revalidate = 3600;
+export const revalidate = 180;
 export default function RootLayout({
   children,
 }: {
