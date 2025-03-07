@@ -34,8 +34,14 @@ export const myStructure = (S, context) =>
         S,
         context,
       }),
+      orderableDocumentListDeskItem({
+        type: "upcoming_project",
+        title: "Upcoming Projects",
+        S,
+        context,
+      }),
       ...S.documentTypeListItems().filter((listItem) =>
-        ["showhome", "upcoming_project", "process", "post"].includes(
+        ["showhome", "process", "post"].includes(
           listItem.getId()
         )
       ),

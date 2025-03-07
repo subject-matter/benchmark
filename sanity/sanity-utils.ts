@@ -113,14 +113,13 @@ export async function getAllProjects() {
 
 export async function getAllUpcomingProjects() {
   const upcomingProjects = await client.fetch(
-    `*[_type == "upcoming_project"]{..., hero_image{"imageUrl": asset->url}, featured_image_1{"imageUrl": asset->url}, featured_image_2{"imageUrl": asset->url}, images[]{'imageUrl': asset->url}, slug{"slug":current}}`
+    `*[_type == "upcoming_project"] | order(orderRank) {..., hero_image{"imageUrl": asset->url}, featured_image_1{"imageUrl": asset->url}, featured_image_2{"imageUrl": asset->url}, images[]{'imageUrl': asset->url}, slug{"slug":current}}`
   );
 
   return {
     props: {
       upcomingProjects,
     },
-    revalidate: 10,
   };
 }
 
